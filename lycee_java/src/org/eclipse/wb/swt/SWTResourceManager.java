@@ -1,4 +1,13 @@
-
+/*******************************************************************************
+ * Copyright (c) 2011 Google, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Google, Inc. - initial API and implementation
+ *******************************************************************************/
 package org.eclipse.wb.swt;
 
 import java.io.FileInputStream;
@@ -19,79 +28,133 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
-public class SWTResourceManager
-{
+/**
+ * Utility class for managing OS resources associated with SWT controls such as colors, fonts, images, etc.
+ * <p>
+ * !!! IMPORTANT !!! Application code must explicitly invoke the <code>dispose()</code> method to release the
+ * operating system resources managed by cached objects when those objects and OS resources are no longer
+ * needed (e.g. on application shutdown)
+ * <p>
+ * This class may be freely distributed as part of any application or plugin.
+ * <p>
+ * @author scheglov_ke
+ * @author Dan Rubel
+ */
+public class SWTResourceManager {
+	////////////////////////////////////////////////////////////////////////////
+	//
 	// Color
+	//
+	////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
-
-	public static Color getColor(int systemColorID)
-	{
+	/**
+	 * Returns the system {@link Color} matching the specific ID.
+	 * 
+	 * @param systemColorID
+	 *            the ID value for the color
+	 * @return the system {@link Color} matching the specific ID
+	 */
+	public static Color getColor(int systemColorID) {
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
 	}
-
-	public static Color getColor(int r, int g, int b)
-	{
+	/**
+	 * Returns a {@link Color} given its red, green and blue component values.
+	 * 
+	 * @param r
+	 *            the red component of the color
+	 * @param g
+	 *            the green component of the color
+	 * @param b
+	 *            the blue component of the color
+	 * @return the {@link Color} matching the given red, green and blue component values
+	 */
+	public static Color getColor(int r, int g, int b) {
 		return getColor(new RGB(r, g, b));
 	}
-
-	public static Color getColor(RGB rgb)
-	{
+	/**
+	 * Returns a {@link Color} given its RGB value.
+	 * 
+	 * @param rgb
+	 *            the {@link RGB} value of the color
+	 * @return the {@link Color} matching the RGB value
+	 */
+	public static Color getColor(RGB rgb) {
 		Color color = m_colorMap.get(rgb);
-		if (color == null)
-		{
+		if (color == null) {
 			Display display = Display.getCurrent();
 			color = new Color(display, rgb);
 			m_colorMap.put(rgb, color);
 		}
 		return color;
 	}
-	public static void disposeColors()
-	{
-		for (Color color : m_colorMap.values())
-		{
+	/**
+	 * Dispose of all the cached {@link Color}'s.
+	 */
+	public static void disposeColors() {
+		for (Color color : m_colorMap.values()) {
 			color.dispose();
 		}
 		m_colorMap.clear();
 	}
-
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Image
+	//
+	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Maps image paths to images.
+	 */
 	private static Map<String, Image> m_imageMap = new HashMap<String, Image>();
-	protected static Image getImage(InputStream stream) throws IOException
-	{
+	/**
+	 * Returns an {@link Image} encoded by the specified {@link InputStream}.
+	 * 
+	 * @param stream
+	 *            the {@link InputStream} encoding the image data
+	 * @return the {@link Image} encoded by the specified input stream
+	 */
+	protected static Image getImage(InputStream stream) throws IOException {
 		try {
 			Display display = Display.getCurrent();
 			ImageData data = new ImageData(stream);
-			if (data.transparentPixel > 0)
-			{
+			if (data.transparentPixel > 0) {
 				return new Image(display, data, data.getTransparencyMask());
 			}
 			return new Image(display, data);
-		} finally
-		{
+		} finally {
 			stream.close();
 		}
 	}
-	public static Image getImage(String path)
-	{
+	/**
+	 * Returns an {@link Image} stored in the file at the specified path.
+	 * 
+	 * @param path
+	 *            the path to the image file
+	 * @return the {@link Image} stored in the file at the specified path
+	 */
+	public static Image getImage(String path) {
 		Image image = m_imageMap.get(path);
-		if (image == null)
-		{
-			try
-			{
+		if (image == null) {
+			try {
 				image = getImage(new FileInputStream(path));
 				m_imageMap.put(path, image);
-			}
-			catch (Exception e)
-			{
+			} catch (Exception e) {
 				image = getMissingImage();
 				m_imageMap.put(path, image);
 			}
 		}
 		return image;
 	}
-
-	public static Image getImage(Class<?> clazz, String path)
-	{
+	/**
+	 * Returns an {@link Image} stored in the file at the specified path relative to the specified class.
+	 * 
+	 * @param clazz
+	 *            the {@link Class} relative to which to find the image
+	 * @param path
+	 *            the path to the image file, if starts with <code>'/'</code>
+	 * @return the {@link Image} stored in the file at the specified path
+	 */
+	public static Image getImage(Class<?> clazz, String path) {
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
 		if (image == null) {
@@ -146,7 +209,7 @@ public class SWTResourceManager
 	private static Map<Image, Map<Image, Image>>[] m_decoratedImageMap = new Map[LAST_CORNER_KEY];
 	/**
 	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 *
+	 * 
 	 * @param baseImage
 	 *            the base {@link Image} that should be decorated
 	 * @param decorator
@@ -158,7 +221,7 @@ public class SWTResourceManager
 	}
 	/**
 	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 *
+	 * 
 	 * @param baseImage
 	 *            the base {@link Image} that should be decorated
 	 * @param decorator
@@ -246,7 +309,7 @@ public class SWTResourceManager
 	private static Map<Font, Font> m_fontToBoldFontMap = new HashMap<Font, Font>();
 	/**
 	 * Returns a {@link Font} based on its name, height and style.
-	 *
+	 * 
 	 * @param name
 	 *            the name of the font
 	 * @param height
@@ -261,7 +324,7 @@ public class SWTResourceManager
 	/**
 	 * Returns a {@link Font} based on its name, height and style. Windows-specific strikeout and underline
 	 * flags are also supported.
-	 *
+	 * 
 	 * @param name
 	 *            the name of the font
 	 * @param size
@@ -302,7 +365,7 @@ public class SWTResourceManager
 	}
 	/**
 	 * Returns a bold version of the given {@link Font}.
-	 *
+	 * 
 	 * @param baseFont
 	 *            the {@link Font} for which a bold version is desired
 	 * @return the bold version of the given {@link Font}
@@ -332,9 +395,22 @@ public class SWTResourceManager
 		}
 		m_fontToBoldFontMap.clear();
 	}
-
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Cursor
+	//
+	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Maps IDs to cursors.
+	 */
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
-
+	/**
+	 * Returns the system cursor matching the specific ID.
+	 * 
+	 * @param id
+	 *            int The ID value for the cursor
+	 * @return Cursor The system cursor matching the specific ID
+	 */
 	public static Cursor getCursor(int id) {
 		Integer key = Integer.valueOf(id);
 		Cursor cursor = m_idToCursorMap.get(key);
@@ -344,14 +420,24 @@ public class SWTResourceManager
 		}
 		return cursor;
 	}
-
+	/**
+	 * Dispose all of the cached cursors.
+	 */
 	public static void disposeCursors() {
 		for (Cursor cursor : m_idToCursorMap.values()) {
 			cursor.dispose();
 		}
 		m_idToCursorMap.clear();
 	}
-
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// General
+	//
+	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Dispose of cached objects and their underlying OS resources. This should only be called when the cached
+	 * objects are no longer needed (e.g. on application shutdown).
+	 */
 	public static void dispose() {
 		disposeColors();
 		disposeImages();
