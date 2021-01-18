@@ -26,22 +26,12 @@ public class SWTResourceManager {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
-	
+
 	public static Color getColor(int systemColorID) {
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
 	}
-	/**
-	 * Returns a {@link Color} given its red, green and blue component values.
-	 *
-	 * @param r
-	 *            the red component of the color
-	 * @param g
-	 *            the green component of the color
-	 * @param b
-	 *            the blue component of the color
-	 * @return the {@link Color} matching the given red, green and blue component values
-	 */
+	
 	public static Color getColor(int r, int g, int b) {
 		return getColor(new RGB(r, g, b));
 	}
