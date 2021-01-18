@@ -63,6 +63,7 @@ public class Connexion {
 		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				
 			}
 		});
 		btnJeMinscris.setBounds(195, 184, 119, 21);
