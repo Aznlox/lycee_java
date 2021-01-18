@@ -56,15 +56,18 @@ public class SWTResourceManager
 	}
 
 	private static Map<String, Image> m_imageMap = new HashMap<String, Image>();
-	protected static Image getImage(InputStream stream) throws IOException {
+	protected static Image getImage(InputStream stream) throws IOException
+	{
 		try {
 			Display display = Display.getCurrent();
 			ImageData data = new ImageData(stream);
-			if (data.transparentPixel > 0) {
+			if (data.transparentPixel > 0)
+			{
 				return new Image(display, data, data.getTransparencyMask());
 			}
 			return new Image(display, data);
-		} finally {
+		} finally
+		{
 			stream.close();
 		}
 	}
@@ -75,7 +78,8 @@ public class SWTResourceManager
 	 *            the path to the image file
 	 * @return the {@link Image} stored in the file at the specified path
 	 */
-	public static Image getImage(String path) {
+	public static Image getImage(String path)
+	{
 		Image image = m_imageMap.get(path);
 		if (image == null) {
 			try {
