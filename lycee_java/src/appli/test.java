@@ -1,4 +1,4 @@
-package ;
+package ml;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -19,17 +19,15 @@ import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-public class index {
+public class test 
+{
 
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
 	private Table table;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		try {
 			test window = new test();
@@ -39,9 +37,6 @@ public class index {
 		}
 	}
 
-	/**
-	 * Open the window.
-	 */
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -54,9 +49,7 @@ public class index {
 		}
 	}
 
-	/**
-	 * Create contents of the window.
-	 */
+
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(912, 511);
