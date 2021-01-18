@@ -9,6 +9,9 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Decorations;
+import org.eclipse.swt.widgets.MenuItem;
 
 public class Eleves {
 
@@ -49,6 +52,14 @@ public class Eleves {
 		shell = new Shell();
 		shell.setSize(494, 331);
 		shell.setText("SWT Application");
+		
+		Menu menu = new Menu(shell, SWT.BAR);
+		shell.setMenuBar(menu);
+		
+		MenuItem mntmNewItem = new MenuItem(menu, SWT.NONE);
+		mntmNewItem.setText("Accueil");
+		
+		new MenuItem(menu, SWT.SEPARATOR);
 
 	}
 }
