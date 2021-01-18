@@ -102,15 +102,7 @@ public class SWTResourceManager {
 		}
 		return image;
 	}
-	/**
-	 * Returns an {@link Image} stored in the file at the specified path relative to the specified class.
-	 *
-	 * @param clazz
-	 *            the {@link Class} relative to which to find the image
-	 * @param path
-	 *            the path to the image file, if starts with <code>'/'</code>
-	 * @return the {@link Image} stored in the file at the specified path
-	 */
+	
 	public static Image getImage(Class<?> clazz, String path) {
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
