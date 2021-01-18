@@ -48,27 +48,14 @@ public class SWTResourceManager
 	}
 	public static void disposeColors()
 	{
-		for (Color color : m_colorMap.values()) {
+		for (Color color : m_colorMap.values())
+		{
 			color.dispose();
 		}
 		m_colorMap.clear();
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Image
-	//
-	////////////////////////////////////////////////////////////////////////////
-	/**
-	 * Maps image paths to images.
-	 */
+
 	private static Map<String, Image> m_imageMap = new HashMap<String, Image>();
-	/**
-	 * Returns an {@link Image} encoded by the specified {@link InputStream}.
-	 *
-	 * @param stream
-	 *            the {@link InputStream} encoding the image data
-	 * @return the {@link Image} encoded by the specified input stream
-	 */
 	protected static Image getImage(InputStream stream) throws IOException {
 		try {
 			Display display = Display.getCurrent();
