@@ -19,18 +19,6 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
-/**
- * Utility class for managing OS resources associated with SWT controls such as colors, fonts, images, etc.
- * <p>
- * !!! IMPORTANT !!! Application code must explicitly invoke the <code>dispose()</code> method to release the
- * operating system resources managed by cached objects when those objects and OS resources are no longer
- * needed (e.g. on application shutdown)
- * <p>
- * This class may be freely distributed as part of any application or plugin.
- * <p>
- * @author scheglov_ke
- * @author Dan Rubel
- */
 public class SWTResourceManager {
 	////////////////////////////////////////////////////////////////////////////
 	//
