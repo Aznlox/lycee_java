@@ -94,11 +94,15 @@ public class SWTResourceManager
 	{
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
-		if (image == null) {
-			try {
+		if (image == null)
+		{
+			try
+			{
 				image = getImage(clazz.getResourceAsStream(path));
 				m_imageMap.put(key, image);
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				image = getMissingImage();
 				m_imageMap.put(key, image);
 			}
@@ -107,9 +111,10 @@ public class SWTResourceManager
 	}
 	private static final int MISSING_IMAGE_SIZE = 10;
 	/**
-	 * @return the small {@link Image} that can be used as placeholder for missing image.
-	 */
-	private static Image getMissingImage() {
+	* @return the small {@link Image} that can be used as placeholder for missing image.
+	*/
+	private static Image getMissingImage()
+	{
 		Image image = new Image(Display.getCurrent(), MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
 		//
 		GC gc = new GC(image);
@@ -120,53 +125,53 @@ public class SWTResourceManager
 		return image;
 	}
 	/**
-	 * Style constant for placing decorator image in top left corner of base image.
-	 */
+	* Style constant for placing decorator image in top left corner of base image.
+	*/
 	public static final int TOP_LEFT = 1;
 	/**
-	 * Style constant for placing decorator image in top right corner of base image.
-	 */
+	* Style constant for placing decorator image in top right corner of base image.
+	*/
 	public static final int TOP_RIGHT = 2;
 	/**
-	 * Style constant for placing decorator image in bottom left corner of base image.
-	 */
+	* Style constant for placing decorator image in bottom left corner of base image.
+	*/
 	public static final int BOTTOM_LEFT = 3;
 	/**
-	 * Style constant for placing decorator image in bottom right corner of base image.
-	 */
+	* Style constant for placing decorator image in bottom right corner of base image.
+	*/
 	public static final int BOTTOM_RIGHT = 4;
 	/**
-	 * Internal value.
-	 */
+	* Internal value.
+	*/
 	protected static final int LAST_CORNER_KEY = 5;
 	/**
-	 * Maps images to decorated images.
-	 */
+	* Maps images to decorated images.
+	*/
 	@SuppressWarnings("unchecked")
 	private static Map<Image, Map<Image, Image>>[] m_decoratedImageMap = new Map[LAST_CORNER_KEY];
 	/**
-	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 *
-	 * @param baseImage
-	 *            the base {@link Image} that should be decorated
-	 * @param decorator
-	 *            the {@link Image} to decorate the base image
-	 * @return {@link Image} The resulting decorated image
-	 */
+	* Returns an {@link Image} composed of a base image decorated by another image.
+	*
+	* @param baseImage
+	*            the base {@link Image} that should be decorated
+	* @param decorator
+	*            the {@link Image} to decorate the base image
+	* @return {@link Image} The resulting decorated image
+	*/
 	public static Image decorateImage(Image baseImage, Image decorator) {
 		return decorateImage(baseImage, decorator, BOTTOM_RIGHT);
 	}
 	/**
-	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 *
-	 * @param baseImage
-	 *            the base {@link Image} that should be decorated
-	 * @param decorator
-	 *            the {@link Image} to decorate the base image
-	 * @param corner
-	 *            the corner to place decorator image
-	 * @return the resulting decorated {@link Image}
-	 */
+	* Returns an {@link Image} composed of a base image decorated by another image.
+	*
+	* @param baseImage
+	*            the base {@link Image} that should be decorated
+	* @param decorator
+	*            the {@link Image} to decorate the base image
+	* @param corner
+	*            the corner to place decorator image
+	* @return the resulting decorated {@link Image}
+	*/
 	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner) {
 		if (corner <= 0 || corner >= LAST_CORNER_KEY) {
 			throw new IllegalArgumentException("Wrong decorate corner");
@@ -207,8 +212,8 @@ public class SWTResourceManager
 		return result;
 	}
 	/**
-	 * Dispose all of the cached {@link Image}'s.
-	 */
+	* Dispose all of the cached {@link Image}'s.
+	*/
 	public static void disposeImages() {
 		// dispose loaded images
 		{
@@ -237,43 +242,43 @@ public class SWTResourceManager
 	//
 	////////////////////////////////////////////////////////////////////////////
 	/**
-	 * Maps font names to fonts.
-	 */
+	* Maps font names to fonts.
+	*/
 	private static Map<String, Font> m_fontMap = new HashMap<String, Font>();
 	/**
-	 * Maps fonts to their bold versions.
-	 */
+	* Maps fonts to their bold versions.
+	*/
 	private static Map<Font, Font> m_fontToBoldFontMap = new HashMap<Font, Font>();
 	/**
-	 * Returns a {@link Font} based on its name, height and style.
-	 *
-	 * @param name
-	 *            the name of the font
-	 * @param height
-	 *            the height of the font
-	 * @param style
-	 *            the style of the font
-	 * @return {@link Font} The font matching the name, height and style
-	 */
+	* Returns a {@link Font} based on its name, height and style.
+	*
+	* @param name
+	*            the name of the font
+	* @param height
+	*            the height of the font
+	* @param style
+	*            the style of the font
+	* @return {@link Font} The font matching the name, height and style
+	*/
 	public static Font getFont(String name, int height, int style) {
 		return getFont(name, height, style, false, false);
 	}
 	/**
-	 * Returns a {@link Font} based on its name, height and style. Windows-specific strikeout and underline
-	 * flags are also supported.
-	 *
-	 * @param name
-	 *            the name of the font
-	 * @param size
-	 *            the size of the font
-	 * @param style
-	 *            the style of the font
-	 * @param strikeout
-	 *            the strikeout flag (warning: Windows only)
-	 * @param underline
-	 *            the underline flag (warning: Windows only)
-	 * @return {@link Font} The font matching the name, height, style, strikeout and underline
-	 */
+	* Returns a {@link Font} based on its name, height and style. Windows-specific strikeout and underline
+	* flags are also supported.
+	*
+	* @param name
+	*            the name of the font
+	* @param size
+	*            the size of the font
+	* @param style
+	*            the style of the font
+	* @param strikeout
+	*            the strikeout flag (warning: Windows only)
+	* @param underline
+	*            the underline flag (warning: Windows only)
+	* @return {@link Font} The font matching the name, height, style, strikeout and underline
+	*/
 	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline) {
 		String fontName = name + '|' + size + '|' + style + '|' + strikeout + '|' + underline;
 		Font font = m_fontMap.get(fontName);
@@ -301,12 +306,12 @@ public class SWTResourceManager
 		return font;
 	}
 	/**
-	 * Returns a bold version of the given {@link Font}.
-	 *
-	 * @param baseFont
-	 *            the {@link Font} for which a bold version is desired
-	 * @return the bold version of the given {@link Font}
-	 */
+	* Returns a bold version of the given {@link Font}.
+	*
+	* @param baseFont
+	*            the {@link Font} for which a bold version is desired
+	* @return the bold version of the given {@link Font}
+	*/
 	public static Font getBoldFont(Font baseFont) {
 		Font font = m_fontToBoldFontMap.get(baseFont);
 		if (font == null) {
@@ -318,8 +323,8 @@ public class SWTResourceManager
 		return font;
 	}
 	/**
-	 * Dispose all of the cached {@link Font}'s.
-	 */
+	* Dispose all of the cached {@link Font}'s.
+	*/
 	public static void disposeFonts() {
 		// clear fonts
 		for (Font font : m_fontMap.values()) {
