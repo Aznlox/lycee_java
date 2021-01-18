@@ -32,21 +32,21 @@ public class motif
 	}
 
 
-	public void open() {
+	public void open()
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
 	}
 
-	/**
-	 * Create contents of the window.
-	 */
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(988, 530);
