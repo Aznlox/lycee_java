@@ -344,14 +344,7 @@ public class SWTResourceManager {
 		}
 		m_fontToBoldFontMap.clear();
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Cursor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	/**
-	 * Maps IDs to cursors.
-	 */
+	
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
 
 	public static Cursor getCursor(int id) {
