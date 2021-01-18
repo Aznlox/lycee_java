@@ -102,7 +102,7 @@ public class SWTResourceManager {
 		}
 		return image;
 	}
-	
+
 	public static Image getImage(Class<?> clazz, String path) {
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
@@ -378,15 +378,7 @@ public class SWTResourceManager {
 		}
 		m_idToCursorMap.clear();
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// General
-	//
-	////////////////////////////////////////////////////////////////////////////
-	/**
-	 * Dispose of cached objects and their underlying OS resources. This should only be called when the cached
-	 * objects are no longer needed (e.g. on application shutdown).
-	 */
+
 	public static void dispose() {
 		disposeColors();
 		disposeImages();
