@@ -286,24 +286,33 @@ public class SWTResourceManager
 	*            the underline flag (warning: Windows only)
 	* @return {@link Font} The font matching the name, height, style, strikeout and underline
 	*/
-	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline) {
+	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline)
+	{
 		String fontName = name + '|' + size + '|' + style + '|' + strikeout + '|' + underline;
 		Font font = m_fontMap.get(fontName);
-		if (font == null) {
+		if (font == null)
+		{
 			FontData fontData = new FontData(name, size, style);
-			if (strikeout || underline) {
-				try {
+			if (strikeout || underline)
+			{
+				try
+				{
 					Class<?> logFontClass = Class.forName("org.eclipse.swt.internal.win32.LOGFONT"); //$NON-NLS-1$
 					Object logFont = FontData.class.getField("data").get(fontData); //$NON-NLS-1$
-					if (logFont != null && logFontClass != null) {
-						if (strikeout) {
+					if (logFont != null && logFontClass != null)
+					{
+						if (strikeout)
+						{
 							logFontClass.getField("lfStrikeOut").set(logFont, Byte.valueOf((byte) 1)); //$NON-NLS-1$
 						}
-						if (underline) {
+						if (underline)
+						{
 							logFontClass.getField("lfUnderline").set(logFont, Byte.valueOf((byte) 1)); //$NON-NLS-1$
 						}
 					}
-				} catch (Throwable e) {
+				}
+				catch (Throwable e)
+				{
 					System.err.println("Unable to set underline or strikeout" + " (probably on a non-Windows platform). " + e); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 			}
