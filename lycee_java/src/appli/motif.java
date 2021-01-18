@@ -47,7 +47,8 @@ public class motif
 		}
 	}
 
-	protected void createContents() {
+	protected void createContents()
+	{
 		shell = new Shell();
 		shell.setSize(988, 530);
 		shell.setText("SWT Application");
