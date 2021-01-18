@@ -1,4 +1,4 @@
-package maquettes;
+package appli;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -10,7 +10,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-public class connexion {
+public class Connexion {
 
 	protected Shell shell;
 	private Text text;
@@ -22,7 +22,7 @@ public class connexion {
 	 */
 	public static void main(String[] args) {
 		try {
-			connexion window = new connexion();
+			Connexion window = new Connexion();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
