@@ -221,23 +221,27 @@ public class SWTResourceManager
 		}
 		return result;
 	}
-	/**
-	* Dispose all of the cached {@link Image}'s.
-	*/
-	public static void disposeImages() {
+
+	public static void disposeImages()
+	{
 		// dispose loaded images
 		{
-			for (Image image : m_imageMap.values()) {
+			for (Image image : m_imageMap.values())
+			{
 				image.dispose();
 			}
 			m_imageMap.clear();
 		}
 		// dispose decorated images
-		for (int i = 0; i < m_decoratedImageMap.length; i++) {
+		for (int i = 0; i < m_decoratedImageMap.length; i++)
+		{
 			Map<Image, Map<Image, Image>> cornerDecoratedImageMap = m_decoratedImageMap[i];
-			if (cornerDecoratedImageMap != null) {
-				for (Map<Image, Image> decoratedMap : cornerDecoratedImageMap.values()) {
-					for (Image image : decoratedMap.values()) {
+			if (cornerDecoratedImageMap != null)
+			{
+				for (Map<Image, Image> decoratedMap : cornerDecoratedImageMap.values())
+				{
+					for (Image image : decoratedMap.values())
+					{
 						image.dispose();
 					}
 					decoratedMap.clear();
@@ -246,14 +250,7 @@ public class SWTResourceManager
 			}
 		}
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Font
-	//
-	////////////////////////////////////////////////////////////////////////////
-	/**
-	* Maps font names to fonts.
-	*/
+
 	private static Map<String, Font> m_fontMap = new HashMap<String, Font>();
 	/**
 	* Maps fonts to their bold versions.
