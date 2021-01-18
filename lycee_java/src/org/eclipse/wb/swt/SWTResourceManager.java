@@ -158,7 +158,8 @@ public class SWTResourceManager
 	*            the {@link Image} to decorate the base image
 	* @return {@link Image} The resulting decorated image
 	*/
-	public static Image decorateImage(Image baseImage, Image decorator) {
+	public static Image decorateImage(Image baseImage, Image decorator)
+	{
 		return decorateImage(baseImage, decorator, BOTTOM_RIGHT);
 	}
 	/**
@@ -172,23 +173,28 @@ public class SWTResourceManager
 	*            the corner to place decorator image
 	* @return the resulting decorated {@link Image}
 	*/
-	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner) {
-		if (corner <= 0 || corner >= LAST_CORNER_KEY) {
+	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner)
+	{
+		if (corner <= 0 || corner >= LAST_CORNER_KEY)
+		{
 			throw new IllegalArgumentException("Wrong decorate corner");
 		}
 		Map<Image, Map<Image, Image>> cornerDecoratedImageMap = m_decoratedImageMap[corner];
-		if (cornerDecoratedImageMap == null) {
+		if (cornerDecoratedImageMap == null)
+		{
 			cornerDecoratedImageMap = new HashMap<Image, Map<Image, Image>>();
 			m_decoratedImageMap[corner] = cornerDecoratedImageMap;
 		}
 		Map<Image, Image> decoratedMap = cornerDecoratedImageMap.get(baseImage);
-		if (decoratedMap == null) {
+		if (decoratedMap == null)
+		{
 			decoratedMap = new HashMap<Image, Image>();
 			cornerDecoratedImageMap.put(baseImage, decoratedMap);
 		}
 		//
 		Image result = decoratedMap.get(decorator);
-		if (result == null) {
+		if (result == null)
+		{
 			Rectangle bib = baseImage.getBounds();
 			Rectangle dib = decorator.getBounds();
 			//
@@ -196,13 +202,17 @@ public class SWTResourceManager
 			//
 			GC gc = new GC(result);
 			gc.drawImage(baseImage, 0, 0);
-			if (corner == TOP_LEFT) {
+			if (corner == TOP_LEFT)
+			{
 				gc.drawImage(decorator, 0, 0);
-			} else if (corner == TOP_RIGHT) {
+			} else if (corner == TOP_RIGHT)
+			{
 				gc.drawImage(decorator, bib.width - dib.width, 0);
-			} else if (corner == BOTTOM_LEFT) {
+			} else if (corner == BOTTOM_LEFT)
+			{
 				gc.drawImage(decorator, 0, bib.height - dib.height);
-			} else if (corner == BOTTOM_RIGHT) {
+			} else if (corner == BOTTOM_RIGHT)
+			{
 				gc.drawImage(decorator, bib.width - dib.width, bib.height - dib.height);
 			}
 			gc.dispose();
