@@ -31,17 +31,11 @@ public class SWTResourceManager {
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
 	}
-	
+
 	public static Color getColor(int r, int g, int b) {
 		return getColor(new RGB(r, g, b));
 	}
-	/**
-	 * Returns a {@link Color} given its RGB value.
-	 *
-	 * @param rgb
-	 *            the {@link RGB} value of the color
-	 * @return the {@link Color} matching the RGB value
-	 */
+
 	public static Color getColor(RGB rgb) {
 		Color color = m_colorMap.get(rgb);
 		if (color == null) {
