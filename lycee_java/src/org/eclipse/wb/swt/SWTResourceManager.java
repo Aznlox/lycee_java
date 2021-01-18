@@ -19,20 +19,19 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
-public class SWTResourceManager {
-	////////////////////////////////////////////////////////////////////////////
-	//
+public class SWTResourceManager
+{
 	// Color
-	//
-	////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
 
-	public static Color getColor(int systemColorID) {
+	public static Color getColor(int systemColorID)
+	{
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
 	}
 
-	public static Color getColor(int r, int g, int b) {
+	public static Color getColor(int r, int g, int b)
+	{
 		return getColor(new RGB(r, g, b));
 	}
 
@@ -344,7 +343,7 @@ public class SWTResourceManager {
 		}
 		m_fontToBoldFontMap.clear();
 	}
-	
+
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
 
 	public static Cursor getCursor(int id) {
