@@ -71,21 +71,18 @@ public class SWTResourceManager
 			stream.close();
 		}
 	}
-	/**
-	 * Returns an {@link Image} stored in the file at the specified path.
-	 *
-	 * @param path
-	 *            the path to the image file
-	 * @return the {@link Image} stored in the file at the specified path
-	 */
 	public static Image getImage(String path)
 	{
 		Image image = m_imageMap.get(path);
-		if (image == null) {
-			try {
+		if (image == null)
+		{
+			try
+			{
 				image = getImage(new FileInputStream(path));
 				m_imageMap.put(path, image);
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				image = getMissingImage();
 				m_imageMap.put(path, image);
 			}
@@ -93,7 +90,8 @@ public class SWTResourceManager
 		return image;
 	}
 
-	public static Image getImage(Class<?> clazz, String path) {
+	public static Image getImage(Class<?> clazz, String path)
+	{
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
 		if (image == null) {
