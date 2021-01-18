@@ -321,16 +321,12 @@ public class SWTResourceManager
 		}
 		return font;
 	}
-	/**
-	* Returns a bold version of the given {@link Font}.
-	*
-	* @param baseFont
-	*            the {@link Font} for which a bold version is desired
-	* @return the bold version of the given {@link Font}
-	*/
-	public static Font getBoldFont(Font baseFont) {
+
+	public static Font getBoldFont(Font baseFont)
+	{
 		Font font = m_fontToBoldFontMap.get(baseFont);
-		if (font == null) {
+		if (font == null)
+		{
 			FontData fontDatas[] = baseFont.getFontData();
 			FontData data = fontDatas[0];
 			font = new Font(Display.getCurrent(), data.getName(), data.getHeight(), SWT.BOLD);
@@ -341,14 +337,17 @@ public class SWTResourceManager
 	/**
 	* Dispose all of the cached {@link Font}'s.
 	*/
-	public static void disposeFonts() {
+	public static void disposeFonts()
+	{
 		// clear fonts
-		for (Font font : m_fontMap.values()) {
+		for (Font font : m_fontMap.values())
+		{
 			font.dispose();
 		}
 		m_fontMap.clear();
 		// clear bold fonts
-		for (Font font : m_fontToBoldFontMap.values()) {
+		for (Font font : m_fontToBoldFontMap.values())
+		{
 			font.dispose();
 		}
 		m_fontToBoldFontMap.clear();
