@@ -353,13 +353,7 @@ public class SWTResourceManager {
 	 * Maps IDs to cursors.
 	 */
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
-	/**
-	 * Returns the system cursor matching the specific ID.
-	 *
-	 * @param id
-	 *            int The ID value for the cursor
-	 * @return Cursor The system cursor matching the specific ID
-	 */
+
 	public static Cursor getCursor(int id) {
 		Integer key = Integer.valueOf(id);
 		Cursor cursor = m_idToCursorMap.get(key);
@@ -369,9 +363,7 @@ public class SWTResourceManager {
 		}
 		return cursor;
 	}
-	/**
-	 * Dispose all of the cached cursors.
-	 */
+
 	public static void disposeCursors() {
 		for (Cursor cursor : m_idToCursorMap.values()) {
 			cursor.dispose();
