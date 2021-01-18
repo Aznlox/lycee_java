@@ -35,19 +35,19 @@ public class SWTResourceManager
 		return getColor(new RGB(r, g, b));
 	}
 
-	public static Color getColor(RGB rgb) {
+	public static Color getColor(RGB rgb)
+	{
 		Color color = m_colorMap.get(rgb);
-		if (color == null) {
+		if (color == null)
+		{
 			Display display = Display.getCurrent();
 			color = new Color(display, rgb);
 			m_colorMap.put(rgb, color);
 		}
 		return color;
 	}
-	/**
-	 * Dispose of all the cached {@link Color}'s.
-	 */
-	public static void disposeColors() {
+	public static void disposeColors()
+	{
 		for (Color color : m_colorMap.values()) {
 			color.dispose();
 		}
