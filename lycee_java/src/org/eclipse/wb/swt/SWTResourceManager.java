@@ -355,24 +355,29 @@ public class SWTResourceManager
 
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
 
-	public static Cursor getCursor(int id) {
+	public static Cursor getCursor(int id)
+	{
 		Integer key = Integer.valueOf(id);
 		Cursor cursor = m_idToCursorMap.get(key);
-		if (cursor == null) {
+		if (cursor == null)
+		{
 			cursor = new Cursor(Display.getDefault(), id);
 			m_idToCursorMap.put(key, cursor);
 		}
 		return cursor;
 	}
 
-	public static void disposeCursors() {
-		for (Cursor cursor : m_idToCursorMap.values()) {
+	public static void disposeCursors()
+	{
+		for (Cursor cursor : m_idToCursorMap.values())
+		{
 			cursor.dispose();
 		}
 		m_idToCursorMap.clear();
 	}
 
-	public static void dispose() {
+	public static void dispose()
+	{
 		disposeColors();
 		disposeImages();
 		disposeFonts();
