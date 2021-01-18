@@ -26,13 +26,7 @@ public class SWTResourceManager {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
-	/**
-	 * Returns the system {@link Color} matching the specific ID.
-	 *
-	 * @param systemColorID
-	 *            the ID value for the color
-	 * @return the system {@link Color} matching the specific ID
-	 */
+	
 	public static Color getColor(int systemColorID) {
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
