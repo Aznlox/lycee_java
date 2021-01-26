@@ -134,6 +134,32 @@ public class test
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
 		btnNewButton_1.setBounds(426, 182, 160, 64);
 		btnNewButton_1.setText("Enseignement sp\u00E9");
+		
+		Label lblLundi = new Label(shell, SWT.NONE);
+		lblLundi.setBounds(180, 93, 81, 25);
+		lblLundi.setText("Lundi");
+		
+		Label lblMardi = new Label(shell, SWT.NONE);
+		lblMardi.setBounds(280, 93, 81, 25);
+		lblMardi.setText("Mardi");
+		
+		Label lblMercredi = new Label(shell, SWT.NONE);
+		lblMercredi.setBounds(389, 93, 81, 25);
+		lblMercredi.setText("Mercredi");
+		
+		Label lblJeudi = new Label(shell, SWT.NONE);
+		lblJeudi.setBounds(583, 93, 81, 25);
+		lblJeudi.setText("Jeudi");
+		
+		Label lblVendredi = new Label(shell, SWT.NONE);
+		lblVendredi.setBounds(744, 82, 81, 25);
+		lblVendredi.setText("Vendredi");
+		
+		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label.setBounds(267, 93, 2, 309);
+		
+		Label label_1 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label_1.setBounds(380, 93, 2, 309);
 
 	}
 }
