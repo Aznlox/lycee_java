@@ -134,7 +134,6 @@ public class test
 		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_2 = new FormData();
-		fd_table_2.top = new FormAttachment(lblBonjourBernard, 69);
 		fd_table_2.bottom = new FormAttachment(100, -39);
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
@@ -142,11 +141,11 @@ public class test
 		fd_table_2.right = new FormAttachment(100, -508);
 		
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_table_2.top = new FormAttachment(table_3, 0, SWT.TOP);
 		FormData fd_table_3 = new FormData();
 		fd_table_3.left = new FormAttachment(table_2, 6);
 		fd_table_3.top = new FormAttachment(dateTime, 62);
 		fd_table_3.bottom = new FormAttachment(100, -41);
-		fd_table_3.right = new FormAttachment(100, -366);
 		table_3.setLayoutData(fd_table_3);
 		table_3.setHeaderVisible(true);
 		table_3.setLinesVisible(true);
@@ -163,21 +162,22 @@ public class test
 		table.setLinesVisible(true);
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_table_3.right = new FormAttachment(table_1, -19);
 		FormData fd_table_1 = new FormData();
-		fd_table_1.right = new FormAttachment(table_3, 155, SWT.RIGHT);
 		fd_table_1.left = new FormAttachment(label_3, -26, SWT.LEFT);
-		fd_table_1.bottom = new FormAttachment(table_2, 343);
-		fd_table_1.top = new FormAttachment(table_2, 0, SWT.TOP);
+		fd_table_1.top = new FormAttachment(0, 107);
+		fd_table_1.bottom = new FormAttachment(100, -45);
 		table_1.setLayoutData(fd_table_1);
 		table_1.setHeaderVisible(true);
 		table_1.setLinesVisible(true);
 		
 		table_4 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_table_1.right = new FormAttachment(table_4, -6);
 		FormData fd_table_4 = new FormData();
+		fd_table_4.right = new FormAttachment(100, -69);
+		fd_table_4.left = new FormAttachment(0, 839);
 		fd_table_4.top = new FormAttachment(dateTime, 64);
 		fd_table_4.bottom = new FormAttachment(100, -39);
-		fd_table_4.right = new FormAttachment(100, -69);
-		fd_table_4.left = new FormAttachment(table_1, 6);
 		table_4.setLayoutData(fd_table_4);
 		table_4.setHeaderVisible(true);
 		table_4.setLinesVisible(true);
@@ -244,6 +244,23 @@ public class test
 		fd_lblh_8.right = new FormAttachment(table, -6);
 		lblh_8.setLayoutData(fd_lblh_8);
 		lblh_8.setText("17h");
+		
+		Label lblLundi = new Label(shell, SWT.NONE);
+		lblLundi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblLundi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
+		FormData fd_lblLundi = new FormData();
+		fd_lblLundi.bottom = new FormAttachment(table, -10);
+		fd_lblLundi.left = new FormAttachment(0, 297);
+		lblLundi.setLayoutData(fd_lblLundi);
+		lblLundi.setText("Lundi");
+		
+		Label lblMardi = new Label(shell, SWT.NONE);
+		lblMardi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
+		FormData fd_lblMardi = new FormData();
+		fd_lblMardi.bottom = new FormAttachment(table_2, -6);
+		fd_lblMardi.left = new FormAttachment(lblLundi, 105);
+		lblMardi.setLayoutData(fd_lblMardi);
+		lblMardi.setText("Mardi");
 
 	}
 }
