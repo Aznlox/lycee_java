@@ -29,8 +29,6 @@ public class test
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
 	private Table table;
-	private Text txtLundi;
-	private Text text;
 
 
 	public static void main(String[] args) {
@@ -143,31 +141,6 @@ public class test
 		});
 		btnNewButton_2.setBounds(661, 131, 105, 80);
 		btnNewButton_2.setText("PPE SLAM2");
-		
-		TabFolder tabFolder = new TabFolder(shell, SWT.NONE);
-		tabFolder.setBounds(304, 124, 188, 298);
-		
-		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
-		tabItem.setText("New Item");
-		
-		TabItem tabItem_2 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_2.setText("New Item");
-		
-		text = new Text(tabFolder, SWT.BORDER);
-		tabItem_2.setControl(text);
-		
-		txtLundi = new Text(tabFolder, SWT.BORDER);
-		tabItem_2.setControl(txtLundi);
-		txtLundi.setText("    Lundi");
-		
-		TabItem tabItem_3 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_3.setText("New Item");
-		
-		TabItem tabItem_4 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_4.setText("New Item");
-		
-		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_1.setText("New Item");
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		btnInformatiqueSlam.setBounds(158, 155, 109, 85);
