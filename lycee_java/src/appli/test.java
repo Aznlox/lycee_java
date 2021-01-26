@@ -31,6 +31,8 @@ public class test
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
 	private Table table;
+	private Table table_1;
+	private Table table_2;
 
 
 	public static void main(String[] args) {
@@ -236,6 +238,27 @@ public class test
 		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
+		
+		Composite composite_1 = new Composite(shell, SWT.NONE);
+		composite_1.setLayout(new TableColumnLayout());
+		composite_1.setLayoutData(new FormData());
+		
+		table_1 = new Table(composite_1, SWT.BORDER | SWT.FULL_SELECTION);
+		table_1.setHeaderVisible(true);
+		table_1.setLinesVisible(true);
+		
+		Composite composite_2 = new Composite(shell, SWT.NONE);
+		composite_2.setLayout(new TableColumnLayout());
+		FormData fd_composite_2 = new FormData();
+		fd_composite_2.top = new FormAttachment(btnBtsSlam, -61);
+		fd_composite_2.bottom = new FormAttachment(btnBtsSlam, 0, SWT.BOTTOM);
+		fd_composite_2.right = new FormAttachment(composite, 109, SWT.RIGHT);
+		fd_composite_2.left = new FormAttachment(composite, 53);
+		composite_2.setLayoutData(fd_composite_2);
+		
+		table_2 = new Table(composite_2, SWT.BORDER | SWT.FULL_SELECTION);
+		table_2.setHeaderVisible(true);
+		table_2.setLinesVisible(true);
 
 	}
 }
