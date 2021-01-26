@@ -141,11 +141,9 @@ public class test
 		fd_table_2.right = new FormAttachment(100, -508);
 		
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		fd_table_2.top = new FormAttachment(table_3, 0, SWT.TOP);
 		FormData fd_table_3 = new FormData();
-		fd_table_3.left = new FormAttachment(table_2, 6);
-		fd_table_3.top = new FormAttachment(dateTime, 62);
 		fd_table_3.bottom = new FormAttachment(100, -41);
+		fd_table_3.left = new FormAttachment(table_2, 6);
 		table_3.setLayoutData(fd_table_3);
 		table_3.setHeaderVisible(true);
 		table_3.setLinesVisible(true);
@@ -162,7 +160,7 @@ public class test
 		table.setLinesVisible(true);
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		fd_table_3.right = new FormAttachment(table_1, -19);
+		fd_table_3.right = new FormAttachment(table_1, -6);
 		FormData fd_table_1 = new FormData();
 		fd_table_1.left = new FormAttachment(label_3, -26, SWT.LEFT);
 		fd_table_1.top = new FormAttachment(0, 107);
@@ -255,31 +253,33 @@ public class test
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
+		fd_table_2.top = new FormAttachment(lblMardi, 6);
 		lblMardi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMardi = new FormData();
-		fd_lblMardi.bottom = new FormAttachment(table_2, -6);
+		fd_lblMardi.bottom = new FormAttachment(100, -396);
 		fd_lblMardi.left = new FormAttachment(lblLundi, 105);
 		lblMardi.setLayoutData(fd_lblMardi);
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
+		fd_table_3.top = new FormAttachment(lblMercredi, 10);
 		FormData fd_lblMercredi = new FormData();
-		fd_lblMercredi.bottom = new FormAttachment(table_3, -6);
-		fd_lblMercredi.left = new FormAttachment(lblMardi, 68);
+		fd_lblMercredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
+		fd_lblMercredi.right = new FormAttachment(label_3, -78);
 		lblMercredi.setLayoutData(fd_lblMercredi);
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
 		FormData fd_lblJeudi = new FormData();
-		fd_lblJeudi.top = new FormAttachment(label_3, 0, SWT.TOP);
-		fd_lblJeudi.left = new FormAttachment(label_3, 15);
+		fd_lblJeudi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
+		fd_lblJeudi.left = new FormAttachment(label_3, 18);
 		lblJeudi.setLayoutData(fd_lblJeudi);
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
 		FormData fd_lblVendredi = new FormData();
-		fd_lblVendredi.bottom = new FormAttachment(table_4, -6);
-		fd_lblVendredi.left = new FormAttachment(lblJeudi, 84);
+		fd_lblVendredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
+		fd_lblVendredi.left = new FormAttachment(lblJeudi, 88);
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("vendredi");
 
