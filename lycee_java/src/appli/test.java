@@ -230,6 +230,27 @@ public class test
 		table_4.setLayoutData(fd_table_4);
 		table_4.setHeaderVisible(true);
 		table_4.setLinesVisible(true);
+		
+		Label lblh = new Label(shell, SWT.NONE);
+		FormData fd_lblh = new FormData();
+		fd_lblh.top = new FormAttachment(btnAlgoSlam, 52);
+		fd_lblh.right = new FormAttachment(table, -8);
+		lblh.setLayoutData(fd_lblh);
+		lblh.setText("8h");
+		
+		Label lblh_1 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_1 = new FormData();
+		fd_lblh_1.top = new FormAttachment(lblh, 6);
+		fd_lblh_1.right = new FormAttachment(table, -6);
+		lblh_1.setLayoutData(fd_lblh_1);
+		lblh_1.setText("9h");
+		
+		Label lblh_2 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_2 = new FormData();
+		fd_lblh_2.top = new FormAttachment(btnNewButton, 0, SWT.TOP);
+		fd_lblh_2.right = new FormAttachment(table, -11);
+		lblh_2.setLayoutData(fd_lblh_2);
+		lblh_2.setText("10h");
 
 	}
 }
