@@ -124,29 +124,6 @@ public class test
 		lblVosClasses.setLayoutData(fd_lblVosClasses);
 		lblVosClasses.setText("Vos Classes:");
 		
-		Button btnAlgoSlam = new Button(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_btnAlgoSlam = new org.eclipse.swt.layout.FormData();
-		fd_btnAlgoSlam.top = new FormAttachment(0, 35);
-		fd_btnAlgoSlam.bottom = new FormAttachment(lblVosClasses, -25);
-		fd_btnAlgoSlam.left = new FormAttachment(lblPlanning, 22);
-		fd_btnAlgoSlam.right = new FormAttachment(0, 225);
-		btnAlgoSlam.setLayoutData(fd_btnAlgoSlam);
-		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
-		btnAlgoSlam.setText("Algo SLAM 2");
-		
-		Button btnNewButton_1 = new Button(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_btnNewButton_1 = new org.eclipse.swt.layout.FormData();
-		fd_btnNewButton_1.left = new FormAttachment(lblBonjourBernard, 6);
-		fd_btnNewButton_1.bottom = new FormAttachment(0, 101);
-		fd_btnNewButton_1.right = new FormAttachment(0, 653);
-		btnNewButton_1.setLayoutData(fd_btnNewButton_1);
-		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		btnNewButton_1.setText("Enseignement");
-		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		org.eclipse.swt.layout.FormData fd_label_3 = new org.eclipse.swt.layout.FormData();
 		fd_label_3.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
@@ -155,35 +132,9 @@ public class test
 		fd_label_3.left = new org.eclipse.swt.layout.FormAttachment(0, 723);
 		label_3.setLayoutData(fd_label_3);
 		
-		Button btnNewButton_2 = new Button(shell, SWT.NONE);
-		fd_btnNewButton_1.top = new FormAttachment(btnNewButton_2, -7, SWT.TOP);
-		org.eclipse.swt.layout.FormData fd_btnNewButton_2 = new org.eclipse.swt.layout.FormData();
-		fd_btnNewButton_2.top = new FormAttachment(lblBonjourBernard, 0, SWT.TOP);
-		fd_btnNewButton_2.right = new FormAttachment(lblBonjourBernard, -17);
-		fd_btnNewButton_2.bottom = new FormAttachment(0, 93);
-		fd_btnNewButton_2.left = new FormAttachment(0, 258);
-		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
-		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		btnNewButton_2.setText("PPE SLAM2");
-		
-		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_btnInformatiqueSlam = new org.eclipse.swt.layout.FormData();
-		fd_btnInformatiqueSlam.bottom = new FormAttachment(100, -10);
-		fd_btnInformatiqueSlam.left = new FormAttachment(btnNewButton, 0, SWT.LEFT);
-		fd_btnInformatiqueSlam.right = new FormAttachment(0, 119);
-		fd_btnInformatiqueSlam.top = new FormAttachment(0, 360);
-		btnInformatiqueSlam.setLayoutData(fd_btnInformatiqueSlam);
-		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		btnInformatiqueSlam.setText("PPE SLAM1");
-		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_2 = new FormData();
-		fd_table_2.top = new FormAttachment(btnNewButton_1, 6);
+		fd_table_2.top = new FormAttachment(lblBonjourBernard, 69);
 		fd_table_2.bottom = new FormAttachment(100, -39);
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
@@ -203,10 +154,10 @@ public class test
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		fd_table_2.left = new FormAttachment(table, 6);
 		FormData fd_table = new FormData();
+		fd_table.top = new FormAttachment(lblBonjourBernard, 67);
+		fd_table.bottom = new FormAttachment(100, -41);
 		fd_table.left = new FormAttachment(btnTerminaleStid, 117);
 		fd_table.right = new FormAttachment(100, -650);
-		fd_table.bottom = new FormAttachment(100, -41);
-		fd_table.top = new FormAttachment(btnNewButton_2, 12);
 		table.setLayoutData(fd_table);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -223,9 +174,9 @@ public class test
 		
 		table_4 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_4 = new FormData();
-		fd_table_4.right = new FormAttachment(table_1, 142, SWT.RIGHT);
-		fd_table_4.top = new FormAttachment(table_2, 0, SWT.TOP);
-		fd_table_4.bottom = new FormAttachment(table_1, 0, SWT.BOTTOM);
+		fd_table_4.top = new FormAttachment(dateTime, 64);
+		fd_table_4.bottom = new FormAttachment(100, -39);
+		fd_table_4.right = new FormAttachment(100, -69);
 		fd_table_4.left = new FormAttachment(table_1, 6);
 		table_4.setLayoutData(fd_table_4);
 		table_4.setHeaderVisible(true);
@@ -268,21 +219,21 @@ public class test
 		
 		Label lblh_5 = new Label(shell, SWT.NONE);
 		FormData fd_lblh_5 = new FormData();
-		fd_lblh_5.top = new FormAttachment(lblh_4, 25);
-		fd_lblh_5.right = new FormAttachment(table, -2);
+		fd_lblh_5.left = new FormAttachment(lblh_2, 0, SWT.LEFT);
 		lblh_5.setLayoutData(fd_lblh_5);
 		lblh_5.setText("14h");
 		
 		Label lblh_6 = new Label(shell, SWT.NONE);
+		fd_lblh_5.bottom = new FormAttachment(lblh_6, -6);
 		FormData fd_lblh_6 = new FormData();
-		fd_lblh_6.top = new FormAttachment(lblh_5, 6);
-		fd_lblh_6.right = new FormAttachment(lblh_5, 0, SWT.RIGHT);
+		fd_lblh_6.left = new FormAttachment(lblh_2, 0, SWT.LEFT);
 		lblh_6.setLayoutData(fd_lblh_6);
 		lblh_6.setText("15h");
 		
 		Label lblh_7 = new Label(shell, SWT.NONE);
+		fd_lblh_6.bottom = new FormAttachment(lblh_7, -6);
 		FormData fd_lblh_7 = new FormData();
-		fd_lblh_7.top = new FormAttachment(lblh_6, 6);
+		fd_lblh_7.top = new FormAttachment(0, 386);
 		fd_lblh_7.right = new FormAttachment(table, -6);
 		lblh_7.setLayoutData(fd_lblh_7);
 		lblh_7.setText("16h");
