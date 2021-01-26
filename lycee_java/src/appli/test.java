@@ -106,16 +106,12 @@ public class test
 		btnNewButton_1.setBounds(731, 334, 136, 95);
 		btnNewButton_1.setText("Enseignement");
 		
-		Label lblLundi = new Label(shell, SWT.NONE);
-		lblLundi.setBounds(179, 23, 81, 25);
-		lblLundi.setText("Lundi");
-		
 		Label lblMardi = new Label(shell, SWT.NONE);
 		lblMardi.setBounds(287, 13, 81, 25);
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
-		lblMercredi.setBounds(415, 93, 81, 25);
+		lblMercredi.setBounds(411, 44, 81, 25);
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
@@ -137,10 +133,6 @@ public class test
 		
 		Label label_4 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_4.setBounds(660, 93, 2, 309);
-		
-		Label lblSp = new Label(shell, SWT.NONE);
-		lblSp.setBounds(415, 187, 81, 25);
-		lblSp.setText("sp\u00E9");
 		
 		Button btnNewButton_2 = new Button(shell, SWT.NONE);
 		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
