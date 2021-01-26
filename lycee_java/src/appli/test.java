@@ -18,6 +18,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.widgets.TabItem;
 
 public class test 
 {
@@ -27,6 +30,7 @@ public class test
 	private Button btnTerminaleStid;
 	private Table table;
 	private Text txtLundi;
+	private Text text;
 
 
 	public static void main(String[] args) {
@@ -88,15 +92,10 @@ public class test
 		lblVosClasses.setBounds(10, 124, 105, 25);
 		lblVosClasses.setText("Vos Classes:");
 		
-		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
-		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		btnInformatiqueSlam.setBounds(10, 44, 115, 83);
-		btnInformatiqueSlam.setText("PPE SLAM1");
-		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
 		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		btnAlgoSlam.setText("Algo SLAM 2");
-		btnAlgoSlam.setBounds(158, 139, 112, 64);
+		btnAlgoSlam.setBounds(726, 120, 112, 64);
 		
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
@@ -145,14 +144,34 @@ public class test
 		btnNewButton_2.setBounds(661, 131, 105, 80);
 		btnNewButton_2.setText("PPE SLAM2");
 		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(158, 93, 112, 309);
+		TabFolder tabFolder = new TabFolder(shell, SWT.NONE);
+		tabFolder.setBounds(304, 124, 80, 298);
+		
+		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
+		tabItem.setText("New Item");
+		
+		TabItem tabItem_2 = new TabItem(tabFolder, SWT.NONE);
+		tabItem_2.setText("New Item");
+		
+		text = new Text(tabFolder, SWT.BORDER);
+		tabItem_2.setControl(text);
+		
+		txtLundi = new Text(tabFolder, SWT.BORDER);
+		tabItem_2.setControl(txtLundi);
+		txtLundi.setText("    Lundi");
+		
+		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
+		tabItem_1.setText("New Item");
+		
+		table = new Table(tabFolder, SWT.BORDER | SWT.FULL_SELECTION);
+		tabItem_1.setControl(table);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
-		txtLundi = new Text(shell, SWT.BORDER);
-		txtLundi.setText("    Lundi");
-		txtLundi.setBounds(158, 96, 112, 31);
+		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
+		btnInformatiqueSlam.setBounds(158, 155, 109, 85);
+		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
+		btnInformatiqueSlam.setText("PPE SLAM1");
 
 	}
 }
