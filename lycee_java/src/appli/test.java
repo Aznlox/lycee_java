@@ -145,7 +145,7 @@ public class test
 		btnNewButton_2.setText("PPE SLAM2");
 		
 		TabFolder tabFolder = new TabFolder(shell, SWT.NONE);
-		tabFolder.setBounds(304, 124, 80, 298);
+		tabFolder.setBounds(304, 124, 188, 298);
 		
 		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
 		tabItem.setText("New Item");
@@ -160,18 +160,24 @@ public class test
 		tabItem_2.setControl(txtLundi);
 		txtLundi.setText("    Lundi");
 		
+		TabItem tabItem_3 = new TabItem(tabFolder, SWT.NONE);
+		tabItem_3.setText("New Item");
+		
+		TabItem tabItem_4 = new TabItem(tabFolder, SWT.NONE);
+		tabItem_4.setText("New Item");
+		
 		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
 		tabItem_1.setText("New Item");
-		
-		table = new Table(tabFolder, SWT.BORDER | SWT.FULL_SELECTION);
-		tabItem_1.setControl(table);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		btnInformatiqueSlam.setBounds(158, 155, 109, 85);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
+		
+		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(195, 159, 180, 260);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
 
 	}
 }
