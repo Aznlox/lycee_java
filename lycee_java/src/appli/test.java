@@ -103,7 +103,7 @@ public class test
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(380, 124, 136, 95);
+		btnNewButton_1.setBounds(731, 334, 136, 95);
 		btnNewButton_1.setText("Enseignement");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
@@ -111,7 +111,7 @@ public class test
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
-		lblMardi.setBounds(293, 93, 81, 25);
+		lblMardi.setBounds(287, 13, 81, 25);
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
@@ -128,9 +128,6 @@ public class test
 		
 		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label.setBounds(267, 93, 2, 309);
-		
-		Label label_1 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label_1.setBounds(380, 93, 2, 309);
 		
 		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_2.setBounds(513, 93, 9, 309);
