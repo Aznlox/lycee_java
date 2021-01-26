@@ -251,6 +251,17 @@ public class test
 		fd_lblh_2.right = new FormAttachment(table, -11);
 		lblh_2.setLayoutData(fd_lblh_2);
 		lblh_2.setText("10h");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setLayoutData(new FormData());
+		lblNewLabel.setText("New Label");
+		
+		Label lblh_3 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_3 = new FormData();
+		fd_lblh_3.top = new FormAttachment(lblh_1, 34);
+		fd_lblh_3.right = new FormAttachment(table, -1);
+		lblh_3.setLayoutData(fd_lblh_3);
+		lblh_3.setText("11h");
 
 	}
 }
