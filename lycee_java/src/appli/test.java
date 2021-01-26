@@ -89,18 +89,18 @@ public class test
 		Label lblInformatique = new Label(shell, SWT.NONE);
 		lblInformatique.setAlignment(SWT.CENTER);
 		lblInformatique.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblInformatique.setBounds(157, 187, 112, 64);
+		lblInformatique.setBounds(660, 124, 147, 64);
 		lblInformatique.setText("Informatique Slam 2");
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		btnInformatiqueSlam.setBounds(426, 275, 160, 83);
+		btnInformatiqueSlam.setBounds(267, 281, 115, 83);
 		btnInformatiqueSlam.setText("PPE SLAM1");
 		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
 		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		btnAlgoSlam.setText("Algo SLAM 2");
-		btnAlgoSlam.setBounds(157, 187, 112, 64);
+		btnAlgoSlam.setBounds(158, 139, 112, 64);
 		
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
@@ -109,7 +109,7 @@ public class test
 			}
 		});
 		btnNewButton_1.setBounds(380, 124, 136, 95);
-		btnNewButton_1.setText("Enseignement sp\u00E9");
+		btnNewButton_1.setText("Enseignement");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
 		lblLundi.setBounds(206, 93, 81, 25);
@@ -145,6 +145,10 @@ public class test
 		
 		Label label_4 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_4.setBounds(660, 93, 2, 309);
+		
+		Label lblSp = new Label(shell, SWT.NONE);
+		lblSp.setBounds(415, 187, 81, 25);
+		lblSp.setText("sp\u00E9");
 
 	}
 }
