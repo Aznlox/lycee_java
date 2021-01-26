@@ -261,6 +261,27 @@ public class test
 		fd_lblMardi.left = new FormAttachment(lblLundi, 105);
 		lblMardi.setLayoutData(fd_lblMardi);
 		lblMardi.setText("Mardi");
+		
+		Label lblMercredi = new Label(shell, SWT.NONE);
+		FormData fd_lblMercredi = new FormData();
+		fd_lblMercredi.bottom = new FormAttachment(table_3, -6);
+		fd_lblMercredi.left = new FormAttachment(lblMardi, 68);
+		lblMercredi.setLayoutData(fd_lblMercredi);
+		lblMercredi.setText("Mercredi");
+		
+		Label lblJeudi = new Label(shell, SWT.NONE);
+		FormData fd_lblJeudi = new FormData();
+		fd_lblJeudi.top = new FormAttachment(label_3, 0, SWT.TOP);
+		fd_lblJeudi.left = new FormAttachment(label_3, 15);
+		lblJeudi.setLayoutData(fd_lblJeudi);
+		lblJeudi.setText("Jeudi");
+		
+		Label lblVendredi = new Label(shell, SWT.NONE);
+		FormData fd_lblVendredi = new FormData();
+		fd_lblVendredi.bottom = new FormAttachment(table_4, -6);
+		fd_lblVendredi.left = new FormAttachment(lblJeudi, 84);
+		lblVendredi.setLayoutData(fd_lblVendredi);
+		lblVendredi.setText("vendredi");
 
 	}
 }
