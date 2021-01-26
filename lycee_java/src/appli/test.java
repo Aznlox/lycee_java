@@ -26,6 +26,7 @@ public class test
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
 	private Table table;
+	private Text txtLundi;
 
 
 	public static void main(String[] args) {
@@ -148,6 +149,10 @@ public class test
 		table.setBounds(158, 93, 112, 309);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
+		
+		txtLundi = new Text(shell, SWT.BORDER);
+		txtLundi.setText("    Lundi");
+		txtLundi.setBounds(158, 96, 112, 31);
 
 	}
 }
