@@ -107,15 +107,15 @@ public class test
 		btnNewButton_1.setText("Enseignement sp\u00E9");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
-		lblLundi.setBounds(180, 93, 81, 25);
+		lblLundi.setBounds(206, 93, 81, 25);
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
-		lblMardi.setBounds(280, 93, 81, 25);
+		lblMardi.setBounds(293, 93, 81, 25);
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
-		lblMercredi.setBounds(389, 93, 81, 25);
+		lblMercredi.setBounds(415, 93, 81, 25);
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
@@ -133,7 +133,7 @@ public class test
 		label_1.setBounds(380, 93, 2, 309);
 		
 		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label_2.setBounds(544, 93, 9, 309);
+		label_2.setBounds(513, 93, 9, 309);
 		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_3.setBounds(723, 82, -9, 320);
