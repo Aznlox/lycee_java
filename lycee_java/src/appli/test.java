@@ -32,6 +32,7 @@ public class test
 	private Button btnTerminaleStid;
 	private Table table;
 	private Table table_2;
+	private Table table_1;
 
 
 	public static void main(String[] args) {
@@ -161,14 +162,6 @@ public class test
 		lblMercredi.setLayoutData(fd_lblMercredi);
 		lblMercredi.setText("Mercredi");
 		
-		Label lblJeudi = new Label(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_lblJeudi = new org.eclipse.swt.layout.FormData();
-		fd_lblJeudi.right = new org.eclipse.swt.layout.FormAttachment(0, 640);
-		fd_lblJeudi.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
-		fd_lblJeudi.left = new org.eclipse.swt.layout.FormAttachment(0, 559);
-		lblJeudi.setLayoutData(fd_lblJeudi);
-		lblJeudi.setText("Jeudi");
-		
 		Label lblVendredi = new Label(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_lblVendredi = new org.eclipse.swt.layout.FormData();
 		fd_lblVendredi.right = new org.eclipse.swt.layout.FormAttachment(0, 766);
@@ -239,6 +232,19 @@ public class test
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
 		table_2.setLinesVisible(true);
+		
+		Composite composite_1 = new Composite(shell, SWT.NONE);
+		composite_1.setLayout(new TableColumnLayout());
+		FormData fd_composite_1 = new FormData();
+		fd_composite_1.top = new FormAttachment(100, -121);
+		fd_composite_1.bottom = new FormAttachment(100, -60);
+		fd_composite_1.right = new FormAttachment(table_2, 108, SWT.RIGHT);
+		fd_composite_1.left = new FormAttachment(table_2, 36);
+		composite_1.setLayoutData(fd_composite_1);
+		
+		table_1 = new Table(composite_1, SWT.BORDER | SWT.FULL_SELECTION);
+		table_1.setHeaderVisible(true);
+		table_1.setLinesVisible(true);
 
 	}
 }
