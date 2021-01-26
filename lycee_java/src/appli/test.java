@@ -226,16 +226,8 @@ public class test
 		table_2.setHeaderVisible(true);
 		table_2.setLinesVisible(true);
 		
-		Composite composite_1 = new Composite(shell, SWT.NONE);
-		composite_1.setLayout(new TableColumnLayout());
-		FormData fd_composite_1 = new FormData();
-		fd_composite_1.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
-		fd_composite_1.top = new FormAttachment(lblMercredi, 36);
-		fd_composite_1.right = new FormAttachment(table_2, 78, SWT.RIGHT);
-		fd_composite_1.left = new FormAttachment(table_2, 6);
-		composite_1.setLayoutData(fd_composite_1);
-		
-		table_1 = new Table(composite_1, SWT.BORDER | SWT.FULL_SELECTION);
+		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_1.setLayoutData(new FormData());
 		table_1.setHeaderVisible(true);
 		table_1.setLinesVisible(true);
 
