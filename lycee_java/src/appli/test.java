@@ -178,19 +178,12 @@ public class test
 		fd_label_3.left = new org.eclipse.swt.layout.FormAttachment(0, 723);
 		label_3.setLayoutData(fd_label_3);
 		
-		Label label_4 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		org.eclipse.swt.layout.FormData fd_label_4 = new org.eclipse.swt.layout.FormData();
-		fd_label_4.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
-		fd_label_4.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
-		fd_label_4.left = new org.eclipse.swt.layout.FormAttachment(0, 660);
-		label_4.setLayoutData(fd_label_4);
-		
 		Button btnNewButton_2 = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnNewButton_2 = new org.eclipse.swt.layout.FormData();
-		fd_btnNewButton_2.bottom = new org.eclipse.swt.layout.FormAttachment(0, 211);
-		fd_btnNewButton_2.right = new org.eclipse.swt.layout.FormAttachment(0, 766);
-		fd_btnNewButton_2.top = new org.eclipse.swt.layout.FormAttachment(0, 131);
-		fd_btnNewButton_2.left = new org.eclipse.swt.layout.FormAttachment(0, 661);
+		fd_btnNewButton_2.top = new FormAttachment(btnNewButton, 0, SWT.TOP);
+		fd_btnNewButton_2.right = new FormAttachment(dateTime, 0, SWT.RIGHT);
+		fd_btnNewButton_2.bottom = new FormAttachment(0, 296);
+		fd_btnNewButton_2.left = new FormAttachment(0, 733);
 		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
 		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
