@@ -60,14 +60,14 @@ public class test
 
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(912, 511);
+		shell.setSize(979, 551);
 		shell.setText("SWT Application");
 		shell.setLayout(new org.eclipse.swt.layout.FormLayout());
 		
 		DateTime dateTime = new DateTime(shell, SWT.BORDER);
 		org.eclipse.swt.layout.FormData fd_dateTime = new org.eclipse.swt.layout.FormData();
-		fd_dateTime.top = new org.eclipse.swt.layout.FormAttachment(0, 23);
-		fd_dateTime.left = new org.eclipse.swt.layout.FormAttachment(0, 713);
+		fd_dateTime.top = new FormAttachment(0, 10);
+		fd_dateTime.right = new FormAttachment(100, -10);
 		dateTime.setLayoutData(fd_dateTime);
 		
 		Button btnNewButton = new Button(shell, SWT.NONE);
