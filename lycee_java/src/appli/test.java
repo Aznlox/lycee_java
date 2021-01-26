@@ -86,12 +86,6 @@ public class test
 		lblVosClasses.setBounds(10, 124, 105, 25);
 		lblVosClasses.setText("Vos Classes:");
 		
-		Label lblInformatique = new Label(shell, SWT.NONE);
-		lblInformatique.setAlignment(SWT.CENTER);
-		lblInformatique.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblInformatique.setBounds(660, 124, 147, 64);
-		lblInformatique.setText("Informatique Slam 2");
-		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setBounds(267, 281, 115, 83);
