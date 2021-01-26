@@ -214,7 +214,11 @@ public class test
 		table_1.setLinesVisible(true);
 		
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table_3.setLayoutData(new FormData());
+		FormData fd_table_3 = new FormData();
+		fd_table_3.top = new FormAttachment(btnNewButton_1, 115);
+		fd_table_3.bottom = new FormAttachment(100, -40);
+		fd_table_3.right = new FormAttachment(label_3, -1);
+		table_3.setLayoutData(fd_table_3);
 		table_3.setHeaderVisible(true);
 		table_3.setLinesVisible(true);
 
