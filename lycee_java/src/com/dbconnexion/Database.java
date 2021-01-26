@@ -30,6 +30,19 @@ public class Database
 		return null;
 	}
 	
+	public ResultSet Request(Connection cnx, String requete) {
+		try {
+			   Statement stmt = cnx.createStatement();
+			   ResultSet resultats = stmt.executeQuery(requete);
+			   return resultats;
+			} catch (SQLException e) {
+			   //traitement de l'exception
+			}
+		return null;
+		
+		
+	}
+	
 
 
 }
