@@ -10,6 +10,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import controller.Controller_connexion;
+
 public class Connexion {
 
 	protected Shell shell;
@@ -63,6 +65,8 @@ public class Connexion {
 		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				Controller_connexion connexion = new Controller_connexion();
+				
 				
 			}
 		});
