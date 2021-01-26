@@ -25,7 +25,6 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
-	private Table table;
 
 
 	public static void main(String[] args) {
@@ -75,34 +74,6 @@ public class test
 		btnTerminaleStid.setBounds(10, 305, 131, 35);
 		btnTerminaleStid.setText("Terminale STI2D");
 		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_BLUE));
-		table.setBounds(157, 124, 696, 278);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		
-		TableColumn tblclmnLundi = new TableColumn(table, SWT.NONE);
-		tblclmnLundi.setWidth(108);
-		tblclmnLundi.setText("Lundi");
-		
-		TableColumn tblclmnMardi = new TableColumn(table, SWT.NONE);
-		tblclmnMardi.setWidth(158);
-		tblclmnMardi.setText("Mardi");
-		
-		TableColumn tblclmnMercredi = new TableColumn(table, SWT.NONE);
-		tblclmnMercredi.setWidth(160);
-		tblclmnMercredi.setText("Mercredi");
-		
-		TableColumn tblclmnJeudi = new TableColumn(table, SWT.NONE);
-		tblclmnJeudi.setWidth(159);
-		tblclmnJeudi.setText("Jeudi");
-		
-		TableColumn tblclmnVendredi = new TableColumn(table, SWT.NONE);
-		tblclmnVendredi.setWidth(100);
-		tblclmnVendredi.setText("Vendredi");
-		
-		TableCursor tableCursor = new TableCursor(table, SWT.NONE);
-		
 		Label lblBonjourBernard = new Label(shell, SWT.NONE);
 		lblBonjourBernard.setBounds(380, 13, 131, 25);
 		lblBonjourBernard.setText("Bonjour Bernard");
@@ -148,7 +119,7 @@ public class test
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
-		lblJeudi.setBounds(583, 93, 81, 25);
+		lblJeudi.setBounds(559, 93, 81, 25);
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
@@ -160,6 +131,12 @@ public class test
 		
 		Label label_1 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_1.setBounds(380, 93, 2, 309);
+		
+		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label_2.setBounds(544, 93, 9, 309);
+		
+		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label_3.setBounds(723, 82, -9, 320);
 
 	}
 }
