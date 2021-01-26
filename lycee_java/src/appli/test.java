@@ -176,12 +176,6 @@ public class test
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("Vendredi");
 		
-		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		org.eclipse.swt.layout.FormData fd_label = new org.eclipse.swt.layout.FormData();
-		fd_label.bottom = new FormAttachment(100, -41);
-		fd_label.top = new FormAttachment(0, 105);
-		label.setLayoutData(fd_label);
-		
 		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		org.eclipse.swt.layout.FormData fd_label_2 = new org.eclipse.swt.layout.FormData();
 		fd_label_2.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
@@ -229,15 +223,14 @@ public class test
 		btnInformatiqueSlam.setLayoutData(fd_btnInformatiqueSlam);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
-		fd_label.left = new FormAttachment(0, 344);
 		
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setLayout(new TableColumnLayout());
 		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(label, 0, SWT.TOP);
-		fd_composite.right = new FormAttachment(label, -73);
-		fd_composite.bottom = new FormAttachment(label, 0, SWT.BOTTOM);
-		fd_composite.left = new FormAttachment(label, -140, SWT.LEFT);
+		fd_composite.top = new FormAttachment(lblMardi, 67);
+		fd_composite.bottom = new FormAttachment(100, -41);
+		fd_composite.right = new FormAttachment(100, -552);
+		fd_composite.left = new FormAttachment(btnTerminaleStid, 63);
 		composite.setLayoutData(fd_composite);
 		
 		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION);
