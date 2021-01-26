@@ -31,7 +31,6 @@ public class test
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
 	private Table table;
-	private Table table_1;
 	private Table table_2;
 
 
@@ -239,17 +238,11 @@ public class test
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
-		Composite composite_1 = new Composite(shell, SWT.NONE);
-		composite_1.setLayout(new TableColumnLayout());
-		composite_1.setLayoutData(new FormData());
-		
-		table_1 = new Table(composite_1, SWT.BORDER | SWT.FULL_SELECTION);
-		table_1.setHeaderVisible(true);
-		table_1.setLinesVisible(true);
-		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_2 = new FormData();
-		fd_table_2.bottom = new FormAttachment(btnAlgoSlam, 0, SWT.BOTTOM);
+		fd_table_2.right = new FormAttachment(composite, 142, SWT.RIGHT);
+		fd_table_2.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
+		fd_table_2.top = new FormAttachment(lblMercredi, 36);
 		fd_table_2.left = new FormAttachment(composite, 6);
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
