@@ -21,6 +21,8 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.widgets.TabItem;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
 
 public class test 
 {
@@ -28,6 +30,7 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
+	private Table table;
 
 
 	public static void main(String[] args) {
@@ -56,95 +59,192 @@ public class test
 		shell = new Shell();
 		shell.setSize(912, 511);
 		shell.setText("SWT Application");
+		shell.setLayout(new org.eclipse.swt.layout.FormLayout());
 		
 		DateTime dateTime = new DateTime(shell, SWT.BORDER);
-		dateTime.setBounds(713, 23, 125, 33);
+		org.eclipse.swt.layout.FormData fd_dateTime = new org.eclipse.swt.layout.FormData();
+		fd_dateTime.top = new org.eclipse.swt.layout.FormAttachment(0, 23);
+		fd_dateTime.left = new org.eclipse.swt.layout.FormAttachment(0, 713);
+		dateTime.setLayoutData(fd_dateTime);
 		
 		Button btnNewButton = new Button(shell, SWT.NONE);
+		org.eclipse.swt.layout.FormData fd_btnNewButton = new org.eclipse.swt.layout.FormData();
+		fd_btnNewButton.right = new org.eclipse.swt.layout.FormAttachment(0, 115);
+		fd_btnNewButton.top = new org.eclipse.swt.layout.FormAttachment(0, 216);
+		fd_btnNewButton.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(10, 216, 105, 35);
 		btnNewButton.setText("BTS SLAM 1");
 		
 		btnBtsSlam = new Button(shell, SWT.NONE);
-		btnBtsSlam.setBounds(10, 264, 105, 35);
+		org.eclipse.swt.layout.FormData fd_btnBtsSlam = new org.eclipse.swt.layout.FormData();
+		fd_btnBtsSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 115);
+		fd_btnBtsSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 264);
+		fd_btnBtsSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		btnBtsSlam.setLayoutData(fd_btnBtsSlam);
 		btnBtsSlam.setText("BTS SLAM 2");
 		
 		btnTerminaleStid = new Button(shell, SWT.NONE);
-		btnTerminaleStid.setBounds(10, 305, 131, 35);
+		org.eclipse.swt.layout.FormData fd_btnTerminaleStid = new org.eclipse.swt.layout.FormData();
+		fd_btnTerminaleStid.right = new org.eclipse.swt.layout.FormAttachment(0, 141);
+		fd_btnTerminaleStid.top = new org.eclipse.swt.layout.FormAttachment(0, 305);
+		fd_btnTerminaleStid.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		btnTerminaleStid.setLayoutData(fd_btnTerminaleStid);
 		btnTerminaleStid.setText("Terminale STI2D");
 		
 		Label lblBonjourBernard = new Label(shell, SWT.NONE);
-		lblBonjourBernard.setBounds(380, 13, 131, 25);
+		org.eclipse.swt.layout.FormData fd_lblBonjourBernard = new org.eclipse.swt.layout.FormData();
+		fd_lblBonjourBernard.right = new org.eclipse.swt.layout.FormAttachment(0, 511);
+		fd_lblBonjourBernard.top = new org.eclipse.swt.layout.FormAttachment(0, 13);
+		fd_lblBonjourBernard.left = new org.eclipse.swt.layout.FormAttachment(0, 380);
+		lblBonjourBernard.setLayoutData(fd_lblBonjourBernard);
 		lblBonjourBernard.setText("Bonjour Bernard");
 		
 		Label lblPlanning = new Label(shell, SWT.NONE);
-		lblPlanning.setBounds(10, 13, 81, 25);
+		org.eclipse.swt.layout.FormData fd_lblPlanning = new org.eclipse.swt.layout.FormData();
+		fd_lblPlanning.right = new org.eclipse.swt.layout.FormAttachment(0, 91);
+		fd_lblPlanning.top = new org.eclipse.swt.layout.FormAttachment(0, 13);
+		fd_lblPlanning.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		lblPlanning.setLayoutData(fd_lblPlanning);
 		lblPlanning.setText("Planning");
 		
 		Label lblVosClasses = new Label(shell, SWT.NONE);
-		lblVosClasses.setBounds(10, 124, 105, 25);
+		org.eclipse.swt.layout.FormData fd_lblVosClasses = new org.eclipse.swt.layout.FormData();
+		fd_lblVosClasses.right = new org.eclipse.swt.layout.FormAttachment(0, 115);
+		fd_lblVosClasses.top = new org.eclipse.swt.layout.FormAttachment(0, 124);
+		fd_lblVosClasses.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		lblVosClasses.setLayoutData(fd_lblVosClasses);
 		lblVosClasses.setText("Vos Classes:");
 		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
+		org.eclipse.swt.layout.FormData fd_btnAlgoSlam = new org.eclipse.swt.layout.FormData();
+		fd_btnAlgoSlam.bottom = new org.eclipse.swt.layout.FormAttachment(0, 184);
+		fd_btnAlgoSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 838);
+		fd_btnAlgoSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 120);
+		fd_btnAlgoSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 726);
+		btnAlgoSlam.setLayoutData(fd_btnAlgoSlam);
 		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		btnAlgoSlam.setText("Algo SLAM 2");
-		btnAlgoSlam.setBounds(726, 120, 112, 64);
 		
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
+		org.eclipse.swt.layout.FormData fd_btnNewButton_1 = new org.eclipse.swt.layout.FormData();
+		fd_btnNewButton_1.bottom = new org.eclipse.swt.layout.FormAttachment(0, 429);
+		fd_btnNewButton_1.right = new org.eclipse.swt.layout.FormAttachment(0, 867);
+		fd_btnNewButton_1.top = new org.eclipse.swt.layout.FormAttachment(0, 334);
+		fd_btnNewButton_1.left = new org.eclipse.swt.layout.FormAttachment(0, 731);
+		btnNewButton_1.setLayoutData(fd_btnNewButton_1);
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(731, 334, 136, 95);
 		btnNewButton_1.setText("Enseignement");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
-		lblMardi.setBounds(287, 13, 81, 25);
+		org.eclipse.swt.layout.FormData fd_lblMardi = new org.eclipse.swt.layout.FormData();
+		fd_lblMardi.right = new org.eclipse.swt.layout.FormAttachment(0, 368);
+		fd_lblMardi.top = new org.eclipse.swt.layout.FormAttachment(0, 13);
+		fd_lblMardi.left = new org.eclipse.swt.layout.FormAttachment(0, 287);
+		lblMardi.setLayoutData(fd_lblMardi);
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
-		lblMercredi.setBounds(411, 44, 81, 25);
+		org.eclipse.swt.layout.FormData fd_lblMercredi = new org.eclipse.swt.layout.FormData();
+		fd_lblMercredi.right = new org.eclipse.swt.layout.FormAttachment(0, 492);
+		fd_lblMercredi.top = new org.eclipse.swt.layout.FormAttachment(0, 44);
+		fd_lblMercredi.left = new org.eclipse.swt.layout.FormAttachment(0, 411);
+		lblMercredi.setLayoutData(fd_lblMercredi);
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
-		lblJeudi.setBounds(559, 93, 81, 25);
+		org.eclipse.swt.layout.FormData fd_lblJeudi = new org.eclipse.swt.layout.FormData();
+		fd_lblJeudi.right = new org.eclipse.swt.layout.FormAttachment(0, 640);
+		fd_lblJeudi.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
+		fd_lblJeudi.left = new org.eclipse.swt.layout.FormAttachment(0, 559);
+		lblJeudi.setLayoutData(fd_lblJeudi);
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
-		lblVendredi.setBounds(685, 93, 81, 25);
+		org.eclipse.swt.layout.FormData fd_lblVendredi = new org.eclipse.swt.layout.FormData();
+		fd_lblVendredi.right = new org.eclipse.swt.layout.FormAttachment(0, 766);
+		fd_lblVendredi.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
+		fd_lblVendredi.left = new org.eclipse.swt.layout.FormAttachment(0, 685);
+		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("Vendredi");
 		
 		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label.setBounds(267, 93, 2, 309);
+		org.eclipse.swt.layout.FormData fd_label = new org.eclipse.swt.layout.FormData();
+		fd_label.bottom = new FormAttachment(100, -41);
+		fd_label.top = new FormAttachment(0, 105);
+		label.setLayoutData(fd_label);
 		
 		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label_2.setBounds(513, 93, 9, 309);
+		org.eclipse.swt.layout.FormData fd_label_2 = new org.eclipse.swt.layout.FormData();
+		fd_label_2.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
+		fd_label_2.right = new org.eclipse.swt.layout.FormAttachment(0, 522);
+		fd_label_2.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
+		fd_label_2.left = new org.eclipse.swt.layout.FormAttachment(0, 513);
+		label_2.setLayoutData(fd_label_2);
 		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label_3.setBounds(723, 82, -9, 320);
+		org.eclipse.swt.layout.FormData fd_label_3 = new org.eclipse.swt.layout.FormData();
+		fd_label_3.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
+		fd_label_3.right = new org.eclipse.swt.layout.FormAttachment(0, 723);
+		fd_label_3.top = new org.eclipse.swt.layout.FormAttachment(0, 82);
+		fd_label_3.left = new org.eclipse.swt.layout.FormAttachment(0, 723);
+		label_3.setLayoutData(fd_label_3);
 		
 		Label label_4 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label_4.setBounds(660, 93, 2, 309);
+		org.eclipse.swt.layout.FormData fd_label_4 = new org.eclipse.swt.layout.FormData();
+		fd_label_4.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
+		fd_label_4.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
+		fd_label_4.left = new org.eclipse.swt.layout.FormAttachment(0, 660);
+		label_4.setLayoutData(fd_label_4);
 		
 		Button btnNewButton_2 = new Button(shell, SWT.NONE);
+		org.eclipse.swt.layout.FormData fd_btnNewButton_2 = new org.eclipse.swt.layout.FormData();
+		fd_btnNewButton_2.bottom = new org.eclipse.swt.layout.FormAttachment(0, 211);
+		fd_btnNewButton_2.right = new org.eclipse.swt.layout.FormAttachment(0, 766);
+		fd_btnNewButton_2.top = new org.eclipse.swt.layout.FormAttachment(0, 131);
+		fd_btnNewButton_2.left = new org.eclipse.swt.layout.FormAttachment(0, 661);
+		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
 		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(661, 131, 105, 80);
 		btnNewButton_2.setText("PPE SLAM2");
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
-		btnInformatiqueSlam.setBounds(158, 155, 109, 85);
+		org.eclipse.swt.layout.FormData fd_btnInformatiqueSlam = new org.eclipse.swt.layout.FormData();
+		fd_btnInformatiqueSlam.bottom = new org.eclipse.swt.layout.FormAttachment(0, 365);
+		fd_btnInformatiqueSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 637);
+		fd_btnInformatiqueSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 280);
+		fd_btnInformatiqueSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 528);
+		btnInformatiqueSlam.setLayoutData(fd_btnInformatiqueSlam);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
+		
+		Composite composite = new Composite(shell, SWT.NONE);
+		fd_label.left = new FormAttachment(0, 344);
+		composite.setBounds(167, 153, 64, 64);
+		composite.setLayout(new TableColumnLayout());
+		org.eclipse.swt.layout.FormData fd_composite = new org.eclipse.swt.layout.FormData();
+		fd_composite.top = new FormAttachment(lblVosClasses, 0, SWT.TOP);
+		fd_composite.right = new FormAttachment(label, -6);
+		fd_composite.bottom = new FormAttachment(btnNewButton_2, 222, SWT.BOTTOM);
+		fd_composite.left = new FormAttachment(btnTerminaleStid, 62);
+		composite.setLayoutData(fd_composite);
+		
+		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setLayoutData(new FormData());
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
 
 	}
 }
