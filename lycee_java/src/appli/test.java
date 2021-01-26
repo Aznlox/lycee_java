@@ -146,22 +146,6 @@ public class test
 		});
 		btnNewButton_1.setText("Enseignement");
 		
-		Label lblMercredi = new Label(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_lblMercredi = new org.eclipse.swt.layout.FormData();
-		fd_lblMercredi.right = new org.eclipse.swt.layout.FormAttachment(0, 492);
-		fd_lblMercredi.top = new org.eclipse.swt.layout.FormAttachment(0, 44);
-		fd_lblMercredi.left = new org.eclipse.swt.layout.FormAttachment(0, 411);
-		lblMercredi.setLayoutData(fd_lblMercredi);
-		lblMercredi.setText("Mercredi");
-		
-		Label lblVendredi = new Label(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_lblVendredi = new org.eclipse.swt.layout.FormData();
-		fd_lblVendredi.right = new org.eclipse.swt.layout.FormAttachment(0, 766);
-		fd_lblVendredi.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
-		fd_lblVendredi.left = new org.eclipse.swt.layout.FormAttachment(0, 685);
-		lblVendredi.setLayoutData(fd_lblVendredi);
-		lblVendredi.setText("Vendredi");
-		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		org.eclipse.swt.layout.FormData fd_label_3 = new org.eclipse.swt.layout.FormData();
 		fd_label_3.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
@@ -210,9 +194,9 @@ public class test
 		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_2 = new FormData();
+		fd_table_2.top = new FormAttachment(lblBonjourBernard, 67);
+		fd_table_2.bottom = new FormAttachment(100, -41);
 		fd_table_2.right = new FormAttachment(composite, 142, SWT.RIGHT);
-		fd_table_2.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
-		fd_table_2.top = new FormAttachment(lblMercredi, 36);
 		fd_table_2.left = new FormAttachment(composite, 6);
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
