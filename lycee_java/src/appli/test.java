@@ -89,7 +89,7 @@ public class test
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		btnInformatiqueSlam.setBounds(267, 281, 115, 83);
+		btnInformatiqueSlam.setBounds(10, 44, 115, 83);
 		btnInformatiqueSlam.setText("PPE SLAM1");
 		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
@@ -107,7 +107,7 @@ public class test
 		btnNewButton_1.setText("Enseignement");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
-		lblLundi.setBounds(187, 93, 81, 25);
+		lblLundi.setBounds(179, 23, 81, 25);
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
