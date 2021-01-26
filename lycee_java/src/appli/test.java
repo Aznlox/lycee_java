@@ -124,20 +124,18 @@ public class test
 		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnAlgoSlam = new org.eclipse.swt.layout.FormData();
-		fd_btnAlgoSlam.bottom = new org.eclipse.swt.layout.FormAttachment(0, 184);
-		fd_btnAlgoSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 838);
-		fd_btnAlgoSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 120);
-		fd_btnAlgoSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 726);
+		fd_btnAlgoSlam.left = new FormAttachment(lblPlanning, 22);
+		fd_btnAlgoSlam.right = new FormAttachment(0, 225);
+		fd_btnAlgoSlam.top = new FormAttachment(0, 35);
 		btnAlgoSlam.setLayoutData(fd_btnAlgoSlam);
 		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		btnAlgoSlam.setText("Algo SLAM 2");
 		
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnNewButton_1 = new org.eclipse.swt.layout.FormData();
-		fd_btnNewButton_1.bottom = new org.eclipse.swt.layout.FormAttachment(0, 429);
-		fd_btnNewButton_1.right = new org.eclipse.swt.layout.FormAttachment(0, 867);
-		fd_btnNewButton_1.top = new org.eclipse.swt.layout.FormAttachment(0, 334);
-		fd_btnNewButton_1.left = new org.eclipse.swt.layout.FormAttachment(0, 731);
+		fd_btnNewButton_1.left = new FormAttachment(lblBonjourBernard, 6);
+		fd_btnNewButton_1.bottom = new FormAttachment(0, 101);
+		fd_btnNewButton_1.right = new FormAttachment(0, 653);
 		btnNewButton_1.setLayoutData(fd_btnNewButton_1);
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -155,11 +153,12 @@ public class test
 		label_3.setLayoutData(fd_label_3);
 		
 		Button btnNewButton_2 = new Button(shell, SWT.NONE);
+		fd_btnNewButton_1.top = new FormAttachment(btnNewButton_2, -7, SWT.TOP);
 		org.eclipse.swt.layout.FormData fd_btnNewButton_2 = new org.eclipse.swt.layout.FormData();
-		fd_btnNewButton_2.top = new FormAttachment(btnNewButton, 0, SWT.TOP);
-		fd_btnNewButton_2.right = new FormAttachment(dateTime, 0, SWT.RIGHT);
-		fd_btnNewButton_2.bottom = new FormAttachment(0, 296);
-		fd_btnNewButton_2.left = new FormAttachment(0, 733);
+		fd_btnNewButton_2.top = new FormAttachment(lblBonjourBernard, 0, SWT.TOP);
+		fd_btnNewButton_2.right = new FormAttachment(lblBonjourBernard, -17);
+		fd_btnNewButton_2.bottom = new FormAttachment(0, 93);
+		fd_btnNewButton_2.left = new FormAttachment(0, 258);
 		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
 		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
@@ -180,6 +179,7 @@ public class test
 		btnInformatiqueSlam.setText("PPE SLAM1");
 		
 		Composite composite = new Composite(shell, SWT.NONE);
+		fd_btnAlgoSlam.bottom = new FormAttachment(composite, -6);
 		composite.setLayout(new TableColumnLayout());
 		FormData fd_composite = new FormData();
 		fd_composite.top = new FormAttachment(0, 105);
