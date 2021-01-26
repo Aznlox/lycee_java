@@ -123,7 +123,7 @@ public class test
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
-		lblVendredi.setBounds(744, 82, 81, 25);
+		lblVendredi.setBounds(685, 93, 81, 25);
 		lblVendredi.setText("Vendredi");
 		
 		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
@@ -137,6 +137,9 @@ public class test
 		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label_3.setBounds(723, 82, -9, 320);
+		
+		Label label_4 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label_4.setBounds(660, 93, 2, 309);
 
 	}
 }
