@@ -233,33 +233,29 @@ public class test
 		
 		Label lblh = new Label(shell, SWT.NONE);
 		FormData fd_lblh = new FormData();
-		fd_lblh.top = new FormAttachment(btnAlgoSlam, 52);
-		fd_lblh.right = new FormAttachment(table, -8);
+		fd_lblh.right = new FormAttachment(table, -6);
 		lblh.setLayoutData(fd_lblh);
 		lblh.setText("8h");
 		
 		Label lblh_1 = new Label(shell, SWT.NONE);
+		fd_lblh.bottom = new FormAttachment(lblh_1, -8);
 		FormData fd_lblh_1 = new FormData();
-		fd_lblh_1.top = new FormAttachment(lblh, 6);
 		fd_lblh_1.right = new FormAttachment(table, -6);
 		lblh_1.setLayoutData(fd_lblh_1);
 		lblh_1.setText("9h");
 		
 		Label lblh_2 = new Label(shell, SWT.NONE);
+		fd_lblh_1.bottom = new FormAttachment(lblh_2, -6);
 		FormData fd_lblh_2 = new FormData();
 		fd_lblh_2.top = new FormAttachment(btnNewButton, 0, SWT.TOP);
-		fd_lblh_2.right = new FormAttachment(table, -11);
+		fd_lblh_2.right = new FormAttachment(table, -6);
 		lblh_2.setLayoutData(fd_lblh_2);
 		lblh_2.setText("10h");
 		
-		Label lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setLayoutData(new FormData());
-		lblNewLabel.setText("New Label");
-		
 		Label lblh_3 = new Label(shell, SWT.NONE);
 		FormData fd_lblh_3 = new FormData();
-		fd_lblh_3.top = new FormAttachment(lblh_1, 34);
-		fd_lblh_3.right = new FormAttachment(table, -1);
+		fd_lblh_3.top = new FormAttachment(lblh_2, 6);
+		fd_lblh_3.right = new FormAttachment(table, -6);
 		lblh_3.setLayoutData(fd_lblh_3);
 		lblh_3.setText("11h");
 
