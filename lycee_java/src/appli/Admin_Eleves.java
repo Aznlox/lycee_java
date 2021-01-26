@@ -54,15 +54,35 @@ public class Admin_Eleves {
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(370, 57, 207, 243);
 		
-		Label lblLoicGuo = new Label(composite, SWT.NONE);
-		lblLoicGuo.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		lblLoicGuo.setBounds(70, 80, 75, 20);
-		lblLoicGuo.setText("LOIC GUO");
+		Label libelleEleve = new Label(composite, SWT.NONE);
+		libelleEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
+		libelleEleve.setBounds(74, 52, 75, 20);
+		libelleEleve.setText("LOIC GUO");
 		
-		Label lblSlam = new Label(composite, SWT.NONE);
-		lblSlam.setText("SLAM 2");
-		lblSlam.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		lblSlam.setBounds(80, 106, 65, 20);
+		Label libelleClasse = new Label(composite, SWT.NONE);
+		libelleClasse.setText("SLAM 2");
+		libelleClasse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
+		libelleClasse.setBounds(84, 78, 65, 20);
+		
+		Label AbsenceEleve = new Label(composite, SWT.NONE);
+		AbsenceEleve.setText("1");
+		AbsenceEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		AbsenceEleve.setBounds(104, 108, 65, 20);
+		
+		Label RetardEleve = new Label(composite, SWT.NONE);
+		RetardEleve.setText("178");
+		RetardEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		RetardEleve.setBounds(104, 134, 65, 20);
+		
+		Label Absences = new Label(composite, SWT.NONE);
+		Absences.setText("Absences");
+		Absences.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
+		Absences.setBounds(33, 108, 65, 20);
+		
+		Label Retards = new Label(composite, SWT.NONE);
+		Retards.setText("Retards");
+		Retards.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
+		Retards.setBounds(33, 134, 65, 20);
 
 	}
 }

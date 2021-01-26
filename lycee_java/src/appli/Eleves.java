@@ -75,18 +75,14 @@ public class Eleves {
 		Classe.setBounds(10, 59, 40, 16);
 		Classe.setText("Classe :");
 		
-		Label sexe = new Label(shell, SWT.NONE);
-		sexe.setBounds(285, 10, 56, 16);
-		sexe.setText("Monsieur");
-		
 		Label lblBonjour_1 = new Label(shell, SWT.NONE);
 		lblBonjour_1.setText("Bonjour ");
-		lblBonjour_1.setBounds(238, 10, 46, 16);
+		lblBonjour_1.setBounds(271, 10, 46, 16);
 		
 		Label nomProfesseur = new Label(shell, SWT.NONE);
 		nomProfesseur.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		nomProfesseur.setText("Bernard");
-		nomProfesseur.setBounds(341, 10, 56, 16);
+		nomProfesseur.setBounds(317, 10, 56, 16);
 		
 		Label libelleClasse = new Label(shell, SWT.NONE);
 		libelleClasse.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
