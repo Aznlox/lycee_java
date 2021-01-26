@@ -258,6 +258,41 @@ public class test
 		fd_lblh_3.right = new FormAttachment(table, -6);
 		lblh_3.setLayoutData(fd_lblh_3);
 		lblh_3.setText("11h");
+		
+		Label lblh_4 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_4 = new FormData();
+		fd_lblh_4.bottom = new FormAttachment(btnBtsSlam, 0, SWT.BOTTOM);
+		fd_lblh_4.right = new FormAttachment(table, -7);
+		lblh_4.setLayoutData(fd_lblh_4);
+		lblh_4.setText("12h");
+		
+		Label lblh_5 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_5 = new FormData();
+		fd_lblh_5.top = new FormAttachment(lblh_4, 25);
+		fd_lblh_5.right = new FormAttachment(table, -2);
+		lblh_5.setLayoutData(fd_lblh_5);
+		lblh_5.setText("14h");
+		
+		Label lblh_6 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_6 = new FormData();
+		fd_lblh_6.top = new FormAttachment(lblh_5, 6);
+		fd_lblh_6.right = new FormAttachment(lblh_5, 0, SWT.RIGHT);
+		lblh_6.setLayoutData(fd_lblh_6);
+		lblh_6.setText("15h");
+		
+		Label lblh_7 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_7 = new FormData();
+		fd_lblh_7.top = new FormAttachment(lblh_6, 6);
+		fd_lblh_7.right = new FormAttachment(table, -6);
+		lblh_7.setLayoutData(fd_lblh_7);
+		lblh_7.setText("16h");
+		
+		Label lblh_8 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_8 = new FormData();
+		fd_lblh_8.top = new FormAttachment(lblh_7, 6);
+		fd_lblh_8.right = new FormAttachment(table, -6);
+		lblh_8.setLayoutData(fd_lblh_8);
+		lblh_8.setText("17h");
 
 	}
 }
