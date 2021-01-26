@@ -30,6 +30,7 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
+	private Table table;
 
 
 	public static void main(String[] args) {
@@ -229,6 +230,19 @@ public class test
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
 		fd_label.left = new FormAttachment(0, 344);
+		
+		Composite composite = new Composite(shell, SWT.NONE);
+		composite.setLayout(new TableColumnLayout());
+		FormData fd_composite = new FormData();
+		fd_composite.top = new FormAttachment(label, 0, SWT.TOP);
+		fd_composite.right = new FormAttachment(label, -73);
+		fd_composite.bottom = new FormAttachment(label, 0, SWT.BOTTOM);
+		fd_composite.left = new FormAttachment(label, -140, SWT.LEFT);
+		composite.setLayoutData(fd_composite);
+		
+		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
 
 	}
 }
