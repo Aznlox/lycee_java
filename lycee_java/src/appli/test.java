@@ -283,7 +283,7 @@ public class test
 		fd_lblVendredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
 		fd_lblVendredi.left = new FormAttachment(lblJeudi, 77);
 		lblVendredi.setLayoutData(fd_lblVendredi);
-		lblVendredi.setText("vendredi");
+		lblVendredi.setText("Vendredi");
 		
 		CBanner banner = new CBanner(shell, SWT.NONE);
 		FormData fd_banner = new FormData();
