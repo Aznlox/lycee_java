@@ -23,6 +23,9 @@ public class Eleves {
 
 	protected Shell shell;
 	private Table table;
+	private Table table_1;
+	private Table table_2;
+	private Table table_3;
 
 	/**
 	 * Launch the application.
@@ -108,41 +111,6 @@ public class Eleves {
 		idPlanning.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		idPlanning.setBounds(66, 101, 91, 16);
 		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(169, 56, 408, 237);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		
-		TableColumn libelleEleves = new TableColumn(table, SWT.CENTER);
-		libelleEleves.setWidth(100);
-		libelleEleves.setText("El\u00E8ves");
-		
-		TableColumn libelleAbsence = new TableColumn(table, SWT.CENTER);
-		libelleAbsence.setWidth(100);
-		libelleAbsence.setText("Absence");
-		
-		TableColumn libelleRetard = new TableColumn(table, SWT.CENTER);
-		libelleRetard.setWidth(100);
-		libelleRetard.setText("Retard");
-		
-		TableColumn libelleSanction = new TableColumn(table, SWT.CENTER);
-		libelleSanction.setWidth(100);
-		libelleSanction.setText("Sanction");
-		
-		TableCursor tableCursor = new TableCursor(table, SWT.NONE);
-		
-		TableItem idAbsence1 = new TableItem(table, SWT.NONE);
-		idAbsence1.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		idAbsence1.setText(new String[] {"LIGNANI Quentin", "X"});
-		
-		TableItem idAbsence2 = new TableItem(table, 0);
-		idAbsence2.setText(new String[] {"GUIO Lo\u00EFc", "", "X"});
-		idAbsence2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		
-		TableItem idAbsence3 = new TableItem(table, 0);
-		idAbsence3.setText(new String[] {"NAKHIL Amine", "", "", "X"});
-		idAbsence3.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
-		
 		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence.setBounds(23, 180, 116, 21);
 		btnAjouterUneAbsence.setText("Ajouter un retard");
@@ -154,6 +122,51 @@ public class Eleves {
 		Button btnAjouterUneSanction = new Button(shell, SWT.NONE);
 		btnAjouterUneSanction.setText("Ajouter une sanction");
 		btnAjouterUneSanction.setBounds(23, 213, 116, 21);
+		
+		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(173, 59, 103, 225);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		
+		TableColumn eleve = new TableColumn(table, SWT.NONE);
+		eleve.setWidth(100);
+		eleve.setText("Eleve");
+		
+		TableItem idEleve = new TableItem(table, SWT.NONE);
+		idEleve.setText("Quentin Lignani");
+		
+		TableItem idEleve2 = new TableItem(table, SWT.NONE);
+		idEleve2.setText("Loic GUO");
+		
+		TableItem idEleve3 = new TableItem(table, SWT.NONE);
+		idEleve3.setText("Amine Nakhil");
+		
+		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_1.setLinesVisible(true);
+		table_1.setHeaderVisible(true);
+		table_1.setBounds(390, 59, 103, 225);
+		
+		TableColumn Retard = new TableColumn(table_1, SWT.NONE);
+		Retard.setWidth(100);
+		Retard.setText("Retard");
+		
+		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_2.setLinesVisible(true);
+		table_2.setHeaderVisible(true);
+		table_2.setBounds(285, 59, 103, 225);
+		
+		TableColumn Absence = new TableColumn(table_2, SWT.NONE);
+		Absence.setWidth(100);
+		Absence.setText("Absence");
+		
+		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_3.setLinesVisible(true);
+		table_3.setHeaderVisible(true);
+		table_3.setBounds(495, 59, 103, 225);
+		
+		TableColumn Sanction = new TableColumn(table_3, SWT.NONE);
+		Sanction.setWidth(100);
+		Sanction.setText("Sanction");
 
 	}
 }
