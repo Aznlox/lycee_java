@@ -30,7 +30,6 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
-	private Table table;
 
 
 	public static void main(String[] args) {
@@ -240,11 +239,6 @@ public class test
 		fd_composite.bottom = new FormAttachment(btnNewButton_2, 222, SWT.BOTTOM);
 		fd_composite.left = new FormAttachment(btnTerminaleStid, 62);
 		composite.setLayoutData(fd_composite);
-		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setLayoutData(new FormData());
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
 
 	}
 }
