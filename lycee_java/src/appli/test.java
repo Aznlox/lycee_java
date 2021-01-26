@@ -103,7 +103,12 @@ public class test
 		btnAlgoSlam.setBounds(157, 187, 112, 64);
 		
 		Button btnNewButton_1 = new Button(shell, SWT.NONE);
-		btnNewButton_1.setBounds(426, 182, 160, 64);
+		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(380, 124, 136, 95);
 		btnNewButton_1.setText("Enseignement sp\u00E9");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
