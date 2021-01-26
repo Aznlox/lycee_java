@@ -25,6 +25,7 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
+	private Table table;
 
 
 	public static void main(String[] args) {
@@ -106,7 +107,7 @@ public class test
 		btnNewButton_1.setText("Enseignement");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
-		lblLundi.setBounds(206, 93, 81, 25);
+		lblLundi.setBounds(187, 93, 81, 25);
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
@@ -151,8 +152,13 @@ public class test
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(661, 139, 105, 80);
+		btnNewButton_2.setBounds(661, 131, 105, 80);
 		btnNewButton_2.setText("PPE SLAM2");
+		
+		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(158, 93, 112, 309);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
 
 	}
 }
