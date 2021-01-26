@@ -228,17 +228,7 @@ public class test
 		btnInformatiqueSlam.setLayoutData(fd_btnInformatiqueSlam);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
-		
-		Composite composite = new Composite(shell, SWT.NONE);
 		fd_label.left = new FormAttachment(0, 344);
-		composite.setBounds(167, 153, 64, 64);
-		composite.setLayout(new TableColumnLayout());
-		org.eclipse.swt.layout.FormData fd_composite = new org.eclipse.swt.layout.FormData();
-		fd_composite.top = new FormAttachment(lblVosClasses, 0, SWT.TOP);
-		fd_composite.right = new FormAttachment(label, -6);
-		fd_composite.bottom = new FormAttachment(btnNewButton_2, 222, SWT.BOTTOM);
-		fd_composite.left = new FormAttachment(btnTerminaleStid, 62);
-		composite.setLayoutData(fd_composite);
 
 	}
 }
