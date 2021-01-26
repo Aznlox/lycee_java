@@ -30,7 +30,6 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
-	private Table table;
 	private Table table_2;
 	private Table table_1;
 	private Table table_3;
@@ -125,9 +124,10 @@ public class test
 		
 		Button btnAlgoSlam = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnAlgoSlam = new org.eclipse.swt.layout.FormData();
+		fd_btnAlgoSlam.top = new FormAttachment(0, 35);
+		fd_btnAlgoSlam.bottom = new FormAttachment(lblVosClasses, -25);
 		fd_btnAlgoSlam.left = new FormAttachment(lblPlanning, 22);
 		fd_btnAlgoSlam.right = new FormAttachment(0, 225);
-		fd_btnAlgoSlam.top = new FormAttachment(0, 35);
 		btnAlgoSlam.setLayoutData(fd_btnAlgoSlam);
 		btnAlgoSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_FOREGROUND));
 		btnAlgoSlam.setText("Algo SLAM 2");
@@ -179,46 +179,32 @@ public class test
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
 		
-		Composite composite = new Composite(shell, SWT.NONE);
-		fd_btnAlgoSlam.bottom = new FormAttachment(composite, -6);
-		composite.setLayout(new TableColumnLayout());
-		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(0, 105);
-		fd_composite.bottom = new FormAttachment(100, -41);
-		fd_composite.right = new FormAttachment(100, -552);
-		fd_composite.left = new FormAttachment(btnTerminaleStid, 63);
-		composite.setLayoutData(fd_composite);
-		
-		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_2 = new FormData();
+		fd_table_2.left = new FormAttachment(btnTerminaleStid, 270);
 		fd_table_2.top = new FormAttachment(lblBonjourBernard, 67);
 		fd_table_2.bottom = new FormAttachment(100, -41);
-		fd_table_2.right = new FormAttachment(composite, 142, SWT.RIGHT);
-		fd_table_2.left = new FormAttachment(composite, 6);
 		table_2.setLayoutData(fd_table_2);
 		table_2.setHeaderVisible(true);
 		table_2.setLinesVisible(true);
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_table_2.right = new FormAttachment(100, -410);
 		FormData fd_table_1 = new FormData();
+		fd_table_1.bottom = new FormAttachment(100, -41);
+		fd_table_1.top = new FormAttachment(btnNewButton_1, 4);
 		fd_table_1.right = new FormAttachment(table_2, 142, SWT.RIGHT);
-		fd_table_1.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
-		fd_table_1.top = new FormAttachment(composite, 0, SWT.TOP);
-		fd_table_1.left = new FormAttachment(table_2, 6);
+		fd_table_1.left = new FormAttachment(0, 553);
 		table_1.setLayoutData(fd_table_1);
 		table_1.setHeaderVisible(true);
 		table_1.setLinesVisible(true);
 		
 		table_3 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_3 = new FormData();
+		fd_table_3.top = new FormAttachment(dateTime, 62);
+		fd_table_3.bottom = new FormAttachment(100, -41);
 		fd_table_3.left = new FormAttachment(table_1, 23);
 		fd_table_3.right = new FormAttachment(dateTime, 0, SWT.RIGHT);
-		fd_table_3.top = new FormAttachment(composite, 0, SWT.TOP);
-		fd_table_3.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
 		table_3.setLayoutData(fd_table_3);
 		table_3.setHeaderVisible(true);
 		table_3.setLinesVisible(true);
