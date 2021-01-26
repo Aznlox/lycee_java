@@ -143,6 +143,16 @@ public class test
 		Label lblSp = new Label(shell, SWT.NONE);
 		lblSp.setBounds(415, 187, 81, 25);
 		lblSp.setText("sp\u00E9");
+		
+		Button btnNewButton_2 = new Button(shell, SWT.NONE);
+		btnNewButton_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
+		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnNewButton_2.setBounds(661, 139, 105, 80);
+		btnNewButton_2.setText("PPE SLAM2");
 
 	}
 }
