@@ -28,7 +28,6 @@ public class test
 	protected Shell shell;
 	private Button btnBtsSlam;
 	private Button btnTerminaleStid;
-	private Table table;
 
 
 	public static void main(String[] args) {
@@ -146,11 +145,6 @@ public class test
 		btnInformatiqueSlam.setBounds(158, 155, 109, 85);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
-		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(195, 159, 180, 260);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
 
 	}
 }
