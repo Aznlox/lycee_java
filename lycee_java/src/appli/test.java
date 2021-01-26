@@ -23,6 +23,7 @@ import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.custom.CBanner;
 
 public class test 
 {
@@ -107,14 +108,6 @@ public class test
 		fd_lblBonjourBernard.left = new org.eclipse.swt.layout.FormAttachment(0, 380);
 		lblBonjourBernard.setLayoutData(fd_lblBonjourBernard);
 		lblBonjourBernard.setText("Bonjour Bernard");
-		
-		Label lblPlanning = new Label(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_lblPlanning = new org.eclipse.swt.layout.FormData();
-		fd_lblPlanning.right = new org.eclipse.swt.layout.FormAttachment(0, 91);
-		fd_lblPlanning.top = new org.eclipse.swt.layout.FormAttachment(0, 13);
-		fd_lblPlanning.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
-		lblPlanning.setLayoutData(fd_lblPlanning);
-		lblPlanning.setText("Planning");
 		
 		Label lblVosClasses = new Label(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_lblVosClasses = new org.eclipse.swt.layout.FormData();
@@ -248,6 +241,8 @@ public class test
 		lblLundi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblLundi = new FormData();
 		fd_lblLundi.bottom = new FormAttachment(table, -10);
+		
+		TableCursor tableCursor = new TableCursor(table, SWT.NONE);
 		fd_lblLundi.left = new FormAttachment(0, 297);
 		lblLundi.setLayoutData(fd_lblLundi);
 		lblLundi.setText("Lundi");
@@ -289,6 +284,15 @@ public class test
 		fd_lblVendredi.left = new FormAttachment(lblJeudi, 77);
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("vendredi");
+		
+		CBanner banner = new CBanner(shell, SWT.NONE);
+		FormData fd_banner = new FormData();
+		fd_banner.bottom = new FormAttachment(100);
+		fd_banner.right = new FormAttachment(table_2);
+		banner.setLayoutData(fd_banner);
+		
+		Label label = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL);
+		label.setLayoutData(new FormData());
 
 	}
 }
