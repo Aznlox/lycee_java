@@ -177,14 +177,6 @@ public class test
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("Vendredi");
 		
-		Label label_2 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		org.eclipse.swt.layout.FormData fd_label_2 = new org.eclipse.swt.layout.FormData();
-		fd_label_2.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
-		fd_label_2.right = new org.eclipse.swt.layout.FormAttachment(0, 522);
-		fd_label_2.top = new org.eclipse.swt.layout.FormAttachment(0, 93);
-		fd_label_2.left = new org.eclipse.swt.layout.FormAttachment(0, 513);
-		label_2.setLayoutData(fd_label_2);
-		
 		Label label_3 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		org.eclipse.swt.layout.FormData fd_label_3 = new org.eclipse.swt.layout.FormData();
 		fd_label_3.bottom = new org.eclipse.swt.layout.FormAttachment(0, 402);
@@ -217,10 +209,10 @@ public class test
 		
 		Button btnInformatiqueSlam = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnInformatiqueSlam = new org.eclipse.swt.layout.FormData();
-		fd_btnInformatiqueSlam.bottom = new org.eclipse.swt.layout.FormAttachment(0, 365);
-		fd_btnInformatiqueSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 637);
-		fd_btnInformatiqueSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 280);
-		fd_btnInformatiqueSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 528);
+		fd_btnInformatiqueSlam.bottom = new FormAttachment(100, -10);
+		fd_btnInformatiqueSlam.left = new FormAttachment(btnNewButton, 0, SWT.LEFT);
+		fd_btnInformatiqueSlam.right = new FormAttachment(0, 119);
+		fd_btnInformatiqueSlam.top = new FormAttachment(0, 360);
 		btnInformatiqueSlam.setLayoutData(fd_btnInformatiqueSlam);
 		btnInformatiqueSlam.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		btnInformatiqueSlam.setText("PPE SLAM1");
