@@ -33,6 +33,7 @@ public class test
 	private Table table_2;
 	private Table table_3;
 	private Table table;
+	private Table table_1;
 
 
 	public static void main(String[] args) {
@@ -208,6 +209,13 @@ public class test
 		table.setLayoutData(fd_table);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
+		
+		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		FormData fd_table_1 = new FormData();
+		fd_table_1.left = new FormAttachment(table_3);
+		table_1.setLayoutData(fd_table_1);
+		table_1.setHeaderVisible(true);
+		table_1.setLinesVisible(true);
 
 	}
 }
