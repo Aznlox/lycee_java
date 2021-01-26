@@ -253,6 +253,7 @@ public class test
 		lblLundi.setText("Lundi");
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
+		lblMardi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		fd_table_2.top = new FormAttachment(lblMardi, 6);
 		lblMardi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMardi = new FormData();
@@ -262,6 +263,8 @@ public class test
 		lblMardi.setText("Mardi");
 		
 		Label lblMercredi = new Label(shell, SWT.NONE);
+		lblMercredi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblMercredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		fd_table_3.top = new FormAttachment(lblMercredi, 10);
 		FormData fd_lblMercredi = new FormData();
 		fd_lblMercredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
@@ -270,6 +273,8 @@ public class test
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
+		lblJeudi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblJeudi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblJeudi = new FormData();
 		fd_lblJeudi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
 		fd_lblJeudi.left = new FormAttachment(label_3, 18);
@@ -277,9 +282,11 @@ public class test
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
+		lblVendredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
+		lblVendredi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		FormData fd_lblVendredi = new FormData();
 		fd_lblVendredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
-		fd_lblVendredi.left = new FormAttachment(lblJeudi, 88);
+		fd_lblVendredi.left = new FormAttachment(lblJeudi, 77);
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("vendredi");
 
