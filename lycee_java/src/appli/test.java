@@ -212,10 +212,10 @@ public class test
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_1 = new FormData();
-		fd_table_1.bottom = new FormAttachment(btnInformatiqueSlam, -62, SWT.BOTTOM);
-		fd_table_1.top = new FormAttachment(btnAlgoSlam, 39, SWT.TOP);
-		fd_table_1.right = new FormAttachment(table_3, 287, SWT.RIGHT);
-		fd_table_1.left = new FormAttachment(label_3, 1);
+		fd_table_1.right = new FormAttachment(table_3, 155, SWT.RIGHT);
+		fd_table_1.left = new FormAttachment(label_3, -26, SWT.LEFT);
+		fd_table_1.bottom = new FormAttachment(table_2, 343);
+		fd_table_1.top = new FormAttachment(table_2, 0, SWT.TOP);
 		table_1.setLayoutData(fd_table_1);
 		table_1.setHeaderVisible(true);
 		table_1.setLinesVisible(true);
