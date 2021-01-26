@@ -236,10 +236,10 @@ public class test
 		Composite composite_1 = new Composite(shell, SWT.NONE);
 		composite_1.setLayout(new TableColumnLayout());
 		FormData fd_composite_1 = new FormData();
-		fd_composite_1.top = new FormAttachment(100, -121);
-		fd_composite_1.bottom = new FormAttachment(100, -60);
-		fd_composite_1.right = new FormAttachment(table_2, 108, SWT.RIGHT);
-		fd_composite_1.left = new FormAttachment(table_2, 36);
+		fd_composite_1.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
+		fd_composite_1.top = new FormAttachment(lblMercredi, 36);
+		fd_composite_1.right = new FormAttachment(table_2, 78, SWT.RIGHT);
+		fd_composite_1.left = new FormAttachment(table_2, 6);
 		composite_1.setLayoutData(fd_composite_1);
 		
 		table_1 = new Table(composite_1, SWT.BORDER | SWT.FULL_SELECTION);
