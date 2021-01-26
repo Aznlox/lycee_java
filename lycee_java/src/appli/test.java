@@ -146,14 +146,6 @@ public class test
 		});
 		btnNewButton_1.setText("Enseignement");
 		
-		Label lblMardi = new Label(shell, SWT.NONE);
-		org.eclipse.swt.layout.FormData fd_lblMardi = new org.eclipse.swt.layout.FormData();
-		fd_lblMardi.right = new org.eclipse.swt.layout.FormAttachment(0, 368);
-		fd_lblMardi.top = new org.eclipse.swt.layout.FormAttachment(0, 13);
-		fd_lblMardi.left = new org.eclipse.swt.layout.FormAttachment(0, 287);
-		lblMardi.setLayoutData(fd_lblMardi);
-		lblMardi.setText("Mardi");
-		
 		Label lblMercredi = new Label(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_lblMercredi = new org.eclipse.swt.layout.FormData();
 		fd_lblMercredi.right = new org.eclipse.swt.layout.FormAttachment(0, 492);
@@ -206,7 +198,7 @@ public class test
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setLayout(new TableColumnLayout());
 		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(lblMardi, 67);
+		fd_composite.top = new FormAttachment(0, 105);
 		fd_composite.bottom = new FormAttachment(100, -41);
 		fd_composite.right = new FormAttachment(100, -552);
 		fd_composite.left = new FormAttachment(btnTerminaleStid, 63);
@@ -228,9 +220,9 @@ public class test
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_table_1 = new FormData();
+		fd_table_1.right = new FormAttachment(table_2, 142, SWT.RIGHT);
 		fd_table_1.bottom = new FormAttachment(composite, 0, SWT.BOTTOM);
 		fd_table_1.top = new FormAttachment(composite, 0, SWT.TOP);
-		fd_table_1.right = new FormAttachment(table_2, 131, SWT.RIGHT);
 		fd_table_1.left = new FormAttachment(table_2, 6);
 		table_1.setLayoutData(fd_table_1);
 		table_1.setHeaderVisible(true);
