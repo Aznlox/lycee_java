@@ -33,7 +33,6 @@ public class test
 	private Table table_2;
 	private Table table_3;
 	private Table table;
-	private Table table_1;
 
 
 	public static void main(String[] args) {
@@ -209,19 +208,6 @@ public class test
 		table.setLayoutData(fd_table);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		
-		Composite composite = new Composite(shell, SWT.NONE);
-		composite.setLayout(new TableColumnLayout());
-		FormData fd_composite = new FormData();
-		fd_composite.left = new FormAttachment(table_3, 16);
-		fd_composite.bottom = new FormAttachment(table_2, 0, SWT.BOTTOM);
-		fd_composite.right = new FormAttachment(label_3, 43);
-		fd_composite.top = new FormAttachment(0, 190);
-		composite.setLayoutData(fd_composite);
-		
-		table_1 = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION);
-		table_1.setHeaderVisible(true);
-		table_1.setLinesVisible(true);
 
 	}
 }
