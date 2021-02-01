@@ -12,7 +12,8 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 import controller.Controller_connexion;
 
-public class Connexion {
+public class Connexion
+{
 
 	protected Shell shell;
 	private Text libelleIdentifiant;
@@ -22,11 +23,15 @@ public class Connexion {
 	* Launch the application.
 	* @param args
 	*/
-	public static void main(String[] args) {
-		try {
+	public static void main(String[] args)
+
+		try
+		{
 			Connexion window = new Connexion();
 			window.open();
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
@@ -34,13 +39,16 @@ public class Connexion {
 	/**
 	* Open the window.
 	*/
-	public void open() {
+	public void open()
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
@@ -49,7 +57,8 @@ public class Connexion {
 	/**
 	* found contents of the window.
 	*/
-	protected void createContents() {
+	protected void createContents()
+	{
 		shell = new Shell();
 		shell.setSize(494, 331);
 		shell.setText("SWT Application");
