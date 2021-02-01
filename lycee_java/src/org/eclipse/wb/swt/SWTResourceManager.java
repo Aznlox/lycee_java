@@ -1,13 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    Google, Inc. - initial API and implementation
- *******************************************************************************/
+
 package org.eclipse.wb.swt;
 
 import java.io.FileInputStream;
@@ -29,12 +20,7 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * Utility class for managing OS resources associated with SWT controls such as colors, fonts, images, etc.
- * <p>
- * !!! IMPORTANT !!! Application code must explicitly invoke the <code>dispose()</code> method to release the
- * operating system resources managed by cached objects when those objects and OS resources are no longer
- * needed (e.g. on application shutdown)
- * <p>
+ * 
  * This class may be freely distributed as part of any application or plugin.
  * <p>
  * @author scheglov_ke
@@ -49,7 +35,7 @@ public class SWTResourceManager {
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
 	/**
 	 * Returns the system {@link Color} matching the specific ID.
-	 * 
+	 *
 	 * @param systemColorID
 	 *            the ID value for the color
 	 * @return the system {@link Color} matching the specific ID
@@ -60,7 +46,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns a {@link Color} given its red, green and blue component values.
-	 * 
+	 *
 	 * @param r
 	 *            the red component of the color
 	 * @param g
@@ -74,7 +60,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns a {@link Color} given its RGB value.
-	 * 
+	 *
 	 * @param rgb
 	 *            the {@link RGB} value of the color
 	 * @return the {@link Color} matching the RGB value
@@ -108,7 +94,7 @@ public class SWTResourceManager {
 	private static Map<String, Image> m_imageMap = new HashMap<String, Image>();
 	/**
 	 * Returns an {@link Image} encoded by the specified {@link InputStream}.
-	 * 
+	 *
 	 * @param stream
 	 *            the {@link InputStream} encoding the image data
 	 * @return the {@link Image} encoded by the specified input stream
@@ -127,7 +113,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns an {@link Image} stored in the file at the specified path.
-	 * 
+	 *
 	 * @param path
 	 *            the path to the image file
 	 * @return the {@link Image} stored in the file at the specified path
@@ -147,7 +133,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns an {@link Image} stored in the file at the specified path relative to the specified class.
-	 * 
+	 *
 	 * @param clazz
 	 *            the {@link Class} relative to which to find the image
 	 * @param path
@@ -209,7 +195,7 @@ public class SWTResourceManager {
 	private static Map<Image, Map<Image, Image>>[] m_decoratedImageMap = new Map[LAST_CORNER_KEY];
 	/**
 	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 * 
+	 *
 	 * @param baseImage
 	 *            the base {@link Image} that should be decorated
 	 * @param decorator
@@ -221,7 +207,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns an {@link Image} composed of a base image decorated by another image.
-	 * 
+	 *
 	 * @param baseImage
 	 *            the base {@link Image} that should be decorated
 	 * @param decorator
@@ -309,7 +295,7 @@ public class SWTResourceManager {
 	private static Map<Font, Font> m_fontToBoldFontMap = new HashMap<Font, Font>();
 	/**
 	 * Returns a {@link Font} based on its name, height and style.
-	 * 
+	 *
 	 * @param name
 	 *            the name of the font
 	 * @param height
@@ -324,7 +310,7 @@ public class SWTResourceManager {
 	/**
 	 * Returns a {@link Font} based on its name, height and style. Windows-specific strikeout and underline
 	 * flags are also supported.
-	 * 
+	 *
 	 * @param name
 	 *            the name of the font
 	 * @param size
@@ -365,7 +351,7 @@ public class SWTResourceManager {
 	}
 	/**
 	 * Returns a bold version of the given {@link Font}.
-	 * 
+	 *
 	 * @param baseFont
 	 *            the {@link Font} for which a bold version is desired
 	 * @return the bold version of the given {@link Font}
@@ -406,7 +392,7 @@ public class SWTResourceManager {
 	private static Map<Integer, Cursor> m_idToCursorMap = new HashMap<Integer, Cursor>();
 	/**
 	 * Returns the system cursor matching the specific ID.
-	 * 
+	 *
 	 * @param id
 	 *            int The ID value for the cursor
 	 * @return Cursor The system cursor matching the specific ID
