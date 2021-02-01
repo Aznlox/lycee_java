@@ -113,8 +113,7 @@ public class Eleves
 		btnAjouterUneAbsence.setBounds(23, 180, 116, 21);
 		btnAjouterUneAbsence.setText("Ajouter un retard");
 
-		btnAjouterUneAbsence.setBounds(23, 180, 116, 21);
-		btnAjouterUneAbsence.setText("Ajouter un retard");
+			btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		Button btnAjouterUneAbsence_1 = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence_1.setText("Ajouter une absence");
