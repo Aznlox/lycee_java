@@ -4,19 +4,19 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.dbconnexion.*;
+import com.dbeleve.*;
 
-import appli.Admin_Eleves;
+import appli.motif;
 import appli.Eleves;
 
-public class Controller_connexion
+public class Controller_eleve
 {
 
-	public void connexion(String identifiant, String mdp) throws SQLException
+	public void eleve(String identifiant, String mdp) throws SQLException
 	{
 
 		Database db = new Database();
-		Connection cnx = db.DbConnexion();
+		Connection cnx = db.Dbeleve();
 		String requete = "Select * from utilisateur where identifiant = "+identifiant+" and mdp = "+mdp;
 		String role = "Admin";
 		ResultSet resultat = db.Request(cnx, requete);
@@ -26,7 +26,7 @@ public class Controller_connexion
 			{
 				try
 				{
-					//Connexion en tant qu'Administrateur
+					//eleve en tant qu'Administrateur
 					Admin_Eleves window = new Admin_Eleves();
 					window.open();
 				}
@@ -37,7 +37,7 @@ public class Controller_connexion
 			}
 			else
 			{
-				 //Connexion en tant que professeur
+				 //eleve en tant que professeur
 				//Co prof
 			}
 
