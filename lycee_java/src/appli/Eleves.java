@@ -27,38 +27,38 @@ public class Eleves {
 	private Table table_2;
 	private Table table_3;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
+
+	public static void main(String[] args) 
+	{
+		try 
+		{
 			Eleves window = new Eleves();
 			window.open();
-		} catch (Exception e) {
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * Open the window.
-	 */
-	public void open() {
+
+	public void open() 
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed()) 
+		{
+			if (!display.readAndDispatch()) 
+			{
 				display.sleep();
 			}
 		}
 	}
 
-	/**
-	 * Create contents of the window.
-	 */
-	protected void createContents() {
+
+	protected void createContents() 
+	{
 		shell = new Shell();
 		shell.setSize(646, 376);
 		shell.setText("SWT Application");

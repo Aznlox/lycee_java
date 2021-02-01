@@ -21,7 +21,7 @@ public class motif
 
 	public static void main(String[] args)
 	{
-		try
+		try {
 
 			motif window = new motif();
 			window.open();
