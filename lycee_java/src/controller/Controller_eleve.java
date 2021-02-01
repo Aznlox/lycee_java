@@ -10,7 +10,6 @@ public class Controller_eleve
 	public void eleve(String identifiant, String mdp)
 	{
 
-		Database db = new Database();
 		Connection cnx = db.Dbeleve();
 		String requete = "Select * from utilisateur where identifiant = "+identifiant+" and mdp = "+mdp;
 		String role = "Admin";
