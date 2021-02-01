@@ -20,11 +20,13 @@ public class Controller_connexion
 		String requete = "Select * from utilisateur where identifiant = "+identifiant+" and mdp = "+mdp;
 		String role = "Admin";
 		ResultSet resultat = db.Request(cnx, requete);
-		if(resultat != null) {
+		if(resultat != null)
+		{
 			if(resultat.getString(role) == "Admin")
 			{
 				try
-				{ //Connexion en tant qu'Administrateur
+				{
+					//Connexion en tant qu'Administrateur
 					Admin_Eleves window = new Admin_Eleves();
 					window.open();
 				}
@@ -40,7 +42,9 @@ public class Controller_connexion
 			}
 
 		}
-		else { //Erreur identifiant et/ou mot de passe
+		else
+		{
+			 //Erreur identifiant et/ou mot de passe
 			//erreur acces
 		}
 	}
