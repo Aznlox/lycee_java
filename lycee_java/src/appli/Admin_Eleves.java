@@ -15,7 +15,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 
-public class Admin_Eleves {
+public class Admin_Eleves
+{
 
 	protected Shell shell;
 	private Table table;
@@ -41,85 +42,88 @@ public class Admin_Eleves {
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
 	}
 
 	/**
-	 * Create contents of the window.
+	 * fonded contents of the window.
 	 */
-	protected void createContents() {
+	protected void createContents()
+	{
 		shell = new Shell();
 		shell.setSize(600, 371);
 		shell.setText("SWT Application");
-		
+
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(232, 57, 345, 243);
-		
+
 		Label Nom_Eleve = new Label(composite, SWT.NONE);
 		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 		Nom_Eleve.setBounds(137, 51, 75, 20);
 		Nom_Eleve.setText("LOIC GUO");
-		
+
 		Label libelleClasse = new Label(composite, SWT.NONE);
 		libelleClasse.setText("SLAM 2");
 		libelleClasse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 		libelleClasse.setBounds(147, 77, 65, 20);
-		
+
 		Label AbsenceEleve = new Label(composite, SWT.NONE);
 		AbsenceEleve.setText("1");
 		AbsenceEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		AbsenceEleve.setBounds(167, 107, 65, 20);
-		
+
 		Label RetardEleve = new Label(composite, SWT.NONE);
 		RetardEleve.setText("1");
 		RetardEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		RetardEleve.setBounds(167, 133, 65, 20);
-		
+
 		Label Absences = new Label(composite, SWT.NONE);
 		Absences.setText("Absences");
 		Absences.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 		Absences.setBounds(96, 107, 65, 20);
-		
+
 		Label Retards = new Label(composite, SWT.NONE);
 		Retards.setText("Retards");
 		Retards.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 		Retards.setBounds(96, 133, 65, 20);
-		
+
 		Label Sanctions = new Label(composite, SWT.NONE);
 		Sanctions.setText("Sanctions");
 		Sanctions.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 		Sanctions.setBounds(96, 158, 65, 20);
-		
+
 		Label SanctionEleve = new Label(composite, SWT.NONE);
 		SanctionEleve.setText("1");
 		SanctionEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		SanctionEleve.setBounds(167, 158, 65, 20);
-		
+
 		Label listeeleves = new Label(shell, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.BOLD));
 		listeeleves.setBounds(27, 22, 153, 33);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
-		
+
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(55, 57, 102, 243);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		
+
 		TableColumn libelleNomEleve = new TableColumn(table, SWT.NONE);
 		libelleNomEleve.setWidth(100);
 		libelleNomEleve.setText("Nom");
-		
+
 		TableItem NomEleve = new TableItem(table, SWT.NONE);
 		NomEleve.setText("GUO");
-		
+
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
-		
-		
+
+
 
 	}
 }
