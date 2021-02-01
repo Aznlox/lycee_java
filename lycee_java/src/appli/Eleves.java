@@ -27,10 +27,7 @@ public class Eleves {
 	private Table table_2;
 	private Table table_3;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		try {
 			Eleves window = new Eleves();
