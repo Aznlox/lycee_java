@@ -112,6 +112,7 @@ public class Eleves
 		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence.setBounds(23, 180, 116, 21);
 		btnAjouterUneAbsence.setText("Ajouter un retard");
+		btnAjouterUneAbsence.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 			btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
