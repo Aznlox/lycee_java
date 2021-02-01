@@ -341,7 +341,8 @@ public class SWTResourceManager
 	 *            the style of the font
 	 * @return {@link Font} The font matching the name, height and style
 	 */
-	public static Font getFont(String name, int height, int style) {
+	public static Font getFont(String name, int height, int style)
+	{
 		return getFont(name, height, style, false, false);
 	}
 	/**
@@ -360,24 +361,33 @@ public class SWTResourceManager
 	 *            the underline flag (warning: Windows only)
 	 * @return {@link Font} The font matching the name, height, style, strikeout and underline
 	 */
-	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline) {
+	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline)
+	{
 		String fontName = name + '|' + size + '|' + style + '|' + strikeout + '|' + underline;
 		Font font = m_fontMap.get(fontName);
-		if (font == null) {
+		if (font == null)
+		{
 			FontData fontData = new FontData(name, size, style);
-			if (strikeout || underline) {
-				try {
+			if (strikeout || underline)
+			{
+				try
+				{
 					Class<?> logFontClass = Class.forName("org.eclipse.swt.internal.win32.LOGFONT"); //$NON-NLS-1$
 					Object logFont = FontData.class.getField("data").get(fontData); //$NON-NLS-1$
-					if (logFont != null && logFontClass != null) {
-						if (strikeout) {
+					if (logFont != null && logFontClass != null)
+					{
+						if (strikeout)
+						{
 							logFontClass.getField("lfStrikeOut").set(logFont, Byte.valueOf((byte) 1)); //$NON-NLS-1$
 						}
-						if (underline) {
+						if (underline)
+						{
 							logFontClass.getField("lfUnderline").set(logFont, Byte.valueOf((byte) 1)); //$NON-NLS-1$
 						}
 					}
-				} catch (Throwable e) {
+				}
+				catch (Throwable e)
+				{
 					System.err.println("Unable to set underline or strikeout" + " (probably on a non-Windows platform). " + e); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 			}
@@ -393,9 +403,11 @@ public class SWTResourceManager
 	 *            the {@link Font} for which a bold version is desired
 	 * @return the bold version of the given {@link Font}
 	 */
-	public static Font getBoldFont(Font baseFont) {
+	public static Font getBoldFont(Font baseFont)
+	{
 		Font font = m_fontToBoldFontMap.get(baseFont);
-		if (font == null) {
+		if (font == null)
+		{
 			FontData fontDatas[] = baseFont.getFontData();
 			FontData data = fontDatas[0];
 			font = new Font(Display.getCurrent(), data.getName(), data.getHeight(), SWT.BOLD);
@@ -406,22 +418,25 @@ public class SWTResourceManager
 	/**
 	 * Dispose all of the cached {@link Font}'s.
 	 */
-	public static void disposeFonts() {
+	public static void disposeFonts()
+	{
 		// clear fonts
-		for (Font font : m_fontMap.values()) {
+		for (Font font : m_fontMap.values())
+		{
 			font.dispose();
 		}
 		m_fontMap.clear();
 		// clear bold fonts
-		for (Font font : m_fontToBoldFontMap.values()) {
+		for (Font font : m_fontToBoldFontMap.values())
+		{
 			font.dispose();
 		}
 		m_fontToBoldFontMap.clear();
 	}
 	////////////////////////////////////////////////////////////////////////////
-	//
-	// Cursor
-	//
+	/**
+	 * Maps IDs to cursors.
+	 */
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Maps IDs to cursors.
