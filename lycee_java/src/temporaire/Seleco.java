@@ -44,36 +44,36 @@ public class SelectTable
 
       Class.forName("com.mysql.jdbc.Driver");
 
-  
+
       Connection conn = DriverManager.getConnection(
       "jdbc:mysql://localhost/lycee_java?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
-      //étape 3: créer l'objet statement 
+      //ï¿½tape 3: crï¿½er l'objet statement
       Statement stmt = conn.createStatement();
       String sql = "SELECT id, nom, prenom, identifiant FROM utilisateur";
       ResultSet res = stmt.executeQuery(sql);
 
-      //étape 5: extraire les données
+      //ï¿½tape 5: extraire les donnï¿½es
       while(res.next()){
-         //Récupérer par nom de colonne
-         int id = res.getInt("id");
-         String nom = res.getString("nom");
-         String prenom = res.getString("Prenom");
-    
+        //Rï¿½cupï¿½rer par nom de colonne
+        int id = res.getInt("id");
+        String nom = res.getString("nom");
+        String prenom = res.getString("Prenom");
 
-         //Afficher les valeurs
-         System.out.print("ID: " + id);
-         System.out.print(", Nom: " + nom);
-         System.out.print(", Prenom: " + prenom);
-         System.out.print(", identifiant: " + identifiant);
-         System.out.print(", Prenom: " + prenom);
-        
-      }  
-    
-      //étape 6: fermez l'objet de connexion
+
+        //Afficher les valeurs
+        System.out.print("ID: " + id);
+        System.out.print(", Nom: " + nom);
+        System.out.print(", Prenom: " + prenom);
+        System.out.print(", identifiant: " + identifiant);
+        System.out.print(", Prenom: " + prenom);
+
+      }
+
+      //ï¿½tape 6: fermez l'objet de connexion
       conn.close();
     }
-    catch(Exception e){ 
+    catch(Exception e){
       System.out.println(e);
     }
   }
