@@ -19,9 +19,9 @@ public class Connexion {
 	private Text libelleMotdePasse;
 
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
+	* Launch the application.
+	* @param args
+	*/
 	public static void main(String[] args) {
 		try {
 			Connexion window = new Connexion();
@@ -32,8 +32,8 @@ public class Connexion {
 	}
 
 	/**
-	 * Open the window.
-	 */
+	* Open the window.
+	*/
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -47,42 +47,45 @@ public class Connexion {
 	}
 
 	/**
-	 * Create contents of the window.
-	 */
+	* found contents of the window.
+	*/
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(494, 331);
 		shell.setText("SWT Application");
-		//Identifiant 
+		//Identifiant
 		libelleIdentifiant = new Text(shell, SWT.BORDER);
 		libelleIdentifiant.setBounds(145, 103, 215, 19);
-		
+
 		libelleMotdePasse = new Text(shell, SWT.BORDER);
 		libelleMotdePasse.setBounds(145, 144, 215, 19);
-		
+
 		Button btnJeMinscris = new Button(shell, SWT.NONE);
 		btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
-		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
+		btnJeMinscris.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				Controller_connexion connexion = new Controller_connexion();
-				
-				
+
+
 			}
-		});
+		}
+		);
 		btnJeMinscris.setBounds(195, 184, 119, 21);
 		btnJeMinscris.setText("Je me connecte");
-		
+
 		Label lblF = new Label(shell, SWT.NONE);
 		lblF.setAlignment(SWT.CENTER);
 		lblF.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
 		lblF.setBounds(179, 63, 135, 16);
 		lblF.setText("Connexion");
-		
+
 		Label Identifiant = new Label(shell, SWT.NONE);
 		Identifiant.setBounds(83, 103, 56, 16);
 		Identifiant.setText("Identifiant");
-		
+
 		Label MotdePasse = new Label(shell, SWT.NONE);
 		MotdePasse.setBounds(67, 144, 72, 16);
 		MotdePasse.setText("Mot de passe");
