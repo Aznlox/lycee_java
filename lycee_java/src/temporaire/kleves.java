@@ -35,7 +35,8 @@ public class kleves
 		{
 			Eleves window = new Eleves();
 			window.open();
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -130,10 +131,12 @@ public class kleves
 		eleve.setText("Eleve");
 
 		TableItem idEleve = new TableItem(table, SWT.NONE);
-		textpane.setContentType("text/html"); 
+		idEleve.setContentType("text/APPLICATION_ATOM_XML");
 		idEleve.setText("Quentin Lignani");
 
 		TableItem idEleve2 = new TableItem(table, SWT.NONE);
+		idEleve.setContentType("text/APPLICATION_ATOM_XML");
+
 		idEleve2.setText("Loic GUO");
 
 		TableItem idEleve3 = new TableItem(table, SWT.NONE);
