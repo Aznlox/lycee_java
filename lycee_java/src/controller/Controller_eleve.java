@@ -19,5 +19,4 @@ public class Controller_eleve
 				e.printStackTrace();
 			}
 		}
-
-	}
+}
