@@ -54,7 +54,8 @@ public class SelectTable
       ResultSet res = stmt.executeQuery(sql);
 
       //�tape 5: extraire les donn�es
-      while(res.next()){
+      while(res.next())
+      {
         //R�cup�rer par nom de colonne
         int id = res.getInt("id");
         String nom = res.getString("nom");
@@ -73,7 +74,8 @@ public class SelectTable
       //�tape 6: fermez l'objet de connexion
       conn.close();
     }
-    catch(Exception e){
+    catch(Exception e)
+    {
       System.out.println(e);
     }
   }
