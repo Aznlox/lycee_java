@@ -16,6 +16,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import com.dbconnexion.Database;
+
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.widgets.TabItem;
@@ -49,9 +52,11 @@ public class SelectTable
       "jdbc:mysql://localhost/lycee_java?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
       //étape 3: créer l'objet statement 
-      Statement stmt = conn.createStatement();
-      String sql = "SELECT id, nom, prenom, identifiant FROM utilisateur";
-      ResultSet res = stmt.executeQuery(sql);
+  	Database db = new Database();
+    Connection cnx = db.DbConnexion();
+    
+    String sql = "SELECT id, nom, prenom, identifiant FROM utilisateur";
+    ResultSet res = db.Request(cnx, sql);
 
       //étape 5: extraire les données
       while(res.next()){
@@ -59,6 +64,7 @@ public class SelectTable
          int id = res.getInt("id");
          String nom = res.getString("nom");
          String prenom = res.getString("Prenom");
+         String identifiant = res.getString("Identifiant");
     
 
          //Afficher les valeurs
@@ -66,7 +72,7 @@ public class SelectTable
          System.out.print(", Nom: " + nom);
          System.out.print(", Prenom: " + prenom);
          System.out.print(", identifiant: " + identifiant);
-         System.out.print(", Prenom: " + prenom);
+  
         
       }  
     
