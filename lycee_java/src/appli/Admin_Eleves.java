@@ -28,6 +28,19 @@ public class Admin_Eleves
 	private Table table;
 
 
+	public static void main(String[] args)
+	{
+		try
+		{
+			Admin_Eleves window = new Admin_Eleves();
+			window.open();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Open the window.
 	 */
@@ -59,10 +72,11 @@ public class Admin_Eleves
 
 	    //étape 5: extraire les données
 	    try {
-			while(res.next()){
-			   //Récupérer par nom de colonne
-			  
-			   String type = res.getString("Type");
+	        while(res.next()){
+	            //Récupérer par nom de colonne
+	            String type = res.getString("type");
+	        
+			
 			   
 			 //étape 6: fermez l'objet de connexion
 				shell = new Shell();
