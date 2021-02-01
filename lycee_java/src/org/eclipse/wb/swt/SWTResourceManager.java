@@ -30,7 +30,7 @@ public class SWTResourceManager
 {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/**
-	 Color
+	 Couleur
 	*/
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
@@ -41,7 +41,8 @@ public class SWTResourceManager
 	 *            the ID value for the color
 	 * @return the system {@link Color} matching the specific ID
 	 */
-	public static Color getColor(int systemColorID) {
+	public static Color getColor(int systemColorID)
+	{
 		Display display = Display.getCurrent();
 		return display.getSystemColor(systemColorID);
 	}
@@ -56,7 +57,8 @@ public class SWTResourceManager
 	 *            the blue component of the color
 	 * @return the {@link Color} matching the given red, green and blue component values
 	 */
-	public static Color getColor(int r, int g, int b) {
+	public static Color getColor(int r, int g, int b)
+	{
 		return getColor(new RGB(r, g, b));
 	}
 	/**
@@ -66,9 +68,11 @@ public class SWTResourceManager
 	 *            the {@link RGB} value of the color
 	 * @return the {@link Color} matching the RGB value
 	 */
-	public static Color getColor(RGB rgb) {
+	public static Color getColor(RGB rgb)
+	{
 		Color color = m_colorMap.get(rgb);
-		if (color == null) {
+		if (color == null)
+		{
 			Display display = Display.getCurrent();
 			color = new Color(display, rgb);
 			m_colorMap.put(rgb, color);
@@ -78,16 +82,18 @@ public class SWTResourceManager
 	/**
 	 * Dispose of all the cached {@link Color}'s.
 	 */
-	public static void disposeColors() {
-		for (Color color : m_colorMap.values()) {
+	public static void disposeColors()
+	{
+		for (Color color : m_colorMap.values())
+		{
 			color.dispose();
 		}
 		m_colorMap.clear();
 	}
 	////////////////////////////////////////////////////////////////////////////
-	//
-	// Image
-	//
+	/**
+	 * Maps image paths to images.
+	 */
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Maps image paths to images.
