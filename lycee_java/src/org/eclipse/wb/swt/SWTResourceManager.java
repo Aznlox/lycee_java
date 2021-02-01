@@ -108,14 +108,18 @@ public class SWTResourceManager
 	 */
 	protected static Image getImage(InputStream stream) throws IOException
 	{
-		try {
+		try
+		{
 			Display display = Display.getCurrent();
 			ImageData data = new ImageData(stream);
-			if (data.transparentPixel > 0) {
+			if (data.transparentPixel > 0)
+			{
 				return new Image(display, data, data.getTransparencyMask());
 			}
 			return new Image(display, data);
-		} finally {
+		}
+		finally
+		{
 			stream.close();
 		}
 	}
@@ -126,10 +130,13 @@ public class SWTResourceManager
 	 *            the path to the image file
 	 * @return the {@link Image} stored in the file at the specified path
 	 */
-	public static Image getImage(String path) {
+	public static Image getImage(String path)
+	{
 		Image image = m_imageMap.get(path);
-		if (image == null) {
-			try {
+		if (image == null)
+		{
+			try
+			{
 				image = getImage(new FileInputStream(path));
 				m_imageMap.put(path, image);
 			} catch (Exception e) {
