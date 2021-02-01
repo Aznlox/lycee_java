@@ -1,15 +1,13 @@
 package controller;
 import java.sql.Eleves;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import com.dbeleve.*;
 import appli.motif;
 import appli.Eleves;
-
 public class Controller_eleve
 {
 
-	public void eleve(String identifiant, String mdp) throws SQLException
+	public void eleve(String identifiant, String mdp)
 	{
 
 		Database db = new Database();
