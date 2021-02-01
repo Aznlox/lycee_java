@@ -10,14 +10,7 @@ public class Controller_eleve
 	public void eleve(String identifiant, String mdp)
 	{
 
-		Connection cnx = db.Dbeleve();
-		String requete = "Select * from utilisateur where identifiant = "+identifiant+" and mdp = "+mdp;
-		String role = "Admin";
-		ResultSet resultat = db.Request(cnx, requete);
-		if(resultat != null)
-		{
-			if(resultat.getString(role) == "Admin")
-			{
+		
 				try
 				{
 					motif window = new motif();
