@@ -240,40 +240,48 @@ public class SWTResourceManager
 	 */
 	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner)
 	{
-		if (corner <= 0 || corner >= LAST_CORNER_KEY) {
+		if (corner <= 0 || corner >= LAST_CORNER_KEY)
+		{
 			throw new IllegalArgumentException("Wrong decorate corner");
 		}
 		Map<Image, Map<Image, Image>> cornerDecoratedImageMap = m_decoratedImageMap[corner];
-		if (cornerDecoratedImageMap == null) {
+		if (cornerDecoratedImageMap == null)
+		{
 			cornerDecoratedImageMap = new HashMap<Image, Map<Image, Image>>();
 			m_decoratedImageMap[corner] = cornerDecoratedImageMap;
 		}
 		Map<Image, Image> decoratedMap = cornerDecoratedImageMap.get(baseImage);
-		if (decoratedMap == null) {
+		if (decoratedMap == null)
+		{
 			decoratedMap = new HashMap<Image, Image>();
 			cornerDecoratedImageMap.put(baseImage, decoratedMap);
 		}
 		//
 		Image result = decoratedMap.get(decorator);
-		if (result == null) {
+		if (result == null)
+		{
 			Rectangle bib = baseImage.getBounds();
 			Rectangle dib = decorator.getBounds();
-			//
 			result = new Image(Display.getCurrent(), bib.width, bib.height);
-			//
 			GC gc = new GC(result);
 			gc.drawImage(baseImage, 0, 0);
-			if (corner == TOP_LEFT) {
+			if (corner == TOP_LEFT)
+			{
 				gc.drawImage(decorator, 0, 0);
-			} else if (corner == TOP_RIGHT) {
+			}
+			else if (corner == TOP_RIGHT)
+			{
 				gc.drawImage(decorator, bib.width - dib.width, 0);
-			} else if (corner == BOTTOM_LEFT) {
+			}
+			else if (corner == BOTTOM_LEFT)
+			{
 				gc.drawImage(decorator, 0, bib.height - dib.height);
-			} else if (corner == BOTTOM_RIGHT) {
+			}
+			else if (corner == BOTTOM_RIGHT)
+			{
 				gc.drawImage(decorator, bib.width - dib.width, bib.height - dib.height);
 			}
 			gc.dispose();
-			//
 			decoratedMap.put(decorator, result);
 		}
 		return result;
@@ -281,20 +289,26 @@ public class SWTResourceManager
 	/**
 	 * Dispose all of the cached {@link Image}'s.
 	 */
-	public static void disposeImages() {
+	public static void disposeImages()
+	{
 		// dispose loaded images
 		{
-			for (Image image : m_imageMap.values()) {
+			for (Image image : m_imageMap.values())
+			{
 				image.dispose();
 			}
 			m_imageMap.clear();
 		}
 		// dispose decorated images
-		for (int i = 0; i < m_decoratedImageMap.length; i++) {
+		for (int i = 0; i < m_decoratedImageMap.length; i++)
+		{
 			Map<Image, Map<Image, Image>> cornerDecoratedImageMap = m_decoratedImageMap[i];
-			if (cornerDecoratedImageMap != null) {
-				for (Map<Image, Image> decoratedMap : cornerDecoratedImageMap.values()) {
-					for (Image image : decoratedMap.values()) {
+			if (cornerDecoratedImageMap != null)
+			{
+				for (Map<Image, Image> decoratedMap : cornerDecoratedImageMap.values())
+				{
+					for (Image image : decoratedMap.values())
+					{
 						image.dispose();
 					}
 					decoratedMap.clear();
@@ -304,9 +318,9 @@ public class SWTResourceManager
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////
-	//
-	// Font
-	//
+	/**
+	 * Fonts
+	 */
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Maps font names to fonts.
