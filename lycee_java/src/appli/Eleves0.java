@@ -53,7 +53,11 @@ public class Eleves0
 		{
 			if (!display.readAndDispatch())
 			{
-				display.sleep();
+				display.sleep(); 
+				/**
+				 * Dispose of cached objects and their underlying OS resources. This should only be called when the cached
+				 * objects are no longer needed (e.g. on application shutdown).
+				 */
 			}
 		}
 	}
