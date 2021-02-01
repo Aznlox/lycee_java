@@ -435,7 +435,7 @@ public class SWTResourceManager
 	}
 	////////////////////////////////////////////////////////////////////////////
 	/**
-	 * Maps IDs to cursors.
+	 * Cursors
 	 */
 	////////////////////////////////////////////////////////////////////////////
 	/**
@@ -449,10 +449,12 @@ public class SWTResourceManager
 	 *            int The ID value for the cursor
 	 * @return Cursor The system cursor matching the specific ID
 	 */
-	public static Cursor getCursor(int id) {
+	public static Cursor getCursor(int id) *
+	{
 		Integer key = Integer.valueOf(id);
 		Cursor cursor = m_idToCursorMap.get(key);
-		if (cursor == null) {
+		if (cursor == null)
+		{
 			cursor = new Cursor(Display.getDefault(), id);
 			m_idToCursorMap.put(key, cursor);
 		}
@@ -461,22 +463,25 @@ public class SWTResourceManager
 	/**
 	 * Dispose all of the cached cursors.
 	 */
-	public static void disposeCursors() {
-		for (Cursor cursor : m_idToCursorMap.values()) {
+	public static void disposeCursors()
+	{
+		for (Cursor cursor : m_idToCursorMap.values())
+		{
 			cursor.dispose();
 		}
 		m_idToCursorMap.clear();
 	}
 	////////////////////////////////////////////////////////////////////////////
-	//
-	// General
-	//
+	/**
+	 * Général
+	 */
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Dispose of cached objects and their underlying OS resources. This should only be called when the cached
 	 * objects are no longer needed (e.g. on application shutdown).
 	 */
-	public static void dispose() {
+	public static void dispose()
+	{
 		disposeColors();
 		disposeImages();
 		disposeFonts();
