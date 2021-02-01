@@ -12,17 +12,17 @@ public class Controller_eleve
 			try
 			{
 				motif window = new motif();
-					window.open(); //redirection vers notif
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
+				window.open(); //redirection vers notif
 			}
-			else
+			catch (Exception e)
 			{
-				 //aller sur la page "motif"
+				e.printStackTrace();
 			}
+		}
+		else
+		{
+				//aller sur la page "motif"
+		}
 
 		}
 		else
