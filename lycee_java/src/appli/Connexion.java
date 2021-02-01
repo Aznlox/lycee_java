@@ -1,5 +1,7 @@
 package appli;
 
+import java.sql.SQLException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -15,8 +17,8 @@ import controller.Controller_connexion;
 public class Connexion {
 
 	protected Shell shell;
-	private Text libelleIdentifiant;
-	private Text libelleMotdePasse;
+	private Text textIdentifiant;
+	private Text textMotdePasse;
 
 	/**
 	 * Launch the application.
@@ -54,22 +56,15 @@ public class Connexion {
 		shell.setSize(494, 331);
 		shell.setText("SWT Application");
 		//Identifiant 
-		libelleIdentifiant = new Text(shell, SWT.BORDER);
-		libelleIdentifiant.setBounds(145, 103, 215, 19);
+		textIdentifiant = new Text(shell, SWT.BORDER);
+		textIdentifiant.setBounds(145, 103, 215, 19);
 		
-		libelleMotdePasse = new Text(shell, SWT.BORDER);
-		libelleMotdePasse.setBounds(145, 144, 215, 19);
+		textMotdePasse = new Text(shell, SWT.BORDER);
+		textMotdePasse.setBounds(145, 144, 215, 19);
 		
 		Button btnJeMinscris = new Button(shell, SWT.NONE);
 		btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
-		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				Controller_connexion connexion = new Controller_connexion();
-				
-				
-			}
-		});
+		
 		btnJeMinscris.setBounds(195, 184, 119, 21);
 		btnJeMinscris.setText("Je me connecte");
 		
@@ -86,6 +81,22 @@ public class Connexion {
 		Label MotdePasse = new Label(shell, SWT.NONE);
 		MotdePasse.setBounds(67, 144, 72, 16);
 		MotdePasse.setText("Mot de passe");
+		
+		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				try {
+					Controller_connexion connexion = new Controller_connexion();
+					connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
+
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+			}
+		});
 
 	}
 }

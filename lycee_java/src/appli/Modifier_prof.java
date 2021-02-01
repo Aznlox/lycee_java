@@ -3,7 +3,9 @@ package appli;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-public class Modifier_prof {
+import controller.Global;
+
+public class Modifier_prof extends Global{
 
 	protected Shell shell;
 
@@ -38,7 +40,7 @@ public class Modifier_prof {
 		shell = new Shell();
 		shell.setSize(650, 452);
 		shell.setText("SWT Application");
-
+		
 	}
 
 }

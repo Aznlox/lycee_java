@@ -27,19 +27,7 @@ public class Admin_Eleves
 	protected Shell shell;
 	private Table table;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
-			Admin_Eleves window = new Admin_Eleves();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
+
 	/**
 	 * Open the window.
 	 */
@@ -59,9 +47,7 @@ public class Admin_Eleves
 	
 	
 
-	/**
-	 * fonded contents of the window.
-	 */
+
 	protected void createContents()
 	{
 		Database db = new Database();
