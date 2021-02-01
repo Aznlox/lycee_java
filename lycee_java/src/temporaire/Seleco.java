@@ -66,7 +66,7 @@ public class SelectTable
         System.out.print("ID: " + id);
         System.out.print(", Nom: " + nom);
         System.out.print(", Prenom: " + prenom);
-        System.out.print(", identifiant: " + identifiant);
+        System.out.print(", Identifiant: " + identifiant);
         System.out.print(", Prenom: " + prenom);
 
       }
