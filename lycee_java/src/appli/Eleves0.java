@@ -114,15 +114,15 @@ public class Eleves
 		btnAjouterUneAbsence.setText("Ajouter un retard");
 		btnAjouterUneAbsence.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
-			btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
-
 		Button btnAjouterUneAbsence_1 = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence_1.setText("Ajouter une absence");
 		btnAjouterUneAbsence_1.setBounds(23, 150, 116, 21);
+		btnAjouterUneAbsence.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		Button btnAjouterUneSanction = new Button(shell, SWT.NONE);
 		btnAjouterUneSanction.setText("Ajouter une sanction");
 		btnAjouterUneSanction.setBounds(23, 213, 116, 21);
+		btnAjouterUneAbsence.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(173, 59, 103, 225);
