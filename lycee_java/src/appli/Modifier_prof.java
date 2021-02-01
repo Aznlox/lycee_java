@@ -32,8 +32,8 @@ public class Modifier_prof {
 	}
 
 	/**
-	 * Create contents of the window.
-	 */
+	* Create contents of the window.
+	*/
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(650, 452);
