@@ -21,18 +21,6 @@ public class Admin_Eleves
 	protected Shell shell;
 	private Table table;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
-			Admin_Eleves window = new Admin_Eleves();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Open the window.
@@ -52,7 +40,12 @@ public class Admin_Eleves
 	}
 
 	/**
+<<<<<<< Updated upstream
 	 * fonded contents of the window.
+=======
+	 * Create contents of the window.
+	 * @wbp.parser.entryPoint
+>>>>>>> Stashed changes
 	 */
 	protected void createContents()
 	{
