@@ -112,14 +112,17 @@ public class Eleves
 		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence.setBounds(23, 180, 116, 21);
 		btnAjouterUneAbsence.setText("Ajouter un retard");
+		btnAjouterUneAbsence.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		Button btnAjouterUneAbsence_1 = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence_1.setText("Ajouter une absence");
 		btnAjouterUneAbsence_1.setBounds(23, 150, 116, 21);
+		btnAjouterUneAbsence_1.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		Button btnAjouterUneSanction = new Button(shell, SWT.NONE);
 		btnAjouterUneSanction.setText("Ajouter une sanction");
 		btnAjouterUneSanction.setBounds(23, 213, 116, 21);
+		btnAjouterUneSanction.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
 
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(173, 59, 103, 225);
@@ -166,19 +169,5 @@ public class Eleves
 		Sanction.setWidth(100);
 		Sanction.setText("Sanction");
 
-	}
-}
-public void open()
-{
-	Display display = Display.getDefault();
-	createContents();
-	shell.open();
-	shell.layout();
-	while (!shell.isDisposed())
-	{
-		if (!display.readAndDispatch())
-		{
-			display.sleep();
-		}
 	}
 }
