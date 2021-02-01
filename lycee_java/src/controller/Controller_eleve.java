@@ -19,16 +19,5 @@ public class Controller_eleve
 				e.printStackTrace();
 			}
 		}
-		else
-		{
-				//aller sur la page "motif"
-		}
 
-		}
-		else
-		{
-			 //Erreur identifiant et/ou mot de passe
-			//erreur acces
-		}
 	}
-}
