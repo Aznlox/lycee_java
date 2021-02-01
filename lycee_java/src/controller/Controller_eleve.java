@@ -1,11 +1,8 @@
 package controller;
-
-import java.sql.Connection;
+import java.sql.Eleves;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.dbeleve.*;
-
 import appli.motif;
 import appli.Eleves;
 
@@ -37,8 +34,7 @@ public class Controller_eleve
 			}
 			else
 			{
-				 //eleve en tant que professeur
-				//Co prof
+				 //aller sur la page "motif"
 			}
 
 		}
