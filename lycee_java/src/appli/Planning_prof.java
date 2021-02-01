@@ -6,6 +6,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TabFolder;
@@ -18,6 +22,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import com.dbconnexion.Database;
 
 import controller.Global;
 
@@ -279,6 +285,14 @@ public class Planning_prof extends Global
 		fd_lblNom.left = new FormAttachment(lblBonjour, 6);
 		lblNom.setLayoutData(fd_lblNom);
 		lblNom.setText(Globnom);
+		
+		Database db = new Database();
+		Connection cnx = db.DbConnexion();
+		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id where identifiant = "+Globidentifiant;
+		ResultSet resultat = db.Request(cnx, requete);
+		while(resultat.next()) {
+			
+		}
 
 	}
 }
