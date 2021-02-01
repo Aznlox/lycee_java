@@ -21,9 +21,8 @@ public class Controller_eleve
 			{
 				try
 				{
-					//eleve en tant qu'Administrateur
-					Admin_Eleves window = new Admin_Eleves();
-					window.open();
+					motif window = new motif();
+					window.open(); //redirection vers notif
 				}
 				catch (Exception e)
 				{
