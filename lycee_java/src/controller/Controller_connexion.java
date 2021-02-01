@@ -10,6 +10,7 @@ import com.dbconnexion.*;
 
 import appli.Admin_Eleves;
 import appli.Eleves;
+import appli.Planning_prof;
 
 public class Controller_connexion extends Global{
 	
@@ -34,7 +35,13 @@ public class Controller_connexion extends Global{
 				}
 			}
 			else { //Connexion en tant que professeur
-				//Co prof
+				try {
+					shell.close();
+					Planning_prof window = new Planning_prof();
+					window.open();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			
 		}
