@@ -20,17 +20,18 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * 
+ *
  * This class may be freely distributed as part of any application or plugin.
  * <p>
  * @author scheglov_ke
  * @author Dan Rubel
  */
-public class SWTResourceManager {
+public class SWTResourceManager
+{
 	////////////////////////////////////////////////////////////////////////////
-	//
-	// Color
-	//
+	/**
+	 Color
+	*/
 	////////////////////////////////////////////////////////////////////////////
 	private static Map<RGB, Color> m_colorMap = new HashMap<RGB, Color>();
 	/**
