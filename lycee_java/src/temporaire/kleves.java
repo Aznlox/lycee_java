@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.ProgressBar;
 
-public class Eleves
+public class kleves
 {
 
 	protected Shell shell;
@@ -130,6 +130,7 @@ public class Eleves
 		eleve.setText("Eleve");
 
 		TableItem idEleve = new TableItem(table, SWT.NONE);
+		textpane.setContentType("text/html"); 
 		idEleve.setText("Quentin Lignani");
 
 		TableItem idEleve2 = new TableItem(table, SWT.NONE);
