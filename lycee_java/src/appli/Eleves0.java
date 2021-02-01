@@ -33,7 +33,7 @@ public class Eleves0
 	{
 		try
 		{
-			Eleves window = new Eleves();
+			Eleves0 window = new Eleves0();
 			window.open();
 		}
 		catch (Exception e)
