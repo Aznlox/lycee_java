@@ -7,17 +7,18 @@ public class Modifier_prof {
 
 	protected Shell shell;
 
-	
+
 	public static void main(String[] args) {
 		try {
 			Modifier_prof window = new Modifier_prof();
 			window.open();
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
 
-	
+
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
