@@ -7,10 +7,7 @@ public class Modifier_prof {
 
 	protected Shell shell;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		try {
 			Modifier_prof window = new Modifier_prof();
@@ -20,9 +17,7 @@ public class Modifier_prof {
 		}
 	}
 
-	/**
-	 * Open the window.
-	 */
+	
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
