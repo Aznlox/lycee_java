@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.ProgressBar;
 
-public class Eleves
+public class Eleves0
 {
 
 	protected Shell shell;
@@ -33,7 +33,7 @@ public class Eleves
 	{
 		try
 		{
-			Eleves window = new Eleves();
+			Eleves0 window = new Eleves0();
 			window.open();
 		}
 		catch (Exception e)
