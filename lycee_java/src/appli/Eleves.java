@@ -47,17 +47,18 @@ public class Eleves {
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed()) 
+		{
+			if (!display.readAndDispatch()) 
+			{
 				display.sleep();
 			}
 		}
 	}
 
-	/**
-	 * Create contents of the window.
-	 */
-	protected void createContents() {
+
+	protected void createContents() 
+	{
 		shell = new Shell();
 		shell.setSize(646, 376);
 		shell.setText("SWT Application");
