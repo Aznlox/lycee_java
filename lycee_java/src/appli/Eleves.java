@@ -40,7 +40,8 @@ public class Eleves {
 	/**
 	 * Open the window.
 	 */
-	public void open() {
+	public void open() 
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
