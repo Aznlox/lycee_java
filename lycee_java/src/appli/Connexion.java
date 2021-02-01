@@ -14,7 +14,8 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 import controller.Controller_connexion;
 
-public class Connexion {
+public class Connexion
+{
 
 	protected Shell shell;
 	private Text textIdentifiant;
