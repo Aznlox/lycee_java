@@ -139,7 +139,9 @@ public class SWTResourceManager
 			{
 				image = getImage(new FileInputStream(path));
 				m_imageMap.put(path, image);
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				image = getMissingImage();
 				m_imageMap.put(path, image);
 			}
@@ -155,14 +157,19 @@ public class SWTResourceManager
 	 *            the path to the image file, if starts with <code>'/'</code>
 	 * @return the {@link Image} stored in the file at the specified path
 	 */
-	public static Image getImage(Class<?> clazz, String path) {
+	public static Image getImage(Class<?> clazz, String path)
+	{
 		String key = clazz.getName() + '|' + path;
 		Image image = m_imageMap.get(key);
-		if (image == null) {
-			try {
+		if (image == null)
+		{
+			try
+			{
 				image = getImage(clazz.getResourceAsStream(path));
 				m_imageMap.put(key, image);
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				image = getMissingImage();
 				m_imageMap.put(key, image);
 			}
@@ -173,14 +180,13 @@ public class SWTResourceManager
 	/**
 	 * @return the small {@link Image} that can be used as placeholder for missing image.
 	 */
-	private static Image getMissingImage() {
+	private static Image getMissingImage()
+	{
 		Image image = new Image(Display.getCurrent(), MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
-		//
 		GC gc = new GC(image);
 		gc.setBackground(getColor(SWT.COLOR_RED));
 		gc.fillRectangle(0, 0, MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
 		gc.dispose();
-		//
 		return image;
 	}
 	/**
@@ -217,7 +223,8 @@ public class SWTResourceManager
 	 *            the {@link Image} to decorate the base image
 	 * @return {@link Image} The resulting decorated image
 	 */
-	public static Image decorateImage(Image baseImage, Image decorator) {
+	public static Image decorateImage(Image baseImage, Image decorator)
+	{
 		return decorateImage(baseImage, decorator, BOTTOM_RIGHT);
 	}
 	/**
@@ -231,7 +238,8 @@ public class SWTResourceManager
 	 *            the corner to place decorator image
 	 * @return the resulting decorated {@link Image}
 	 */
-	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner) {
+	public static Image decorateImage(final Image baseImage, final Image decorator, final int corner)
+	{
 		if (corner <= 0 || corner >= LAST_CORNER_KEY) {
 			throw new IllegalArgumentException("Wrong decorate corner");
 		}
