@@ -14,7 +14,7 @@ import appli.Planning_prof;
 
 public class Controller_connexion extends Global{
 	
-	public void Connexion(String identifiant, String mdp, Shell shell) throws SQLException {
+	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException {
 		
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
@@ -29,6 +29,7 @@ public class Controller_connexion extends Global{
 					shell.close();
 					Admin_Eleves window_Admin = new Admin_Eleves();
 					window_Admin.open();
+					return false;
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,14 +40,14 @@ public class Controller_connexion extends Global{
 					shell.close();
 					Planning_prof window = new Planning_prof();
 					window.open();
+					return false;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 			
 		}
-		//else { //Erreur identifiant et/ou mot de passe
-			
-		//}
+		return true;
+		
 	}
 }

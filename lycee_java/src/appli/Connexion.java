@@ -90,13 +90,21 @@ public class Connexion
 		Label MotdePasse = new Label(shell, SWT.NONE);
 		MotdePasse.setBounds(20, 144, 119, 34);
 		MotdePasse.setText("Mot de passe");
+		
+		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		lblErreur.setBounds(68, 225, 345, 25);
+		lblErreur.setText("Erreur dans l'identifiant ou le mot de passe");
+		lblErreur.setVisible(false);
 
 		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
 					Controller_connexion connexion = new Controller_connexion();
-					connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
+					boolean message = connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
+
+					lblErreur.setVisible(message);
 
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
