@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.Table;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.TableViewer;
@@ -56,7 +57,7 @@ public class Planning_prof extends Global
 		}
 	}
 
-	public void open() {
+	public void open() throws Exception {
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
@@ -69,7 +70,7 @@ public class Planning_prof extends Global
 	}
 
 
-	protected void createContents() {
+	protected void createContents() throws SQLException {
 		shell = new Shell();
 		shell.setSize(1066, 551);
 		shell.setText("SWT Application");
@@ -90,17 +91,17 @@ public class Planning_prof extends Global
 		
 		btnBtsSlam = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnBtsSlam = new org.eclipse.swt.layout.FormData();
-		fd_btnBtsSlam.right = new org.eclipse.swt.layout.FormAttachment(0, 115);
-		fd_btnBtsSlam.top = new org.eclipse.swt.layout.FormAttachment(0, 264);
-		fd_btnBtsSlam.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		fd_btnBtsSlam.top = new FormAttachment(btnNewButton, 6);
+		fd_btnBtsSlam.right = new FormAttachment(btnNewButton, 0, SWT.RIGHT);
+		fd_btnBtsSlam.left = new FormAttachment(0, 10);
 		btnBtsSlam.setLayoutData(fd_btnBtsSlam);
 		btnBtsSlam.setText("BTS SLAM 2");
 		
 		btnTerminaleStid = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnTerminaleStid = new org.eclipse.swt.layout.FormData();
-		fd_btnTerminaleStid.right = new org.eclipse.swt.layout.FormAttachment(0, 141);
-		fd_btnTerminaleStid.top = new org.eclipse.swt.layout.FormAttachment(0, 305);
-		fd_btnTerminaleStid.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
+		fd_btnTerminaleStid.top = new FormAttachment(btnBtsSlam, 6);
+		fd_btnTerminaleStid.left = new FormAttachment(0, 10);
+		fd_btnTerminaleStid.right = new FormAttachment(0, 141);
 		btnTerminaleStid.setLayoutData(fd_btnTerminaleStid);
 		btnTerminaleStid.setText("Terminale STI2D");
 		
@@ -122,7 +123,6 @@ public class Planning_prof extends Global
 		
 		tableMardi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_tableMardi = new FormData();
-		fd_tableMardi.bottom = new FormAttachment(100, -41);
 		tableMardi.setLayoutData(fd_tableMardi);
 		tableMardi.setHeaderVisible(true);
 		tableMardi.setLinesVisible(true);
@@ -130,18 +130,18 @@ public class Planning_prof extends Global
 		tableMercredi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		fd_tableMardi.right = new FormAttachment(tableMercredi, -6);
 		FormData fd_tableMercredi = new FormData();
-		fd_tableMercredi.bottom = new FormAttachment(100, -41);
+		fd_tableMercredi.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
 		fd_tableMercredi.left = new FormAttachment(0, 542);
 		tableMercredi.setLayoutData(fd_tableMercredi);
 		tableMercredi.setHeaderVisible(true);
 		tableMercredi.setLinesVisible(true);
 		
 		tableLundi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		fd_tableMardi.left = new FormAttachment(0, 400);
+		fd_tableMardi.left = new FormAttachment(tableLundi, 6);
+		fd_tableMardi.bottom = new FormAttachment(tableLundi, 0, SWT.BOTTOM);
 		FormData fd_tableLundi = new FormData();
-		fd_tableLundi.bottom = new FormAttachment(100, -41);
-		fd_tableLundi.right = new FormAttachment(tableMardi, -6);
-		fd_tableLundi.left = new FormAttachment(btnTerminaleStid, 117);
+		fd_tableLundi.right = new FormAttachment(100, -650);
+		fd_tableLundi.bottom = new FormAttachment(100, -31);
 		tableLundi.setLayoutData(fd_tableLundi);
 		tableLundi.setHeaderVisible(true);
 		tableLundi.setLinesVisible(true);
@@ -151,67 +151,67 @@ public class Planning_prof extends Global
 		FormData fd_tableJeudi = new FormData();
 		fd_tableJeudi.left = new FormAttachment(tableMercredi, 6);
 		fd_tableJeudi.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
-		fd_tableJeudi.top = new FormAttachment(tableMardi, 0, SWT.TOP);
 		tableJeudi.setLayoutData(fd_tableJeudi);
 		tableJeudi.setHeaderVisible(true);
 		tableJeudi.setLinesVisible(true);
 		
 		tableVendredi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		fd_tableJeudi.right = new FormAttachment(100, -224);
+		fd_tableJeudi.right = new FormAttachment(tableVendredi, -6);
 		FormData fd_tableVendredi = new FormData();
-		fd_tableVendredi.top = new FormAttachment(tableMardi, 0, SWT.TOP);
-		fd_tableVendredi.left = new FormAttachment(tableJeudi, 6);
-		fd_tableVendredi.bottom = new FormAttachment(100, -41);
+		fd_tableVendredi.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
+		fd_tableVendredi.left = new FormAttachment(0, 826);
 		fd_tableVendredi.right = new FormAttachment(100, -82);
 		tableVendredi.setLayoutData(fd_tableVendredi);
 		tableVendredi.setHeaderVisible(true);
 		tableVendredi.setLinesVisible(true);
 		
 		Label lblh = new Label(shell, SWT.NONE);
+		fd_tableLundi.left = new FormAttachment(0, 258);
 		FormData fd_lblh = new FormData();
 		fd_lblh.right = new FormAttachment(tableLundi, -6);
 		lblh.setLayoutData(fd_lblh);
 		lblh.setText("8h");
 		
 		Label lblh_1 = new Label(shell, SWT.NONE);
-		fd_lblh.bottom = new FormAttachment(lblh_1, -8);
+		fd_lblh.bottom = new FormAttachment(100, -342);
 		FormData fd_lblh_1 = new FormData();
+		fd_lblh_1.top = new FormAttachment(lblh);
 		fd_lblh_1.right = new FormAttachment(tableLundi, -6);
 		lblh_1.setLayoutData(fd_lblh_1);
 		lblh_1.setText("9h");
 		
 		Label lblh_2 = new Label(shell, SWT.NONE);
-		fd_lblh_1.bottom = new FormAttachment(lblh_2, -6);
 		FormData fd_lblh_2 = new FormData();
+		fd_lblh_2.top = new FormAttachment(lblh_1, 5);
 		fd_lblh_2.right = new FormAttachment(tableLundi, -6);
-		fd_lblh_2.top = new FormAttachment(btnNewButton, 0, SWT.TOP);
 		lblh_2.setLayoutData(fd_lblh_2);
 		lblh_2.setText("10h");
 		
 		Label lblh_3 = new Label(shell, SWT.NONE);
 		FormData fd_lblh_3 = new FormData();
-		fd_lblh_3.right = new FormAttachment(tableLundi, -6);
 		fd_lblh_3.top = new FormAttachment(lblh_2, 6);
+		fd_lblh_3.right = new FormAttachment(tableLundi, -6);
 		lblh_3.setLayoutData(fd_lblh_3);
 		lblh_3.setText("11h");
 		
 		Label lblh_4 = new Label(shell, SWT.NONE);
 		FormData fd_lblh_4 = new FormData();
-		fd_lblh_4.right = new FormAttachment(tableLundi, -7);
-		fd_lblh_4.bottom = new FormAttachment(btnBtsSlam, 0, SWT.BOTTOM);
+		fd_lblh_4.top = new FormAttachment(lblh_2, 32);
+		fd_lblh_4.right = new FormAttachment(tableLundi, -6);
 		lblh_4.setLayoutData(fd_lblh_4);
 		lblh_4.setText("12h");
 		
 		Label lblh_5 = new Label(shell, SWT.NONE);
 		FormData fd_lblh_5 = new FormData();
-		fd_lblh_5.left = new FormAttachment(lblh_2, 0, SWT.LEFT);
+		fd_lblh_5.top = new FormAttachment(btnTerminaleStid, 0, SWT.TOP);
+		fd_lblh_5.right = new FormAttachment(tableLundi, -6);
 		lblh_5.setLayoutData(fd_lblh_5);
 		lblh_5.setText("14h");
 		
 		Label lblh_6 = new Label(shell, SWT.NONE);
-		fd_lblh_5.bottom = new FormAttachment(lblh_6, -6);
 		FormData fd_lblh_6 = new FormData();
-		fd_lblh_6.left = new FormAttachment(lblh_2, 0, SWT.LEFT);
+		fd_lblh_6.top = new FormAttachment(lblh_5, 2);
+		fd_lblh_6.right = new FormAttachment(tableLundi, -6);
 		lblh_6.setLayoutData(fd_lblh_6);
 		lblh_6.setText("15h");
 		
@@ -219,19 +219,42 @@ public class Planning_prof extends Global
 		fd_lblh_6.bottom = new FormAttachment(lblh_7, -6);
 		FormData fd_lblh_7 = new FormData();
 		fd_lblh_7.right = new FormAttachment(tableLundi, -6);
-		fd_lblh_7.top = new FormAttachment(0, 386);
 		lblh_7.setLayoutData(fd_lblh_7);
 		lblh_7.setText("16h");
 		
 		Label lblh_8 = new Label(shell, SWT.NONE);
+		fd_lblh_7.bottom = new FormAttachment(lblh_8, -6);
 		FormData fd_lblh_8 = new FormData();
+		fd_lblh_8.top = new FormAttachment(0, 387);
 		fd_lblh_8.right = new FormAttachment(tableLundi, -6);
-		fd_lblh_8.top = new FormAttachment(lblh_7, 6);
 		lblh_8.setLayoutData(fd_lblh_8);
 		lblh_8.setText("17h");
 		
 		Label lblLundi = new Label(shell, SWT.NONE);
 		fd_tableLundi.top = new FormAttachment(lblLundi, 10);
+		
+		TableItem tableItem_1_1 = new TableItem(tableLundi, SWT.NONE);
+		tableItem_1_1.setText("1");
+		
+		TableItem tableItem_1_2 = new TableItem(tableLundi, SWT.NONE);
+		tableItem_1_2.setText("2");
+		
+		TableItem tableItem_1_3 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_4 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_5 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_pause = new TableItem(tableLundi, SWT.NONE);
+		tableItem_1_pause.setText("Pause");
+		
+		TableItem tableItem_1_6 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_7 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_8 = new TableItem(tableLundi, SWT.NONE);
+		
+		TableItem tableItem_1_9 = new TableItem(tableLundi, SWT.NONE);
 		lblLundi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblLundi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblLundi = new FormData();
@@ -243,6 +266,27 @@ public class Planning_prof extends Global
 		
 		Label lblMardi = new Label(shell, SWT.NONE);
 		fd_tableMardi.top = new FormAttachment(lblMardi, 10);
+		
+		TableItem tableItem_2_1 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_2 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_3 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_4 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_5 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_pause = new TableItem(tableMardi, 0);
+		tableItem_2_pause.setText("Pause");
+		
+		TableItem tableItem_2_6 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_7 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_8 = new TableItem(tableMardi, 0);
+		
+		TableItem tableItem_2_9 = new TableItem(tableMardi, 0);
 		lblMardi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblMardi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMardi = new FormData();
@@ -253,6 +297,27 @@ public class Planning_prof extends Global
 		Label lblMercredi = new Label(shell, SWT.NONE);
 		fd_lblMardi.right = new FormAttachment(100, -550);
 		fd_tableMercredi.top = new FormAttachment(lblMercredi, 10);
+		
+		TableItem tableItem_3_1 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_2 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_3 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_4 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_5 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_pause = new TableItem(tableMercredi, 0);
+		tableItem_3_pause.setText("Pause");
+		
+		TableItem tableItem_3_6 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_7 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_8 = new TableItem(tableMercredi, 0);
+		
+		TableItem tableItem_3_9 = new TableItem(tableMercredi, 0);
 		lblMercredi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblMercredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMercredi = new FormData();
@@ -262,6 +327,28 @@ public class Planning_prof extends Global
 		lblMercredi.setText("Mercredi");
 		
 		Label lblJeudi = new Label(shell, SWT.NONE);
+		fd_tableJeudi.top = new FormAttachment(lblJeudi, 10);
+		
+		TableItem tableItem_4_1 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_2 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_3 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_4 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_5 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_pause = new TableItem(tableJeudi, 0);
+		tableItem_4_pause.setText("Pause");
+		
+		TableItem tableItem_4_6 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_7 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_8 = new TableItem(tableJeudi, 0);
+		
+		TableItem tableItem_4_9 = new TableItem(tableJeudi, 0);
 		lblJeudi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblJeudi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblJeudi = new FormData();
@@ -270,6 +357,28 @@ public class Planning_prof extends Global
 		lblJeudi.setText("Jeudi");
 		
 		Label lblVendredi = new Label(shell, SWT.NONE);
+		fd_tableVendredi.top = new FormAttachment(lblVendredi, 10);
+		
+		TableItem tableItem_5_1 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_2 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_3 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_4 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_5 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_pause = new TableItem(tableVendredi, 0);
+		tableItem_5_pause.setText("Pause");
+		
+		TableItem tableItem_5_6 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_7 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_8 = new TableItem(tableVendredi, 0);
+		
+		TableItem tableItem_5_9 = new TableItem(tableVendredi, 0);
 		fd_lblJeudi.right = new FormAttachment(lblVendredi, -77);
 		lblVendredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		lblVendredi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
@@ -290,9 +399,9 @@ public class Planning_prof extends Global
 		Connection cnx = db.DbConnexion();
 		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id where identifiant = "+Globidentifiant;
 		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next()) {
-			
-		}
+//		while(resultat.next()) {
+//			
+//		}
 
 	}
 }

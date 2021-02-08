@@ -46,7 +46,7 @@ public class Controller_connexion extends Global{
 			
 		}
 		//else { //Erreur identifiant et/ou mot de passe
-			//erreur acces
+			
 		//}
 	}
 }
