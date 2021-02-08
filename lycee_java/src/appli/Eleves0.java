@@ -1,5 +1,9 @@
 package appli;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -9,6 +13,9 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import com.dbconnexion.Database;
+
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Decorations;
 import org.eclipse.swt.widgets.MenuItem;
@@ -164,5 +171,31 @@ public class Eleves0
 		Sanction.setWidth(100);
 		Sanction.setText("Sanction");
 
-	}
+//		Menu menu1 = new Menu(shell, SWT.BAR);
+//		shell.setMenuBar(menu);
+//		Database db = new Database();
+//		Connection cnx = db.DbConnexion();
+//
+//		String sql = "SELECT * FROM eleve, classe";
+//		ResultSet res = db.Request(cnx, sql);
+//
+//
+//		//étape 5: extraire les données
+//		try {
+//			while(res.next()){
+//				//Récupérer par nom de colonne
+//				String nom = res.getString("nom");
+//				String prenom = res.getString("prenom");
+//				String libelle = res.getString("libelle");
+//
+//
+//				//étape 6: fermez l'objet de connexion
+//
+//
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//	}
+}
 }
