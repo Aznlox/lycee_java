@@ -44,7 +44,8 @@ public class Admin_Eleves
 	/**
 	 * Open the window.
 	 */
-	public void open() {
+	public void open() 
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
