@@ -89,13 +89,13 @@ public class Modifier_prof extends Global
 		text_3 = new Text(shell, SWT.BORDER);
 		text_3.setBounds(307, 284, 80, 31);
 		
-		Button btnNewButton = new Button(shell, SWT.NONE);
-		btnNewButton.setBounds(295, 384, 105, 35);
-		btnNewButton.setText("New Button");
+		Button btnValider = new Button(shell, SWT.NONE);
+		btnValider.setBounds(295, 391, 105, 35);
+		btnValider.setText("Valider");
 		
-		Button btnNewButton_1 = new Button(shell, SWT.NONE);
-		btnNewButton_1.setBounds(10, 10, 105, 35);
-		btnNewButton_1.setText("New Button");
+		Button btnRetour = new Button(shell, SWT.NONE);
+		btnRetour.setBounds(10, 10, 105, 35);
+		btnRetour.setText("Retour");
 
 	}
 }
