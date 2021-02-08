@@ -137,7 +137,6 @@ public class Eleves0
 
 		TableItem idEleve = new TableItem(table, SWT.NONE);
 		idEleve.setText("Quentin Lignani");
-
 		TableItem idEleve2 = new TableItem(table, SWT.NONE);
 		idEleve2.setText("Loic GUO");
 
