@@ -29,20 +29,11 @@ public class Eleves0
 	private Table table_3;
 
 
-	public static void main(String[] args)
-	{
-		try
-		{
-			Eleves0 window = new Eleves0();
-			window.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void open()
 	{
 		Display display = Display.getDefault();

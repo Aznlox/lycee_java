@@ -26,26 +26,23 @@ public class Admin_Eleves
 
 	protected Shell shell;
 	private Table table;
+	public static void main(String[] args) {
 
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			Admin_Eleves window = new Admin_Eleves();
-			window.open();
-		}
-		catch (Exception e)
-		{
+		
+		try {
+			Connexion window = new Connexion();
+		window.open();	
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
+
 
 	/**
 	 * Open the window.
 	 */
-	public void open() 
-	{
+	public void open() {
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
@@ -67,18 +64,17 @@ public class Admin_Eleves
 		Database db = new Database();
 	    Connection cnx = db.DbConnexion();
 	    
-	    String sql = "SELECT type FROM vie_scolaire";
+	    String sql = "SELECT * FROM eleve, classe";
 	    ResultSet res = db.Request(cnx, sql);
 
 
 	    //étape 5: extraire les données
-	    try 
-	    {
-	        while(res.next())
-	        {
+	    try {
+	        while(res.next()){
 	            //Récupérer par nom de colonne
-	            String type = res.getString("type");
-	        
+	            String nom = res.getString("nom");
+	            String prenom = res.getString("prenom");
+	            String libelle = res.getString("libelle");
 			
 			   
 			 //étape 6: fermez l'objet de connexion
@@ -92,15 +88,15 @@ public class Admin_Eleves
 				Label Nom_Eleve = new Label(composite, SWT.NONE);
 				Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 				Nom_Eleve.setBounds(137, 51, 75, 20);
-				Nom_Eleve.setText("LOIC GUO");
+				Nom_Eleve.setText(prenom+" "+nom);
 
 				Label libelleClasse = new Label(composite, SWT.NONE);
-				libelleClasse.setText("SLAM 2");
+				libelleClasse.setText(libelle);
 				libelleClasse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
 				libelleClasse.setBounds(147, 77, 65, 20);
 
 				Label AbsenceEleve = new Label(composite, SWT.NONE);
-				AbsenceEleve.setText(type);
+				AbsenceEleve.setText(nom);
 				AbsenceEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 				AbsenceEleve.setBounds(167, 107, 65, 20);
 
@@ -144,15 +140,13 @@ public class Admin_Eleves
 				libelleNomEleve.setText("Nom");
 
 				TableItem NomEleve = new TableItem(table, SWT.NONE);
-				NomEleve.setText("GUO");
+				NomEleve.setText(nom);
 
 				Menu menu = new Menu(shell, SWT.BAR);
 				shell.setMenuBar(menu);
 
 			}
-		} 
-	    catch (SQLException e) 
-	    {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
@@ -164,3 +158,4 @@ public class Admin_Eleves
 	}
 	
 }
+
