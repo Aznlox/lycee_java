@@ -44,7 +44,8 @@ public class Admin_Eleves
 	/**
 	 * Open the window.
 	 */
-	public void open() {
+	public void open() 
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
@@ -136,8 +137,10 @@ public class Admin_Eleves
 
 
 	    //étape 5: extraire les données
-	    try {
-	        while(res.next()){
+	    try 
+	    {
+	        while(res.next())
+	        {
 	            //Récupérer par nom de colonne
 	            String type = res.getString("type");
 	        
@@ -149,7 +152,9 @@ public class Admin_Eleves
 				
 
 			}
-		} catch (SQLException e) {
+		} 
+	    catch (SQLException e) 
+	    {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
@@ -161,4 +166,3 @@ public class Admin_Eleves
 	}
 	
 }
-
