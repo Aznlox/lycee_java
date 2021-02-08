@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Table;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.TableViewer;
@@ -234,10 +235,9 @@ public class Planning_prof extends Global
 		fd_tableLundi.top = new FormAttachment(lblLundi, 10);
 		
 		TableItem tableItem_1_1 = new TableItem(tableLundi, SWT.NONE);
-		tableItem_1_1.setText("1");
+		
 		
 		TableItem tableItem_1_2 = new TableItem(tableLundi, SWT.NONE);
-		tableItem_1_2.setText("2");
 		
 		TableItem tableItem_1_3 = new TableItem(tableLundi, SWT.NONE);
 		
@@ -394,12 +394,83 @@ public class Planning_prof extends Global
 		fd_lblNom.left = new FormAttachment(lblBonjour, 6);
 		lblNom.setLayoutData(fd_lblNom);
 		lblNom.setText(Globnom);
+		ArrayList<ArrayList<TableItem>> planning = new ArrayList<ArrayList<TableItem>>();
+		ArrayList<TableItem> planning_lundi = new ArrayList<TableItem>();
+		planning_lundi.add(tableItem_1_1);
+		planning_lundi.add(tableItem_1_2);
+		planning_lundi.add(tableItem_1_3);
+		planning_lundi.add(tableItem_1_4);
+		planning_lundi.add(tableItem_1_5);
+		planning_lundi.add(tableItem_1_6);
+		planning_lundi.add(tableItem_1_7);
+		planning_lundi.add(tableItem_1_8);
+		planning_lundi.add(tableItem_1_9);
+		ArrayList<TableItem> planning_mardi = new ArrayList<TableItem>();
+		planning_mardi.add(tableItem_2_1);
+		planning_mardi.add(tableItem_2_2);
+		planning_mardi.add(tableItem_2_3);
+		planning_mardi.add(tableItem_2_4);
+		planning_mardi.add(tableItem_2_5);
+		planning_mardi.add(tableItem_2_6);
+		planning_mardi.add(tableItem_2_7);
+		planning_mardi.add(tableItem_2_8);
+		planning_mardi.add(tableItem_2_9);
+		ArrayList<TableItem> planning_mercredi = new ArrayList<TableItem>();
+		planning_mercredi.add(tableItem_3_1);
+		planning_mercredi.add(tableItem_3_2);
+		planning_mercredi.add(tableItem_3_3);
+		planning_mercredi.add(tableItem_3_4);
+		planning_mercredi.add(tableItem_3_5);
+		planning_mercredi.add(tableItem_3_6);
+		planning_mercredi.add(tableItem_3_7);
+		planning_mercredi.add(tableItem_3_8);
+		planning_mercredi.add(tableItem_3_9);
+		ArrayList<TableItem> planning_jeudi = new ArrayList<TableItem>();
+		planning_jeudi.add(tableItem_4_1);
+		planning_jeudi.add(tableItem_4_2);
+		planning_jeudi.add(tableItem_4_3);
+		planning_jeudi.add(tableItem_4_4);
+		planning_jeudi.add(tableItem_4_5);
+		planning_jeudi.add(tableItem_4_6);
+		planning_jeudi.add(tableItem_4_7);
+		planning_jeudi.add(tableItem_4_8);
+		planning_jeudi.add(tableItem_4_9);
+		ArrayList<TableItem> planning_vendredi = new ArrayList<TableItem>();
+		planning_vendredi.add(tableItem_5_1);
+		planning_vendredi.add(tableItem_5_2);
+		planning_vendredi.add(tableItem_5_3);
+		planning_vendredi.add(tableItem_5_4);
+		planning_vendredi.add(tableItem_5_5);
+		planning_vendredi.add(tableItem_5_6);
+		planning_vendredi.add(tableItem_5_7);
+		planning_vendredi.add(tableItem_5_8);
+		planning_vendredi.add(tableItem_5_9);
 		
+		Label lblh_9 = new Label(shell, SWT.NONE);
+		FormData fd_lblh_9 = new FormData();
+		fd_lblh_9.bottom = new FormAttachment(btnBtsSlam, 0, SWT.BOTTOM);
+		fd_lblh_9.right = new FormAttachment(tableLundi, -6);
+		lblh_9.setLayoutData(fd_lblh_9);
+		lblh_9.setText("13h");
+		
+		planning.add(planning_lundi);
+		planning.add(planning_mardi);
+		planning.add(planning_mercredi);
+		planning.add(planning_jeudi);
+		planning.add(planning_vendredi);
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = "+Globidentifiant;
+		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next()) {
+			int jour = resultat.getInt("id_jour") - 1;
+			int heure = resultat.getInt("id_heure") - 1;
+			String classe = resultat.getString("libelle");
+			
+			planning.get(jour).get(heure).setText(classe);
+			
+			
 			
 		}
 
