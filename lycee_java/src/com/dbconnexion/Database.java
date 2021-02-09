@@ -2,6 +2,7 @@ package com.dbconnexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -45,6 +46,22 @@ public class Database
 		return null;
 
 
+	}
+	
+	public boolean Prepare(Connection cnx, String requete) {
+		try
+		{
+			PreparedStatement pstm = cnx.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
+			pstm.executeUpdate();
+			return true;
+			
+		}
+		catch (SQLException e)
+		{
+			//traitement de l'exception
+		}
+		return false;
+		
 	}
 
 
