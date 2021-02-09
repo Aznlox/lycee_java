@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.eclipse.jface.layout.TableColumnLayout;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Button;
