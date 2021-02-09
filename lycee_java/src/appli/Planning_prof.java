@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.eclipse.jface.layout.TableColumnLayout;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Button;
@@ -453,6 +451,13 @@ public class Planning_prof extends Global
 		lblh_9.setLayoutData(fd_lblh_9);
 		lblh_9.setText("13h");
 		
+		Button btnModifier = new Button(shell, SWT.NONE);
+		FormData fd_btnModifier = new FormData();
+		fd_btnModifier.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
+		fd_btnModifier.left = new FormAttachment(btnNewButton, 0, SWT.LEFT);
+		btnModifier.setLayoutData(fd_btnModifier);
+		btnModifier.setText("Modifier votre profil");
+		
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
 		planning.add(planning_mercredi);
@@ -467,12 +472,25 @@ public class Planning_prof extends Global
 			int jour = resultat.getInt("id_jour") - 1;
 			int heure = resultat.getInt("id_heure") - 1;
 			String classe = resultat.getString("libelle");
-			
 			planning.get(jour).get(heure).setText(classe);
 			
-			
-			
 		}
+		
+		btnModifier.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				shell.close();
+				try
+				{
+					Modifier_prof window = new Modifier_prof();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 	}
 }
