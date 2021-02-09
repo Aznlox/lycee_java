@@ -45,7 +45,8 @@ public class SelectTable
       Class.forName("com.mysql.jdbc.Driver");
 
 
-      Connection conn = DriverManager.getConnection(
+      Connection conn = DriverManager.getConnection
+      (
       "jdbc:mysql://localhost/lycee_java?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
       //�tape 3: cr�er l'objet statement
