@@ -1,26 +1,26 @@
 package appli;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Label;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
-
-import com.dbconnexion.Database;
-
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.swt.widgets.ProgressBar;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Menu;
+import com.dbconnexion.*;
 
 public class form
 {
@@ -43,7 +43,6 @@ public class form
 	}
 	
 	
-
 
 	public void open()
 	{
@@ -76,14 +75,17 @@ public class form
 		lblNomEleve.setText("Nom Eleve");
 		
 		Label lblType = new Label(shell, SWT.NONE);
-		lblType.setText("Type");
+		lblType.setText("type");
 		lblType.setBounds(307, 177, 64, 16);
 		
 		Combo nomEleve = new Combo(shell, SWT.NONE);
 		nomEleve.setBounds(383, 136, 138, 20);
+
 		
-		Combo type = new Combo(shell, SWT.NONE);
-		type.setBounds(383, 176, 138, 20);
+		Combo motif = new Combo(shell, SWT.NONE);
+		motif.setItems(new String[] {});
+		motif.setBounds(383, 176, 138, 20);
+		motif.setText("Type");
 		
 		justification = new Text(shell, SWT.BORDER);
 		justification.setBounds(383, 222, 138, 33);
@@ -101,9 +103,32 @@ public class form
 		Database db = new Database();
 	    Connection cnx = db.DbConnexion();
 	    
-	    String sql = "SELECT * FROM eleve, classe";
+	    String sql = "SELECT * FROM vie_scolaire";
 	    ResultSet res = db.Request(cnx, sql);
+
+
+	    //étape 5: extraire les données
+	    try {
+	        while(res.next()){
+	            //Récupérer par nom de colonne
+	   
+	            motif.add(res.getString("motif"));
+
+
+			 //étape 6: fermez l'objet de connexion
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	  
 	    
 
+
+
 	}
+	
 }
+
+

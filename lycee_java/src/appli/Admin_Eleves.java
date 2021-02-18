@@ -147,12 +147,14 @@ public class Admin_Eleves
 	            String libelle = res.getString("libelle");
 	            
 	            Nom_Eleve.setText(prenom+" "+nom);
+	            
 	            libelleClasse.setText(libelle);
 	            AbsenceEleve.setText(nom);
 	            NomEleve.setText(nom);
 			 //étape 6: fermez l'objet de connexion
 				
 
+	            
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
