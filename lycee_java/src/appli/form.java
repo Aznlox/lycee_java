@@ -3,48 +3,34 @@ package appli;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Menu;
-import com.dbconnexion.*;
 
-public class form
+import com.dbconnexion.Database;
+
+import controller.Controller_connexion;
+import controller.Global;
+import org.eclipse.wb.swt.SWTResourceManager;
+
+public class form extends Global
 {
 
 	protected Shell shell;
-	private Text justification;
+	private Text textNom;
+	private Text textPrenom;
+	private String nom;
+	private String prenom;
 
 
-	public static void main(String[] args)
-	{
-		try
-		{
-			form window = new form();
-			window.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	
 
-	public void open()
+	public void open() throws SQLException
 	{
 		Display display = Display.getDefault();
 		createContents();
@@ -59,79 +45,95 @@ public class form
 		}
 	}
 
-	protected void createContents()
+	/**
+	* Create contents of the window.
+	 * @throws SQLException 
+	 * @wbp.parser.entryPoint
+	*/
+	protected void createContents() throws SQLException
 	{
 		shell = new Shell();
-		shell.setSize(988, 530);
+		shell.setSize(765, 559);
 		shell.setText("SWT Application");
-
-		Label lblAjouterUnMotif_1 = new Label(shell, SWT.NONE);
-		lblAjouterUnMotif_1.setFont(SWTResourceManager.getFont("Comic Sans MS", 12, SWT.NORMAL));
-		lblAjouterUnMotif_1.setBounds(352, 53, 203, 33);
-		lblAjouterUnMotif_1.setText("Ajouter un motif");
 		
-		Label lblNomEleve = new Label(shell, SWT.NONE);
-		lblNomEleve.setBounds(307, 137, 64, 16);
-		lblNomEleve.setText("Nom Eleve");
+		Label lblNom = new Label(shell, SWT.NONE);
+		lblNom.setBounds(165, 121, 81, 25);
+		lblNom.setText("Nom");
+	
 		
-		Label lblType = new Label(shell, SWT.NONE);
-		lblType.setText("type");
-		lblType.setBounds(307, 177, 64, 16);
+		Label lblTitre = new Label(shell, SWT.NONE);
+		lblTitre.setBounds(251, 34, 228, 25);
+		lblTitre.setText("Modifier son profil");
 		
-		Combo nomEleve = new Combo(shell, SWT.NONE);
-		nomEleve.setItems(new String[] {});
-		nomEleve.setBounds(383, 136, 138, 20);
-		nomEleve.setText("Nom");
+		textNom = new Text(shell, SWT.BORDER);
+		textNom.setBounds(277, 121, 147, 31);
 
 		
-		Combo type = new Combo(shell, SWT.NONE);
-		type.setItems(new String[] {});
-		type.setBounds(383, 176, 138, 20);
-		type.setText("Type");
-		
-		justification = new Text(shell, SWT.BORDER);
-		justification.setBounds(383, 222, 138, 33);
-		
-		Label lblMotif = new Label(shell, SWT.NONE);
-		lblMotif.setText("Justification");
-		lblMotif.setBounds(307, 225, 70, 16);
-		
+	
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(418, 275, 70, 21);
+		btnValider.setBounds(307, 340, 105, 35);
 		btnValider.setText("Valider");
 		
-		Menu menu = new Menu(shell, SWT.BAR);
-		shell.setMenuBar(menu);
+		Button btnRetour = new Button(shell, SWT.NONE);
+		btnRetour.setBounds(10, 10, 105, 35);
+		btnRetour.setText("Retour");
+		
 		Database db = new Database();
-	    Connection cnx = db.DbConnexion();
-	    
-	    String sql = "SELECT * FROM eleve, vie_scolaire";
-	    ResultSet res = db.Request(cnx, sql);
+		Connection cnx = db.DbConnexion();
+		String requete = "Select nom  from vie_scolaire";
+		ResultSet resultat = db.Request(cnx, requete);
+		while(resultat.next()) {
+			nom = resultat.getString("nom");
 
+		}
+		textNom.setText(nom);
+		textPrenom.setText(prenom);
 
-	    //étape 5: extraire les données
-	    try {
-	        while(res.next()){
-	            //Récupérer par nom de colonne
-	        	 String nom = res.getString("nom");
-	        	type.add(res.getString("type"));
-	        	nomEleve.add(res.getString("nom"));
-
-	           
-			 //étape 6: fermez l'objet de connexion
-			
+		
+		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		lblErreur.setBounds(307, 415, 253, 25);
+		lblErreur.setText("Veuiller remplir tous les champs");
+		lblErreur.setVisible(false);
+		
+		btnValider.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String requete = "Update vie_scolaire set nom ='"+textNom.getText()+"'";
+				boolean message = db.Prepare(cnx, requete);
+				lblErreur.setVisible(message);
+				requete = "Select nom";
+				ResultSet resultat = db.Request(cnx, requete);
+				try {
+					while(resultat.next()) {
+						nom = resultat.getString("nom");
+						prenom = resultat.getString("prenom");
+						type.add
+						
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				textNom.setText(nom);
+				textPrenom.setText(prenom);
+		
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-	  
-	    
-
-
-
+		});
+		
+		btnRetour.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				shell.close();
+				try {
+					Planning_prof window = new Planning_prof();
+					window.open();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		
 	}
-	
 }
-
 
