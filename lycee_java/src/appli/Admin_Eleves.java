@@ -73,24 +73,15 @@ public class Admin_Eleves
 		composite.setBounds(232, 57, 345, 243);
 
 
-		Label id_Eleve = new Label(composite, SWT.NONE);
-		id_Eleve.setText("ID");
-		id_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		id_Eleve.setBounds(189, 74, 65, 20);
-
 		Label Nom_Eleve = new Label(composite, SWT.NONE);
 		Nom_Eleve.setText("Nom");
 		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		Nom_Eleve.setBounds(189, 100, 65, 20);
 
 		Label Prenom_Eleve = new Label(composite, SWT.NONE);
-		Prenom_Eleve.setText("Sanctions");
+		Prenom_Eleve.setText("Prenom");
 		Prenom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		Prenom_Eleve.setBounds(189, 125, 65, 20);
-		
-		Label lblNewLabel = new Label(composite, SWT.NONE);
-		lblNewLabel.setBounds(62, 74, 56, 16);
-		lblNewLabel.setText("ID");
 		
 		Label lblNom = new Label(composite, SWT.NONE);
 		lblNom.setText("Nom");
@@ -130,16 +121,16 @@ public class Admin_Eleves
 	    try {
 	        while(res.next()){
 	            //Récupérer par nom de colonne
-	        	String id = res.getString("id");
+
 	            String nom = res.getString("nom");
 	            String prenom = res.getString("prenom");
 	         
-	            
-	            id_Eleve.setText(id);
+	        
 	            Nom_Eleve.setText(nom);
 	            Prenom_Eleve.setText(prenom);
 	            tableItem_1.setText(nom);
 	            
+
 			 //étape 6: fermez l'objet de connexion
 				
 

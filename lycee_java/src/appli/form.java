@@ -79,7 +79,9 @@ public class form
 		lblType.setBounds(307, 177, 64, 16);
 		
 		Combo nomEleve = new Combo(shell, SWT.NONE);
+		nomEleve.setItems(new String[] {});
 		nomEleve.setBounds(383, 136, 138, 20);
+		nomEleve.setText("Nom");
 
 		
 		Combo type = new Combo(shell, SWT.NONE);
@@ -103,7 +105,7 @@ public class form
 		Database db = new Database();
 	    Connection cnx = db.DbConnexion();
 	    
-	    String sql = "SELECT * FROM vie_scolaire";
+	    String sql = "SELECT * FROM eleve, vie_scolaire";
 	    ResultSet res = db.Request(cnx, sql);
 
 
@@ -111,10 +113,11 @@ public class form
 	    try {
 	        while(res.next()){
 	            //Récupérer par nom de colonne
-	   
-	            type.add(res.getString("type"));
+	        	 String nom = res.getString("nom");
+	        	type.add(res.getString("type"));
+	        	nomEleve.add(res.getString("nom"));
 
-
+	           
 			 //étape 6: fermez l'objet de connexion
 			
 			}
