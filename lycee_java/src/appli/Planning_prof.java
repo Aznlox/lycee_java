@@ -45,15 +45,9 @@ public class Planning_prof extends Global
 	private Table tableVendredi;
 
 
-	public static void main(String[] args) {
-		try {
-			Planning_prof window = new Planning_prof();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void open() throws Exception {
 		Display display = Display.getDefault();
 		createContents();
@@ -242,7 +236,7 @@ public class Planning_prof extends Global
 		TableItem tableItem_1_5 = new TableItem(tableLundi, SWT.NONE);
 		
 		TableItem tableItem_1_pause = new TableItem(tableLundi, SWT.NONE);
-		tableItem_1_pause.setText("Pause");
+		tableItem_1_pause.setText("Pause               ");
 		
 		TableItem tableItem_1_6 = new TableItem(tableLundi, SWT.NONE);
 		
@@ -274,7 +268,7 @@ public class Planning_prof extends Global
 		TableItem tableItem_2_5 = new TableItem(tableMardi, 0);
 		
 		TableItem tableItem_2_pause = new TableItem(tableMardi, 0);
-		tableItem_2_pause.setText("Pause");
+		tableItem_2_pause.setText("Pause               ");
 		
 		TableItem tableItem_2_6 = new TableItem(tableMardi, 0);
 		
@@ -305,7 +299,7 @@ public class Planning_prof extends Global
 		TableItem tableItem_3_5 = new TableItem(tableMercredi, 0);
 		
 		TableItem tableItem_3_pause = new TableItem(tableMercredi, 0);
-		tableItem_3_pause.setText("Pause");
+		tableItem_3_pause.setText("Pause               ");
 		
 		TableItem tableItem_3_6 = new TableItem(tableMercredi, 0);
 		
@@ -336,7 +330,7 @@ public class Planning_prof extends Global
 		TableItem tableItem_4_5 = new TableItem(tableJeudi, 0);
 		
 		TableItem tableItem_4_pause = new TableItem(tableJeudi, 0);
-		tableItem_4_pause.setText("Pause");
+		tableItem_4_pause.setText("Pause               ");
 		
 		TableItem tableItem_4_6 = new TableItem(tableJeudi, 0);
 		
@@ -366,7 +360,7 @@ public class Planning_prof extends Global
 		TableItem tableItem_5_5 = new TableItem(tableVendredi, 0);
 		
 		TableItem tableItem_5_pause = new TableItem(tableVendredi, 0);
-		tableItem_5_pause.setText("Pause");
+		tableItem_5_pause.setText("Pause               ");
 		
 		TableItem tableItem_5_6 = new TableItem(tableVendredi, 0);
 		
@@ -480,8 +474,8 @@ public class Planning_prof extends Global
 				shell.close();
 				try
 				{
-					Modifier_prof window = new Modifier_prof();
-					window.open();
+					Modifier_prof modif_prof = new Modifier_prof();
+					modif_prof.open();
 				}
 				catch (Exception e1)
 				{
