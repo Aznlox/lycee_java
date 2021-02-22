@@ -50,18 +50,6 @@ public class Elev
 	private Table table_3;
 
 
-	public void main(String[] args)
-	{
-		try
-		{
-			Eleves window = new Eleves();
-			window.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 
 
 	public void open() 

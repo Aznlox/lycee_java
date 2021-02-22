@@ -110,6 +110,14 @@ public class Admin_Eleves
 
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
+		
+		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
+		btnAjouterUneAbsence.setBounds(482, 22, 70, 21);
+		btnAjouterUneAbsence.setText("Ajouter une absence");
+
+		
+		
+		
 		Database db = new Database();
 	    Connection cnx = db.DbConnexion();
 	    
@@ -132,19 +140,34 @@ public class Admin_Eleves
 	            
 
 			 //étape 6: fermez l'objet de connexion
-				
 
-	            
-			}
+	        }
+			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					shell.close();
+					try
+					{
+						form form = new form();
+						form.open();
+					}
+					catch (Exception e1)
+					{
+						e1.printStackTrace();
+					}
+				}
+			});
+	    
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-	  
-	    
 
+	    
+		
 
 
 	}
+	
 }
 
