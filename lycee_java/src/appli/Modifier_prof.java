@@ -33,19 +33,6 @@ public class Modifier_prof extends Global
 	private String matiere;
 
 
-	public static void main(String[] args)
-	{
-		try
-		{
-			Modifier_prof window = new Modifier_prof();
-			window.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 
 	public void open() throws SQLException
 	{
@@ -65,6 +52,7 @@ public class Modifier_prof extends Global
 	/**
 	* Create contents of the window.
 	 * @throws SQLException 
+	 * @wbp.parser.entryPoint
 	*/
 	protected void createContents() throws SQLException
 	{
@@ -93,16 +81,16 @@ public class Modifier_prof extends Global
 		lblTitre.setText("Modifier son profil");
 		
 		textNom = new Text(shell, SWT.BORDER);
-		textNom.setBounds(307, 115, 105, 31);
+		textNom.setBounds(277, 121, 147, 31);
 		
 		textPrenom = new Text(shell, SWT.BORDER);
-		textPrenom.setBounds(307, 170, 105, 31);
+		textPrenom.setBounds(277, 176, 147, 31);
 		
 		textEmail = new Text(shell, SWT.BORDER);
-		textEmail.setBounds(307, 225, 105, 31);
+		textEmail.setBounds(277, 231, 147, 31);
 		
 		textMatiere = new Text(shell, SWT.BORDER);
-		textMatiere.setBounds(307, 281, 105, 31);
+		textMatiere.setBounds(277, 287, 147, 31);
 		
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(307, 340, 105, 35);
@@ -136,7 +124,7 @@ public class Modifier_prof extends Global
 		btnValider.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String requete = "Update utilisateur set nom ="+textNom.getText()+", prenom ="+textPrenom.getText()+", email ="+textEmail.getText()+", matiere ="+textMatiere.getText()+" where identifiant = '"+Globidentifiant+"'";
+				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', matiere ='"+textMatiere.getText()+"' where identifiant = '"+Globidentifiant+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
