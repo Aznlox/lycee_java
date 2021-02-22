@@ -72,46 +72,34 @@ public class Admin_Eleves
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(232, 57, 345, 243);
 
+
+		Label id_Eleve = new Label(composite, SWT.NONE);
+		id_Eleve.setText("ID");
+		id_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		id_Eleve.setBounds(189, 74, 65, 20);
+
 		Label Nom_Eleve = new Label(composite, SWT.NONE);
-		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		Nom_Eleve.setBounds(137, 51, 75, 20);
-		Nom_Eleve.setText("test");
+		Nom_Eleve.setText("Nom");
+		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		Nom_Eleve.setBounds(189, 100, 65, 20);
 
-		Label libelleClasse = new Label(composite, SWT.NONE);
-		libelleClasse.setText("test");
-		libelleClasse.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		libelleClasse.setBounds(147, 77, 65, 20);
-
-		Label AbsenceEleve = new Label(composite, SWT.NONE);
-		AbsenceEleve.setText("test");
-		AbsenceEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		AbsenceEleve.setBounds(167, 107, 65, 20);
-
-		Label RetardEleve = new Label(composite, SWT.NONE);
-		RetardEleve.setText("1");
-		RetardEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		RetardEleve.setBounds(167, 133, 65, 20);
-
-		Label Absences = new Label(composite, SWT.NONE);
-		Absences.setText("Absences");
-		Absences.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		Absences.setBounds(96, 107, 65, 20);
-
-		Label Retards = new Label(composite, SWT.NONE);
-		Retards.setText("Retards");
-		Retards.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		Retards.setBounds(96, 133, 65, 20);
-
-		Label Sanctions = new Label(composite, SWT.NONE);
-		Sanctions.setText("Sanctions");
-		Sanctions.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.NORMAL));
-		Sanctions.setBounds(96, 158, 65, 20);
-
-		Label SanctionEleve = new Label(composite, SWT.NONE);
-		SanctionEleve.setText("1");
-		SanctionEleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		SanctionEleve.setBounds(167, 158, 65, 20);
-
+		Label Prenom_Eleve = new Label(composite, SWT.NONE);
+		Prenom_Eleve.setText("Sanctions");
+		Prenom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		Prenom_Eleve.setBounds(189, 125, 65, 20);
+		
+		Label lblNewLabel = new Label(composite, SWT.NONE);
+		lblNewLabel.setBounds(62, 74, 56, 16);
+		lblNewLabel.setText("ID");
+		
+		Label lblNom = new Label(composite, SWT.NONE);
+		lblNom.setText("Nom");
+		lblNom.setBounds(62, 100, 56, 16);
+		
+		Label lblPrenom = new Label(composite, SWT.NONE);
+		lblPrenom.setText("Prenom");
+		lblPrenom.setBounds(62, 125, 56, 16);
+		
 		Label listeeleves = new Label(shell, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.BOLD));
 		listeeleves.setBounds(27, 22, 153, 33);
@@ -125,16 +113,16 @@ public class Admin_Eleves
 		TableColumn libelleNomEleve = new TableColumn(table, SWT.NONE);
 		libelleNomEleve.setWidth(100);
 		libelleNomEleve.setText("Nom");
-
-		TableItem NomEleve = new TableItem(table, SWT.NONE);
-		NomEleve.setText("test");
+		
+		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
+		tableItem_1.setText("test");
 
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 		Database db = new Database();
 	    Connection cnx = db.DbConnexion();
 	    
-	    String sql = "SELECT * FROM eleve, classe";
+	    String sql = "SELECT * FROM eleve";
 	    ResultSet res = db.Request(cnx, sql);
 
 
@@ -142,15 +130,16 @@ public class Admin_Eleves
 	    try {
 	        while(res.next()){
 	            //Récupérer par nom de colonne
+	        	String id = res.getString("id");
 	            String nom = res.getString("nom");
 	            String prenom = res.getString("prenom");
-	            String libelle = res.getString("libelle");
+	         
 	            
-	            Nom_Eleve.setText(prenom+" "+nom);
+	            id_Eleve.setText(id);
+	            Nom_Eleve.setText(nom);
+	            Prenom_Eleve.setText(prenom);
+	            tableItem_1.setText(nom);
 	            
-	            libelleClasse.setText(libelle);
-	            AbsenceEleve.setText(nom);
-	            NomEleve.setText(nom);
 			 //étape 6: fermez l'objet de connexion
 				
 
@@ -166,6 +155,5 @@ public class Admin_Eleves
 
 
 	}
-	
 }
 
