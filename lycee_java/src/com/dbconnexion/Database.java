@@ -53,14 +53,14 @@ public class Database
 		{
 			PreparedStatement pstm = cnx.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 			pstm.executeUpdate();
-			return true;
+			return false;
 			
 		}
 		catch (SQLException e)
 		{
 			//traitement de l'exception
 		}
-		return false;
+		return true;
 		
 	}
 

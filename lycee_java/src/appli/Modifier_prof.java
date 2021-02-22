@@ -120,12 +120,20 @@ public class Modifier_prof extends Global
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 		
+		Label lblSucces = new Label(shell, SWT.NONE);
+		lblSucces.setVisible(false);
+		lblSucces.setText("Modification enregistr\u00E9");
+		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setVisible(false);
+		
 		btnValider.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', matiere ='"+textMatiere.getText()+"' where identifiant = '"+Globidentifiant+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
+				lblSucces.setVisible(!message);
 				requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
 				ResultSet resultat = db.Request(cnx, requete);
 				try {
@@ -151,6 +159,7 @@ public class Modifier_prof extends Global
 			public void widgetSelected(SelectionEvent e) {
 				shell.close();
 				try {
+					Globnom = nom;
 					Planning_prof window = new Planning_prof();
 					window.open();
 				} catch (Exception e1) {
