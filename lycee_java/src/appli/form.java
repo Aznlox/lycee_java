@@ -82,10 +82,10 @@ public class form
 		nomEleve.setBounds(383, 136, 138, 20);
 
 		
-		Combo motif = new Combo(shell, SWT.NONE);
-		motif.setItems(new String[] {});
-		motif.setBounds(383, 176, 138, 20);
-		motif.setText("Type");
+		Combo type = new Combo(shell, SWT.NONE);
+		type.setItems(new String[] {});
+		type.setBounds(383, 176, 138, 20);
+		type.setText("Type");
 		
 		justification = new Text(shell, SWT.BORDER);
 		justification.setBounds(383, 222, 138, 33);
@@ -112,7 +112,7 @@ public class form
 	        while(res.next()){
 	            //Récupérer par nom de colonne
 	   
-	            motif.add(res.getString("motif"));
+	            type.add(res.getString("type"));
 
 
 			 //étape 6: fermez l'objet de connexion
