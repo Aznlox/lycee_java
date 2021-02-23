@@ -26,7 +26,7 @@ import controller.Global;
 public class Admin_viesco extends Global
 {
 
-	protected Shell shell;
+	protected Shell shlListeDesElves;
 	private Table table;
 
 
@@ -39,9 +39,9 @@ public class Admin_viesco extends Global
 	{
 		Display display = Display.getDefault();
 		createContents();
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed())
+		shlListeDesElves.open();
+		shlListeDesElves.layout();
+		while (!shlListeDesElves.isDisposed())
 		{
 			if (!display.readAndDispatch())
 			{
@@ -59,39 +59,43 @@ public class Admin_viesco extends Global
 	protected void createContents()
 	{
 
-		shell = new Shell();
-		shell.setSize(686, 419);
-		shell.setText("Liste des Elèves");
+		shlListeDesElves = new Shell();
+		shlListeDesElves.setSize(710, 463);
+		shlListeDesElves.setText("Liste des El\u00E8ves");
 
-		Composite composite = new Composite(shell, SWT.NONE);
-		composite.setBounds(232, 57, 345, 243);
+		Composite composite = new Composite(shlListeDesElves, SWT.NONE);
+		composite.setBounds(242, 61, 361, 266);
 
 
 		Label Nom_Eleve = new Label(composite, SWT.NONE);
 		Nom_Eleve.setText("Nom");
 		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		Nom_Eleve.setBounds(189, 100, 65, 20);
+		Nom_Eleve.setBounds(193, 85, 76, 35);
 
 		Label Prenom_Eleve = new Label(composite, SWT.NONE);
 		Prenom_Eleve.setText("Prenom");
 		Prenom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		Prenom_Eleve.setBounds(189, 125, 65, 20);
+		Prenom_Eleve.setBounds(193, 121, 91, 35);
 
 		Label lblNom = new Label(composite, SWT.NONE);
 		lblNom.setText("Nom");
-		lblNom.setBounds(62, 100, 56, 16);
+		lblNom.setBounds(62, 89, 67, 25);
 
 		Label lblPrenom = new Label(composite, SWT.NONE);
 		lblPrenom.setText("Prenom");
-		lblPrenom.setBounds(62, 125, 56, 16);
+		lblPrenom.setBounds(62, 125, 67, 35);
+		
+		Label lblClasse = new Label(composite, SWT.NONE);
+		lblClasse.setBounds(62, 163, 81, 25);
+		lblClasse.setText("Classe");
 
-		Label listeeleves = new Label(shell, SWT.NONE);
+		Label listeeleves = new Label(shlListeDesElves, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.BOLD));
-		listeeleves.setBounds(27, 22, 153, 33);
+		listeeleves.setBounds(27, 22, 220, 33);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
 
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(55, 57, 102, 243);
+		table = new Table(shlListeDesElves, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setBounds(37, 57, 146, 283);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
@@ -102,11 +106,8 @@ public class Admin_viesco extends Global
 		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
 		tableItem_1.setText("test");
 
-		Menu menu = new Menu(shell, SWT.BAR);
-		shell.setMenuBar(menu);
-
-		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
-		btnAjouterUneAbsence.setBounds(434, 22, 186, 29);
+		Button btnAjouterUneAbsence = new Button(shlListeDesElves, SWT.NONE);
+		btnAjouterUneAbsence.setBounds(445, 10, 186, 29);
 		btnAjouterUneAbsence.setText("Modifier votre profil");
 
 
@@ -143,7 +144,7 @@ public class Admin_viesco extends Global
 				@Override
 				public void widgetSelected(SelectionEvent e)
 				{
-					shell.close();
+					shlListeDesElves.close();
 					try
 					{
 						form form = new form();
