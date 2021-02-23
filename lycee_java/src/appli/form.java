@@ -72,6 +72,7 @@ public class form { //Classe
 		
 		Justification = new Text(Form, SWT.BORDER | SWT.V_SCROLL);
 		Justification.setBounds(161, 223, 200, 69);
+		Justification.setText(justification);
 		
 		Button btnNewButton = new Button(Form, SWT.NONE);
 		btnNewButton.setBounds(161, 310, 200, 35);
@@ -87,40 +88,32 @@ public class form { //Classe
 		
 		Label lblNom = new Label(Form, SWT.NONE);
 		lblNom.setBounds(99, 82, 56, 16);
-		lblNom.setText(nom);
+		lblNom.setText("nom");
 		
 		Label lblType = new Label(Form, SWT.NONE);
 		lblType.setBounds(99, 131, 56, 16);
-		lblType.setText(type);
+		lblType.setText("type");
 		
 		Label lblDate = new Label(Form, SWT.NONE);
 		lblDate.setBounds(99, 178, 56, 16);
-		lblDate.setText(date);
+		lblDate.setText("date");
 		
 		Label lblJustification = new Label(Form, SWT.NONE);
 		lblJustification.setBounds(92, 223, 63, 16);
-		lblJustification.setText(justification);
+		lblJustification.setText("justification");
 		
 		DateTime Date = new DateTime(Form, SWT.BORDER);
 		Date.setBounds(162, 178, 81, 21);
+		lblDate.setText(date);
 		
 		Combo Nom = new Combo(Form, SWT.NONE);
 		Nom.setBounds(161, 81, 200, 20);
+		lblNom.setText(nom);
 		
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from vie_scolaire";
-		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next())
-		{
-			nom = resultat.getString("nom");
-			type = resultat.getString("type");
-			date = resultat.getString("date");
-			justification = resultat.getString("justification");
-		}
-		Nom.setText(nom);
-		Type.setText(type);
-		Date.setText(date);
+		
+
 		Justification.setText(justification);
 
 		btnNewButton.addSelectionListener(new SelectionAdapter()
@@ -128,29 +121,9 @@ public class form { //Classe
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT INTO vie_scolaire ";
-				boolean message = db.Prepare(cnx, requete);
-				requete = "SELECT * from vie_scolaire";
-				ResultSet resultat = db.Request(cnx, requete);
-				try
-				{
-					while(resultat.next())
-					{
-						nom = resultat.getString("nom");
-						type = resultat.getString("type");
-						date = resultat.getString("date");
-						justification = resultat.getString("justification");
-					}
-				}
-				catch (SQLException e1)
-				{
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				Nom.setText(nom);
-				Type.setText(type);
-				Date.setText(date);
-				Justification.setText(justification);
+			
+				String request = "INSERT INTO vie_scolaire (id_eleve, type, date, justification) VALUES ()";
+				
 			}
 		});
 
