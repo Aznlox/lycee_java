@@ -26,13 +26,17 @@ public class Admin_Eleves
 
 	protected Shell shell;
 	private Table table;
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 
 
-		try {
+		try
+		{
 			Connexion window = new Connexion();
 			window.open();
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 
@@ -42,7 +46,8 @@ public class Admin_Eleves
 	/**
 	* Open the window.
 	*/
-	public void open() {
+	public void open()
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
@@ -126,8 +131,10 @@ public class Admin_Eleves
 
 
 		//�tape 5: extraire les donn�es
-		try {
-			while(res.next()){
+		try
+		{
+			while(res.next())
+			{
 				//R�cup�rer par nom de colonne
 
 				String nom = res.getString("nom");
@@ -142,9 +149,11 @@ public class Admin_Eleves
 				//�tape 6: fermez l'objet de connexion
 
 			}
-			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter() {
+			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter()
+			{
 				@Override
-				public void widgetSelected(SelectionEvent e) {
+				public void widgetSelected(SelectionEvent e)
+				{
 					shell.close();
 					try
 					{
@@ -159,7 +168,7 @@ public class Admin_Eleves
 			});
 
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
