@@ -22,9 +22,9 @@ public class Connexion
 	private Text textMotdePasse;
 
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
+	* Launch the application.
+	* @param args
+	*/
 	public static void main(String[] args)
 	{
 		try
@@ -39,8 +39,8 @@ public class Connexion
 	}
 
 	/**
-	 * Open the window.
-	 */
+	* Open the window.
+	*/
 	public void open()
 	{
 		Display display = Display.getDefault();
@@ -57,8 +57,8 @@ public class Connexion
 	}
 
 	/**
-	 * Create contents of the window.
-	 */
+	* Create contents of the window.
+	*/
 	protected void createContents()
 	{
 		shell = new Shell();
@@ -90,7 +90,7 @@ public class Connexion
 		Label MotdePasse = new Label(shell, SWT.NONE);
 		MotdePasse.setBounds(20, 144, 119, 34);
 		MotdePasse.setText("Mot de passe");
-		
+
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(68, 225, 345, 25);
