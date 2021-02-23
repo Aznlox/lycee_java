@@ -21,7 +21,9 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import com.dbconnexion.*;
 
-public class Admin_Eleves
+import controller.Global;
+
+public class Admin_viesco extends Global
 {
 
 	protected Shell shell;

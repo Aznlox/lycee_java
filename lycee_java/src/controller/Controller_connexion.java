@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import com.dbconnexion.*;
 
 import appli.Admin_Eleves;
+import appli.Admin_menu;
 import appli.Eleves;
 import appli.Planning_prof;
 
@@ -27,7 +28,7 @@ public class Controller_connexion extends Global{
 			if(resultat.getString(role).equals("Admin")) {
 				try { //Connexion en tant qu'Administrateur
 					shell.close();
-					Admin_Eleves window_Admin = new Admin_Eleves();
+					Admin_menu window_Admin = new Admin_menu();
 					window_Admin.open();
 					return false;
 					
