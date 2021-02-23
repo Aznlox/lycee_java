@@ -100,7 +100,7 @@ public class Admin_Menu extends Global{
 			{
 				try
 				{
-					Liste_Eleve window = new Liste_Eleve();
+					Modifier_eleve window = new Modifier_eleve();
 					window.open();
 				}
 				catch (Exception e1)

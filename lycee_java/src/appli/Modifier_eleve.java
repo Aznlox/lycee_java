@@ -20,11 +20,10 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Combo;
 
 
-
 public class Modifier_eleve extends Global
 {
 
-	protected Shell shell;
+	protected Shell shelleleve;
 	private Text Nom;
 	private Text Prenom;
 	private String nom;
@@ -36,9 +35,9 @@ public class Modifier_eleve extends Global
 	{
 		Display display = Display.getDefault();
 		createContents();
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed())
+		shelleleve.open();
+		shelleleve.layout();
+		while (!shelleleve.isDisposed())
 		{
 			if (!display.readAndDispatch())
 			{
@@ -54,38 +53,38 @@ public class Modifier_eleve extends Global
 	*/
 	protected void createContents() throws SQLException
 	{
-		shell = new Shell();
-		shell.setSize(765, 559);
-		shell.setText("Modifier son profil");
+		shelleleve = new Shell();
+		shelleleve.setSize(765, 559);
+		shelleleve.setText("Modifier son profil");
 
-		Label lblNom = new Label(shell, SWT.NONE);
+		Label lblNom = new Label(shelleleve, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
 		lblNom.setText("Eleve");
 
-		Label lblPrnom = new Label(shell, SWT.NONE);
+		Label lblPrnom = new Label(shelleleve, SWT.NONE);
 		lblPrnom.setBounds(165, 173, 81, 25);
 		lblPrnom.setText("Nom");
 
-		Label lblEmail = new Label(shell, SWT.NONE);
+		Label lblEmail = new Label(shelleleve, SWT.NONE);
 		lblEmail.setBounds(165, 231, 81, 25);
 		lblEmail.setText("Prenom");
 
-		Label lblTitre = new Label(shell, SWT.NONE);
+		Label lblTitre = new Label(shelleleve, SWT.NONE);
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblTitre.setBounds(266, 34, 228, 25);
 		lblTitre.setText("Modifier un El\u00E8ve");
 
-		Nom = new Text(shell, SWT.BORDER);
+		Nom = new Text(shelleleve, SWT.BORDER);
 		Nom.setBounds(277, 176, 147, 31);
 
-		Prenom = new Text(shell, SWT.BORDER);
+		Prenom = new Text(shelleleve, SWT.BORDER);
 		Prenom.setBounds(277, 231, 147, 31);
 
-		Button btnValider = new Button(shell, SWT.NONE);
+		Button btnValider = new Button(shelleleve, SWT.NONE);
 		btnValider.setBounds(298, 347, 105, 35);
 		btnValider.setText("Modifier");
 
-		Button btnRetour = new Button(shell, SWT.NONE);
+		Button btnRetour = new Button(shelleleve, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
 
@@ -103,20 +102,20 @@ public class Modifier_eleve extends Global
 		Prenom.setText(email);
 
 
-		Label lblErreur = new Label(shell, SWT.NONE);
+		Label lblErreur = new Label(shelleleve, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(307, 415, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
-		Label lblSucces = new Label(shell, SWT.NONE);
+		Label lblSucces = new Label(shelleleve, SWT.NONE);
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9s");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
 		
-		Combo Eleve = new Combo(shell, SWT.NONE);
+		Combo Eleve = new Combo(shelleleve, SWT.NONE);
 		Eleve.setBounds(277, 120, 147, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
@@ -156,7 +155,7 @@ public class Modifier_eleve extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				shell.close();
+				shelleleve.close();
 				try
 				{
 					Globnom = nom;
