@@ -49,8 +49,8 @@ public class Modifier_prof extends Global
 	}
 
 	/**
-	* Create contents of the window.
-	 * @throws SQLException 
+	* Fondation du contenu de la fenetre
+	 * @throws SQLException
 	 * @wbp.parser.entryPoint
 	*/
 	protected void createContents() throws SQLException
@@ -58,52 +58,53 @@ public class Modifier_prof extends Global
 		shell = new Shell();
 		shell.setSize(765, 559);
 		shell.setText("SWT Application");
-		
+
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
 		lblNom.setText("Nom");
-		
+
 		Label lblPrnom = new Label(shell, SWT.NONE);
 		lblPrnom.setBounds(165, 173, 81, 25);
 		lblPrnom.setText("Pr\u00E9nom");
-		
+
 		Label lblEmail = new Label(shell, SWT.NONE);
 		lblEmail.setBounds(165, 231, 81, 25);
 		lblEmail.setText("Email");
-		
+
 		Label lblMatire = new Label(shell, SWT.NONE);
 		lblMatire.setBounds(165, 284, 81, 25);
 		lblMatire.setText("Mati\u00E8re");
-		
+
 		Label lblTitre = new Label(shell, SWT.NONE);
 		lblTitre.setBounds(251, 34, 228, 25);
 		lblTitre.setText("Modifier son profil");
-		
+
 		textNom = new Text(shell, SWT.BORDER);
 		textNom.setBounds(277, 121, 147, 31);
-		
+
 		textPrenom = new Text(shell, SWT.BORDER);
 		textPrenom.setBounds(277, 176, 147, 31);
-		
+
 		textEmail = new Text(shell, SWT.BORDER);
 		textEmail.setBounds(277, 231, 147, 31);
-		
+
 		textMatiere = new Text(shell, SWT.BORDER);
 		textMatiere.setBounds(277, 287, 147, 31);
-		
+
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(307, 340, 105, 35);
 		btnValider.setText("Valider");
-		
+
 		Button btnRetour = new Button(shell, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
-		
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		String requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
 		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next()) {
+		while(resultat.next())
+		{
 			nom = resultat.getString("nom");
 			prenom = resultat.getString("prenom");
 			email = resultat.getString("email");
@@ -113,37 +114,43 @@ public class Modifier_prof extends Global
 		textPrenom.setText(prenom);
 		textEmail.setText(email);
 		textMatiere.setText(matiere);
-		
+
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(307, 415, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
-		
+
 		Label lblSucces = new Label(shell, SWT.NONE);
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9s");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
-		
-		btnValider.addSelectionListener(new SelectionAdapter() {
+
+		btnValider.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', matiere ='"+textMatiere.getText()+"' where identifiant = '"+Globidentifiant+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
 				requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
 				ResultSet resultat = db.Request(cnx, requete);
-				try {
-					while(resultat.next()) {
+				try
+				{
+					while(resultat.next())
+					{
 						nom = resultat.getString("nom");
 						prenom = resultat.getString("prenom");
 						email = resultat.getString("email");
 						matiere = resultat.getString("matiere");
 					}
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1)
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -153,20 +160,25 @@ public class Modifier_prof extends Global
 				textMatiere.setText(matiere);
 			}
 		});
-		
-		btnRetour.addSelectionListener(new SelectionAdapter() {
+
+		btnRetour.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				shell.close();
-				try {
+				try
+				{
 					Globnom = nom;
 					Planning_prof window = new Planning_prof();
 					window.open();
-				} catch (Exception e1) {
+				}
+				catch (Exception e1)
+				{
 					e1.printStackTrace();
 				}
 			}
 		});
-		
+
 	}
 }
