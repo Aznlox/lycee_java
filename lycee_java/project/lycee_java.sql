@@ -31,7 +31,8 @@ USE `lycee_java`;
 --
 
 DROP TABLE IF EXISTS `classe`;
-CREATE TABLE IF NOT EXISTS `classe` (
+CREATE TABLE IF NOT EXISTS `classe`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(30) NOT NULL,
   `id_prof_principal` int(11) NOT NULL,
@@ -43,8 +44,7 @@ CREATE TABLE IF NOT EXISTS `classe` (
 -- Déchargement des données de la table `classe`
 --
 
-INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES
-(1, 'BTS SIO SLAM', 2);
+INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES (1, 'BTS SIO SLAM', 2);
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,8 @@ INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES
 --
 
 DROP TABLE IF EXISTS `eleve`;
-CREATE TABLE IF NOT EXISTS `eleve` (
+CREATE TABLE IF NOT EXISTS `eleve`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
@@ -66,9 +67,7 @@ CREATE TABLE IF NOT EXISTS `eleve` (
 -- Déchargement des données de la table `eleve`
 --
 
-INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
-(1, 'Guo', 'Loïc', 1),
-(2, 'Lignani', 'Quentin', 1);
+INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES (1, 'Guo', 'Loïc', 1), (2, 'Lignani', 'Quentin', 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +76,8 @@ INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
 --
 
 DROP TABLE IF EXISTS `grille_horaire`;
-CREATE TABLE IF NOT EXISTS `grille_horaire` (
+CREATE TABLE IF NOT EXISTS `grille_horaire`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_jour` int(11) NOT NULL,
   `id_heure` int(11) NOT NULL,
@@ -90,9 +90,7 @@ CREATE TABLE IF NOT EXISTS `grille_horaire` (
 -- Déchargement des données de la table `grille_horaire`
 --
 
-INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES
-(1, 1, 3),
-(2, 1, 7);
+INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES (1, 1, 3), (2, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -101,7 +99,8 @@ INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES
 --
 
 DROP TABLE IF EXISTS `heure`;
-CREATE TABLE IF NOT EXISTS `heure` (
+CREATE TABLE IF NOT EXISTS `heure`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
@@ -111,16 +110,7 @@ CREATE TABLE IF NOT EXISTS `heure` (
 -- Déchargement des données de la table `heure`
 --
 
-INSERT INTO `heure` (`id`, `libelle`) VALUES
-(1, '8h'),
-(2, '9h'),
-(3, '10h'),
-(4, '11h'),
-(5, '12h'),
-(6, '14h'),
-(7, '15h'),
-(8, '16h'),
-(9, '17h');
+INSERT INTO `heure` (`id`, `libelle`) VALUES (1, '8h'), (2, '9h'), (3, '10h'), (4, '11h'), (5, '12h'), (6, '14h'), (7, '15h'), (8, '16h'), (9, '17h');
 
 -- --------------------------------------------------------
 
@@ -129,7 +119,8 @@ INSERT INTO `heure` (`id`, `libelle`) VALUES
 --
 
 DROP TABLE IF EXISTS `jour`;
-CREATE TABLE IF NOT EXISTS `jour` (
+CREATE TABLE IF NOT EXISTS `jour`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
