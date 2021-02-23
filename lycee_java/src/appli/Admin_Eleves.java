@@ -71,7 +71,7 @@ public class Admin_Eleves
 	{
 
 		shell = new Shell();
-		shell.setSize(600, 371);
+		shell.setSize(686, 419);
 		shell.setText("SWT Application");
 
 		Composite composite = new Composite(shell, SWT.NONE);
@@ -117,8 +117,8 @@ public class Admin_Eleves
 		shell.setMenuBar(menu);
 
 		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
-		btnAjouterUneAbsence.setBounds(482, 22, 70, 21);
-		btnAjouterUneAbsence.setText("Ajouter une absence");
+		btnAjouterUneAbsence.setBounds(434, 22, 186, 29);
+		btnAjouterUneAbsence.setText("Modifier votre profil");
 
 
 
