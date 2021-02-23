@@ -23,9 +23,9 @@ public class Modifier_eleve extends Global
 {
 
 	protected Shell shell;
-	private Text textPrenom;
-	private Text textEmail;
-	private Text textMatiere;
+	private Text Nom;
+	private Text Prenom;
+	private Text Classe;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -80,14 +80,14 @@ public class Modifier_eleve extends Global
 		lblTitre.setBounds(266, 34, 228, 25);
 		lblTitre.setText("Modifier un El\u00E8ve");
 
-		textPrenom = new Text(shell, SWT.BORDER);
-		textPrenom.setBounds(277, 176, 147, 31);
+		Nom = new Text(shell, SWT.BORDER);
+		Nom.setBounds(277, 176, 147, 31);
 
-		textEmail = new Text(shell, SWT.BORDER);
-		textEmail.setBounds(277, 231, 147, 31);
+		Prenom = new Text(shell, SWT.BORDER);
+		Prenom.setBounds(277, 231, 147, 31);
 
-		textMatiere = new Text(shell, SWT.BORDER);
-		textMatiere.setBounds(277, 287, 147, 31);
+		Classe = new Text(shell, SWT.BORDER);
+		Classe.setBounds(277, 287, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(298, 347, 105, 35);
@@ -99,18 +99,17 @@ public class Modifier_eleve extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
+		String requete = "Select nom, prenom, id_classe from eleve";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
 			nom = resultat.getString("nom");
 			prenom = resultat.getString("prenom");
-			email = resultat.getString("email");
-			matiere = resultat.getString("matiere");
+			id_classe = resultat.getString("id_classe");
 		}
-		textPrenom.setText(prenom);
-		textEmail.setText(email);
-		textMatiere.setText(matiere);
+		Nom.setText(prenom);
+		Prenom.setText(email);
+		Classe.setText(matiere);
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
@@ -125,15 +124,15 @@ public class Modifier_eleve extends Global
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
 		
-		Combo combo = new Combo(shell, SWT.NONE);
-		combo.setBounds(277, 120, 147, 25);
+		Combo Eleve = new Combo(shell, SWT.NONE);
+		Eleve.setBounds(277, 120, 147, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', matiere ='"+textMatiere.getText()+"' where identifiant = '"+Globidentifiant+"'";
+				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+Nom.getText()+"', email ='"+Prenom.getText()+"', matiere ='"+Classe.getText()+"' where identifiant = '"+Globidentifiant+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
@@ -155,9 +154,9 @@ public class Modifier_eleve extends Global
 					e1.printStackTrace();
 				}
 				textNom.setText(nom);
-				textPrenom.setText(prenom);
-				textEmail.setText(email);
-				textMatiere.setText(matiere);
+				Nom.setText(prenom);
+				Prenom.setText(email);
+				Classe.setText(matiere);
 			}
 		});
 
