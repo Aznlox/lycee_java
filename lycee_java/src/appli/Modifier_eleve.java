@@ -29,10 +29,8 @@ public class Modifier_eleve extends Global
 	private String nom;
 	private String prenom;
 	private String email;
-	private String matiere;
-
-
-
+	
+	
 	public void open() throws SQLException
 	{
 		Display display = Display.getDefault();
@@ -109,7 +107,7 @@ public class Modifier_eleve extends Global
 		}
 		Nom.setText(prenom);
 		Prenom.setText(email);
-		Classe.setText(matiere);
+		Classe.setText(Classe);
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
