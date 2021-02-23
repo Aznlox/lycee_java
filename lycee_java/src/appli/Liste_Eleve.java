@@ -10,7 +10,9 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -63,11 +65,11 @@ public class Liste_Eleve extends Global
 	{
 
 		shlListeEleve = new Shell();
-		shlListeEleve.setSize(785, 523);
+		shlListeEleve.setSize(785, 542);
 		shlListeEleve.setText("Liste des El\u00E8ves");
 
 		Composite composite = new Composite(shlListeEleve, SWT.NONE);
-		composite.setBounds(248, 131, 361, 266);
+		composite.setBounds(363, 131, 361, 266);
 
 
 		Label Nom_Eleve = new Label(composite, SWT.NONE);
@@ -86,30 +88,30 @@ public class Liste_Eleve extends Global
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 77, 67, 35);
 		
-		Label lblClasse = new Label(composite, SWT.NONE);
-		lblClasse.setBounds(62, 122, 81, 25);
-		lblClasse.setText("Classe");
-		
 		Label lblNewLabel = new Label(composite, SWT.NONE);
 		lblNewLabel.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblNewLabel.setBounds(160, 119, 180, 35);
 
 		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
-		listeeleves.setBounds(36, 109, 191, 29);
+		listeeleves.setBounds(46, 91, 191, 29);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
 
 		table = new Table(shlListeEleve, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(36, 144, 146, 283);
+		table.setBounds(26, 126, 218, 283);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
 		TableColumn libelleNomEleve = new TableColumn(table, SWT.NONE);
 		libelleNomEleve.setWidth(100);
 		libelleNomEleve.setText("Nom");
+		
+		TableColumn libellePrenomEleve = new TableColumn(table, SWT.NONE);
+		libellePrenomEleve.setWidth(100);
+		libellePrenomEleve.setText("Pr\u00E9nom");
 
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
-		btnModifEleve.setBounds(214, 403, 186, 35);
+		btnModifEleve.setBounds(214, 441, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
 		btnModifEleve.setVisible(Globadmin);
 		
@@ -117,7 +119,12 @@ public class Liste_Eleve extends Global
 		comboClasse.setBounds(16, 52, 211, 33);
 		
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
-		AjouterVieSco.setBounds(415, 403, 309, 35);
+		AjouterVieSco.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		AjouterVieSco.setBounds(424, 441, 309, 35);
 		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
 		
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
@@ -154,10 +161,13 @@ public class Liste_Eleve extends Global
 					int i = 0;
 					while(res.next())
 					{
+						String id = Integer.toString(res.getInt("id"));
 						String nom = res.getString("nom");
 						String prenom = res.getString("prenom");
 						TableItem item = new TableItem(table, SWT.NONE , i);
-					    item.setText(nom);
+					    item.setText(0, nom);
+					    item.setText(1, prenom);
+					    item.setText(2, id);
 					    i++;
 
 						//Recuperer par nom de colonne
@@ -174,6 +184,16 @@ public class Liste_Eleve extends Global
 					e2.printStackTrace();
 				}
 			}
+		});
+		table.addListener(SWT.DefaultSelection, new Listener() {
+		      public void handleEvent(Event e) {
+		    	String select ="";
+		        TableItem[] selection = table.getSelection();
+		        for (int i = 0; i < selection.length; i++)
+		        select += selection[i].getText(2);
+		        
+		        System.out.println(select);
+		      }
 		});
 		btnValider.setBounds(246, 50, 105, 35);
 		btnValider.setText("Valider");

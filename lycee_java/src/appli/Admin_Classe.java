@@ -3,26 +3,20 @@ package appli;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Menu;
-import com.dbconnexion.*;
+
+import com.dbconnexion.Database;
 
 import controller.Global;
-import org.eclipse.swt.widgets.Combo;
 
 public class Admin_Classe extends Global
 {
@@ -87,6 +81,7 @@ public class Admin_Classe extends Global
 		
 		textModClasse = new Text(shlClasse, SWT.BORDER);
 		textModClasse.setBounds(103, 116, 186, 31);
+		textModClasse.setText(comboClasse.getItem(comboClasse.getSelectionIndex()));
 		
 		
 		Button btnModValider = new Button(shlClasse, SWT.NONE);
@@ -95,6 +90,7 @@ public class Admin_Classe extends Global
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
+		
 		btnModValider.setBounds(16, 163, 105, 35);
 		btnModValider.setText("Valider");
 		
@@ -112,12 +108,6 @@ public class Admin_Classe extends Global
 		Button AjouterClasse = new Button(shlClasse, SWT.NONE);
 		AjouterClasse.setBounds(10, 416, 162, 35);
 		AjouterClasse.setText("Ajouter une classe");
-
-		
-		
-
-
-
 
 
 	}
