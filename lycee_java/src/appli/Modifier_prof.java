@@ -57,7 +57,7 @@ public class Modifier_prof extends Global
 	{
 		shell = new Shell();
 		shell.setSize(765, 559);
-		shell.setText("SWT Application");
+		shell.setText("Modifier son profil");
 
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);

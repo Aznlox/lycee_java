@@ -68,7 +68,7 @@ public class Planning_prof extends Global
 	{
 		shell = new Shell();
 		shell.setSize(1066, 551);
-		shell.setText("SWT Application");
+		shell.setText("Planning");
 		shell.setLayout(new org.eclipse.swt.layout.FormLayout());
 
 		Button btnNewButton = new Button(shell, SWT.NONE);

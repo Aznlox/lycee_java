@@ -52,7 +52,7 @@ public class motif
 	{
 		shell = new Shell();
 		shell.setSize(988, 530);
-		shell.setText("SWT Application");
+		shell.setText("Motif");
 
 		Label lblAjouterUnMotif = new Label(shell, SWT.NONE);
 		lblAjouterUnMotif.setFont(SWTResourceManager.getFont("Comic Sans MS", 14, SWT.NORMAL));
