@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Text;
 
 import controller.Global;
 
-public class Admin_menu extends Global{
+public class Admin_Menu extends Global{
 
 	protected Shell shlMenuAdmin;
 
@@ -40,7 +40,7 @@ public class Admin_menu extends Global{
 	 */
 	protected void createContents() {
 		shlMenuAdmin = new Shell();
-		shlMenuAdmin.setSize(366, 449);
+		shlMenuAdmin.setSize(366, 401);
 
 		shlMenuAdmin.setText("Menu Admin");
 		
@@ -55,19 +55,7 @@ public class Admin_menu extends Global{
 		Button btnClasse = new Button(shlMenuAdmin, SWT.NONE);
 		btnClasse.setText("Gestion classes");
 		btnClasse.setBounds(80, 126, 184, 35);
-		
-		Button btnEleve = new Button(shlMenuAdmin, SWT.NONE);
-		btnEleve.setText("Gestion \u00E9l\u00E8ves");
-		btnEleve.setBounds(80, 182, 184, 35);
-		
-		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
-		btnPlanning.setBounds(80, 237, 184, 35);
-		btnPlanning.setText("Modifier le planning");
-		
-		Button btnVieSco = new Button(shlMenuAdmin, SWT.NONE);
-		btnVieSco.setBounds(80, 293, 184, 35);
-		btnVieSco.setText("Gestion vie scolaire");
-		btnVieSco.addSelectionListener(new SelectionAdapter()
+		btnClasse.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
@@ -83,6 +71,31 @@ public class Admin_menu extends Global{
 				}
 			}
 		});
+		
+		
+		Button btnEleve = new Button(shlMenuAdmin, SWT.NONE);
+		btnEleve.setBounds(80, 183, 184, 35);
+		btnEleve.setText("Gestion vie scolaire");
+		btnEleve.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Liste_Eleve window = new Liste_Eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
+		btnPlanning.setBounds(80, 237, 184, 35);
+		btnPlanning.setText("Modifier le planning");
 
 	}
 }
