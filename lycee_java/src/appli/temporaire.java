@@ -26,9 +26,6 @@ public class temporaire
 
 	protected Shell shell;
 	private Table table;
-	public static void main(String[] args)
-	{
-
 
 		try
 		{
@@ -157,8 +154,8 @@ public class temporaire
 					shell.close();
 					try
 					{
-						form form = new form();
-						form.open();
+						Modifier_prof Modifier_prof = new Modifier_prof();
+						Modifier_prof.open();
 					}
 					catch (Exception e1)
 					{
@@ -173,11 +170,5 @@ public class temporaire
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-
-
-
-	}
 
 }
