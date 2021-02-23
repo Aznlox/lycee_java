@@ -57,7 +57,7 @@ public class Connexion
 	}
 
 	/**
-	* Create contents of the window.
+	* fondation du contenu de la fenetre
 	*/
 	protected void createContents()
 	{
@@ -97,16 +97,21 @@ public class Connexion
 		lblErreur.setText("Erreur dans l'identifiant ou le mot de passe");
 		lblErreur.setVisible(false);
 
-		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
+		btnJeMinscris.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				try {
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
 					Controller_connexion connexion = new Controller_connexion();
 					boolean message = connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
 
 					lblErreur.setVisible(message);
 
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1)
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
