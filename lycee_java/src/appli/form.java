@@ -46,8 +46,8 @@ public class form extends Global
 	}
 
 	/**
-	* Create contents of the window.
-	 * @throws SQLException 
+	* Fondation du contenu de la fenetre
+	 * @throws SQLException
 	 * @wbp.parser.entryPoint
 	*/
 	protected void createContents() throws SQLException
@@ -55,43 +55,45 @@ public class form extends Global
 		shell = new Shell();
 		shell.setSize(765, 559);
 		shell.setText("SWT Application");
-		
+
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
 		lblNom.setText("Nom");
-	
-		
+
+
 		Label lblTitre = new Label(shell, SWT.NONE);
 		lblTitre.setBounds(251, 34, 228, 25);
 		lblTitre.setText("Modifier son profil");
-		
+
 		textNom = new Text(shell, SWT.BORDER);
 		textNom.setBounds(277, 121, 147, 31);
-	
-	
+
+
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(307, 340, 105, 35);
 		btnValider.setText("Valider");
-		
+
 		Button btnModifier = new Button(shell, SWT.NONE);
 		btnModifier.setBounds(10, 10, 105, 35);
 		btnModifier.setText("Retour");
-		
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		String requete = "Select nom  from vie_scolaire";
 		ResultSet resultat = db.Request(cnx, requete);
 
-		
+
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(307, 415, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
-		
-		btnValider.addSelectionListener(new SelectionAdapter() {
+
+		btnValider.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				String requete = "Update eleve set nom ='"+textNom.getText()+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
@@ -99,11 +101,10 @@ public class form extends Global
 				ResultSet resultat = db.Request(cnx, requete);
 				textNom.setText(nom);
 				textPrenom.setText(prenom);
-		
+
 			}
 		});
-		
-		
+
+
 	}
 }
-
