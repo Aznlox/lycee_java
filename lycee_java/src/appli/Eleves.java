@@ -200,7 +200,9 @@ public class Eleves extends Global
 
 				}
 
-			}catch (SQLException e) {
+			}
+			catch (SQLException e)
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -210,7 +212,8 @@ public class Eleves extends Global
 	/**
 	* @wbp.parser.entryPoint
 	*/
-	public void open() {
+	public void open()
+	{
 		// TODO Auto-generated method stub
 
 	}
