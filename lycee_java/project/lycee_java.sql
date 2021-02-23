@@ -130,12 +130,7 @@ CREATE TABLE IF NOT EXISTS `jour`
 -- Déchargement des données de la table `jour`
 --
 
-INSERT INTO `jour` (`id`, `libelle`) VALUES
-(1, 'Lundi'),
-(2, 'Mardi'),
-(3, 'Mercredi'),
-(4, 'Jeudi'),
-(5, 'Vendredi');
+INSERT INTO `jour` (`id`, `libelle`) VALUES (1, 'Lundi'), (2, 'Mardi'), (3, 'Mercredi'), (4, 'Jeudi'), (5, 'Vendredi');
 
 -- --------------------------------------------------------
 
@@ -144,7 +139,8 @@ INSERT INTO `jour` (`id`, `libelle`) VALUES
 --
 
 DROP TABLE IF EXISTS `planning`;
-CREATE TABLE IF NOT EXISTS `planning` (
+CREATE TABLE IF NOT EXISTS `planning`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_grille` int(11) NOT NULL,
   `id_classe` int(11) NOT NULL,
@@ -159,9 +155,7 @@ CREATE TABLE IF NOT EXISTS `planning` (
 -- Déchargement des données de la table `planning`
 --
 
-INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES
-(1, 1, 1, 2),
-(2, 2, 1, 2);
+INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES (1, 1, 1, 2), (2, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -170,7 +164,8 @@ INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES
 --
 
 DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
+CREATE TABLE IF NOT EXISTS `utilisateur`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
@@ -187,9 +182,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES
-(1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'),
-(2, 'Bertrand', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES (1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'), (2, 'Bertrand', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
 
 -- --------------------------------------------------------
 
@@ -198,7 +191,8 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`,
 --
 
 DROP TABLE IF EXISTS `vie_scolaire`;
-CREATE TABLE IF NOT EXISTS `vie_scolaire` (
+CREATE TABLE IF NOT EXISTS `vie_scolaire`
+(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_eleve` int(11) NOT NULL,
   `type` varchar(30) NOT NULL,

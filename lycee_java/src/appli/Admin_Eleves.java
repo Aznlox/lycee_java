@@ -28,10 +28,10 @@ public class Admin_Eleves
 	private Table table;
 	public static void main(String[] args) {
 
-		
+
 		try {
 			Connexion window = new Connexion();
-		window.open();	
+			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,8 +40,8 @@ public class Admin_Eleves
 
 
 	/**
-	 * Open the window.
-	 */
+	* Open the window.
+	*/
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -55,16 +55,16 @@ public class Admin_Eleves
 			}
 		}
 	}
-	
-	
+
+
 
 
 	/**
-	 * @wbp.parser.entryPoint
-	 */
+	* @wbp.parser.entryPoint
+	*/
 	protected void createContents()
 	{
-		
+
 		shell = new Shell();
 		shell.setSize(600, 371);
 		shell.setText("SWT Application");
@@ -82,15 +82,15 @@ public class Admin_Eleves
 		Prenom_Eleve.setText("Prenom");
 		Prenom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		Prenom_Eleve.setBounds(189, 125, 65, 20);
-		
+
 		Label lblNom = new Label(composite, SWT.NONE);
 		lblNom.setText("Nom");
 		lblNom.setBounds(62, 100, 56, 16);
-		
+
 		Label lblPrenom = new Label(composite, SWT.NONE);
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 125, 56, 16);
-		
+
 		Label listeeleves = new Label(shell, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.BOLD));
 		listeeleves.setBounds(27, 22, 153, 33);
@@ -104,44 +104,44 @@ public class Admin_Eleves
 		TableColumn libelleNomEleve = new TableColumn(table, SWT.NONE);
 		libelleNomEleve.setWidth(100);
 		libelleNomEleve.setText("Nom");
-		
+
 		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
 		tableItem_1.setText("test");
 
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
-		
+
 		Button btnAjouterUneAbsence = new Button(shell, SWT.NONE);
 		btnAjouterUneAbsence.setBounds(482, 22, 70, 21);
 		btnAjouterUneAbsence.setText("Ajouter une absence");
 
-		
-		
-		
+
+
+
 		Database db = new Database();
-	    Connection cnx = db.DbConnexion();
-	    
-	    String sql = "SELECT * FROM eleve";
-	    ResultSet res = db.Request(cnx, sql);
+		Connection cnx = db.DbConnexion();
+
+		String sql = "SELECT * FROM eleve";
+		ResultSet res = db.Request(cnx, sql);
 
 
-	    //étape 5: extraire les données
-	    try {
-	        while(res.next()){
-	            //Récupérer par nom de colonne
+		//ï¿½tape 5: extraire les donnï¿½es
+		try {
+			while(res.next()){
+				//Rï¿½cupï¿½rer par nom de colonne
 
-	            String nom = res.getString("nom");
-	            String prenom = res.getString("prenom");
-	         
-	        
-	            Nom_Eleve.setText(nom);
-	            Prenom_Eleve.setText(prenom);
-	            tableItem_1.setText(nom);
-	            
+				String nom = res.getString("nom");
+				String prenom = res.getString("prenom");
 
-			 //étape 6: fermez l'objet de connexion
 
-	        }
+				Nom_Eleve.setText(nom);
+				Prenom_Eleve.setText(prenom);
+				tableItem_1.setText(nom);
+
+
+				//ï¿½tape 6: fermez l'objet de connexion
+
+			}
 			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -157,17 +157,18 @@ public class Admin_Eleves
 					}
 				}
 			});
-	    
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}  
+		}
 
-	    
-		
+
+
 
 
 	}
-	
-}
 
+}
