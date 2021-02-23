@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import com.dbconnexion.*;
 
-public class Admin_Eleves
+public class temporaire
 {
 
 	protected Shell shell;
