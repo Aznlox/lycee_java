@@ -17,12 +17,12 @@ import com.dbconnexion.Database;
 
 import controller.Global;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Combo;
 
 public class Modifier_eleve extends Global
 {
 
 	protected Shell shell;
-	private Text textNom;
 	private Text textPrenom;
 	private Text textEmail;
 	private Text textMatiere;
@@ -61,26 +61,24 @@ public class Modifier_eleve extends Global
 
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
-		lblNom.setText("Nom");
+		lblNom.setText("Eleve");
 
 		Label lblPrnom = new Label(shell, SWT.NONE);
 		lblPrnom.setBounds(165, 173, 81, 25);
-		lblPrnom.setText("Pr\u00E9nom");
+		lblPrnom.setText("Nom");
 
 		Label lblEmail = new Label(shell, SWT.NONE);
 		lblEmail.setBounds(165, 231, 81, 25);
-		lblEmail.setText("Email");
+		lblEmail.setText("Prenom");
 
 		Label lblMatire = new Label(shell, SWT.NONE);
-		lblMatire.setBounds(165, 284, 81, 25);
-		lblMatire.setText("Mati\u00E8re");
+		lblMatire.setBounds(165, 289, 81, 25);
+		lblMatire.setText("Classe");
 
 		Label lblTitre = new Label(shell, SWT.NONE);
-		lblTitre.setBounds(251, 34, 228, 25);
-		lblTitre.setText("Modifier son profil");
-
-		textNom = new Text(shell, SWT.BORDER);
-		textNom.setBounds(277, 121, 147, 31);
+		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblTitre.setBounds(266, 34, 228, 25);
+		lblTitre.setText("Modifier un El\u00E8ve");
 
 		textPrenom = new Text(shell, SWT.BORDER);
 		textPrenom.setBounds(277, 176, 147, 31);
@@ -92,8 +90,8 @@ public class Modifier_eleve extends Global
 		textMatiere.setBounds(277, 287, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(307, 340, 105, 35);
-		btnValider.setText("Valider");
+		btnValider.setBounds(298, 347, 105, 35);
+		btnValider.setText("Modifier");
 
 		Button btnRetour = new Button(shell, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
@@ -110,7 +108,6 @@ public class Modifier_eleve extends Global
 			email = resultat.getString("email");
 			matiere = resultat.getString("matiere");
 		}
-		textNom.setText(nom);
 		textPrenom.setText(prenom);
 		textEmail.setText(email);
 		textMatiere.setText(matiere);
@@ -127,6 +124,9 @@ public class Modifier_eleve extends Global
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
+		
+		Combo combo = new Combo(shell, SWT.NONE);
+		combo.setBounds(277, 120, 147, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
