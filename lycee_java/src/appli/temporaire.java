@@ -20,8 +20,9 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import com.dbconnexion.*;
-
-public class Admin_Eleves
+public static void main(String[] args)
+{
+public class temporaire
 {
 
 	protected Shell shell;
@@ -167,4 +168,5 @@ public class Admin_Eleves
 
 	}
 
+}
 }
