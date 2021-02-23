@@ -50,8 +50,8 @@ public class Modifier_prof extends Global
 
 	/**
 	* Fondation du contenu de la fenetre
-	 * @throws SQLException
-	 * @wbp.parser.entryPoint
+	* @throws SQLException
+	* @wbp.parser.entryPoint
 	*/
 	protected void createContents() throws SQLException
 	{
