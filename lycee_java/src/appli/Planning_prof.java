@@ -1,37 +1,26 @@
 package appli;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.custom.TableCursor;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import com.dbconnexion.Database;
 
 import controller.Global;
-
-import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.widgets.TabItem;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.custom.CBanner;
-import org.eclipse.swt.widgets.Combo;
 
 public class Planning_prof extends Global
 {
@@ -75,6 +64,23 @@ public class Planning_prof extends Global
 		org.eclipse.swt.layout.FormData fd_btnClasse = new org.eclipse.swt.layout.FormData();
 		btnClasse.setLayoutData(fd_btnClasse);
 		btnClasse.setText("Liste des \u00E9l\u00E8ves");
+		btnClasse.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shell.close();
+				try
+				{
+					Liste_Eleve window = new Liste_Eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		Label lblBonjour = new Label(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_lblBonjour = new org.eclipse.swt.layout.FormData();

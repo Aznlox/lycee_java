@@ -8,7 +8,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.dbconnexion.*;
 
-import appli.Admin_menu;
+import appli.Admin_Menu;
 import appli.Planning_prof;
 
 public class Controller_connexion extends Global{
@@ -27,7 +27,7 @@ public class Controller_connexion extends Global{
 				Globadmin = true;
 				try { //Connexion en tant qu'Administrateur
 					shell.close();
-					Admin_menu window_Admin = new Admin_menu();
+					Admin_Menu window_Admin = new Admin_Menu();
 					window_Admin.open();
 					return false;
 					
