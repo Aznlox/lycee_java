@@ -122,7 +122,7 @@ public class Modifier_prof extends Global
 		
 		Label lblSucces = new Label(shell, SWT.NONE);
 		lblSucces.setVisible(false);
-		lblSucces.setText("Modification enregistr\u00E9");
+		lblSucces.setText("Modifications enregistr\u00E9s");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
