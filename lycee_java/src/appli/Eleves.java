@@ -40,7 +40,7 @@ public class Eleves extends Global
 	private Table tableVendredi;
 
 
-	public class Elev
+	public class Eleve
 	{
 
 		protected Shell shell;
@@ -212,9 +212,5 @@ public class Eleves extends Global
 	/**
 	* @wbp.parser.entryPoint
 	*/
-	public void open()
-	{
-		// TODO Auto-generated method stub
-
-	}
+	
 }
