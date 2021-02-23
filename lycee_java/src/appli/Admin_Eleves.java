@@ -72,7 +72,7 @@ public class Admin_Eleves
 
 		shell = new Shell();
 		shell.setSize(686, 419);
-		shell.setText("SWT Application");
+		shell.setText("Liste des Elèves");
 
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(232, 57, 345, 243);
