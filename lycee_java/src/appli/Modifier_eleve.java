@@ -19,6 +19,8 @@ import controller.Global;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Combo;
 
+
+
 public class Modifier_eleve extends Global
 {
 

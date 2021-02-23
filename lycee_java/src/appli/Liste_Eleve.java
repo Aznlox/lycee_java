@@ -112,6 +112,22 @@ public class Liste_Eleve extends Global
 		btnModifEleve.setBounds(214, 403, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
 		btnModifEleve.setVisible(Globadmin);
+		btnModifEleve.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Modifier_eleve window = new Modifier_eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
 		comboClasse.setBounds(16, 52, 211, 33);
@@ -196,13 +212,6 @@ public class Liste_Eleve extends Global
 					}
 				}
 			});
-
-		
-		
-
-
-
-
 
 	}
 }
