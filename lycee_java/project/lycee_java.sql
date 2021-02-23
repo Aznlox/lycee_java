@@ -63,8 +63,9 @@ CREATE TABLE IF NOT EXISTS `eleve` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `eleve` (`id`, `nom`, `prenom, id_classe`) VALUES
-(1, 'LIGNANI', 'Quentin', 1),
-(2, 'BERNARD', 'Jean', 1);
+(1, 'LIGNANI', 'Quentin', 1);
+INSERT INTO `eleve` (`id`, `nom`, `prenom, id_classe`) VALUES
+(2, 'BERNARD', 'Jean', 1)
 -- --------------------------------------------------------
 
 --
