@@ -74,7 +74,7 @@ public class Admin_menu extends Global{
 			{
 				try
 				{
-					Admin_viesco window = new Admin_viesco();
+					Liste_Eleve window = new Liste_Eleve();
 					window.open();
 				}
 				catch (Exception e1)

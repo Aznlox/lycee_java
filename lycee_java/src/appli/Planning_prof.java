@@ -73,9 +73,8 @@ public class Planning_prof extends Global
 
 		btnClasse = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnClasse = new org.eclipse.swt.layout.FormData();
-		fd_btnClasse.right = new FormAttachment(0, 91);
 		btnClasse.setLayoutData(fd_btnClasse);
-		btnClasse.setText("Acc\u00E9der");
+		btnClasse.setText("Liste des \u00E9l\u00E8ves");
 
 		Label lblBonjour = new Label(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_lblBonjour = new org.eclipse.swt.layout.FormData();
@@ -84,15 +83,6 @@ public class Planning_prof extends Global
 		fd_lblBonjour.left = new org.eclipse.swt.layout.FormAttachment(0, 380);
 		lblBonjour.setLayoutData(fd_lblBonjour);
 		lblBonjour.setText("Bonjour");
-
-		Label lblVosClasses = new Label(shell, SWT.NONE);
-		fd_btnClasse.left = new FormAttachment(lblVosClasses, 0, SWT.LEFT);
-		org.eclipse.swt.layout.FormData fd_lblVosClasses = new org.eclipse.swt.layout.FormData();
-		fd_lblVosClasses.right = new org.eclipse.swt.layout.FormAttachment(0, 115);
-		fd_lblVosClasses.top = new org.eclipse.swt.layout.FormAttachment(0, 124);
-		fd_lblVosClasses.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
-		lblVosClasses.setLayoutData(fd_lblVosClasses);
-		lblVosClasses.setText("Vos Classes:");
 
 		tableMardi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_tableMardi = new FormData();
@@ -161,6 +151,7 @@ public class Planning_prof extends Global
 		lblh_2.setText("10h");
 
 		Label lblh_3 = new Label(shell, SWT.NONE);
+		fd_btnClasse.right = new FormAttachment(lblh_3, -57);
 		FormData fd_lblh_3 = new FormData();
 		fd_lblh_3.top = new FormAttachment(lblh_2, 6);
 		fd_lblh_3.right = new FormAttachment(tableLundi, -6);
@@ -426,21 +417,6 @@ public class Planning_prof extends Global
 		lblh_9.setLayoutData(fd_lblh_9);
 		lblh_9.setText("13h");
 		
-		Combo comboClasse = new Combo(shell, SWT.NONE);
-		FormData fd_comboClasse = new FormData();
-		fd_comboClasse.right = new FormAttachment(0, 166);
-		fd_comboClasse.top = new FormAttachment(lblVosClasses, 21);
-		fd_comboClasse.left = new FormAttachment(0, 11);
-		comboClasse.setLayoutData(fd_comboClasse);
-		
-		Database db = new Database();
-		Connection cnx = db.DbConnexion();
-		String requete = "Select * from planning inner join utilisateur on utilisateur.id = id_professeur inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"' group by planning.id_classe";
-		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next()) {
-			comboClasse.add(resultat.getString("libelle"));
-		}
-		comboClasse.select(0);
 		
 		btnClasse.addSelectionListener(new SelectionAdapter()
 		{
@@ -461,6 +437,7 @@ public class Planning_prof extends Global
 		});
 		
 		Button btnModifier = new Button(shell, SWT.NONE);
+		fd_btnClasse.left = new FormAttachment(btnModifier, 0, SWT.LEFT);
 		FormData fd_btnModifier = new FormData();
 		fd_btnModifier.left = new FormAttachment(0, 10);
 		fd_btnModifier.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
@@ -473,9 +450,10 @@ public class Planning_prof extends Global
 		planning.add(planning_jeudi);
 		planning.add(planning_vendredi);
 
-		
-		requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
-		resultat = db.Request(cnx, requete);
+		Database db = new Database();
+		Connection cnx = db.DbConnexion();
+		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
+		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
 			int jour = resultat.getInt("id_jour") - 1;
