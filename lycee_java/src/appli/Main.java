@@ -1,14 +1,19 @@
 package appli;
 
-public class Main {
+public class Main
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 
-		
-		try {
+
+		try
+		{
 			Connexion window = new Connexion();
-		window.open();	
-		} catch (Exception e) {
+			window.open();	
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 

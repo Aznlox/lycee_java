@@ -22,9 +22,9 @@ public class Connexion
 	private Text textMotdePasse;
 
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
+	* Launch the application.
+	* @param args
+	*/
 	public static void main(String[] args)
 	{
 		try
@@ -39,8 +39,8 @@ public class Connexion
 	}
 
 	/**
-	 * Open the window.
-	 */
+	* Open the window.
+	*/
 	public void open()
 	{
 		Display display = Display.getDefault();
@@ -57,13 +57,13 @@ public class Connexion
 	}
 
 	/**
-	 * Create contents of the window.
-	 */
+	* fondation du contenu de la fenetre
+	*/
 	protected void createContents()
 	{
 		shell = new Shell();
 		shell.setSize(494, 331);
-		shell.setText("SWT Application");
+		shell.setText("Connexion");
 		//Identifiant
 		textIdentifiant = new Text(shell, SWT.BORDER);
 		textIdentifiant.setBounds(145, 103, 215, 35);
@@ -90,23 +90,28 @@ public class Connexion
 		Label MotdePasse = new Label(shell, SWT.NONE);
 		MotdePasse.setBounds(20, 144, 119, 34);
 		MotdePasse.setText("Mot de passe");
-		
+
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(68, 225, 345, 25);
 		lblErreur.setText("Erreur dans l'identifiant ou le mot de passe");
 		lblErreur.setVisible(false);
 
-		btnJeMinscris.addSelectionListener(new SelectionAdapter() {
+		btnJeMinscris.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				try {
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
 					Controller_connexion connexion = new Controller_connexion();
 					boolean message = connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
 
 					lblErreur.setVisible(message);
 
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1)
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

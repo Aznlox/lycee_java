@@ -1,10 +1,12 @@
 package appli;
 
-public class test {
+public class test
+{
 
-	public void open() {
+	public void open()
+	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

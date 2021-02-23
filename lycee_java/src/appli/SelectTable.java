@@ -47,39 +47,41 @@ public class SelectTable
 
       Class.forName("com.mysql.jdbc.Driver");
 
-  
+
       Connection conn = DriverManager.getConnection(
       "jdbc:mysql://localhost/lycee_java?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
-      //étape 3: créer l'objet statement 
-  	Database db = new Database();
-    Connection cnx = db.DbConnexion();
-    
-    String sql = "SELECT id, nom, prenom, identifiant FROM utilisateur";
-    ResultSet res = db.Request(cnx, sql);
+      //ï¿½tape 3: crï¿½er l'objet statement
+      Database db = new Database();
+      Connection cnx = db.DbConnexion();
 
-      //étape 5: extraire les données
-      while(res.next()){
-         //Récupérer par nom de colonne
-         int id = res.getInt("id");
-         String nom = res.getString("nom");
-         String prenom = res.getString("Prenom");
-         String identifiant = res.getString("Identifiant");
-    
+      String sql = "SELECT id, nom, prenom, identifiant FROM utilisateur";
+      ResultSet res = db.Request(cnx, sql);
 
-         //Afficher les valeurs
-         System.out.print("ID: " + id);
-         System.out.print(", Nom: " + nom);
-         System.out.print(", Prenom: " + prenom);
-         System.out.print(", identifiant: " + identifiant);
-  
-        
-      }  
-    
-      //étape 6: fermez l'objet de connexion
+      //ï¿½tape 5: extraire les donnï¿½es
+      while(res.next())
+      {
+        //Rï¿½cupï¿½rer par nom de colonne
+        int id = res.getInt("id");
+        String nom = res.getString("nom");
+        String prenom = res.getString("Prenom");
+        String identifiant = res.getString("Identifiant");
+
+
+        //Afficher les valeurs
+        System.out.print("ID: " + id);
+        System.out.print(", Nom: " + nom);
+        System.out.print(", Prenom: " + prenom);
+        System.out.print(", identifiant: " + identifiant);
+
+
+      }
+
+      //ï¿½tape 6: fermez l'objet de connexion
       conn.close();
     }
-    catch(Exception e){ 
+    catch(Exception e)
+    {
       System.out.println(e);
     }
   }
