@@ -44,7 +44,7 @@ public class Admin_Eleves
 
 
 	/**
-	* Open the window.
+	* Ouverture de la fenetre
 	*/
 	public void open()
 	{
@@ -130,12 +130,12 @@ public class Admin_Eleves
 		ResultSet res = db.Request(cnx, sql);
 
 
-		//�tape 5: extraire les donn�es
+		//�tape 5: extraire les donnees
 		try
 		{
 			while(res.next())
 			{
-				//R�cup�rer par nom de colonne
+				//Recuperer par nom de colonne
 
 				String nom = res.getString("nom");
 				String prenom = res.getString("prenom");
@@ -146,7 +146,7 @@ public class Admin_Eleves
 				tableItem_1.setText(nom);
 
 
-				//�tape 6: fermez l'objet de connexion
+				//Etape 6: fermez l'objet de connexion
 
 			}
 			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter()
