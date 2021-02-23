@@ -51,6 +51,23 @@ public class Admin_Menu extends Global{
 		Button btnProf = new Button(shlMenuAdmin, SWT.NONE);
 		btnProf.setBounds(80, 71, 184, 35);
 		btnProf.setText("Gestion utilisateurs");
+		btnProf.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Liste_Eleve window = new Liste_Eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		
 		
 		Button btnClasse = new Button(shlMenuAdmin, SWT.NONE);
 		btnClasse.setText("Gestion classes");
