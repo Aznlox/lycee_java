@@ -4,11 +4,19 @@ package appli;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Tree;
+
+import com.dbconnexion.Database;
+
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Combo;
@@ -20,8 +28,11 @@ import org.eclipse.swt.browser.Browser;
 public class form { //Classe
 //Variables
 	protected Shell Form;
-	private Text Nom;
 	private Text Justification;
+	private String nom;
+	private String type;
+	private String date;
+	private String justification;
 
 	/**
 	 * Launch the application.
@@ -59,11 +70,9 @@ public class form { //Classe
 		Form.setSize(583, 642);
 		Form.setText("Ajouter");
 		
-		Nom = new Text(Form, SWT.BORDER);
-		Nom.setBounds(161, 72, 200, 31);
-		
 		Justification = new Text(Form, SWT.BORDER | SWT.V_SCROLL);
 		Justification.setBounds(161, 223, 200, 69);
+		Justification.setText(justification);
 		
 		Button btnNewButton = new Button(Form, SWT.NONE);
 		btnNewButton.setBounds(161, 310, 200, 35);
@@ -79,22 +88,44 @@ public class form { //Classe
 		
 		Label lblNom = new Label(Form, SWT.NONE);
 		lblNom.setBounds(99, 82, 56, 16);
-		lblNom.setText("Nom");
+		lblNom.setText("nom");
 		
 		Label lblType = new Label(Form, SWT.NONE);
 		lblType.setBounds(99, 131, 56, 16);
-		lblType.setText("Type");
+		lblType.setText("type");
 		
 		Label lblDate = new Label(Form, SWT.NONE);
 		lblDate.setBounds(99, 178, 56, 16);
-		lblDate.setText("Date");
+		lblDate.setText("date");
 		
 		Label lblJustification = new Label(Form, SWT.NONE);
 		lblJustification.setBounds(92, 223, 63, 16);
-		lblJustification.setText("Justification");
+		lblJustification.setText("justification");
 		
 		DateTime Date = new DateTime(Form, SWT.BORDER);
 		Date.setBounds(162, 178, 81, 21);
+		lblDate.setText(date);
+		
+		Combo Nom = new Combo(Form, SWT.NONE);
+		Nom.setBounds(161, 81, 200, 20);
+		lblNom.setText(nom);
+		
+		Database db = new Database();
+		Connection cnx = db.DbConnexion();
+		
+
+		Justification.setText(justification);
+
+		btnNewButton.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+			
+				String request = "INSERT INTO vie_scolaire (id_eleve, type, date, justification) VALUES ()";
+				
+			}
+		});
 
 	}
 }
