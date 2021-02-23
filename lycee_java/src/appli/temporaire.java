@@ -20,31 +20,19 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import com.dbconnexion.*;
-
+public static void main(String[] args)
+{
 public class temporaire
 {
 
 	protected Shell shell;
 	private Table table;
-	public static void main(String[] args)
-	{
 
 
-		try
-		{
-			Connexion window = new Connexion();
-			window.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-
-	}
 
 
 	/**
-	* Open the window.
+	* Ouverture de la fenetre
 	*/
 	public void open()
 	{
@@ -72,7 +60,7 @@ public class temporaire
 
 		shell = new Shell();
 		shell.setSize(686, 419);
-		shell.setText("admin");
+		shell.setText("Liste des Elèves");
 
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(232, 57, 345, 243);
@@ -130,12 +118,12 @@ public class temporaire
 		ResultSet res = db.Request(cnx, sql);
 
 
-		//�tape 5: extraire les donn�es
+		//�tape 5: extraire les donnees
 		try
 		{
 			while(res.next())
 			{
-				//R�cup�rer par nom de colonne
+				//Recuperer par nom de colonne
 
 				String nom = res.getString("nom");
 				String prenom = res.getString("prenom");
@@ -146,7 +134,7 @@ public class temporaire
 				tableItem_1.setText(nom);
 
 
-				//�tape 6: fermez l'objet de connexion
+				//Etape 6: fermez l'objet de connexion
 
 			}
 			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter()
@@ -180,4 +168,5 @@ public class temporaire
 
 	}
 
+}
 }
