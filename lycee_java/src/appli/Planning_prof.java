@@ -48,20 +48,24 @@ public class Planning_prof extends Global
 	/**
 	* @wbp.parser.entryPoint
 	*/
-	public void open() throws Exception {
+	public void open() throws Exception
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
 	}
 
 
-	protected void createContents() throws SQLException {
+	protected void createContents() throws SQLException
+	{
 		shell = new Shell();
 		shell.setSize(1066, 551);
 		shell.setText("SWT Application");
@@ -73,9 +77,11 @@ public class Planning_prof extends Global
 		fd_btnNewButton.top = new org.eclipse.swt.layout.FormAttachment(0, 216);
 		fd_btnNewButton.left = new org.eclipse.swt.layout.FormAttachment(0, 10);
 		btnNewButton.setLayoutData(fd_btnNewButton);
-		btnNewButton.addSelectionListener(new SelectionAdapter() {
+		btnNewButton.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 			}
 		});
 		btnNewButton.setText("BTS SLAM 1");
@@ -460,7 +466,8 @@ public class Planning_prof extends Global
 		Connection cnx = db.DbConnexion();
 		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
 		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next()) {
+		while(resultat.next())
+		{
 			int jour = resultat.getInt("id_jour") - 1;
 			int heure = resultat.getInt("id_heure") - 1;
 			String classe = resultat.getString("libelle");
@@ -468,9 +475,11 @@ public class Planning_prof extends Global
 
 		}
 
-		btnModifier.addSelectionListener(new SelectionAdapter() {
+		btnModifier.addSelectionListener(new SelectionAdapter() *
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				shell.close();
 				try
 				{
