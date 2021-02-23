@@ -62,6 +62,9 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   KEY `fk_classe` (`id_classe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `eleve` (`id`, `nom`, `prenom, id_classe`) VALUES
+(1, 'LIGNANI', 'Quentin', 1),
+(2, 'BERNARD', 'Jean', 1);
 -- --------------------------------------------------------
 
 --
