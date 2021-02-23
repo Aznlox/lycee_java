@@ -91,10 +91,10 @@ public class Eleves extends Global
 					//�tape 6: fermez l'objet de connexion
 					shell = new Shell();
 					shell.setSize(600, 371);
-					shell.setText("SWT Application");
+					shell.setText("Eleves");
 					shell = new Shell();
 					shell.setSize(646, 376);
-					shell.setText("SWT Application");
+					shell.setText("Eleves");
 
 					Menu menu = new Menu(shell, SWT.BAR);
 					shell.setMenuBar(menu);

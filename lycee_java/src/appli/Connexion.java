@@ -63,7 +63,7 @@ public class Connexion
 	{
 		shell = new Shell();
 		shell.setSize(494, 331);
-		shell.setText("SWT Application");
+		shell.setText("Connexion");
 		//Identifiant
 		textIdentifiant = new Text(shell, SWT.BORDER);
 		textIdentifiant.setBounds(145, 103, 215, 35);

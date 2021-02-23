@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import com.dbconnexion.*;
 
-public class Admin_Eleves
+public class temporaire
 {
 
 	protected Shell shell;
@@ -44,7 +44,7 @@ public class Admin_Eleves
 
 
 	/**
-	* Ouverture de la fenetre
+	* Open the window.
 	*/
 	public void open()
 	{
@@ -72,7 +72,7 @@ public class Admin_Eleves
 
 		shell = new Shell();
 		shell.setSize(686, 419);
-		shell.setText("Liste des Elèves");
+		shell.setText("admin");
 
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setBounds(232, 57, 345, 243);
@@ -130,12 +130,12 @@ public class Admin_Eleves
 		ResultSet res = db.Request(cnx, sql);
 
 
-		//�tape 5: extraire les donnees
+		//�tape 5: extraire les donn�es
 		try
 		{
 			while(res.next())
 			{
-				//Recuperer par nom de colonne
+				//R�cup�rer par nom de colonne
 
 				String nom = res.getString("nom");
 				String prenom = res.getString("prenom");
@@ -146,7 +146,7 @@ public class Admin_Eleves
 				tableItem_1.setText(nom);
 
 
-				//Etape 6: fermez l'objet de connexion
+				//�tape 6: fermez l'objet de connexion
 
 			}
 			btnAjouterUneAbsence.addSelectionListener(new SelectionAdapter()
