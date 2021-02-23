@@ -25,7 +25,6 @@ public class Modifier_eleve extends Global
 	protected Shell shell;
 	private Text Nom;
 	private Text Prenom;
-	private Text Classe;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -69,10 +68,6 @@ public class Modifier_eleve extends Global
 		lblEmail.setBounds(165, 231, 81, 25);
 		lblEmail.setText("Prenom");
 
-		Label lblMatire = new Label(shell, SWT.NONE);
-		lblMatire.setBounds(165, 289, 81, 25);
-		lblMatire.setText("Classe");
-
 		Label lblTitre = new Label(shell, SWT.NONE);
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblTitre.setBounds(266, 34, 228, 25);
@@ -83,9 +78,6 @@ public class Modifier_eleve extends Global
 
 		Prenom = new Text(shell, SWT.BORDER);
 		Prenom.setBounds(277, 231, 147, 31);
-
-		Classe = new Text(shell, SWT.BORDER);
-		Classe.setBounds(277, 287, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(298, 347, 105, 35);
@@ -103,11 +95,11 @@ public class Modifier_eleve extends Global
 		{
 			nom = resultat.getString("nom");
 			prenom = resultat.getString("prenom");
-			id_classe = resultat.getString("id_classe");
+
 		}
 		Nom.setText(prenom);
 		Prenom.setText(email);
-		Classe.setText(Classe);
+
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
@@ -130,11 +122,11 @@ public class Modifier_eleve extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+Nom.getText()+"', email ='"+Prenom.getText()+"', matiere ='"+Classe.getText()+"' where identifiant = '"+Globidentifiant+"'";
+				String requete = "Update eleve set nom ='"+Nom.getText()+"', prenom ='"+Prenom.getText()+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
-				requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
+				requete = "Select nom, prenom from eleve";
 				ResultSet resultat = db.Request(cnx, requete);
 				try
 				{
@@ -142,8 +134,7 @@ public class Modifier_eleve extends Global
 					{
 						nom = resultat.getString("nom");
 						prenom = resultat.getString("prenom");
-						email = resultat.getString("email");
-						matiere = resultat.getString("matiere");
+						
 					}
 				}
 				catch (SQLException e1)
@@ -151,10 +142,10 @@ public class Modifier_eleve extends Global
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				textNom.setText(nom);
-				Nom.setText(prenom);
-				Prenom.setText(email);
-				Classe.setText(matiere);
+				
+				Nom.setText(nom);
+				Prenom.setText(prenom);
+				
 			}
 		});
 
