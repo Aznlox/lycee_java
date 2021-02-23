@@ -24,6 +24,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.browser.Browser;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class form { //Classe
 //Variables
@@ -115,6 +116,11 @@ public class form { //Classe
 		
 
 		Justification.setText(justification);
+		
+		Label lblAjouterUneAbsencesanctionretard = new Label(Form, SWT.NONE);
+		lblAjouterUneAbsencesanctionretard.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblAjouterUneAbsencesanctionretard.setBounds(148, 24, 266, 16);
+		lblAjouterUneAbsencesanctionretard.setText("Ajouter une Absence/Sanction/Retard");
 
 		btnNewButton.addSelectionListener(new SelectionAdapter()
 		{
