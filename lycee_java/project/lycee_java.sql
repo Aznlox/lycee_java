@@ -217,34 +217,34 @@ CREATE TABLE IF NOT EXISTS `vie_scolaire` (
 -- Contraintes pour la table `classe`
 --
 ALTER TABLE `classe`
-  ADD CONSTRAINT `fk_prof_prin` FOREIGN KEY (`id_prof_principal`) REFERENCES `utilisateur` (`id`);
+ADD CONSTRAINT `fk_prof_prin` FOREIGN KEY (`id_prof_principal`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  ADD CONSTRAINT `fk_classe` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`);
+ADD CONSTRAINT `fk_classe` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`);
 
 --
 -- Contraintes pour la table `grille_horaire`
 --
 ALTER TABLE `grille_horaire`
-  ADD CONSTRAINT `fk_heure` FOREIGN KEY (`id_heure`) REFERENCES `heure` (`id`),
-  ADD CONSTRAINT `fk_jour` FOREIGN KEY (`id_jour`) REFERENCES `jour` (`id`);
+ADD CONSTRAINT `fk_heure` FOREIGN KEY (`id_heure`) REFERENCES `heure` (`id`),
+ADD CONSTRAINT `fk_jour` FOREIGN KEY (`id_jour`) REFERENCES `jour` (`id`);
 
 --
 -- Contraintes pour la table `planning`
 --
 ALTER TABLE `planning`
-  ADD CONSTRAINT `fk_classe2` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`),
-  ADD CONSTRAINT `fk_grille` FOREIGN KEY (`id_grille`) REFERENCES `grille_horaire` (`id`),
-  ADD CONSTRAINT `fk_prof` FOREIGN KEY (`id_professeur`) REFERENCES `utilisateur` (`id`);
+ADD CONSTRAINT `fk_classe2` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`),
+ADD CONSTRAINT `fk_grille` FOREIGN KEY (`id_grille`) REFERENCES `grille_horaire` (`id`),
+ADD CONSTRAINT `fk_prof` FOREIGN KEY (`id_professeur`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `vie_scolaire`
 --
 ALTER TABLE `vie_scolaire`
-  ADD CONSTRAINT `fk_eleve` FOREIGN KEY (`id_eleve`) REFERENCES `eleve` (`id`);
+ADD CONSTRAINT `fk_eleve` FOREIGN KEY (`id_eleve`) REFERENCES `eleve` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
