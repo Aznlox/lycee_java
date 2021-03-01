@@ -134,7 +134,7 @@ public class Modifier_eleve extends Global
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
-				requete = "Select nom, prenom from eleve";
+				requete = "Select nom, prenom from eleve where id = '"+Globideleve+"'";
 				ResultSet resultat = db.Request(cnx, requete);
 				try
 				{
@@ -165,8 +165,7 @@ public class Modifier_eleve extends Global
 				shelleleve.close();
 				try
 				{
-					Globnom = nom;
-					Planning_prof window = new Planning_prof();
+					Liste_Eleve window = new Liste_Eleve();
 					window.open();
 				}
 				catch (Exception e1)
