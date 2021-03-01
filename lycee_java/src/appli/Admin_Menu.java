@@ -92,7 +92,7 @@ public class Admin_Menu extends Global{
 		
 		Button btnEleve = new Button(shlMenuAdmin, SWT.NONE);
 		btnEleve.setBounds(80, 183, 184, 35);
-		btnEleve.setText("Gestion vie scolaire");
+		btnEleve.setText("Gestion Eleve");
 		btnEleve.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -100,7 +100,7 @@ public class Admin_Menu extends Global{
 			{
 				try
 				{
-					Modifier_eleve window = new Modifier_eleve();
+					Liste_Eleve window = new Liste_Eleve();
 					window.open();
 				}
 				catch (Exception e1)
