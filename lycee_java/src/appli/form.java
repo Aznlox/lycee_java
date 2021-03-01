@@ -122,8 +122,23 @@ public class form { //Classe
 			public void widgetSelected(SelectionEvent e)
 			{
 			
-				String request = "INSERT INTO vie_scolaire (id_eleve, type, date, justification) VALUES ()";
-				
+				String request = "INSERT INTO vie_scolaire (id_eleve, type, date, justification) VALUES (:id_eleve, :type, :date, :justification)";
+				ResultSet resultat = db.Request(cnx, request);
+				try
+				{
+					while(resultat.next())
+					{
+						nom = resultat.getString("nom");
+						type = resultat.getString("type");
+						date = resultat.getString("date");
+						justification = resultat.getString("justification");
+					}
+				}
+				catch (SQLException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
