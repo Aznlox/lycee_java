@@ -1,4 +1,11 @@
-
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 23 fév. 2021 à 16:28
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -6,7 +13,10 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `lycee_java`
@@ -21,20 +31,21 @@ USE `lycee_java`;
 --
 
 DROP TABLE IF EXISTS `classe`;
-CREATE TABLE IF NOT EXISTS `classe`
-(
+CREATE TABLE IF NOT EXISTS `classe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(30) NOT NULL,
-  `id_prof_principal` int(11) NOT NULL,
+  `id_prof_principal` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_prof_prin` (`id_prof_principal`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `classe`
 --
 
-INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES (1, 'BTS SIO SLAM', 2);
+INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES
+(1, 'BTS SIO SLAM', 2),
+(2, 'Non Attribue', NULL);
 
 -- --------------------------------------------------------
 
@@ -43,8 +54,7 @@ INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES (1, 'BTS SIO 
 --
 
 DROP TABLE IF EXISTS `eleve`;
-CREATE TABLE IF NOT EXISTS `eleve`
-(
+CREATE TABLE IF NOT EXISTS `eleve` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
@@ -57,7 +67,9 @@ CREATE TABLE IF NOT EXISTS `eleve`
 -- Déchargement des données de la table `eleve`
 --
 
-INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES (1, 'Guo', 'Loïc', 1), (2, 'Lignani', 'Quentin', 1);
+INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
+(1, 'Guo', 'Loïc', 1),
+(2, 'Lignani', 'Quentin', 1);
 
 -- --------------------------------------------------------
 
@@ -66,8 +78,7 @@ INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES (1, 'Guo', 'Loï
 --
 
 DROP TABLE IF EXISTS `grille_horaire`;
-CREATE TABLE IF NOT EXISTS `grille_horaire`
-(
+CREATE TABLE IF NOT EXISTS `grille_horaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_jour` int(11) NOT NULL,
   `id_heure` int(11) NOT NULL,
@@ -80,7 +91,9 @@ CREATE TABLE IF NOT EXISTS `grille_horaire`
 -- Déchargement des données de la table `grille_horaire`
 --
 
-INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES (1, 1, 3), (2, 1, 7);
+INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES
+(1, 1, 3),
+(2, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -89,8 +102,7 @@ INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES (1, 1, 3), (2,
 --
 
 DROP TABLE IF EXISTS `heure`;
-CREATE TABLE IF NOT EXISTS `heure`
-(
+CREATE TABLE IF NOT EXISTS `heure` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
@@ -100,7 +112,16 @@ CREATE TABLE IF NOT EXISTS `heure`
 -- Déchargement des données de la table `heure`
 --
 
-INSERT INTO `heure` (`id`, `libelle`) VALUES (1, '8h'), (2, '9h'), (3, '10h'), (4, '11h'), (5, '12h'), (6, '14h'), (7, '15h'), (8, '16h'), (9, '17h');
+INSERT INTO `heure` (`id`, `libelle`) VALUES
+(1, '8h'),
+(2, '9h'),
+(3, '10h'),
+(4, '11h'),
+(5, '12h'),
+(6, '14h'),
+(7, '15h'),
+(8, '16h'),
+(9, '17h');
 
 -- --------------------------------------------------------
 
@@ -109,8 +130,7 @@ INSERT INTO `heure` (`id`, `libelle`) VALUES (1, '8h'), (2, '9h'), (3, '10h'), (
 --
 
 DROP TABLE IF EXISTS `jour`;
-CREATE TABLE IF NOT EXISTS `jour`
-(
+CREATE TABLE IF NOT EXISTS `jour` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
@@ -120,7 +140,12 @@ CREATE TABLE IF NOT EXISTS `jour`
 -- Déchargement des données de la table `jour`
 --
 
-INSERT INTO `jour` (`id`, `libelle`) VALUES (1, 'Lundi'), (2, 'Mardi'), (3, 'Mercredi'), (4, 'Jeudi'), (5, 'Vendredi');
+INSERT INTO `jour` (`id`, `libelle`) VALUES
+(1, 'Lundi'),
+(2, 'Mardi'),
+(3, 'Mercredi'),
+(4, 'Jeudi'),
+(5, 'Vendredi');
 
 -- --------------------------------------------------------
 
@@ -129,8 +154,7 @@ INSERT INTO `jour` (`id`, `libelle`) VALUES (1, 'Lundi'), (2, 'Mardi'), (3, 'Mer
 --
 
 DROP TABLE IF EXISTS `planning`;
-CREATE TABLE IF NOT EXISTS `planning`
-(
+CREATE TABLE IF NOT EXISTS `planning` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_grille` int(11) NOT NULL,
   `id_classe` int(11) NOT NULL,
@@ -145,7 +169,9 @@ CREATE TABLE IF NOT EXISTS `planning`
 -- Déchargement des données de la table `planning`
 --
 
-INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES (1, 1, 1, 2), (2, 2, 1, 2);
+INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES
+(1, 1, 1, 2),
+(2, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -154,8 +180,7 @@ INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES 
 --
 
 DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur`
-(
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
@@ -172,7 +197,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur`
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES (1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'), (2, 'Bertrand', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES
+(1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'),
+(2, 'Bertrant', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
 
 -- --------------------------------------------------------
 
@@ -181,8 +208,7 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`,
 --
 
 DROP TABLE IF EXISTS `vie_scolaire`;
-CREATE TABLE IF NOT EXISTS `vie_scolaire`
-(
+CREATE TABLE IF NOT EXISTS `vie_scolaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_eleve` int(11) NOT NULL,
   `type` varchar(30) NOT NULL,
