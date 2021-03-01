@@ -17,13 +17,13 @@ public class Admin_Menu extends Global
 	protected Shell shlMenuAdmin;
 
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
+	* Launch the application.
+	* @param args
+	*/
 	/**
-	 * Open the window.
-	 * @wbp.parser.entryPoint
-	 */
+	* Open the window.
+	* @wbp.parser.entryPoint
+	*/
 	public void open()
 	{
 		Display display = Display.getDefault();
@@ -40,8 +40,8 @@ public class Admin_Menu extends Global
 	}
 
 	/**
-	 * Create contents of the window.
-	 */
+	* Create contents of the window.
+	*/
 	protected void createContents()
 	{
 		shlMenuAdmin = new Shell();
