@@ -146,6 +146,22 @@ public class Liste_Eleve extends Global
 		});
 		AjouterVieSco.setBounds(424, 441, 309, 35);
 		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
+		AjouterVieSco.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					form window = new form();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
 		lblClasse_1.setBounds(16, 21, 81, 25);
