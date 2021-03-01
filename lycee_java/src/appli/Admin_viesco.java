@@ -84,7 +84,7 @@ public class Admin_viesco extends Global
 		Label lblPrenom = new Label(composite, SWT.NONE);
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 125, 67, 35);
-		
+
 		Label lblClasse = new Label(composite, SWT.NONE);
 		lblClasse.setBounds(62, 163, 81, 25);
 		lblClasse.setText("Classe");
@@ -163,10 +163,6 @@ public class Admin_viesco extends Global
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-
-
 
 	}
 
