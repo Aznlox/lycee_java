@@ -257,6 +257,27 @@ public class Liste_Eleve extends Global
 		btnValider.setBounds(227, 86, 105, 35);
 		btnValider.setText("Valider");
 		
+		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
+		btnAjoutereleve.setBounds(578, 86, 140, 35);
+		btnAjoutereleve.setText("Ajouter un \u00E9l\u00E8ve");
+		btnAjoutereleve.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlListeEleve.close();
+				try
+				{
+					Admin_AjoutEleve window = new Admin_AjoutEleve();
+					window.open();	
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		
 		
 
 	
