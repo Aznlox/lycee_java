@@ -163,6 +163,7 @@ public class Modifier_eleve extends Global
 			public void widgetSelected(SelectionEvent e)
 			{
 				shelleleve.close();
+				Globideleve = null;
 				try
 				{
 					Liste_Eleve window = new Liste_Eleve();

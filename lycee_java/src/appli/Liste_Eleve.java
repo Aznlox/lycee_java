@@ -72,13 +72,13 @@ public class Liste_Eleve extends Global
 		composite.setBounds(363, 131, 361, 266);
 
 
-		Label Nom_Eleve = new Label(composite, SWT.NONE);
-		Nom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		Nom_Eleve.setBounds(160, 26, 180, 35);
+		Label textNom = new Label(composite, SWT.NONE);
+		textNom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		textNom.setBounds(160, 26, 180, 35);
 
-		Label Prenom_Eleve = new Label(composite, SWT.NONE);
-		Prenom_Eleve.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		Prenom_Eleve.setBounds(160, 73, 180, 35);
+		Label textPrenom = new Label(composite, SWT.NONE);
+		textPrenom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		textPrenom.setBounds(160, 73, 180, 35);
 
 		Label lblNom = new Label(composite, SWT.NONE);
 		lblNom.setText("Nom");
@@ -88,9 +88,11 @@ public class Liste_Eleve extends Global
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 77, 67, 35);
 		
-		Label lblNewLabel = new Label(composite, SWT.NONE);
-		lblNewLabel.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		lblNewLabel.setBounds(160, 119, 180, 35);
+		Label lblError = new Label(shlListeEleve, SWT.NONE);
+		lblError.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		lblError.setBounds(263, 410, 385, 25);
+		lblError.setText("Veuillez selectionner un \u00E9l\u00E8ve en double cliquant");
+		lblError.setVisible(false);
 
 		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
@@ -118,11 +120,13 @@ public class Liste_Eleve extends Global
 		btnModifEleve.setBounds(214, 441, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
 		btnModifEleve.setVisible(Globadmin);
+		btnModifEleve.setEnabled(false);
 		btnModifEleve.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
+				shlListeEleve.close();
 				try
 				{
 					Modifier_eleve window = new Modifier_eleve();
@@ -132,6 +136,7 @@ public class Liste_Eleve extends Global
 				{
 					e1.printStackTrace();
 				}
+			
 			}
 		});
 		
@@ -139,13 +144,9 @@ public class Liste_Eleve extends Global
 		comboClasse.setBounds(16, 52, 211, 33);
 		
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
-		AjouterVieSco.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
 		AjouterVieSco.setBounds(424, 441, 309, 35);
 		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
+		AjouterVieSco.setEnabled(false);
 		AjouterVieSco.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -206,12 +207,6 @@ public class Liste_Eleve extends Global
 					    item.setText(2, id);
 					    i++;
 
-						//Recuperer par nom de colonne
-
-
-
-						//Etape 6: fermez l'objet de connexion
-
 					}
 				}
 				catch (SQLException e2)
@@ -223,16 +218,20 @@ public class Liste_Eleve extends Global
 		});
 		table.addListener(SWT.DefaultSelection, new Listener() {
 		      public void handleEvent(Event e) {
-		    	String select ="";
 		        TableItem[] selection = table.getSelection();
-		        for (int i = 0; i < selection.length; i++)
-		        select += selection[i].getText(2);
-		        Globideleve = select;
-		        System.out.println(select);
+		        for (int i = 0; i < selection.length; i++) {
+			        Globideleve = selection[i].getText(2);
+			        textNom.setText(selection[i].getText(0));
+			        textPrenom.setText(selection[i].getText(1));
+			        AjouterVieSco.setEnabled(true);
+			        btnModifEleve.setEnabled(true);
+		        }
 		      }
 		});
 		btnValider.setBounds(233, 50, 105, 35);
 		btnValider.setText("Valider");
+		
+		
 
 	
 			btnModifEleve.addSelectionListener(new SelectionAdapter()
