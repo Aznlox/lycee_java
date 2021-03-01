@@ -29,8 +29,8 @@ public class Modifier_eleve extends Global
 	private String nom;
 	private String prenom;
 	private String email;
-	
-	
+
+
 	public void open() throws SQLException
 	{
 		Display display = Display.getDefault();
@@ -56,7 +56,7 @@ public class Modifier_eleve extends Global
 		shelleleve = new Shell();
 		shelleleve.setSize(765, 559);
 		shelleleve.setText("Modifier son profil");
-		
+
 		Label lblTitre = new Label(shelleleve, SWT.NONE);
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblTitre.setBounds(266, 34, 228, 25);
@@ -79,7 +79,7 @@ public class Modifier_eleve extends Global
 
 		textPrenom = new Text(shelleleve, SWT.BORDER);
 		textPrenom.setBounds(277, 170, 147, 31);
-		
+
 		Combo comboClasse = new Combo(shelleleve, SWT.READ_ONLY);
 		comboClasse.setBounds(277, 223, 147, 33);
 
@@ -93,7 +93,7 @@ public class Modifier_eleve extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		
+
 		String requete = "Select * from classe";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next()) {
@@ -120,7 +120,7 @@ public class Modifier_eleve extends Global
 
 		Label lblSucces = new Label(shelleleve, SWT.NONE);
 		lblSucces.setVisible(false);
-		lblSucces.setText("Modifications enregistr\u00E9s");
+		lblSucces.setText("Modifications enregistr\u00E9es");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(227, 415, 253, 25);
 		lblSucces.setVisible(false);
@@ -142,7 +142,7 @@ public class Modifier_eleve extends Global
 					{
 						nom = resultat.getString("nom");
 						prenom = resultat.getString("prenom");
-						
+
 					}
 				}
 				catch (SQLException e1)
@@ -150,10 +150,10 @@ public class Modifier_eleve extends Global
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 				textNom.setText(nom);
 				textPrenom.setText(prenom);
-				
+
 			}
 		});
 
