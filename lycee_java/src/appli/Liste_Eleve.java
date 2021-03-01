@@ -65,11 +65,11 @@ public class Liste_Eleve extends Global
 	{
 
 		shlListeEleve = new Shell();
-		shlListeEleve.setSize(785, 542);
+		shlListeEleve.setSize(802, 599);
 		shlListeEleve.setText("Liste des El\u00E8ves");
 
-		Composite composite = new Composite(shlListeEleve, SWT.NONE);
-		composite.setBounds(363, 131, 361, 266);
+		Composite composite = new Composite(shlListeEleve, SWT.BORDER);
+		composite.setBounds(357, 167, 361, 266);
 
 
 		Label textNom = new Label(composite, SWT.NONE);
@@ -90,17 +90,17 @@ public class Liste_Eleve extends Global
 		
 		Label lblError = new Label(shlListeEleve, SWT.NONE);
 		lblError.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblError.setBounds(263, 410, 385, 25);
+		lblError.setBounds(257, 446, 385, 25);
 		lblError.setText("Veuillez selectionner un \u00E9l\u00E8ve en double cliquant");
 		lblError.setVisible(false);
 
 		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
-		listeeleves.setBounds(46, 91, 191, 29);
+		listeeleves.setBounds(40, 127, 191, 29);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
 
 		table = new Table(shlListeEleve, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(26, 126, 218, 283);
+		table.setBounds(20, 162, 218, 283);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
@@ -116,9 +116,33 @@ public class Liste_Eleve extends Global
 		tblclmnId.setResizable(false);
 		tblclmnId.setText("id");
 
+		Button btnRetour = new Button(shlListeEleve, SWT.NONE);
+		btnRetour.setBounds(10, 10, 105, 35);
+		btnRetour.setText("Retour");
+		btnRetour.setVisible(!Globadmin);
+		btnRetour.addSelectionListener(new SelectionAdapter()
+		
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlListeEleve.close();
+				Globideleve = null;
+				try
+				{
+					Planning_prof window = new Planning_prof();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+
 		
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
-		btnModifEleve.setBounds(214, 441, 186, 35);
+		btnModifEleve.setBounds(208, 477, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
 		btnModifEleve.setVisible(Globadmin);
 		btnModifEleve.setEnabled(false);
@@ -142,11 +166,11 @@ public class Liste_Eleve extends Global
 		});
 		
 		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
-		comboClasse.setBounds(16, 52, 211, 33);
+		comboClasse.setBounds(10, 88, 211, 33);
 		
 		//Bouton ajouter une evenement vie scolaire
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
-		AjouterVieSco.setBounds(424, 441, 309, 35);
+		AjouterVieSco.setBounds(418, 477, 309, 35);
 		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
 		AjouterVieSco.setEnabled(false);
 		AjouterVieSco.addSelectionListener(new SelectionAdapter()
@@ -156,7 +180,7 @@ public class Liste_Eleve extends Global
 			{
 				try
 				{
-					form window = new form();
+					Form_Viesco window = new Form_Viesco();
 					window.open();
 				}
 				catch (Exception e1)
@@ -167,7 +191,7 @@ public class Liste_Eleve extends Global
 		});
 		
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
-		lblClasse_1.setBounds(16, 21, 81, 25);
+		lblClasse_1.setBounds(10, 57, 81, 25);
 		lblClasse_1.setText("Classe :");
 		
 		if(Globadmin) {
@@ -230,13 +254,13 @@ public class Liste_Eleve extends Global
 		        }
 		      }
 		});
-		btnValider.setBounds(233, 50, 105, 35);
+		btnValider.setBounds(227, 86, 105, 35);
 		btnValider.setText("Valider");
 		
 		
 
 	
-			btnModifEleve.addSelectionListener(new SelectionAdapter()
+		btnModifEleve.addSelectionListener(new SelectionAdapter()
 			{
 				@Override
 				public void widgetSelected(SelectionEvent e)
@@ -244,8 +268,8 @@ public class Liste_Eleve extends Global
 					shlListeEleve.close();
 					try
 					{
-						form form = new form();
-						form.open();
+						Modifier_eleve modif = new Modifier_eleve();
+						modif.open();
 					}
 					catch (Exception e1)
 					{

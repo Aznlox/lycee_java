@@ -90,6 +90,24 @@ public class Modifier_eleve extends Global
 		Button btnRetour = new Button(shelleleve, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
+		btnRetour.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shelleleve.close();
+				Globideleve = null;
+				try
+				{
+					Liste_Eleve window = new Liste_Eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
@@ -157,24 +175,7 @@ public class Modifier_eleve extends Global
 			}
 		});
 
-		btnRetour.addSelectionListener(new SelectionAdapter()
-		{
-			@Override
-			public void widgetSelected(SelectionEvent e)
-			{
-				shelleleve.close();
-				Globideleve = null;
-				try
-				{
-					Liste_Eleve window = new Liste_Eleve();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-		});
+		
 
 	}
 }
