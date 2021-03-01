@@ -42,7 +42,8 @@ public class Admin_Menu extends Global
 	/**
 	 * Create contents of the window.
 	 */
-	protected void createContents() {
+	protected void createContents()
+	{
 		shlMenuAdmin = new Shell();
 		shlMenuAdmin.setSize(366, 401);
 
