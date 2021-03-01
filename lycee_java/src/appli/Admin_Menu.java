@@ -24,13 +24,16 @@ public class Admin_Menu extends Global
 	 * Open the window.
 	 * @wbp.parser.entryPoint
 	 */
-	public void open() {
+	public void open()
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shlMenuAdmin.open();
 		shlMenuAdmin.layout();
-		while (!shlMenuAdmin.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shlMenuAdmin.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
