@@ -211,7 +211,7 @@ public class Liste_Eleve extends Global
 		        System.out.println(select);
 		      }
 		});
-		btnValider.setBounds(246, 50, 105, 35);
+		btnValider.setBounds(233, 50, 105, 35);
 		btnValider.setText("Valider");
 
 	
