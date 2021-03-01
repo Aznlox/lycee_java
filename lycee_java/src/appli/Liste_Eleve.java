@@ -109,6 +109,10 @@ public class Liste_Eleve extends Global
 		TableColumn libellePrenomEleve = new TableColumn(table, SWT.NONE);
 		libellePrenomEleve.setWidth(100);
 		libellePrenomEleve.setText("Pr\u00E9nom");
+		
+		TableColumn tblclmnId = new TableColumn(table, SWT.NONE);
+		tblclmnId.setResizable(false);
+		tblclmnId.setText("id");
 
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
 		btnModifEleve.setBounds(214, 441, 186, 35);
@@ -207,7 +211,7 @@ public class Liste_Eleve extends Global
 		        TableItem[] selection = table.getSelection();
 		        for (int i = 0; i < selection.length; i++)
 		        select += selection[i].getText(2);
-		        
+		        Globideleve = select;
 		        System.out.println(select);
 		      }
 		});
