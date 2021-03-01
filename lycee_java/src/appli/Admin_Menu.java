@@ -11,7 +11,8 @@ import org.eclipse.swt.widgets.Text;
 
 import controller.Global;
 
-public class Admin_Menu extends Global{
+public class Admin_Menu extends Global
+{
 
 	protected Shell shlMenuAdmin;
 
@@ -23,13 +24,16 @@ public class Admin_Menu extends Global{
 	 * Open the window.
 	 * @wbp.parser.entryPoint
 	 */
-	public void open() {
+	public void open()
+	{
 		Display display = Display.getDefault();
 		createContents();
 		shlMenuAdmin.open();
 		shlMenuAdmin.layout();
-		while (!shlMenuAdmin.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!shlMenuAdmin.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
@@ -38,16 +42,17 @@ public class Admin_Menu extends Global{
 	/**
 	 * Create contents of the window.
 	 */
-	protected void createContents() {
+	protected void createContents()
+	{
 		shlMenuAdmin = new Shell();
 		shlMenuAdmin.setSize(366, 401);
 
 		shlMenuAdmin.setText("Menu Admin");
-		
+
 		Label lblMenu = new Label(shlMenuAdmin, SWT.NONE);
 		lblMenu.setBounds(150, 21, 81, 25);
 		lblMenu.setText("Menu");
-		
+
 		Button btnProf = new Button(shlMenuAdmin, SWT.NONE);
 		btnProf.setBounds(80, 71, 184, 35);
 		btnProf.setText("Gestion utilisateurs");
@@ -67,8 +72,8 @@ public class Admin_Menu extends Global{
 				}
 			}
 		});
-		
-		
+
+
 		Button btnClasse = new Button(shlMenuAdmin, SWT.NONE);
 		btnClasse.setText("Gestion classes");
 		btnClasse.setBounds(80, 126, 184, 35);
@@ -88,8 +93,8 @@ public class Admin_Menu extends Global{
 				}
 			}
 		});
-		
-		
+
+
 		Button btnEleve = new Button(shlMenuAdmin, SWT.NONE);
 		btnEleve.setBounds(80, 183, 184, 35);
 		btnEleve.setText("Gestion Eleve");
@@ -109,7 +114,7 @@ public class Admin_Menu extends Global{
 				}
 			}
 		});
-		
+
 		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
 		btnPlanning.setBounds(80, 237, 184, 35);
 		btnPlanning.setText("Modifier le planning");
