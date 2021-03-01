@@ -45,13 +45,16 @@ public class form { //Classe
 	 * Open the window.
 	 * @wbp.parser.entryPoint
 	 */
-	public void open() {
+	public void open() throws SQLException
+	{
 		Display display = Display.getDefault();
 		createContents();
 		Form.open();
 		Form.layout();
-		while (!Form.isDisposed()) {
-			if (!display.readAndDispatch()) {
+		while (!Form.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
 				display.sleep();
 			}
 		}
@@ -60,7 +63,7 @@ public class form { //Classe
 	/**
 	 * Create contents of the window.
 	 */
-	protected void createContents() {
+	protected void createContents() throws SQLException {
 		Form = new Shell();
 		Form.setSize(583, 642);
 		Form.setText("Ajouter");

@@ -114,6 +114,7 @@ public class Liste_Eleve extends Global
 		tblclmnId.setResizable(false);
 		tblclmnId.setText("id");
 
+		
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
 		btnModifEleve.setBounds(214, 441, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
@@ -138,12 +139,8 @@ public class Liste_Eleve extends Global
 		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
 		comboClasse.setBounds(16, 52, 211, 33);
 		
+		//Bouton ajouter une evenement vie scolaire
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
-		AjouterVieSco.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
 		AjouterVieSco.setBounds(424, 441, 309, 35);
 		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
 		AjouterVieSco.addSelectionListener(new SelectionAdapter()
