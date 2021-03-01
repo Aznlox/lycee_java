@@ -65,13 +65,16 @@ public class Form_Viesco extends Global {
 	 * Create contents of the window.
 	 */
 	protected void createContents() throws SQLException {
+		
+		
+		
 		shlAjouterVieScollaire = new Shell();
 		shlAjouterVieScollaire.setSize(583, 642);
 		shlAjouterVieScollaire.setText("Ajouter Vie Scolaire");
 		
 		Justification = new Text(shlAjouterVieScollaire, SWT.BORDER | SWT.V_SCROLL);
 		Justification.setBounds(149, 215, 256, 125);
-		//Justification.setText(justification);
+	
 		
 		Button btnNewButton = new Button(shlAjouterVieScollaire, SWT.NONE);
 		btnNewButton.setBounds(168, 365, 200, 35);
@@ -101,9 +104,8 @@ public class Form_Viesco extends Global {
 		lblEleve.setBounds(42, 78, 485, 25);
 		lblEleve.setText("Pour :");
 		
-		DateTime Date = new DateTime(shlAjouterVieScollaire, SWT.BORDER);
-		Date.setBounds(169, 170, 199, 35);
-		//lblNom.setText(nom);
+		DateTime champDate = new DateTime(shlAjouterVieScollaire, SWT.BORDER);
+		champDate.setBounds(169, 170, 199, 35);	
 		
 		Button btnRetour = new Button(shlAjouterVieScollaire, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
@@ -154,14 +156,16 @@ public class Form_Viesco extends Global {
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-			
-				String request = "INSERT INTO vie_scolaire (id_eleve, type, date, justification) VALUES (:id_eleve, :type, :date, :justification)";
-				ResultSet resultat = db.Request(cnx, request);
+
+				Database db = new Database();
+				Connection cnx = db.DbConnexion();
+				String requete = "INSERT into vie_scolaire (type, date, justification) Values('"+Type.getText()+"','"+champDate.getDay()+'/'+champDate.getMonth()+'/'+champDate.getYear()+"','"+Justification.getText()+"')";
+				ResultSet resultat = db.Request(cnx, requete);
 				try
 				{
 					while(resultat.next())
 					{
-						nom = resultat.getString("nom");
+
 						type = resultat.getString("type");
 						date = resultat.getString("date");
 						justification = resultat.getString("justification");
