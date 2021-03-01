@@ -24,8 +24,8 @@ public class Modifier_eleve extends Global
 {
 
 	protected Shell shelleleve;
-	private Text Nom;
-	private Text Prenom;
+	private Text textNom;
+	private Text textPrenom;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -56,29 +56,32 @@ public class Modifier_eleve extends Global
 		shelleleve = new Shell();
 		shelleleve.setSize(765, 559);
 		shelleleve.setText("Modifier son profil");
-
-		Label lblNom = new Label(shelleleve, SWT.NONE);
-		lblNom.setBounds(165, 121, 81, 25);
-		lblNom.setText("Eleve");
-
-		Label lblPrnom = new Label(shelleleve, SWT.NONE);
-		lblPrnom.setBounds(165, 173, 81, 25);
-		lblPrnom.setText("Nom");
-
-		Label lblEmail = new Label(shelleleve, SWT.NONE);
-		lblEmail.setBounds(165, 231, 81, 25);
-		lblEmail.setText("Prenom");
-
+		
 		Label lblTitre = new Label(shelleleve, SWT.NONE);
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblTitre.setBounds(266, 34, 228, 25);
 		lblTitre.setText("Modifier un El\u00E8ve");
 
-		Nom = new Text(shelleleve, SWT.BORDER);
-		Nom.setBounds(277, 176, 147, 31);
+		Label lblNom = new Label(shelleleve, SWT.NONE);
+		lblNom.setBounds(165, 123, 81, 25);
+		lblNom.setText("Nom");
 
-		Prenom = new Text(shelleleve, SWT.BORDER);
-		Prenom.setBounds(277, 231, 147, 31);
+		Label lblPrenom = new Label(shelleleve, SWT.NONE);
+		lblPrenom.setBounds(165, 173, 81, 25);
+		lblPrenom.setText("Pr\u00E9nom");
+
+		Label lblClasse = new Label(shelleleve, SWT.NONE);
+		lblClasse.setBounds(165, 226, 81, 25);
+		lblClasse.setText("Classe");
+
+		textNom = new Text(shelleleve, SWT.BORDER);
+		textNom.setBounds(277, 120, 147, 31);
+
+		textPrenom = new Text(shelleleve, SWT.BORDER);
+		textPrenom.setBounds(277, 170, 147, 31);
+		
+		Combo comboClasse = new Combo(shelleleve, SWT.READ_ONLY);
+		comboClasse.setBounds(277, 223, 147, 33);
 
 		Button btnValider = new Button(shelleleve, SWT.NONE);
 		btnValider.setBounds(298, 347, 105, 35);
@@ -90,21 +93,28 @@ public class Modifier_eleve extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select nom, prenom, id_classe from eleve";
+		
+		String requete = "Select * from classe";
 		ResultSet resultat = db.Request(cnx, requete);
+		while(resultat.next()) {
+			comboClasse.add(resultat.getString("libelle"));
+		}
+		requete = "Select nom, prenom, id_classe from eleve where id ='"+Globideleve+"'";
+		resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
 			nom = resultat.getString("nom");
 			prenom = resultat.getString("prenom");
 
 		}
-		Nom.setText(prenom);
-		Prenom.setText(email);
+		textNom.setText(nom);
+		textPrenom.setText(prenom);
+		//comboClasse.select(resultat.getInt("id_classe")-1);
 
 
 		Label lblErreur = new Label(shelleleve, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(307, 415, 253, 25);
+		lblErreur.setBounds(227, 415, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
@@ -112,18 +122,15 @@ public class Modifier_eleve extends Global
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9s");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setBounds(227, 415, 253, 25);
 		lblSucces.setVisible(false);
-		
-		Combo Eleve = new Combo(shelleleve, SWT.NONE);
-		Eleve.setBounds(277, 120, 147, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update eleve set nom ='"+Nom.getText()+"', prenom ='"+Prenom.getText()+"'";
+				String requete = "Update eleve set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"' where id = '"+Globideleve+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
@@ -144,8 +151,8 @@ public class Modifier_eleve extends Global
 					e1.printStackTrace();
 				}
 				
-				Nom.setText(nom);
-				Prenom.setText(prenom);
+				textNom.setText(nom);
+				textPrenom.setText(prenom);
 				
 			}
 		});
