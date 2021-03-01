@@ -1,9 +1,5 @@
 package controller;
-import java.sql.Eleves;
-import java.sql.ResultSet;
-import com.dbeleve.*;
 import appli.motif;
-import appli.Eleves;
 public class Controller_eleve
 {
 
