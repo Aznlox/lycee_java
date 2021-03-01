@@ -3,6 +3,7 @@ package appli;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -28,7 +29,7 @@ public class Modifier_eleve extends Global
 	private Text textPrenom;
 	private String nom;
 	private String prenom;
-	private String email;
+	private int classe;
 
 
 	public void open() throws SQLException
@@ -114,8 +115,11 @@ public class Modifier_eleve extends Global
 
 		String requete = "Select * from classe";
 		ResultSet resultat = db.Request(cnx, requete);
+		ArrayList<Integer> classeList = new  ArrayList<Integer>();
 		while(resultat.next()) {
+			
 			comboClasse.add(resultat.getString("libelle"));
+			classeList.add(resultat.getInt("id"));
 		}
 		requete = "Select nom, prenom, id_classe from eleve where id ='"+Globideleve+"'";
 		resultat = db.Request(cnx, requete);
@@ -123,11 +127,12 @@ public class Modifier_eleve extends Global
 		{
 			nom = resultat.getString("nom");
 			prenom = resultat.getString("prenom");
+			classe = resultat.getInt("id_classe");
 
 		}
 		textNom.setText(nom);
 		textPrenom.setText(prenom);
-		//comboClasse.select(resultat.getInt("id_classe")-1);
+		comboClasse.select(classeList.indexOf(classe));
 
 
 		Label lblErreur = new Label(shelleleve, SWT.NONE);
@@ -148,29 +153,10 @@ public class Modifier_eleve extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update eleve set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"' where id = '"+Globideleve+"'";
+				String requete = "Update eleve set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', id_classe ='"+classeList.get(comboClasse.getSelectionIndex())+"' where id = '"+Globideleve+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
-				requete = "Select nom, prenom from eleve where id = '"+Globideleve+"'";
-				ResultSet resultat = db.Request(cnx, requete);
-				try
-				{
-					while(resultat.next())
-					{
-						nom = resultat.getString("nom");
-						prenom = resultat.getString("prenom");
-
-					}
-				}
-				catch (SQLException e1)
-				{
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-				textNom.setText(nom);
-				textPrenom.setText(prenom);
 
 			}
 		});

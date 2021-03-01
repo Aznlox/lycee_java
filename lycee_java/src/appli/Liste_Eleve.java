@@ -74,15 +74,15 @@ public class Liste_Eleve extends Global
 
 		Label textNom = new Label(composite, SWT.NONE);
 		textNom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		textNom.setBounds(160, 26, 180, 35);
+		textNom.setBounds(160, 29, 180, 35);
 
 		Label textPrenom = new Label(composite, SWT.NONE);
 		textPrenom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		textPrenom.setBounds(160, 73, 180, 35);
+		textPrenom.setBounds(160, 77, 180, 35);
 
 		Label lblNom = new Label(composite, SWT.NONE);
 		lblNom.setText("Nom");
-		lblNom.setBounds(62, 29, 67, 25);
+		lblNom.setBounds(62, 29, 67, 35);
 
 		Label lblPrenom = new Label(composite, SWT.NONE);
 		lblPrenom.setText("Prenom");
@@ -98,6 +98,10 @@ public class Liste_Eleve extends Global
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		listeeleves.setBounds(40, 127, 191, 29);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
+		
+		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
+		lblClasse_1.setBounds(10, 57, 81, 25);
+		lblClasse_1.setText("Classe :");
 
 		table = new Table(shlListeEleve, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(20, 162, 218, 283);
@@ -190,9 +194,7 @@ public class Liste_Eleve extends Global
 			}
 		});
 		
-		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
-		lblClasse_1.setBounds(10, 57, 81, 25);
-		lblClasse_1.setText("Classe :");
+	
 		
 		if(Globadmin) {
 			String requete = "Select * from classe";
@@ -212,9 +214,25 @@ public class Liste_Eleve extends Global
 		}
 		
 		Button btnValider = new Button(shlListeEleve, SWT.NONE);
+		btnValider.setBounds(227, 86, 105, 35);
+		btnValider.setText("Valider");
+		
+		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
+		btnAjoutereleve.setBounds(578, 86, 140, 35);
+		btnAjoutereleve.setText("Ajouter un \u00E9l\u00E8ve");
+		
+		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
+		btnSuppEleve.setBounds(425, 86, 132, 35);
+		btnSuppEleve.setText("Retirer un \u00E9l\u00E8ve");
+		btnSuppEleve.setEnabled(false);
+		
 		btnValider.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				Globideleve = null;
+				AjouterVieSco.setEnabled(false);
+		        btnModifEleve.setEnabled(false);
+		        btnSuppEleve.setEnabled(false);
 				table.clearAll();
 				String sql = "SELECT * FROM eleve inner join classe on id_classe = classe.id where libelle = '"+comboClasse.getItem(comboClasse.getSelectionIndex())+"'";
 				ResultSet res = db.Request(cnx, sql);
@@ -251,15 +269,50 @@ public class Liste_Eleve extends Global
 			        textPrenom.setText(selection[i].getText(1));
 			        AjouterVieSco.setEnabled(true);
 			        btnModifEleve.setEnabled(true);
+			        btnSuppEleve.setEnabled(true);
 		        }
 		      }
 		});
-		btnValider.setBounds(227, 86, 105, 35);
-		btnValider.setText("Valider");
 		
-		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
-		btnAjoutereleve.setBounds(578, 86, 140, 35);
-		btnAjoutereleve.setText("Ajouter un \u00E9l\u00E8ve");
+		btnSuppEleve.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				String requete = "Delete from eleve where id ='"+Globideleve+"'";
+				boolean message = db.Prepare(cnx, requete);
+				
+				Globideleve = null;
+				AjouterVieSco.setEnabled(false);
+		        btnModifEleve.setEnabled(false);
+		        btnSuppEleve.setEnabled(false);
+				table.clearAll();
+				String sql = "SELECT * FROM eleve inner join classe on id_classe = classe.id where libelle = '"+comboClasse.getItem(comboClasse.getSelectionIndex())+"'";
+				ResultSet res = db.Request(cnx, sql);
+
+				try
+				{
+					int i = 0;
+					while(res.next())
+					{
+						String id = Integer.toString(res.getInt("id"));
+						String nom = res.getString("nom");
+						String prenom = res.getString("prenom");
+						TableItem item = new TableItem(table, SWT.NONE , i);
+					    item.setText(0, nom);
+					    item.setText(1, prenom);
+					    item.setText(2, id);
+					    i++;
+					}
+				}
+				catch (SQLException e2)
+				{
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			}
+		});
+		
 		btnAjoutereleve.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
