@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 21 avr. 2002 à 20:00
+-- Généré le :  lun. 08 mars 2021 à 15:19
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -35,17 +35,19 @@ CREATE TABLE IF NOT EXISTS `classe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(30) NOT NULL,
   `id_prof_principal` int(11) DEFAULT NULL,
+  `undeletable` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_prof_prin` (`id_prof_principal`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `classe`
 --
 
-INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`) VALUES
-(1, 'BTS SIO SLAM', 2),
-(2, 'Non Attribue', NULL);
+INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`, `undeletable`) VALUES
+(1, 'Non Attribue', NULL, 1),
+(2, 'BTS SIO SLAM', NULL, 0),
+(9, 'test', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -61,39 +63,16 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `id_classe` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_classe` (`id_classe`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `eleve`
 --
 
 INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
-(1, 'Guo', 'Loïc', 1),
-(2, 'Lignani', 'Quentin', 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `grille_horaire`
---
-
-DROP TABLE IF EXISTS `grille_horaire`;
-CREATE TABLE IF NOT EXISTS `grille_horaire` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_jour` int(11) NOT NULL,
-  `id_heure` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_jour` (`id_jour`),
-  KEY `fk_heure` (`id_heure`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `grille_horaire`
---
-
-INSERT INTO `grille_horaire` (`id`, `id_jour`, `id_heure`) VALUES
-(1, 1, 3),
-(2, 1, 7);
+(1, 'Guo', 'Loic', 1),
+(2, 'Lignani', 'Quentin', 1),
+(4, 'test2', 'test2', 2);
 
 -- --------------------------------------------------------
 
@@ -106,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `heure` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `heure`
@@ -156,22 +135,25 @@ INSERT INTO `jour` (`id`, `libelle`) VALUES
 DROP TABLE IF EXISTS `planning`;
 CREATE TABLE IF NOT EXISTS `planning` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_grille` int(11) NOT NULL,
+  `id_jour` int(11) NOT NULL,
+  `id_heure` int(11) NOT NULL,
   `id_classe` int(11) NOT NULL,
   `id_professeur` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_grille` (`id_grille`),
   KEY `fk_prof` (`id_professeur`),
-  KEY `fk_classe2` (`id_classe`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  KEY `fk_classe2` (`id_classe`),
+  KEY `fk_jour` (`id_jour`),
+  KEY `fk_heure` (`id_heure`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `planning`
 --
 
-INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES
-(1, 1, 1, 2),
-(2, 2, 1, 2);
+INSERT INTO `planning` (`id`, `id_jour`, `id_heure`, `id_classe`, `id_professeur`) VALUES
+(1, 1, 1, 2, 2),
+(2, 1, 8, 2, 2),
+(3, 3, 5, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -199,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES
 (1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'),
-(2, 'Bertrant', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
+(2, 'Bertrand', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
 
 -- --------------------------------------------------------
 
@@ -235,18 +217,12 @@ ALTER TABLE `eleve`
   ADD CONSTRAINT `fk_classe` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`);
 
 --
--- Contraintes pour la table `grille_horaire`
---
-ALTER TABLE `grille_horaire`
-  ADD CONSTRAINT `fk_heure` FOREIGN KEY (`id_heure`) REFERENCES `heure` (`id`),
-  ADD CONSTRAINT `fk_jour` FOREIGN KEY (`id_jour`) REFERENCES `jour` (`id`);
-
---
 -- Contraintes pour la table `planning`
 --
 ALTER TABLE `planning`
   ADD CONSTRAINT `fk_classe2` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`),
-  ADD CONSTRAINT `fk_grille` FOREIGN KEY (`id_grille`) REFERENCES `grille_horaire` (`id`),
+  ADD CONSTRAINT `fk_heure` FOREIGN KEY (`id_heure`) REFERENCES `heure` (`id`),
+  ADD CONSTRAINT `fk_jour` FOREIGN KEY (`id_jour`) REFERENCES `jour` (`id`),
   ADD CONSTRAINT `fk_prof` FOREIGN KEY (`id_professeur`) REFERENCES `utilisateur` (`id`);
 
 --

@@ -128,15 +128,14 @@ public class Admin_Classe extends Global
 						ResultSet resultat = db.Request(cnx, requete);
 						try {
 							while(resultat.next()) {
-								lblSucces.setVisible(true);
 								comboClasse.add(resultat.getString("libelle"));
 								classeList.add(resultat.getInt("id"));
 							}
+							lblSucces.setVisible(true);
 						} catch (SQLException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						System.out.println(comboClasse);
 					}
 					else {
 						lblErreur.setText("Veuiller remplir le champs");
@@ -167,6 +166,8 @@ public class Admin_Classe extends Global
 					if(textModClasse.getText() != null && !textModClasse.getText().trim().isEmpty()) {
 						String requete = "Delete from classe where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
 						boolean message = db.Prepare(cnx, requete);
+						requete = "Update eleve set id_classe = 1 where id_classe ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
+						message = db.Prepare(cnx, requete);
 						comboClasse.removeAll();
 						classeList.clear();
 						requete = "Select * from classe where undeletable = 0";
@@ -176,8 +177,8 @@ public class Admin_Classe extends Global
 
 								comboClasse.add(resultat.getString("libelle"));
 								classeList.add(resultat.getInt("id"));
-								lblSucces.setVisible(true);
 							}
+							lblSucces.setVisible(true);
 						} catch (SQLException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -247,8 +248,8 @@ public class Admin_Classe extends Global
 						while(resultat.next()) {
 							comboClasse.add(resultat.getString("libelle"));
 							classeList.add(resultat.getInt("id"));
-							lblAjoutSucces.setVisible(true);
 						}
+						lblAjoutSucces.setVisible(true);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
