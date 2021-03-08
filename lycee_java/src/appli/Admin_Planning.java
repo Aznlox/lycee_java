@@ -430,6 +430,14 @@ public class Admin_Planning extends Global
 		fd_btnModifier.left = new FormAttachment(btnAjouter, 0, SWT.LEFT);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier un \u00E9l\u00E9ment");
+		
+		Button btnSupprimer = new Button(shell, SWT.NONE);
+		FormData fd_btnSupprimer = new FormData();
+		fd_btnSupprimer.top = new FormAttachment(lblh_9, -5, SWT.TOP);
+		fd_btnSupprimer.right = new FormAttachment(btnAjouter, 0, SWT.RIGHT);
+		fd_btnSupprimer.left = new FormAttachment(0, 10);
+		btnSupprimer.setLayoutData(fd_btnSupprimer);
+		btnSupprimer.setText("Supprimer");
 
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
