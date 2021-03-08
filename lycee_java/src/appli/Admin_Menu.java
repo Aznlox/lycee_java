@@ -21,7 +21,7 @@ public class Admin_Menu extends Global
 	* @param args
 	*/
 	/**
-	* Open the window.
+	* Ouvrir la fenetre.
 	* @wbp.parser.entryPoint
 	*/
 	public void open()
@@ -40,7 +40,7 @@ public class Admin_Menu extends Global
 	}
 
 	/**
-	* Create contents of the window.
+	* fondation du contenu de la fenetre.
 	*/
 	protected void createContents()
 	{

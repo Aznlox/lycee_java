@@ -62,7 +62,7 @@ public class Admin_Classe extends Global
 		shlClasse = new Shell();
 		shlClasse.setSize(489, 547);
 		shlClasse.setText("Classe");
-		
+
 		Label lblErreur = new Label(shlClasse, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(16, 204, 253, 25);
@@ -86,8 +86,9 @@ public class Admin_Classe extends Global
 		String requete = "Select * from classe";
 		ResultSet resultat = db.Request(cnx, requete);
 		ArrayList<Integer> classeList = new  ArrayList<Integer>();
-		while(resultat.next()) {
-			
+		while(resultat.next())
+		{
+
 			comboClasse.add(resultat.getString("libelle"));
 			classeList.add(resultat.getInt("id"));
 		}
@@ -101,22 +102,28 @@ public class Admin_Classe extends Global
 
 
 		Button btnModValider = new Button(shlClasse, SWT.NONE);
-		btnModValider.addSelectionListener(new SelectionAdapter() {
+		btnModValider.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				String requete = "Update classe set libelle ='"+textModClasse.getText()+"' where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
 				boolean message = db.Prepare(cnx, requete);
 				comboClasse.removeAll();
 				requete = "Select * from classe";
 				ResultSet resultat = db.Request(cnx, requete);
 				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
+				try
+				{
+					while(resultat.next())
+					{
+
 						comboClasse.add(resultat.getString("libelle"));
 						classeList.add(resultat.getInt("id"));
 					}
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1)
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -125,27 +132,33 @@ public class Admin_Classe extends Global
 
 		btnModValider.setBounds(16, 163, 105, 35);
 		btnModValider.setText("Valider");
-		
+
 
 		Button btnSupprimer = new Button(shlClasse, SWT.NONE);
 		btnSupprimer.setBounds(157, 163, 105, 35);
 		btnSupprimer.setText("Supprimer");
-		btnSupprimer.addSelectionListener(new SelectionAdapter() {
+		btnSupprimer.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				String requete = "Delete from classe where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
 				boolean message = db.Prepare(cnx, requete);
 				comboClasse.removeAll();
 				requete = "Select * from classe";
 				ResultSet resultat = db.Request(cnx, requete);
 				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
+				try
+				{
+					while(resultat.next())
+					{
+
 						comboClasse.add(resultat.getString("libelle"));
 						classeList.add(resultat.getInt("id"));
 					}
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1)
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -162,7 +175,7 @@ public class Admin_Classe extends Global
 		Button AjouterClasse = new Button(shlClasse, SWT.NONE);
 		AjouterClasse.setBounds(10, 416, 162, 35);
 		AjouterClasse.setText("Ajouter une classe");
-		
+
 		Button btnOk = new Button(shlClasse, SWT.NONE);
 		btnOk.setBounds(249, 52, 150, 35);
 		btnOk.setText("Selectionner");
@@ -174,7 +187,7 @@ public class Admin_Classe extends Global
 				textModClasse.setText(comboClasse.getItem(comboClasse.getSelectionIndex()));
 			}
 		});
-		
+
 		AjouterClasse.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -183,17 +196,21 @@ public class Admin_Classe extends Global
 				comboClasse.removeAll();
 				String requete = "INSERT into classe (libelle) Values('"+textAddClasse.getText()+"')";
 				boolean message = db.Prepare(cnx, requete);
-				
+
 				requete = "Select * from classe";
 				ResultSet resultat = db.Request(cnx, requete);
 				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
+				try
+				{
+					while(resultat.next())
+					{
+
 						comboClasse.add(resultat.getString("libelle"));
 						classeList.add(resultat.getInt("id"));
 					}
-				} catch (SQLException e1) {
+				}
+				catch (SQLException e1) {
+
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

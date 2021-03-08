@@ -83,7 +83,8 @@ public class Eleves extends Global
 
 			//�tape 5: extraire les donn�es
 			try {
-				while(res.next()){
+				while(res.next())
+				{
 					//R�cup�rer par nom de colonne
 
 					String type = res.getString("Type");
@@ -212,5 +213,5 @@ public class Eleves extends Global
 	/**
 	* @wbp.parser.entryPoint
 	*/
-	
+
 }
