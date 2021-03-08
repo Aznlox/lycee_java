@@ -39,7 +39,7 @@ public class Liste_Prof extends Global
 
 	/**
 	* Ouverture de la fenetre
-	 * @throws SQLException 
+	 * @throws SQLException
 	*/
 	public void open() throws SQLException
 	{
@@ -58,7 +58,7 @@ public class Liste_Prof extends Global
 
 
 	/**
-	* @throws SQLException 
+	* @throws SQLException
 	 * @wbp.parser.entryPoint
 	*/
 	protected void createContents() throws SQLException
@@ -87,7 +87,7 @@ public class Liste_Prof extends Global
 		Label lblPrenom = new Label(composite, SWT.NONE);
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 77, 67, 35);
-		
+
 		Label lblError = new Label(shlListeEleve, SWT.NONE);
 		lblError.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblError.setBounds(257, 446, 385, 25);
@@ -98,7 +98,7 @@ public class Liste_Prof extends Global
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		listeeleves.setBounds(40, 127, 191, 29);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
-		
+
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
 		lblClasse_1.setBounds(10, 57, 81, 25);
 		lblClasse_1.setText("Classe :");
@@ -111,11 +111,11 @@ public class Liste_Prof extends Global
 		TableColumn libelleNomEleve = new TableColumn(table, SWT.NONE);
 		libelleNomEleve.setWidth(100);
 		libelleNomEleve.setText("Nom");
-		
+
 		TableColumn libellePrenomEleve = new TableColumn(table, SWT.NONE);
 		libellePrenomEleve.setWidth(100);
 		libellePrenomEleve.setText("Pr\u00E9nom");
-		
+
 		TableColumn tblclmnId = new TableColumn(table, SWT.NONE);
 		tblclmnId.setResizable(false);
 		tblclmnId.setText("id");
@@ -125,7 +125,7 @@ public class Liste_Prof extends Global
 		btnRetour.setText("Retour");
 		btnRetour.setVisible(!Globadmin);
 		btnRetour.addSelectionListener(new SelectionAdapter()
-		
+
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
@@ -144,7 +144,7 @@ public class Liste_Prof extends Global
 			}
 		});
 
-		
+
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
 		btnModifEleve.setBounds(208, 477, 186, 35);
 		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
@@ -165,13 +165,13 @@ public class Liste_Prof extends Global
 				{
 					e1.printStackTrace();
 				}
-			
+
 			}
 		});
-		
+
 		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
 		comboClasse.setBounds(10, 88, 211, 33);
-		
+
 		//Bouton ajouter une evenement vie scolaire
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
 		AjouterVieSco.setBounds(418, 477, 309, 35);
@@ -193,9 +193,9 @@ public class Liste_Prof extends Global
 				}
 			}
 		});
-		
-	
-		
+
+
+
 		if(Globadmin) {
 			String requete = "Select * from classe";
 			ResultSet resultat = db.Request(cnx, requete);
@@ -212,23 +212,25 @@ public class Liste_Prof extends Global
 			}
 			comboClasse.select(0);
 		}
-		
+
 		Button btnValider = new Button(shlListeEleve, SWT.NONE);
 		btnValider.setBounds(227, 86, 105, 35);
 		btnValider.setText("Valider");
-		
+
 		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
 		btnAjoutereleve.setBounds(578, 86, 140, 35);
-		btnAjoutereleve.setText("Ajouter un \u00E9l\u00E8ve");
-		
+		btnAjoutereleve.setText("Ajouter un Professeur");
+
 		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
 		btnSuppEleve.setBounds(425, 86, 132, 35);
-		btnSuppEleve.setText("Retirer un \u00E9l\u00E8ve");
+		btnSuppEleve.setText("Retirer un Professeur");
 		btnSuppEleve.setEnabled(false);
-		
-		btnValider.addSelectionListener(new SelectionAdapter() {
+
+		btnValider.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				Globideleve = null;
 				AjouterVieSco.setEnabled(false);
 		        btnModifEleve.setEnabled(false);
@@ -260,10 +262,13 @@ public class Liste_Prof extends Global
 				}
 			}
 		});
-		table.addListener(SWT.DefaultSelection, new Listener() {
-		      public void handleEvent(Event e) {
+		table.addListener(SWT.DefaultSelection, new Listener()
+		{
+		      public void handleEvent(Event e)
+					{
 		        TableItem[] selection = table.getSelection();
-		        for (int i = 0; i < selection.length; i++) {
+		        for (int i = 0; i < selection.length; i++)
+						{
 			        Globideleve = selection[i].getText(2);
 			        textNom.setText(selection[i].getText(0));
 			        textPrenom.setText(selection[i].getText(1));
@@ -273,7 +278,7 @@ public class Liste_Prof extends Global
 		        }
 		      }
 		});
-		
+
 		btnSuppEleve.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -281,7 +286,7 @@ public class Liste_Prof extends Global
 			{
 				String requete = "Delete from eleve where id ='"+Globideleve+"'";
 				boolean message = db.Prepare(cnx, requete);
-				
+
 				Globideleve = null;
 				AjouterVieSco.setEnabled(false);
 		        btnModifEleve.setEnabled(false);
@@ -312,7 +317,7 @@ public class Liste_Prof extends Global
 				}
 			}
 		});
-		
+
 		btnAjoutereleve.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -321,8 +326,8 @@ public class Liste_Prof extends Global
 				shlListeEleve.close();
 				try
 				{
-					Admin_AjoutEleve window = new Admin_AjoutEleve();
-					window.open();	
+					Admin_Admin_GererCompte window = new Admin_GererCompte();
+					window.open();
 				}
 				catch (Exception e1)
 				{
@@ -330,10 +335,10 @@ public class Liste_Prof extends Global
 				}
 			}
 		});
-		
-		
 
-	
+
+
+
 		btnModifEleve.addSelectionListener(new SelectionAdapter()
 			{
 				@Override
