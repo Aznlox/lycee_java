@@ -21,7 +21,7 @@ public class Admin_Menu extends Global
 	* @param args
 	*/
 	/**
-	* Open the window.
+	* Ouvrir la fenetre.
 	* @wbp.parser.entryPoint
 	*/
 	public void open()
@@ -40,7 +40,7 @@ public class Admin_Menu extends Global
 	}
 
 	/**
-	* Create contents of the window.
+	* fondation du contenu de la fenetre.
 	*/
 	protected void createContents()
 	{
@@ -63,7 +63,7 @@ public class Admin_Menu extends Global
 			{
 				try
 				{
-					Liste_Eleve window = new Liste_Eleve();
+					Liste_Prof window = new Liste_Prof();
 					window.open();
 				}
 				catch (Exception e1)

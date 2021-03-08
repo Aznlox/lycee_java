@@ -21,15 +21,28 @@ import controller.Global;
 
 import org.eclipse.swt.widgets.Combo;
 
-public class Admin_AjoutEleve extends Global
+public class Admin_GererCompte extends Global
 {
 
 	protected Shell shell;
 	private Text textNom;
 	private Text textPrenom;
+	private Text textidentifiant;
+	private Text textemail;
+	private Text textmdp;
+	private Text textmatiere;
+	private Text textrole;
 	private String nom;
 	private String prenom;
-	private String classe;
+	private String identifiant;
+	private String email;
+	private String mdp;
+	private String matiere;
+	private String role;
+	private Text text;
+	private Text text_1;
+	private Text text_2;
+	private Text text_3;
 
 
 
@@ -57,28 +70,28 @@ public class Admin_AjoutEleve extends Global
 	{
 		shell = new Shell();
 		shell.setSize(765, 559);
-		shell.setText("Ajouter un �l�ve");
+		shell.setText("Ajouter un Professeur");
 
 		Label lblNom = new Label(shell, SWT.NONE);
-		lblNom.setBounds(165, 121, 81, 25);
+		lblNom.setBounds(165, 138, 81, 25);
 		lblNom.setText("Nom");
 
 		Label lblPrnom = new Label(shell, SWT.NONE);
-		lblPrnom.setBounds(165, 173, 81, 25);
+		lblPrnom.setBounds(165, 188, 81, 25);
 		lblPrnom.setText("Pr\u00E9nom");
 
 		Label lblTitre = new Label(shell, SWT.NONE);
 		lblTitre.setBounds(270, 34, 228, 25);
-		lblTitre.setText("Ajouter un \u00E9l\u00E8ve");
+		lblTitre.setText("Ajouter un professeur");
 
 		textNom = new Text(shell, SWT.BORDER);
-		textNom.setBounds(277, 121, 147, 31);
+		textNom.setBounds(270, 135, 147, 31);
 
 		textPrenom = new Text(shell, SWT.BORDER);
-		textPrenom.setBounds(277, 176, 147, 31);
+		textPrenom.setBounds(270, 185, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(277, 334, 105, 35);
+		btnValider.setBounds(554, 410, 105, 35);
 		btnValider.setText("Valider");
 
 		Button btnRetour = new Button(shell, SWT.NONE);
@@ -98,31 +111,42 @@ public class Admin_AjoutEleve extends Global
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
-		lblClasse.setBounds(165, 231, 81, 25);
-		lblClasse.setText("Classe");
+		lblClasse.setBounds(159, 234, 87, 25);
+		lblClasse.setText("Identifiant");
 
-		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
-		comboClasse.setBounds(277, 223, 147, 33);
+		text = new Text(shell, SWT.BORDER);
+		text.setBounds(270, 231, 147, 31);
+
+		Label lblEmail = new Label(shell, SWT.NONE);
+		lblEmail.setText("Email");
+		lblEmail.setBounds(165, 284, 87, 25);
+
+		Label lblMotDePasse = new Label(shell, SWT.NONE);
+		lblMotDePasse.setText("MDP");
+		lblMotDePasse.setBounds(165, 328, 81, 25);
+
+		Label lblMatire = new Label(shell, SWT.NONE);
+		lblMatire.setText("Mati\u00E8re");
+		lblMatire.setBounds(165, 372, 81, 25);
+
+		text_1 = new Text(shell, SWT.BORDER);
+		text_1.setBounds(270, 284, 147, 31);
+
+		text_2 = new Text(shell, SWT.BORDER);
+		text_2.setBounds(270, 333, 147, 31);
+
+		text_3 = new Text(shell, SWT.BORDER);
+		text_3.setBounds(270, 372, 147, 31);
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from classe";
-		ResultSet resultat = db.Request(cnx, requete);
-		ArrayList<Integer> classeList = new  ArrayList<Integer>();
-		while(resultat.next())
-		{
-
-			comboClasse.add(resultat.getString("libelle"));
-			classeList.add(resultat.getInt("id"));
-		}
-		comboClasse.select(0);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT into eleve (nom, prenom, id_classe) Values('"+textNom.getText()+"','"+textPrenom.getText()+"',"+classeList.get(comboClasse.getSelectionIndex())+")";
+				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere) Values('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textidentifiant.getText()+"','"+textemail.getText()+"','"+textmdp.getText()+"','"+textmatiere.getText()+"','professeur')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
