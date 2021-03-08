@@ -39,6 +39,7 @@ public class Admin_GererCompte extends Global
 	private String mdp;
 	private String matiere;
 	private String role;
+	private Text text;
 
 
 
@@ -87,7 +88,7 @@ public class Admin_GererCompte extends Global
 		textPrenom.setBounds(277, 176, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(277, 334, 105, 35);
+		btnValider.setBounds(554, 410, 105, 35);
 		btnValider.setText("Valider");
 
 		Button btnRetour = new Button(shell, SWT.NONE);
@@ -107,11 +108,19 @@ public class Admin_GererCompte extends Global
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
-		lblClasse.setBounds(165, 231, 81, 25);
-		lblClasse.setText("Classe");
-
-		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
-		comboClasse.setBounds(277, 223, 147, 33);
+		lblClasse.setBounds(165, 231, 87, 25);
+		lblClasse.setText("Identifiant");
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setBounds(277, 231, 147, 31);
+		
+		Label lblEmail = new Label(shell, SWT.NONE);
+		lblEmail.setText("Email");
+		lblEmail.setBounds(165, 284, 87, 25);
+		
+		Label lblMotDePasse = new Label(shell, SWT.NONE);
+		lblMotDePasse.setText("MDP");
+		lblMotDePasse.setBounds(165, 328, 81, 25);
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
@@ -124,7 +133,6 @@ public class Admin_GererCompte extends Global
 			comboClasse.add(resultat.getString("libelle"));
 			classeList.add(resultat.getInt("id"));
 		}
-		comboClasse.select(0);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
