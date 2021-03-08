@@ -30,8 +30,8 @@ public class Admin_GererCompte extends Global
 	private Text textidentifiant;
 	private Text textemail;
 	private Text textmdp;
-	private Text textPrenom;
-	private Text textPrenom;
+	private Text textmatiere;
+	private Text textrole;
 	private String nom;
 	private String prenom;
 	private String identifiant;
@@ -66,7 +66,7 @@ public class Admin_GererCompte extends Global
 	{
 		shell = new Shell();
 		shell.setSize(765, 559);
-		shell.setText("Ajouter un �l�ve");
+		shell.setText("Ajouter un Professeur");
 
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
