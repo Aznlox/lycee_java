@@ -92,6 +92,9 @@ public class Admin_ModifierCompte extends Global
 
 		textIdentifiant = new Text(shell, SWT.BORDER);
 		textIdentifiant.setBounds(277, 287, 147, 31);
+		
+		textMotdePasse = new Text(shell, SWT.BORDER);
+		textMotdePasse.setBounds(277, 348, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(297, 406, 105, 35);
@@ -103,7 +106,7 @@ public class Admin_ModifierCompte extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur where identifiant = '"+Globidentifiant+"'";
+		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur  where id ='"+Globideleve+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
@@ -132,11 +135,7 @@ public class Admin_ModifierCompte extends Global
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
-		
-		textMotdePasse = new Text(shell, SWT.BORDER);
-		textMotdePasse.setText((String) null);
-		textMotdePasse.setBounds(277, 348, 147, 31);
-		
+				
 		Label lblMotDePasse = new Label(shell, SWT.NONE);
 		lblMotDePasse.setText("Mot de passe");
 		lblMotDePasse.setBounds(165, 345, 81, 25);
