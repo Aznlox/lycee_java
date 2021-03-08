@@ -106,7 +106,7 @@ public class Admin_ModifierCompte extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur where identifiant = '"+Globidentifiant+"'";
+		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur  where id ='"+Globideleve+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{

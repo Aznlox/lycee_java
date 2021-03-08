@@ -236,7 +236,7 @@ public class Liste_Prof extends Global
 		        btnModifEleve.setEnabled(false);
 		        btnSuppEleve.setEnabled(false);
 				table.clearAll();
-				String sql = "SELECT * FROM utilisateur WHERE role = 'professeur' ";
+				String sql = "SELECT * FROM utilisateur";
 				ResultSet res = db.Request(cnx, sql);
 
 				try
