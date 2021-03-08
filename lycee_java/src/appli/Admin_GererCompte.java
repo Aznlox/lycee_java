@@ -155,7 +155,7 @@ public class Admin_GererCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = INSERT into eleve (nom, prenom, id_classe) Values('"+textNom.getText()+"','"+textPrenom.getText()+"',"+classeList.get(comboClasse.getSelectionIndex())+")";
+				String requete = INSERT into eleve (nom, prenom, identifiant, email, mdp, matiere) Values('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textPrenom.getText()+"','"+textPrenom.getText()+"','"+textPrenom.getText()+"')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
