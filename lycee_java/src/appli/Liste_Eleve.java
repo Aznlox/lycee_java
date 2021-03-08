@@ -220,11 +220,13 @@ public class Liste_Eleve extends Global
 		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
 		btnAjoutereleve.setBounds(578, 86, 140, 35);
 		btnAjoutereleve.setText("Ajouter un \u00E9l\u00E8ve");
+		btnAjoutereleve.setVisible(Globadmin);
 		
 		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
 		btnSuppEleve.setBounds(425, 86, 132, 35);
 		btnSuppEleve.setText("Retirer un \u00E9l\u00E8ve");
 		btnSuppEleve.setEnabled(false);
+		btnSuppEleve.setVisible(Globadmin);
 		
 		btnValider.addSelectionListener(new SelectionAdapter() {
 			@Override

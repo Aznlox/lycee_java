@@ -458,7 +458,7 @@ public class Planning_prof extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join grille_horaire on id_grille = grille_horaire.id inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
+		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
