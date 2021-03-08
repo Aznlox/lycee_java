@@ -184,7 +184,7 @@ public class Admin_ModifierCompte extends Global
 				try
 				{
 					Globnom = nom;
-					Planning_prof window = new Planning_prof();
+					Liste_Prof window = new Liste_Prof();
 					window.open();
 				}
 				catch (Exception e1)
