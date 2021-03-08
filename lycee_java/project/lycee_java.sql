@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 21 avr. 2002 à 16:28
+-- Généré le :  mar. 21 avr. 2002 à 20:00
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -182,13 +182,13 @@ INSERT INTO `planning` (`id`, `id_grille`, `id_classe`, `id_professeur`) VALUES
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `identifiant` varchar(30) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `identifiant` varchar(100) NOT NULL,
   `mdp` varchar(100) NOT NULL,
   `matiere` varchar(30) DEFAULT NULL,
-  `role` varchar(10) NOT NULL DEFAULT 'professeur',
+  `role` varchar(19) NOT NULL DEFAULT 'professeur',
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifiant` (`identifiant`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
