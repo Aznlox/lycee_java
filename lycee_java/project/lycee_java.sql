@@ -164,13 +164,13 @@ INSERT INTO `planning` (`id`, `id_jour`, `id_heure`, `id_classe`, `id_professeur
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `identifiant` varchar(30) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `identifiant` varchar(100) NOT NULL,
   `mdp` varchar(100) NOT NULL,
   `matiere` varchar(30) DEFAULT NULL,
-  `role` varchar(10) NOT NULL DEFAULT 'professeur',
+  `role` varchar(19) NOT NULL DEFAULT 'professeur',
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifiant` (`identifiant`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
