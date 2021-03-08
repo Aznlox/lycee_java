@@ -59,7 +59,7 @@ public class Admin_ModifierCompte extends Global
 	{
 		shell = new Shell();
 		shell.setSize(765, 559);
-		shell.setText("Modifier son profil");
+		shell.setText("Modifier professeur");
 
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
@@ -146,11 +146,11 @@ public class Admin_ModifierCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', matiere ='"+textIdentifiant.getText()+"' where identifiant = '"+Globidentifiant+"'";
+				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', identifiant ='"+textIdentifiant.getText()+"', mdp ='"+textMotdePasse.getText()+"' where identifiant = '"+Globidentifiant+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
-				requete = "Select nom, prenom, email, matiere from utilisateur where identifiant = '"+Globidentifiant+"'";
+				requete = "Select nom, prenom, email, identifiant, mdp from utilisateur where identifiant = '"+Globidentifiant+"'";
 				ResultSet resultat = db.Request(cnx, requete);
 				try
 				{
