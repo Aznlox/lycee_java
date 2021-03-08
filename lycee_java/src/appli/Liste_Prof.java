@@ -218,11 +218,11 @@ public class Liste_Prof extends Global
 		btnValider.setText("Valider");
 
 		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
-		btnAjoutereleve.setBounds(578, 86, 140, 35);
+		btnAjoutereleve.setBounds(532, 86, 186, 35);
 		btnAjoutereleve.setText("Ajouter un Professeur");
 
 		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
-		btnSuppEleve.setBounds(425, 86, 132, 35);
+		btnSuppEleve.setBounds(357, 86, 169, 35);
 		btnSuppEleve.setText("Retirer un Professeur");
 		btnSuppEleve.setEnabled(false);
 
