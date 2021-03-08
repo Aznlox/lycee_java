@@ -97,7 +97,7 @@ public class Liste_Prof extends Global
 		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		listeeleves.setBounds(40, 127, 191, 29);
-		listeeleves.setText("Liste des \u00E9l\u00E8ves");
+		listeeleves.setText("Liste des utilisateurs");
 
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
 		lblClasse_1.setBounds(10, 57, 81, 25);
@@ -120,12 +120,11 @@ public class Liste_Prof extends Global
 		tblclmnId.setResizable(false);
 		tblclmnId.setText("id");
 
+
 		Button btnRetour = new Button(shlListeEleve, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
-		btnRetour.setVisible(!Globadmin);
 		btnRetour.addSelectionListener(new SelectionAdapter()
-
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
@@ -134,7 +133,7 @@ public class Liste_Prof extends Global
 				Globideleve = null;
 				try
 				{
-					Planning_prof window = new Planning_prof();
+					Admin_Menu window = new Admin_Menu();
 					window.open();
 				}
 				catch (Exception e1)
