@@ -140,22 +140,13 @@ public class Admin_GererCompte extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from classe";
-		ResultSet resultat = db.Request(cnx, requete);
-		ArrayList<Integer> classeList = new  ArrayList<Integer>();
-		while(resultat.next())
-		{
-
-			comboClasse.add(resultat.getString("libelle"));
-			classeList.add(resultat.getInt("id"));
-		}
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere) Values('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textidentifiant.getText()+"','"+textemail.getText()+"','"+textmdp.getText()+"','"+textmatiere.getText()+"','professeur')";
+				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere) Values('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textidentifiant.getText()+"','"+textemail.getText()+"','"+textmdp.getText()+"','"+textmatiere.getText()+"','professeur')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
