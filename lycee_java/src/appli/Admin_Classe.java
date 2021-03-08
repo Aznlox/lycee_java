@@ -66,7 +66,7 @@ public class Admin_Classe extends Global
 		Label lblErreur = new Label(shlClasse, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(16, 204, 253, 25);
-		lblErreur.setText("Veuiller remplir tous les champs");
+		lblErreur.setText("Veuiller selectionner une classe");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shlClasse, SWT.NONE);
@@ -74,6 +74,18 @@ public class Admin_Classe extends Global
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(16, 204, 253, 25);
 		lblSucces.setVisible(false);
+		
+		Label lblAjoutErreur = new Label(shlClasse, SWT.NONE);
+		lblAjoutErreur.setVisible(false);
+		lblAjoutErreur.setText("Veuiller remplir le champs");
+		lblAjoutErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		lblAjoutErreur.setBounds(210, 421, 217, 25);
+		
+		Label lblAjoutSucces = new Label(shlClasse, SWT.NONE);
+		lblAjoutSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		lblAjoutSucces.setBounds(210, 421, 102, 25);
+		lblAjoutSucces.setText("Ajout r\u00E9ussi");
+		lblAjoutSucces.setVisible(false);
 
 		Label lblClasse = new Label(shlClasse, SWT.NONE);
 		lblClasse.setBounds(16, 21, 81, 25);
@@ -83,7 +95,7 @@ public class Admin_Classe extends Global
 		comboClasse.setBounds(16, 52, 211, 33);
 		comboClasse.select(0);
 
-		String requete = "Select * from classe";
+		String requete = "Select * from classe where undeletable = 0";
 		ResultSet resultat = db.Request(cnx, requete);
 		ArrayList<Integer> classeList = new  ArrayList<Integer>();
 		while(resultat.next()) {
@@ -104,21 +116,36 @@ public class Admin_Classe extends Global
 		btnModValider.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String requete = "Update classe set libelle ='"+textModClasse.getText()+"' where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
-				boolean message = db.Prepare(cnx, requete);
-				comboClasse.removeAll();
-				requete = "Select * from classe";
-				ResultSet resultat = db.Request(cnx, requete);
-				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
-						comboClasse.add(resultat.getString("libelle"));
-						classeList.add(resultat.getInt("id"));
+				if(comboClasse.getSelectionIndex() > -1) {
+					if(textModClasse.getText() != null && !textModClasse.getText().trim().isEmpty()) {
+						String requete = "Update classe set libelle ='"+textModClasse.getText()+"' where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
+						boolean message = db.Prepare(cnx, requete);
+						comboClasse.removeAll();
+						classeList.clear();
+						requete = "Select * from classe where undeletable = 0";
+						ResultSet resultat = db.Request(cnx, requete);
+						try {
+							while(resultat.next()) {
+								lblSucces.setVisible(true);
+								comboClasse.add(resultat.getString("libelle"));
+								classeList.add(resultat.getInt("id"));
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						System.out.println(comboClasse);
 					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					else {
+						lblErreur.setText("Veuiller remplir le champs");
+						lblErreur.setVisible(true);
+						lblSucces.setVisible(false);
+					}
+				}
+				else {
+					lblErreur.setText("Veuiller selectionner une classe");
+					lblErreur.setVisible(true);
+					lblSucces.setVisible(false);
 				}
 			}
 		});
@@ -133,21 +160,36 @@ public class Admin_Classe extends Global
 		btnSupprimer.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String requete = "Delete from classe where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
-				boolean message = db.Prepare(cnx, requete);
-				comboClasse.removeAll();
-				requete = "Select * from classe";
-				ResultSet resultat = db.Request(cnx, requete);
-				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
-						comboClasse.add(resultat.getString("libelle"));
-						classeList.add(resultat.getInt("id"));
+				if(comboClasse.getSelectionIndex() > -1) {
+					if(textModClasse.getText() != null && !textModClasse.getText().trim().isEmpty()) {
+						String requete = "Delete from classe where id ='"+classeList.get(comboClasse.getSelectionIndex())+"'";
+						boolean message = db.Prepare(cnx, requete);
+						comboClasse.removeAll();
+						classeList.clear();
+						requete = "Select * from classe where undeletable = 0";
+						ResultSet resultat = db.Request(cnx, requete);
+						try {
+							while(resultat.next()) {
+								
+								comboClasse.add(resultat.getString("libelle"));
+								classeList.add(resultat.getInt("id"));
+								lblSucces.setVisible(true);
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					else {
+						lblErreur.setText("Veuiller remplir le champs");
+						lblErreur.setVisible(true);
+						lblSucces.setVisible(false);
+					}
+				}
+				else {
+					lblErreur.setText("Veuiller selectionner une classe");
+					lblErreur.setVisible(true);
+					lblSucces.setVisible(false);
 				}
 			}
 		});
@@ -171,7 +213,17 @@ public class Admin_Classe extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				textModClasse.setText(comboClasse.getItem(comboClasse.getSelectionIndex()));
+				if(comboClasse.getSelectionIndex() > -1) {
+					textModClasse.setText(comboClasse.getItem(comboClasse.getSelectionIndex()));
+					lblErreur.setVisible(false);
+					lblSucces.setVisible(false);
+					lblAjoutSucces.setVisible(false);
+				}
+				else {
+					lblErreur.setVisible(true);
+					lblSucces.setVisible(false);
+				}
+				
 			}
 		});
 		
@@ -180,23 +232,30 @@ public class Admin_Classe extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				comboClasse.removeAll();
-				String requete = "INSERT into classe (libelle) Values('"+textAddClasse.getText()+"')";
-				boolean message = db.Prepare(cnx, requete);
-				
-				requete = "Select * from classe";
-				ResultSet resultat = db.Request(cnx, requete);
-				ArrayList<Integer> classeList = new  ArrayList<Integer>();
-				try {
-					while(resultat.next()) {
-						
-						comboClasse.add(resultat.getString("libelle"));
-						classeList.add(resultat.getInt("id"));
+				if(textAddClasse.getText() != null && !textAddClasse.getText().trim().isEmpty()) {
+					comboClasse.removeAll();
+					classeList.clear();
+					String requete = "INSERT into classe (libelle) Values('"+textAddClasse.getText()+"')";
+					boolean message = db.Prepare(cnx, requete);
+					
+					requete = "Select * from classe where undeletable = 0";
+					ResultSet resultat = db.Request(cnx, requete);
+					try {
+						while(resultat.next()) {
+							comboClasse.add(resultat.getString("libelle"));
+							classeList.add(resultat.getInt("id"));
+							lblAjoutSucces.setVisible(true);
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
+				else {
+					lblAjoutErreur.setVisible(true);
+					lblAjoutSucces.setVisible(false);
+				}
+				
 			}
 		});
 
