@@ -147,7 +147,7 @@ public class Liste_Prof extends Global
 
 		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
 		btnModifEleve.setBounds(208, 477, 186, 35);
-		btnModifEleve.setText("Modifier \u00E9l\u00E8ve");
+		btnModifEleve.setText("Modifier un professeur");
 		btnModifEleve.setVisible(Globadmin);
 		btnModifEleve.setEnabled(false);
 		btnModifEleve.addSelectionListener(new SelectionAdapter()
@@ -175,7 +175,7 @@ public class Liste_Prof extends Global
 		//Bouton ajouter une evenement vie scolaire
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
 		AjouterVieSco.setBounds(418, 477, 309, 35);
-		AjouterVieSco.setText("Ajouter un \u00E9v\u00E8nement de vie scolaire");
+		AjouterVieSco.setText("Ouvrir le menu");
 		AjouterVieSco.setEnabled(false);
 		AjouterVieSco.addSelectionListener(new SelectionAdapter()
 		{
@@ -184,7 +184,7 @@ public class Liste_Prof extends Global
 			{
 				try
 				{
-					Form_Viesco window = new Form_Viesco();
+					Admin_Menu window = new Admin_Menu();
 					window.open();
 				}
 				catch (Exception e1)
@@ -218,11 +218,11 @@ public class Liste_Prof extends Global
 		btnValider.setText("Valider");
 
 		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
-		btnAjoutereleve.setBounds(578, 86, 140, 35);
+		btnAjoutereleve.setBounds(532, 86, 186, 35);
 		btnAjoutereleve.setText("Ajouter un Professeur");
 
 		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
-		btnSuppEleve.setBounds(425, 86, 132, 35);
+		btnSuppEleve.setBounds(357, 86, 169, 35);
 		btnSuppEleve.setText("Retirer un Professeur");
 		btnSuppEleve.setEnabled(false);
 
@@ -236,7 +236,7 @@ public class Liste_Prof extends Global
 		        btnModifEleve.setEnabled(false);
 		        btnSuppEleve.setEnabled(false);
 				table.clearAll();
-				String sql = "SELECT * FROM utilisateur WHERE role = 'professeur' ";
+				String sql = "SELECT * FROM utilisateur";
 				ResultSet res = db.Request(cnx, sql);
 
 				try
