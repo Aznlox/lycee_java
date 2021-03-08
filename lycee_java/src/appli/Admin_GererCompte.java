@@ -40,6 +40,9 @@ public class Admin_GererCompte extends Global
 	private String matiere;
 	private String role;
 	private Text text;
+	private Text text_1;
+	private Text text_2;
+	private Text text_3;
 
 
 
@@ -121,6 +124,19 @@ public class Admin_GererCompte extends Global
 		Label lblMotDePasse = new Label(shell, SWT.NONE);
 		lblMotDePasse.setText("MDP");
 		lblMotDePasse.setBounds(165, 328, 81, 25);
+		
+		Label lblMatire = new Label(shell, SWT.NONE);
+		lblMatire.setText("Mati\u00E8re");
+		lblMatire.setBounds(165, 372, 81, 25);
+		
+		text_1 = new Text(shell, SWT.BORDER);
+		text_1.setBounds(270, 284, 147, 31);
+		
+		text_2 = new Text(shell, SWT.BORDER);
+		text_2.setBounds(270, 333, 147, 31);
+		
+		text_3 = new Text(shell, SWT.BORDER);
+		text_3.setBounds(270, 372, 147, 31);
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
