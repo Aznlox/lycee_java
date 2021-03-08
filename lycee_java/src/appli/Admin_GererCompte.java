@@ -73,11 +73,11 @@ public class Admin_GererCompte extends Global
 		shell.setText("Ajouter un Professeur");
 
 		Label lblNom = new Label(shell, SWT.NONE);
-		lblNom.setBounds(165, 121, 81, 25);
+		lblNom.setBounds(165, 138, 81, 25);
 		lblNom.setText("Nom");
 
 		Label lblPrnom = new Label(shell, SWT.NONE);
-		lblPrnom.setBounds(165, 173, 81, 25);
+		lblPrnom.setBounds(165, 188, 81, 25);
 		lblPrnom.setText("Pr\u00E9nom");
 
 		Label lblTitre = new Label(shell, SWT.NONE);
@@ -85,10 +85,10 @@ public class Admin_GererCompte extends Global
 		lblTitre.setText("Ajouter un professeur");
 
 		textNom = new Text(shell, SWT.BORDER);
-		textNom.setBounds(277, 121, 147, 31);
+		textNom.setBounds(270, 135, 147, 31);
 
 		textPrenom = new Text(shell, SWT.BORDER);
-		textPrenom.setBounds(277, 176, 147, 31);
+		textPrenom.setBounds(270, 185, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
 		btnValider.setBounds(554, 410, 105, 35);
@@ -111,11 +111,11 @@ public class Admin_GererCompte extends Global
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
-		lblClasse.setBounds(165, 231, 87, 25);
+		lblClasse.setBounds(159, 234, 87, 25);
 		lblClasse.setText("Identifiant");
 		
 		text = new Text(shell, SWT.BORDER);
-		text.setBounds(277, 231, 147, 31);
+		text.setBounds(270, 231, 147, 31);
 		
 		Label lblEmail = new Label(shell, SWT.NONE);
 		lblEmail.setText("Email");
