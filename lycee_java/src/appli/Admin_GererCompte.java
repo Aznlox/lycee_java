@@ -69,7 +69,7 @@ public class Admin_GererCompte extends Global
 
 		Label lblTitre = new Label(shell, SWT.NONE);
 		lblTitre.setBounds(270, 34, 228, 25);
-		lblTitre.setText("Ajouter un \u00E9l\u00E8ve");
+		lblTitre.setText("Ajouter un professeur");
 
 		textNom = new Text(shell, SWT.BORDER);
 		textNom.setBounds(277, 121, 147, 31);
