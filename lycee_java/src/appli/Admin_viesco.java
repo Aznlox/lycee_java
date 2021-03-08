@@ -147,7 +147,7 @@ public class Admin_viesco extends Global
 					shlListeDesElves.close();
 					try
 					{
-						form form = new form();
+						Form_Viesco form = new Form_Viesco();
 						form.open();
 					}
 					catch (Exception e1)
