@@ -161,7 +161,7 @@ public class Admin_GererCompte extends Global
 				shell.close();
 				try
 				{
-					Liste_Eleve window = new Liste_Eleve();
+					Liste_Prof window = new Liste_Prof();
 					window.open();
 				}
 				catch (Exception e1)
