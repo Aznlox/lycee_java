@@ -146,7 +146,7 @@ public class Admin_GererCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values'\"+textNom.getText()+\"','\"+textPrenom.getText()+\"','\"+textidentifiant.getText()+\"','\"+textemail.getText()+\"','\"+textmdp.getText()+\"','\"+textmatiere.getText()+\"','professeur')";
+				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values ('\"+textNom.getText()+\"','\"+textPrenom.getText()+\"','\"+textidentifiant.getText()+\"','\"+textemail.getText()+\"','\"+textmdp.getText()+\"','\"+textmatiere.getText()+\"','professeur')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
@@ -161,7 +161,7 @@ public class Admin_GererCompte extends Global
 				shell.close();
 				try
 				{
-					Liste_Eleve window = new Liste_Eleve();
+					Liste_Prof window = new Liste_Prof();
 					window.open();
 				}
 				catch (Exception e1)
