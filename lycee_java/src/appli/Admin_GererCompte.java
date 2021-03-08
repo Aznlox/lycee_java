@@ -91,7 +91,6 @@ public class Admin_GererCompte extends Global {
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shell, SWT.NONE);
-		lblSucces.setVisible(false);
 		lblSucces.setText("Ajout r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
@@ -122,8 +121,9 @@ public class Admin_GererCompte extends Global {
 			public void widgetSelected(SelectionEvent e)
 			{
 				String requete = "INSERT into eleve (nom, prenom, id_classe) Values('"+textNom.getText()+"','"+textPrenom.getText()+"',"+classeList.get(comboClasse.getSelectionIndex())+")";
-				boolean resultat = db.Prepare(cnx, requete);
-				lblSucces.setVisible(!resultat);
+				boolean message = db.Prepare(cnx, requete);
+				lblErreur.setVisible(message);
+				lblSucces.setVisible(!message);
 			}
 		});
 
