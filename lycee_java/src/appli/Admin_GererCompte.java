@@ -21,7 +21,8 @@ import controller.Global;
 
 import org.eclipse.swt.widgets.Combo;
 
-public class Admin_GererCompte extends Global {
+public class Admin_GererCompte extends Global
+{
 
 	protected Shell shell;
 	private Text textNom;
@@ -56,7 +57,7 @@ public class Admin_GererCompte extends Global {
 	{
 		shell = new Shell();
 		shell.setSize(765, 559);
-		shell.setText("Ajouter un élève");
+		shell.setText("Ajouter un ï¿½lï¿½ve");
 
 		Label lblNom = new Label(shell, SWT.NONE);
 		lblNom.setBounds(165, 121, 81, 25);
@@ -96,21 +97,22 @@ public class Admin_GererCompte extends Global {
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(307, 415, 253, 25);
 		lblSucces.setVisible(false);
-		
+
 		Label lblClasse = new Label(shell, SWT.NONE);
 		lblClasse.setBounds(165, 231, 81, 25);
 		lblClasse.setText("Classe");
-		
+
 		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
 		comboClasse.setBounds(277, 223, 147, 33);
-		
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		String requete = "Select * from classe";
 		ResultSet resultat = db.Request(cnx, requete);
 		ArrayList<Integer> classeList = new  ArrayList<Integer>();
-		while(resultat.next()) {
-			
+		while(resultat.next())
+		{
+
 			comboClasse.add(resultat.getString("libelle"));
 			classeList.add(resultat.getInt("id"));
 		}
