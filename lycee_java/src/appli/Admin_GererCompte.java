@@ -27,7 +27,9 @@ public class Admin_GererCompte extends Global
 	protected Shell shell;
 	private Text textNom;
 	private Text textPrenom;
-	private Text textPrenom;
+	private Text textidentifiant;
+	private Text textemail;
+	private Text textmdp;
 	private Text textPrenom;
 	private Text textPrenom;
 	private String nom;
