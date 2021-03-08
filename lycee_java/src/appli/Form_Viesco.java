@@ -28,7 +28,8 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-public class Form_Viesco extends Global {
+public class Form_Viesco extends Global
+{
 	protected Shell shlAjouterVieScollaire;
 	private Text Justification;
 	private String nom;
@@ -37,13 +38,13 @@ public class Form_Viesco extends Global {
 	private String justification;
 
 	/**
-	 * Launch the application.
+	 * Lancement de l'application.
 	 * @param args
 	 */
 
 
 	/**
-	 * Open the window.
+	 * Ouverture de la fenetre
 	 * @wbp.parser.entryPoint
 	 */
 	public void open() throws SQLException
@@ -62,51 +63,49 @@ public class Form_Viesco extends Global {
 	}
 
 	/**
-	 * Create contents of the window.
+	 * fondation du contenu de la fenetre.
 	 */
-	protected void createContents() throws SQLException {
-		
-		
-		
+	protected void createContents() throws SQLException
+	{
 		shlAjouterVieScollaire = new Shell();
 		shlAjouterVieScollaire.setSize(583, 642);
 		shlAjouterVieScollaire.setText("Ajouter Vie Scolaire");
-		
+
 		Justification = new Text(shlAjouterVieScollaire, SWT.BORDER | SWT.V_SCROLL);
 		Justification.setBounds(149, 215, 256, 125);
-	
-		
+
+
 		Button btnNewButton = new Button(shlAjouterVieScollaire, SWT.NONE);
 		btnNewButton.setBounds(168, 365, 200, 35);
 		btnNewButton.setText("Ajouter");
-		
-		
-		
+
+
+
 		Combo Type = new Combo(shlAjouterVieScollaire, SWT.READ_ONLY);
 		Type.setToolTipText("");
 		Type.setItems(new String[] {"Retard", "Absence", "Sanction"});
 		Type.setBounds(168, 123, 200, 33);
 		Type.select(0);
-		
+
 		Label lblType = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblType.setBounds(106, 123, 56, 33);
 		lblType.setText("Type");
-		
+
 		Label lblDate = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblDate.setBounds(106, 170, 56, 39);
 		lblDate.setText("Date");
-		
+
 		Label lblJustification = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblJustification.setBounds(42, 215, 101, 35);
 		lblJustification.setText("Justification");
-		
+
 		Label lblEleve = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblEleve.setBounds(42, 78, 485, 25);
 		lblEleve.setText("Pour :");
-		
+
 		DateTime champDate = new DateTime(shlAjouterVieScollaire, SWT.BORDER);
-		champDate.setBounds(169, 170, 199, 35);	
-		
+		champDate.setBounds(169, 170, 199, 35);
+
 		Button btnRetour = new Button(shlAjouterVieScollaire, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
@@ -128,10 +127,10 @@ public class Form_Viesco extends Global {
 				}
 			}
 		});
-		
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		
+
 		String requete = "Select nom, prenom, id_classe from eleve where id ='"+Globideleve+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
@@ -143,13 +142,13 @@ public class Form_Viesco extends Global {
 		}
 
 		//Justification.setText(justification);
-		
+
 		Label lblTitre = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblTitre.setBounds(127, 15, 357, 35);
 		lblTitre.setText("Ajouter une Absence/Sanction/Retard");
-		
-		
+
+
 
 		btnNewButton.addSelectionListener(new SelectionAdapter()
 		{
