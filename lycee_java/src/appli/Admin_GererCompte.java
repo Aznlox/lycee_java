@@ -113,28 +113,28 @@ public class Admin_GererCompte extends Global
 		Label lblClasse = new Label(shell, SWT.NONE);
 		lblClasse.setBounds(159, 234, 87, 25);
 		lblClasse.setText("Identifiant");
-		
+
 		text = new Text(shell, SWT.BORDER);
 		text.setBounds(270, 231, 147, 31);
-		
+
 		Label lblEmail = new Label(shell, SWT.NONE);
 		lblEmail.setText("Email");
 		lblEmail.setBounds(165, 284, 87, 25);
-		
+
 		Label lblMotDePasse = new Label(shell, SWT.NONE);
 		lblMotDePasse.setText("MDP");
 		lblMotDePasse.setBounds(165, 328, 81, 25);
-		
+
 		Label lblMatire = new Label(shell, SWT.NONE);
 		lblMatire.setText("Mati\u00E8re");
 		lblMatire.setBounds(165, 372, 81, 25);
-		
+
 		text_1 = new Text(shell, SWT.BORDER);
 		text_1.setBounds(270, 284, 147, 31);
-		
+
 		text_2 = new Text(shell, SWT.BORDER);
 		text_2.setBounds(270, 333, 147, 31);
-		
+
 		text_3 = new Text(shell, SWT.BORDER);
 		text_3.setBounds(270, 372, 147, 31);
 
@@ -155,7 +155,7 @@ public class Admin_GererCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere) Values('"+textNom.getText()+"','"+textPrenom.getText()+"',"+classeList.get(comboClasse.getSelectionIndex())+")";
+				String requete = INSERT into eleve (nom, prenom, id_classe) Values('"+textNom.getText()+"','"+textPrenom.getText()+"',"+classeList.get(comboClasse.getSelectionIndex())+")";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
