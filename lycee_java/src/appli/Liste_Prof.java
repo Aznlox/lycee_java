@@ -326,7 +326,7 @@ public class Liste_Prof extends Global
 				shlListeEleve.close();
 				try
 				{
-					Admin_Admin_GererCompte window = new Admin_GererCompte();
+					Admin_GererCompte window = new Admin_GererCompte();
 					window.open();
 				}
 				catch (Exception e1)
