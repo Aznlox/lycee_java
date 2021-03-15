@@ -62,7 +62,6 @@ public class Planning_prof extends Global
 
 		btnClasse = new Button(shell, SWT.NONE);
 		org.eclipse.swt.layout.FormData fd_btnClasse = new org.eclipse.swt.layout.FormData();
-		fd_btnClasse.left = new FormAttachment(0, 23);
 		btnClasse.setLayoutData(fd_btnClasse);
 		btnClasse.setText("Liste des \u00E9l\u00E8ves");
 		btnClasse.addSelectionListener(new SelectionAdapter()
@@ -143,6 +142,7 @@ public class Planning_prof extends Global
 		lblh.setText("8h");
 
 		Label lblh_1 = new Label(shell, SWT.NONE);
+		fd_btnClasse.top = new FormAttachment(lblh_1, -5, SWT.TOP);
 		fd_lblh.bottom = new FormAttachment(100, -342);
 		FormData fd_lblh_1 = new FormData();
 		fd_lblh_1.top = new FormAttachment(lblh);
@@ -172,8 +172,7 @@ public class Planning_prof extends Global
 		lblh_4.setText("12h");
 
 		Label lblh_5 = new Label(shell, SWT.NONE);
-		fd_btnClasse.right = new FormAttachment(lblh_5, -44);
-		fd_btnClasse.top = new FormAttachment(lblh_5, -5, SWT.TOP);
+		fd_btnClasse.right = new FormAttachment(lblh_5, -57);
 		FormData fd_lblh_5 = new FormData();
 		fd_lblh_5.right = new FormAttachment(tableLundi, -6);
 		lblh_5.setLayoutData(fd_lblh_5);
@@ -444,13 +443,15 @@ public class Planning_prof extends Global
 		});
 		
 		Button btnModifier = new Button(shell, SWT.NONE);
+		fd_btnClasse.left = new FormAttachment(btnModifier, 0, SWT.LEFT);
 		FormData fd_btnModifier = new FormData();
-		fd_btnModifier.top = new FormAttachment(lblh_7, 0, SWT.TOP);
-		fd_btnModifier.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
+		fd_btnModifier.top = new FormAttachment(lblh_3, -5, SWT.TOP);
+		fd_btnModifier.left = new FormAttachment(0, 10);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
 		
 		Button btnDeconnexion = new Button(shell, SWT.NONE);
+		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		FormData fd_btnDeconnexion = new FormData();
 		fd_btnDeconnexion.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
 		fd_btnDeconnexion.left = new FormAttachment(0, 23);
