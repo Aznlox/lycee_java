@@ -117,26 +117,6 @@ public class Liste_Utilisateurs extends Global
 		tblclmnId.setText("id");
 
 
-		Button btnRetour = new Button(shlListeUtilisateurs, SWT.NONE);
-		btnRetour.setBounds(10, 10, 105, 35);
-		btnRetour.setText("Retour");
-		btnRetour.addSelectionListener(new SelectionAdapter()
-		{
-			@Override
-			public void widgetSelected(SelectionEvent e)
-			{
-				shlListeUtilisateurs.close();
-				try
-				{
-					Admin_Menu window = new Admin_Menu();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-		});
 
 
 		Button btnModifUtilisateur = new Button(shlListeUtilisateurs, SWT.NONE);
@@ -187,7 +167,7 @@ public class Liste_Utilisateurs extends Global
 				Globidselection = Globidselection;
 			
 		        btnSupprimer.setEnabled(false);
-				table.clearAll();
+				table.removeAll();
 				String sql = "SELECT * FROM utilisateur where id ";
 				ResultSet res = db.Request(cnx, sql);
 
@@ -206,6 +186,8 @@ public class Liste_Utilisateurs extends Global
 					    i++;
 					}
 				}
+				
+				
 				catch (SQLException e2)
 				{
 					// TODO Auto-generated catch block
@@ -277,7 +259,7 @@ public class Liste_Utilisateurs extends Global
 				Globidselection = null;
 		        btnModifUtilisateur.setEnabled(false);
 		        btnSupprimer.setEnabled(false);
-				table.clearAll();
+				table.removeAll();
 				String sql = "SELECT * FROM utilisateur ";
 				ResultSet res = db.Request(cnx, sql);
 
@@ -342,6 +324,28 @@ public class Liste_Utilisateurs extends Global
 					}
 				}
 			});
+		
+
+		Button btnRetour = new Button(shlListeUtilisateurs, SWT.NONE);
+		btnRetour.setBounds(10, 10, 105, 35);
+		btnRetour.setText("Retour");
+		btnRetour.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlListeUtilisateurs.close();
+				try
+				{
+					Admin_Menu window = new Admin_Menu();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 	}
 }

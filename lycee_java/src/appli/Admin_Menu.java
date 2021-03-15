@@ -46,13 +46,10 @@ public class Admin_Menu extends Global
 	protected void createContents()
 	{
 		shlMenuAdmin = new Shell();
+		shlMenuAdmin.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlMenuAdmin.setSize(366, 401);
 
 		shlMenuAdmin.setText("Menu Admin");
-
-		Label lblMenu = new Label(shlMenuAdmin, SWT.NONE);
-		lblMenu.setBounds(150, 21, 81, 25);
-		lblMenu.setText("Menu");
 
 		Button btnProf = new Button(shlMenuAdmin, SWT.NONE);
 		btnProf.setBounds(80, 71, 184, 35);
@@ -121,7 +118,8 @@ public class Admin_Menu extends Global
 		btnPlanning.setText("Modifier le planning");
 
 		Button btnDconnexion = new Button(shlMenuAdmin, SWT.NONE);
-		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		btnDconnexion.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		btnDconnexion.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -139,8 +137,16 @@ public class Admin_Menu extends Global
 				}
 			}
 		});
-		btnDconnexion.setBounds(114, 300, 116, 35);
+		btnDconnexion.setBounds(114, 307, 116, 35);
 		btnDconnexion.setText("D\u00E9connexion");
+		
+		Label lblMenu = new Label(shlMenuAdmin, SWT.NONE);
+		lblMenu.setText("Menu");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(100, 24, 151, 34);
 		btnPlanning.addSelectionListener(new SelectionAdapter()
 		{
 			@Override

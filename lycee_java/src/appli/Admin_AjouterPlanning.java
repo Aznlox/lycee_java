@@ -21,11 +21,6 @@ import com.dbconnexion.Database;
 public class Admin_AjouterPlanning {
 
 	protected Shell shlPlanning;
-	protected String nomJour;
-	protected int jour;
-	protected int selectClasse;
-	protected int selectProf;
-	protected int selectJour;
 
 	/**
 	 * Launch the application.
@@ -94,6 +89,8 @@ public class Admin_AjouterPlanning {
 			e2.printStackTrace();
 		}
 		
+		Combo comboHeure = new Combo(shlPlanning, SWT.READ_ONLY);
+		comboHeure.setBounds(16, 298, 104, 33);
 
 		Label lblProf = new Label(shlPlanning, SWT.NONE);
 		lblProf.setBounds(16, 104, 105, 25);
@@ -116,21 +113,14 @@ public class Admin_AjouterPlanning {
 			e2.printStackTrace();
 		}
 		
-		Label lblVue = new Label(shlPlanning, SWT.NONE);
-		lblVue.setBounds(10, 377, 327, 25);
-		
-		Combo comboHeure = new Combo(shlPlanning, SWT.READ_ONLY);
-		comboHeure.setEnabled(false);
-		comboHeure.setBounds(16, 298, 104, 33);
-		
-		
 		ArrayList<Integer> heureList = new  ArrayList<Integer>();
 		
 		Label lblAjout = new Label(shlPlanning, SWT.NONE);
 		lblAjout.setText("Ajout :");
 		lblAjout.setBounds(16, 346, 81, 25);
 		
-		
+		Label lblVue = new Label(shlPlanning, SWT.NONE);
+		lblVue.setBounds(10, 377, 327, 25);
 		Button btnLundi = new Button(shlPlanning, SWT.RADIO);
 		btnLundi.setBounds(16, 214, 81, 25);
 		btnLundi.setText("Lundi");
@@ -143,17 +133,16 @@ public class Admin_AjouterPlanning {
                 if(source.getSelection())  {
                     comboHeure.removeAll();
                     heureList.clear();
-                    comboHeure.setEnabled(true);
-                    jour = 1;
-                    nomJour = "Lundi";
+                    int jour = 1;
                     String requete = "SELECT DISTINCT heure.id, libelle FROM planning inner join heure where heure.id not in (SELECT id_heure FROM planning where id_professeur = "+profList.get(comboProf.getSelectionIndex())+" AND id_jour = "+jour+" or id_classe = "+classeList.get(comboClasse.getSelectionIndex())+" AND id_jour = "+jour+")";
             		ResultSet resultat = db.Request(cnx, requete);
             		try {
 						while(resultat.next())
 						{
 							comboHeure.add(resultat.getString("libelle"));
-							heureList.add(resultat.getInt("heure.id"));
+							heureList.add(resultat.getInt("id"));
 						}
+						comboHeure.select(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -175,17 +164,16 @@ public class Admin_AjouterPlanning {
                 if(source.getSelection())  {
                     comboHeure.removeAll();
                     heureList.clear();
-                    comboHeure.setEnabled(true);
-                    jour = 2;
-                    nomJour = "Mardi";
+                    int jour = 2;
                     String requete = "SELECT DISTINCT heure.id, libelle FROM planning inner join heure where heure.id not in (SELECT id_heure FROM planning where id_professeur = "+profList.get(comboProf.getSelectionIndex())+" AND id_jour = "+jour+" or id_classe = "+classeList.get(comboClasse.getSelectionIndex())+" AND id_jour = "+jour+")";
             		ResultSet resultat = db.Request(cnx, requete);
             		try {
 						while(resultat.next())
 						{
 							comboHeure.add(resultat.getString("libelle"));
-							heureList.add(resultat.getInt("heure.id"));
+							heureList.add(resultat.getInt("id"));
 						}
+						comboHeure.select(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -207,17 +195,16 @@ public class Admin_AjouterPlanning {
                 if(source.getSelection())  {
                     comboHeure.removeAll();
                     heureList.clear();
-                    comboHeure.setEnabled(true);
-                    jour = 3;
-                    nomJour = "Mercreci";
+                    int jour = 3;
                     String requete = "SELECT DISTINCT heure.id, libelle FROM planning inner join heure where heure.id not in (SELECT id_heure FROM planning where id_professeur = "+profList.get(comboProf.getSelectionIndex())+" AND id_jour = "+jour+" or id_classe = "+classeList.get(comboClasse.getSelectionIndex())+" AND id_jour = "+jour+")";
             		ResultSet resultat = db.Request(cnx, requete);
             		try {
 						while(resultat.next())
 						{
 							comboHeure.add(resultat.getString("libelle"));
-							heureList.add(resultat.getInt("heure.id"));
+							heureList.add(resultat.getInt("id"));
 						}
+						comboHeure.select(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -239,17 +226,16 @@ public class Admin_AjouterPlanning {
                 if(source.getSelection())  {
                     comboHeure.removeAll();
                     heureList.clear();
-                    comboHeure.setEnabled(true);
-                    jour = 4;
-                    nomJour = "Jeudi";
+                    int jour = 4;
                     String requete = "SELECT DISTINCT heure.id, libelle FROM planning inner join heure where heure.id not in (SELECT id_heure FROM planning where id_professeur = "+profList.get(comboProf.getSelectionIndex())+" AND id_jour = "+jour+" or id_classe = "+classeList.get(comboClasse.getSelectionIndex())+" AND id_jour = "+jour+")";
             		ResultSet resultat = db.Request(cnx, requete);
             		try {
 						while(resultat.next())
 						{
 							comboHeure.add(resultat.getString("libelle"));
-							heureList.add(resultat.getInt("heure.id"));
+							heureList.add(resultat.getInt("id"));
 						}
+						comboHeure.select(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -262,6 +248,37 @@ public class Admin_AjouterPlanning {
 		Button btnVendredi = new Button(shlPlanning, SWT.RADIO);
 		btnVendredi.setBounds(103, 260, 105, 25);
 		btnVendredi.setText("Vendredi");
+		
+				Button AjouterPlanning = new Button(shlPlanning, SWT.NONE);
+				AjouterPlanning.setBounds(16, 408, 174, 35);
+				AjouterPlanning.setText("Ajouter un planning");
+				
+						AjouterPlanning.addSelectionListener(new SelectionAdapter()
+						{
+							@Override
+							public void widgetSelected(SelectionEvent e)
+							{
+									classeList.clear();
+									String requete = "INSERT into classe (libelle) Values('')";
+									boolean message = db.Prepare(cnx, requete);
+				
+									requete = "Select * from classe where undeletable = 0";
+									ResultSet resultat = db.Request(cnx, requete);
+									try {
+										while(resultat.next()) {
+											comboClasse.add(resultat.getString("libelle"));
+											classeList.add(resultat.getInt("id"));
+										}
+										lblAjoutSucces.setVisible(true);
+									} catch (SQLException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+								}
+				
+				
+				
+						});
 		btnVendredi.addSelectionListener(new SelectionAdapter()  {
 			 
             @Override
@@ -271,17 +288,16 @@ public class Admin_AjouterPlanning {
                 if(source.getSelection())  {
                     comboHeure.removeAll();
                     heureList.clear();
-                    comboHeure.setEnabled(true);
-                    jour = 5;
-                    nomJour = "Vendredi";
+                    int jour = 5;
                     String requete = "SELECT DISTINCT heure.id, libelle FROM planning inner join heure where heure.id not in (SELECT id_heure FROM planning where id_professeur = "+profList.get(comboProf.getSelectionIndex())+" AND id_jour = "+jour+" or id_classe = "+classeList.get(comboClasse.getSelectionIndex())+" AND id_jour = "+jour+")";
             		ResultSet resultat = db.Request(cnx, requete);
             		try {
 						while(resultat.next())
 						{
 							comboHeure.add(resultat.getString("libelle"));
-							heureList.add(resultat.getInt("heure.id"));
+							heureList.add(resultat.getInt("id"));
 						}
+						comboHeure.select(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -290,40 +306,7 @@ public class Admin_AjouterPlanning {
             }
              
         });
-		
-		Button AjouterPlanning = new Button(shlPlanning, SWT.NONE);
-		AjouterPlanning.setEnabled(false);
-		AjouterPlanning.setBounds(16, 408, 174, 35);
-		AjouterPlanning.setText("Ajouter un planning");
-		
-		comboHeure.addSelectionListener(new SelectionAdapter()
-		  {
-		    @Override
-		    public void widgetSelected(final SelectionEvent event)
-		    {
-		    	lblAjoutSucces.setVisible(false);
-		    	AjouterPlanning.setEnabled(true);
-		    	selectClasse = comboClasse.getSelectionIndex();
-		    	selectProf = comboProf.getSelectionIndex();
-		    	selectJour = jour;
-		    	lblVue.setText(comboClasse.getItem(selectClasse)+" | "+comboProf.getItem(selectProf)+" | "+nomJour+" | "+comboHeure.getItem(comboHeure.getSelectionIndex()));
-		    }
-		  });
-		
 
-				
-		AjouterPlanning.addSelectionListener(new SelectionAdapter()
-		{
-			@Override
-			public void widgetSelected(SelectionEvent e)
-			{
-					String requete = "INSERT into planning (id_jour, id_heure, id_classe, id_professeur) Values("+selectJour+", "+heureList.get(comboHeure.getSelectionIndex())+", "+classeList.get(selectClasse)+", "+profList.get(selectProf)+")";
-					boolean message = db.Prepare(cnx, requete);
-					AjouterPlanning.setEnabled(false);
-					comboHeure.setEnabled(false);
-					lblAjoutSucces.setVisible(true);
-			}				
-		});
 
 	}
 }
