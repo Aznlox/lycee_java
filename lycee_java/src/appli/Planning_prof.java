@@ -457,13 +457,14 @@ public class Planning_prof extends Global
 		fd_btnDeconnexion.left = new FormAttachment(0, 23);
 		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
 		btnDeconnexion.setText("Deconnexion");
-		btnDeconnexion.addSelectionListener(new SelectionAdapter())
+		btnDeconnexion.addSelectionListener(new SelectionAdapter()
+		public void widgetSelected(SelectionEvent e)
 		{
 			shell.close();
 			try
 			{
-				Modifier_prof modif_prof = new Modifier_prof();
-				modif_prof.open();
+				Connexion window = new Connexion();
+				window.open();
 			}
 			catch (Exception e1)
 			{
