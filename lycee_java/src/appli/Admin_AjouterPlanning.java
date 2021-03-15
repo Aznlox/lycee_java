@@ -18,7 +18,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 import com.dbconnexion.Database;
 
-public class Admin_GererPlanning {
+public class Admin_AjouterPlanning {
 
 	protected Shell shlPlanning;
 	protected String nomJour;

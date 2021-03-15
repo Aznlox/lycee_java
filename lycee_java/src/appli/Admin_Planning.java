@@ -497,7 +497,7 @@ public class Admin_Planning extends Global
 			{
 				try
 				{
-					Admin_GererPlanning window = new Admin_GererPlanning();
+					Admin_AjouterPlanning window = new Admin_AjouterPlanning();
 					window.open();
 				}
 				catch (Exception e1)
@@ -515,6 +515,22 @@ public class Admin_Planning extends Global
 		fd_btnSupprimer.bottom = new FormAttachment(lblh_9, 0, SWT.BOTTOM);
 		btnSupprimer.setLayoutData(fd_btnSupprimer);
 		btnSupprimer.setText("Supprimer un \u00E9l\u00E9ment");
+		btnSupprimer.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Admin_SupprPlanning window = new Admin_SupprPlanning();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
