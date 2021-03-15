@@ -462,8 +462,8 @@ public class Planning_prof extends Global
 			shell.close();
 			try
 			{
-				Connexion window = new Connexion();
-				window.open();
+				Modifier_prof modif_prof = new Modifier_prof();
+				modif_prof.open();
 			}
 			catch (Exception e1)
 			{
