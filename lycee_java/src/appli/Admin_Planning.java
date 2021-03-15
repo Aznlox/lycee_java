@@ -181,7 +181,6 @@ public class Admin_Planning extends Global
 
 		TableItem tableItem_1_1 = new TableItem(tableLundi, SWT.NONE);
 
-
 		TableItem tableItem_1_2 = new TableItem(tableLundi, SWT.NONE);
 
 		TableItem tableItem_1_3 = new TableItem(tableLundi, SWT.NONE);
@@ -384,12 +383,23 @@ public class Admin_Planning extends Global
 		planning_vendredi.add(tableItem_5_8);
 		planning_vendredi.add(tableItem_5_9);
 		
+		Database db = new Database();
+		Connection cnx = db.DbConnexion();
+		
 		Combo comboProf = new Combo(shell, SWT.READ_ONLY);
 		FormData fd_comboProf = new FormData();
 		fd_comboProf.right = new FormAttachment(0, 213);
 		fd_comboProf.top = new FormAttachment(0, 10);
 		fd_comboProf.left = new FormAttachment(0, 25);
 		comboProf.setLayoutData(fd_comboProf);
+		ArrayList<Integer> profList = new  ArrayList<Integer>();
+		String requete = "Select * from utilisateur where role = 'professeur'";
+		ResultSet resultat = db.Request(cnx, requete);
+		while(resultat.next()) {
+			comboProf.add(resultat.getString("nom"));
+			profList.add(resultat.getInt("id"));
+		}
+		comboProf.select(0);
 		
 		Button btnOkProf = new Button(shell, SWT.NONE);
 		FormData fd_btnOkProf = new FormData();
@@ -398,65 +408,105 @@ public class Admin_Planning extends Global
 		fd_btnOkProf.bottom = new FormAttachment(0, 43);
 		btnOkProf.setLayoutData(fd_btnOkProf);
 		btnOkProf.setText("Selectionner");
+		btnOkProf.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				for(ArrayList<TableItem> jour : planning) {
+					for(TableItem heure : jour) {
+						heure.setText("");
+					}
+				}
+				String requete = "Select * from planning inner join classe on id_classe = classe.id where id_professeur = '"+profList.get(comboProf.getSelectionIndex())+"'";
+				ResultSet resultat = db.Request(cnx, requete);
+				try {
+					while(resultat.next())
+					{
+						int jour = resultat.getInt("id_jour") - 1;
+						int heure = resultat.getInt("id_heure") - 1;
+						String classe = resultat.getString("libelle");
+						planning.get(jour).get(heure).setText(classe);
+
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
 		FormData fd_comboClasse = new FormData();
 		fd_comboClasse.left = new FormAttachment(btnOkProf, 143);
 		fd_comboClasse.top = new FormAttachment(0, 10);
 		comboClasse.setLayoutData(fd_comboClasse);
+		ArrayList<Integer> classeList = new  ArrayList<Integer>();
+		requete = "Select * from classe where undeletable = 0";
+		resultat = db.Request(cnx, requete);
+		while(resultat.next()) {
+			comboClasse.add(resultat.getString("libelle"));
+			classeList.add(resultat.getInt("id"));
+		}
+		comboClasse.select(0);
 		
 		Button btnOkClasse = new Button(shell, SWT.NONE);
 		fd_comboClasse.right = new FormAttachment(100, -376);
 		FormData fd_btnOkClasse = new FormData();
-		fd_btnOkClasse.bottom = new FormAttachment(comboProf, 2, SWT.BOTTOM);
-		fd_btnOkClasse.top = new FormAttachment(0, 12);
-		fd_btnOkClasse.left = new FormAttachment(comboClasse, 16);
+		fd_btnOkClasse.bottom = new FormAttachment(comboProf, -1, SWT.BOTTOM);
+		fd_btnOkClasse.top = new FormAttachment(comboProf, -1, SWT.TOP);
+		fd_btnOkClasse.left = new FormAttachment(tableJeudi, 0, SWT.LEFT);
 		btnOkClasse.setLayoutData(fd_btnOkClasse);
 		btnOkClasse.setText("Selectionner");
+		btnOkClasse.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				for(ArrayList<TableItem> jour : planning) {
+					for(TableItem heure : jour) {
+						heure.setText("");
+					}
+				}
+				String requete = "Select * from planning inner join utilisateur on id_professeur = utilisateur.id where id_classe = '"+classeList.get(comboClasse.getSelectionIndex())+"'";
+				ResultSet resultat = db.Request(cnx, requete);
+				try {
+					while(resultat.next())
+					{
+						int jour = resultat.getInt("id_jour") - 1;
+						int heure = resultat.getInt("id_heure") - 1;
+						String classe = resultat.getString("nom");
+						planning.get(jour).get(heure).setText(classe);
+
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		Button btnAjouter = new Button(shell, SWT.NONE);
 		FormData fd_btnAjouter = new FormData();
-		fd_btnAjouter.top = new FormAttachment(comboProf, 100);
-		fd_btnAjouter.bottom = new FormAttachment(lblh_1, 0, SWT.BOTTOM);
-		fd_btnAjouter.left = new FormAttachment(0, 10);
-		fd_btnAjouter.right = new FormAttachment(0, 182);
+		fd_btnAjouter.top = new FormAttachment(lblh_3, -5, SWT.TOP);
+		fd_btnAjouter.right = new FormAttachment(lblh, -34);
 		btnAjouter.setLayoutData(fd_btnAjouter);
 		btnAjouter.setText("Ajouter un \u00E9l\u00E9ment");
 		
-		Button btnModifier = new Button(shell, SWT.NONE);
-		FormData fd_btnModifier = new FormData();
-		fd_btnModifier.right = new FormAttachment(btnAjouter, 0, SWT.RIGHT);
-		fd_btnModifier.top = new FormAttachment(btnAjouter, 21);
-		fd_btnModifier.left = new FormAttachment(btnAjouter, 0, SWT.LEFT);
-		btnModifier.setLayoutData(fd_btnModifier);
-		btnModifier.setText("Modifier un \u00E9l\u00E9ment");
-		
 		Button btnSupprimer = new Button(shell, SWT.NONE);
+		fd_btnAjouter.left = new FormAttachment(btnSupprimer, 0, SWT.LEFT);
 		FormData fd_btnSupprimer = new FormData();
-		fd_btnSupprimer.top = new FormAttachment(lblh_9, -5, SWT.TOP);
-		fd_btnSupprimer.right = new FormAttachment(btnAjouter, 0, SWT.RIGHT);
+		fd_btnSupprimer.right = new FormAttachment(lblh_4, -24);
 		fd_btnSupprimer.left = new FormAttachment(0, 10);
+		fd_btnSupprimer.bottom = new FormAttachment(lblh_9, 0, SWT.BOTTOM);
 		btnSupprimer.setLayoutData(fd_btnSupprimer);
-		btnSupprimer.setText("Supprimer");
+		btnSupprimer.setText("Supprimer un \u00E9l\u00E9ment");
 
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
 		planning.add(planning_mercredi);
 		planning.add(planning_jeudi);
 		planning.add(planning_vendredi);
-
-		Database db = new Database();
-		Connection cnx = db.DbConnexion();
-		String requete = "Select * from utilisateur inner join planning on utilisateur.id = id_professeur inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"'";
-		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next())
-		{
-			int jour = resultat.getInt("id_jour") - 1;
-			int heure = resultat.getInt("id_heure") - 1;
-			String classe = resultat.getString("libelle");
-			planning.get(jour).get(heure).setText(classe);
-
-		}
+		
+		
 
 	}
 }
