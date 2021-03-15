@@ -63,7 +63,7 @@ public class Admin_Menu extends Global
 			{
 				try
 				{
-					Liste_Prof window = new Liste_Prof();
+					Liste_Utilisateurs window = new Liste_Utilisateurs();
 					window.open();
 				}
 				catch (Exception e1)

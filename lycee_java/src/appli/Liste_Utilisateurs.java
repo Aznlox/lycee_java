@@ -26,7 +26,7 @@ import com.dbconnexion.*;
 import controller.Global;
 import org.eclipse.swt.widgets.Combo;
 
-public class Liste_Prof extends Global
+public class Liste_Utilisateurs extends Global
 {
 
 	protected Shell shlListeEleve;
