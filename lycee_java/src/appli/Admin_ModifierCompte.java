@@ -106,7 +106,7 @@ public class Admin_ModifierCompte extends Global
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur  where id ='"+Globideleve+"'";
+		String requete = "Select nom, prenom, email, identifiant, mdp from utilisateur  where id ='"+Globidselection+"'";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
@@ -125,7 +125,7 @@ public class Admin_ModifierCompte extends Global
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(307, 415, 253, 25);
+		lblErreur.setBounds(307, 453, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
@@ -133,7 +133,7 @@ public class Admin_ModifierCompte extends Global
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9es");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setBounds(297, 489, 253, 25);
 		lblSucces.setVisible(false);
 				
 		Label lblMotDePasse = new Label(shell, SWT.NONE);
@@ -145,11 +145,11 @@ public class Admin_ModifierCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', identifiant ='"+textIdentifiant.getText()+"', mdp ='"+textMotdePasse.getText()+"' where identifiant = '"+Globidentifiant+"'";
+				String requete = "Update utilisateur set nom ='"+textNom.getText()+"', prenom ='"+textPrenom.getText()+"', email ='"+textEmail.getText()+"', identifiant ='"+textIdentifiant.getText()+"', mdp ='"+textMotdePasse.getText()+"' where id = '"+Globidselection+"'";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
-				requete = "Select nom, prenom, email, identifiant, mdp from utilisateur where identifiant = '"+Globidentifiant+"'";
+				requete = "Select nom, prenom, email, identifiant, mdp from utilisateur where id = '"+Globidselection+"'";
 				ResultSet resultat = db.Request(cnx, requete);
 				try
 				{
