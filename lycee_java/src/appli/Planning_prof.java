@@ -422,8 +422,8 @@ public class Planning_prof extends Global
 		fd_lblh_9.right = new FormAttachment(tableLundi, -6);
 		lblh_9.setLayoutData(fd_lblh_9);
 		lblh_9.setText("13h");
-		
-		
+
+
 		btnClasse.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -441,7 +441,7 @@ public class Planning_prof extends Global
 				}
 			}
 		});
-		
+
 		Button btnModifier = new Button(shell, SWT.NONE);
 		fd_btnClasse.left = new FormAttachment(btnModifier, 0, SWT.LEFT);
 		FormData fd_btnModifier = new FormData();
@@ -449,14 +449,44 @@ public class Planning_prof extends Global
 		fd_btnModifier.left = new FormAttachment(0, 10);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
-		
+
 		Button btnDeconnexion = new Button(shell, SWT.NONE);
 		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		FormData fd_btnDeconnexion = new FormData();
 		fd_btnDeconnexion.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
 		fd_btnDeconnexion.left = new FormAttachment(0, 23);
 		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlMenuAdmin.close();
+				try
+				{
+					Connexion window = new Connexion();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		}
 		btnDeconnexion.setText("Deconnexion");
+
+
+
+
+		shlMenuAdmin.close();
+		try
+		{
+			Connexion window = new Connexion();
+			window.open();
+		}
+		catch (Exception e1)
+		{
+			e1.printStackTrace();
+		}
 
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
