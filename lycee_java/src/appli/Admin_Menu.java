@@ -127,6 +127,7 @@ public class Admin_Menu extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
+				shlMenuAdmin.close();
 				try
 				{
 					Connexion window = new Connexion();
