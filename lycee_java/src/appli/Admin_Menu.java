@@ -118,6 +118,22 @@ public class Admin_Menu extends Global
 		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
 		btnPlanning.setBounds(80, 237, 184, 35);
 		btnPlanning.setText("Modifier le planning");
+		btnPlanning.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Admin_Planning window = new Admin_Planning();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 
 	}
 }
