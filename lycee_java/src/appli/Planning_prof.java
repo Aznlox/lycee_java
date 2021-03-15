@@ -460,7 +460,7 @@ public class Planning_prof extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				shell.close();
+				shlMenuAdmin.close();
 				try
 				{
 					Connexion window = new Connexion();
@@ -473,6 +473,20 @@ public class Planning_prof extends Global
 			}
 		}
 		btnDeconnexion.setText("Deconnexion");
+
+
+
+
+		shlMenuAdmin.close();
+		try
+		{
+			Connexion window = new Connexion();
+			window.open();
+		}
+		catch (Exception e1)
+		{
+			e1.printStackTrace();
+		}
 
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
