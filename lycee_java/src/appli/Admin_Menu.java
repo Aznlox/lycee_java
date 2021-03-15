@@ -129,7 +129,7 @@ public class Admin_Menu extends Global
 			{
 				try
 				{
-					Admin_Planning window = new Admin_Planning();
+					Connexion window = new Connexion();
 					window.open();
 				}
 				catch (Exception e1)
