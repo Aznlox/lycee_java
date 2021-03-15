@@ -489,6 +489,13 @@ public class Planning_prof extends Global
 		});
 		
 		Button btnDconnexion = new Button(shell, SWT.NONE);
+		btnDconnexion.setText("Deconnexion");
+		FormData fd_btnDconnexion = new FormData();
+		fd_btnDconnexion.top = new FormAttachment(btnModifier, 173);
+		fd_btnDconnexion.bottom = new FormAttachment(100, -43);
+		fd_btnDconnexion.right = new FormAttachment(btnClasse, 0, SWT.RIGHT);
+		fd_btnDconnexion.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
+		btnDconnexion.setLayoutData(fd_btnDconnexion);
 		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		btnDconnexion.addSelectionListener(new SelectionAdapter()
 		{
