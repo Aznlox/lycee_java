@@ -133,7 +133,7 @@ public class Liste_Prof extends Global
 				Globideleve = null;
 				try
 				{
-					Admin_Menu window = new Admin_Menu();
+					Liste_Eleve window = new Liste_Eleve();
 					window.open();
 				}
 				catch (Exception e1)
@@ -168,9 +168,6 @@ public class Liste_Prof extends Global
 			}
 		});
 
-		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
-		comboClasse.setBounds(10, 88, 211, 33);
-
 		//Bouton ajouter une evenement vie scolaire
 		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
 		AjouterVieSco.setBounds(418, 477, 309, 35);
@@ -194,27 +191,9 @@ public class Liste_Prof extends Global
 		});
 
 
-
-		if(Globadmin) {
-			String requete = "Select * from classe";
-			ResultSet resultat = db.Request(cnx, requete);
-			while(resultat.next()) {
-				comboClasse.add(resultat.getString("libelle"));
-			}
-			comboClasse.select(0);
-		}
-		else {
-			String requete = "Select * from planning inner join utilisateur on utilisateur.id = id_professeur inner join classe on planning.id_classe = classe.id where identifiant = '"+Globidentifiant+"' group by planning.id_classe";
-			ResultSet resultat = db.Request(cnx, requete);
-			while(resultat.next()) {
-				comboClasse.add(resultat.getString("libelle"));
-			}
-			comboClasse.select(0);
-		}
-
 		Button btnValider = new Button(shlListeEleve, SWT.NONE);
-		btnValider.setBounds(227, 86, 105, 35);
-		btnValider.setText("Valider");
+		btnValider.setBounds(20, 86, 211, 35);
+		btnValider.setText("Afficher les professeurs");
 
 		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
 		btnAjoutereleve.setBounds(532, 86, 186, 35);
