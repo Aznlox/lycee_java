@@ -29,7 +29,7 @@ import org.eclipse.swt.widgets.Combo;
 public class Liste_Utilisateurs extends Global
 {
 
-	protected Shell shlListeEleve;
+	protected Shell shlListeUtilisateurs;
 	private Table table;
 	Database db = new Database();
 	Connection cnx = db.DbConnexion();
@@ -45,9 +45,9 @@ public class Liste_Utilisateurs extends Global
 	{
 		Display display = Display.getDefault();
 		createContents();
-		shlListeEleve.open();
-		shlListeEleve.layout();
-		while (!shlListeEleve.isDisposed())
+		shlListeUtilisateurs.open();
+		shlListeUtilisateurs.layout();
+		while (!shlListeUtilisateurs.isDisposed())
 		{
 			if (!display.readAndDispatch())
 			{
@@ -64,11 +64,11 @@ public class Liste_Utilisateurs extends Global
 	protected void createContents() throws SQLException
 	{
 
-		shlListeEleve = new Shell();
-		shlListeEleve.setSize(802, 599);
-		shlListeEleve.setText("Liste des professeurs");
+		shlListeUtilisateurs = new Shell();
+		shlListeUtilisateurs.setSize(802, 599);
+		shlListeUtilisateurs.setText("Liste des utilisateurs");
 
-		Composite composite = new Composite(shlListeEleve, SWT.BORDER);
+		Composite composite = new Composite(shlListeUtilisateurs, SWT.BORDER);
 		composite.setBounds(357, 167, 361, 266);
 
 
@@ -88,22 +88,18 @@ public class Liste_Utilisateurs extends Global
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 77, 67, 35);
 
-		Label lblError = new Label(shlListeEleve, SWT.NONE);
+		Label lblError = new Label(shlListeUtilisateurs, SWT.NONE);
 		lblError.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblError.setBounds(257, 446, 385, 25);
 		lblError.setText("Veuillez selectionner un \u00E9l\u00E8ve en double cliquant");
 		lblError.setVisible(false);
 
-		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
-		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
-		listeeleves.setBounds(40, 127, 191, 29);
-		listeeleves.setText("Liste des utilisateurs");
+		Label listeUtilisateur = new Label(shlListeUtilisateurs, SWT.NONE);
+		listeUtilisateur.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
+		listeUtilisateur.setBounds(40, 127, 191, 29);
+		listeUtilisateur.setText("Liste des utilisateurs");
 
-		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
-		lblClasse_1.setBounds(10, 57, 81, 25);
-		lblClasse_1.setText("Classe :");
-
-		table = new Table(shlListeEleve, SWT.BORDER | SWT.FULL_SELECTION);
+		table = new Table(shlListeUtilisateurs, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(20, 162, 218, 283);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -121,7 +117,7 @@ public class Liste_Utilisateurs extends Global
 		tblclmnId.setText("id");
 
 
-		Button btnRetour = new Button(shlListeEleve, SWT.NONE);
+		Button btnRetour = new Button(shlListeUtilisateurs, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
 		btnRetour.addSelectionListener(new SelectionAdapter()
@@ -129,55 +125,7 @@ public class Liste_Utilisateurs extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				shlListeEleve.close();
-				Globideleve = null;
-				try
-				{
-					Liste_Eleve window = new Liste_Eleve();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-		});
-
-
-		Button btnModifEleve = new Button(shlListeEleve, SWT.NONE);
-		btnModifEleve.setBounds(208, 477, 186, 35);
-		btnModifEleve.setText("Modifier un professeur");
-		btnModifEleve.setVisible(Globadmin);
-		btnModifEleve.setEnabled(false);
-		btnModifEleve.addSelectionListener(new SelectionAdapter()
-		{
-			@Override
-			public void widgetSelected(SelectionEvent e)
-			{
-				shlListeEleve.close();
-				try
-				{
-					Admin_ModifierCompte window = new Admin_ModifierCompte();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
-
-			}
-		});
-
-		//Bouton ajouter une evenement vie scolaire
-		Button AjouterVieSco = new Button(shlListeEleve, SWT.NONE);
-		AjouterVieSco.setBounds(418, 477, 309, 35);
-		AjouterVieSco.setText("Ouvrir le menu");
-		AjouterVieSco.setEnabled(false);
-		AjouterVieSco.addSelectionListener(new SelectionAdapter()
-		{
-			@Override
-			public void widgetSelected(SelectionEvent e)
-			{
+				shlListeUtilisateurs.close();
 				try
 				{
 					Admin_Menu window = new Admin_Menu();
@@ -191,29 +139,91 @@ public class Liste_Utilisateurs extends Global
 		});
 
 
-		Button btnValider = new Button(shlListeEleve, SWT.NONE);
+		Button btnModifUtilisateur = new Button(shlListeUtilisateurs, SWT.NONE);
+		btnModifUtilisateur.setBounds(208, 477, 186, 35);
+		btnModifUtilisateur.setText("Modifier un utilisateur");
+		btnModifUtilisateur.setVisible(true);
+		btnModifUtilisateur.setEnabled(false);
+		btnModifUtilisateur.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlListeUtilisateurs.close();
+				try
+				{
+					Admin_ModifierCompte window = new Admin_ModifierCompte();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+
+			}
+		});
+
+
+		Button btnValider = new Button(shlListeUtilisateurs, SWT.NONE);
 		btnValider.setBounds(20, 86, 211, 35);
-		btnValider.setText("Afficher les professeurs");
+		btnValider.setText("Afficher les utilisateurs");
 
-		Button btnAjoutereleve = new Button(shlListeEleve, SWT.NONE);
-		btnAjoutereleve.setBounds(532, 86, 186, 35);
-		btnAjoutereleve.setText("Ajouter un Professeur");
+		Button btnAjouterUtilisateur = new Button(shlListeUtilisateurs, SWT.NONE);
+		btnAjouterUtilisateur.setBounds(532, 86, 186, 35);
+		btnAjouterUtilisateur.setText("Ajouter un utilisateur");
+		
+		Button btnSupprimer = new Button(shlListeUtilisateurs, SWT.NONE);
+		btnSupprimer.setText("Supprimer");
+		btnSupprimer.setBounds(407, 86, 105, 35);
 
-		Button btnSuppEleve = new Button(shlListeEleve, SWT.NONE);
-		btnSuppEleve.setBounds(357, 86, 169, 35);
-		btnSuppEleve.setText("Retirer un Professeur");
-		btnSuppEleve.setEnabled(false);
+		btnSupprimer.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				String requete = "Delete from utilisateur where id ='"+Globidselection+"'";
+				boolean message = db.Prepare(cnx, requete);
+				
+				Globidselection = Globidselection;
+			
+		        btnSupprimer.setEnabled(false);
+				table.clearAll();
+				String sql = "SELECT * FROM utilisateur where id ";
+				ResultSet res = db.Request(cnx, sql);
+
+				try
+				{
+					int i = 0;
+					while(res.next())
+					{
+						String id = Integer.toString(res.getInt("id"));
+						String nom = res.getString("nom");
+						String prenom = res.getString("prenom");
+						TableItem item = new TableItem(table, SWT.NONE , i);
+					    item.setText(0, nom);
+					    item.setText(1, prenom);
+					    item.setText(2, id);
+					    i++;
+					}
+				}
+				catch (SQLException e2)
+				{
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			}
+		});
+
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				Globideleve = null;
-				AjouterVieSco.setEnabled(false);
-		        btnModifEleve.setEnabled(false);
-		        btnSuppEleve.setEnabled(false);
-				table.clearAll();
+				Globidselection = null;
+		        btnModifUtilisateur.setEnabled(false);
+		        btnSupprimer.setEnabled(false);
+				table.removeAll();
 				String sql = "SELECT * FROM utilisateur";
 				ResultSet res = db.Request(cnx, sql);
 
@@ -247,28 +257,26 @@ public class Liste_Utilisateurs extends Global
 		        TableItem[] selection = table.getSelection();
 		        for (int i = 0; i < selection.length; i++)
 						{
-			        Globideleve = selection[i].getText(2);
+		        	Globidselection = selection[i].getText(2);
 			        textNom.setText(selection[i].getText(0));
 			        textPrenom.setText(selection[i].getText(1));
-			        AjouterVieSco.setEnabled(true);
-			        btnModifEleve.setEnabled(true);
-			        btnSuppEleve.setEnabled(true);
+			        btnModifUtilisateur.setEnabled(true);
+			        btnSupprimer.setEnabled(true);
 		        }
 		      }
 		});
 
-		btnSuppEleve.addSelectionListener(new SelectionAdapter()
+		btnSupprimer.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "Delete from eleve where id ='"+Globideleve+"'";
+				String requete = "Delete from eleve where id ='"+Globidselection+"'";
 				boolean message = db.Prepare(cnx, requete);
 
-				Globideleve = null;
-				AjouterVieSco.setEnabled(false);
-		        btnModifEleve.setEnabled(false);
-		        btnSuppEleve.setEnabled(false);
+				Globidselection = null;
+		        btnModifUtilisateur.setEnabled(false);
+		        btnSupprimer.setEnabled(false);
 				table.clearAll();
 				String sql = "SELECT * FROM utilisateur ";
 				ResultSet res = db.Request(cnx, sql);
@@ -296,12 +304,12 @@ public class Liste_Utilisateurs extends Global
 			}
 		});
 
-		btnAjoutereleve.addSelectionListener(new SelectionAdapter()
+		btnAjouterUtilisateur.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				shlListeEleve.close();
+				shlListeUtilisateurs.close();
 				try
 				{
 					Admin_GererCompte window = new Admin_GererCompte();
@@ -317,16 +325,16 @@ public class Liste_Utilisateurs extends Global
 
 
 
-		btnModifEleve.addSelectionListener(new SelectionAdapter()
+		btnModifUtilisateur.addSelectionListener(new SelectionAdapter()
 			{
 				@Override
 				public void widgetSelected(SelectionEvent e)
 				{
-					shlListeEleve.close();
+					shlListeUtilisateurs.close();
 					try
 					{
-						Admin_ModifierCompte modif = new Admin_ModifierCompte();
-						modif.open();
+						Admin_Menu window = new Admin_Menu();
+						window.open();
 					}
 					catch (Exception e1)
 					{
