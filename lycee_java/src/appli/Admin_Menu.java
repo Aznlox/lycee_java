@@ -119,12 +119,23 @@ public class Admin_Menu extends Global
 		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
 		btnPlanning.setBounds(80, 237, 184, 35);
 		btnPlanning.setText("Modifier le planning");
-		
+
 		Button btnDconnexion = new Button(shlMenuAdmin, SWT.NONE);
 		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		btnDconnexion.addSelectionListener(new SelectionAdapter() {
+		btnDconnexion.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Admin_Planning window = new Admin_Planning();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnDconnexion.setBounds(114, 300, 116, 35);
