@@ -450,14 +450,7 @@ public class Planning_prof extends Global
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
 		
-		Button btnDeconnexion = new Button(shell, SWT.NONE);
-		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		FormData fd_btnDeconnexion = new FormData();
-		fd_btnDeconnexion.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
-		fd_btnDeconnexion.left = new FormAttachment(0, 23);
-		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
-		btnDeconnexion.setText("Deconnexion");
-
+		
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
 		planning.add(planning_mercredi);
@@ -487,6 +480,26 @@ public class Planning_prof extends Global
 				{
 					Modifier_prof modif_prof = new Modifier_prof();
 					modif_prof.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		Button btnDconnexion = new Button(shell, SWT.NONE);
+		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		btnDconnexion.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shell.close();
+				try
+				{
+					Connexion window = new Connexion();
+					window.open();
 				}
 				catch (Exception e1)
 				{
