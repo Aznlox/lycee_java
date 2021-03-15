@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import controller.Global;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class Admin_Menu extends Global
 {
@@ -63,7 +64,7 @@ public class Admin_Menu extends Global
 			{
 				try
 				{
-					Liste_Prof window = new Liste_Prof();
+					Liste_Utilisateurs window = new Liste_Utilisateurs();
 					window.open();
 				}
 				catch (Exception e1)
@@ -118,6 +119,28 @@ public class Admin_Menu extends Global
 		Button btnPlanning = new Button(shlMenuAdmin, SWT.NONE);
 		btnPlanning.setBounds(80, 237, 184, 35);
 		btnPlanning.setText("Modifier le planning");
+
+		Button btnDconnexion = new Button(shlMenuAdmin, SWT.NONE);
+		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		btnDconnexion.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlMenuAdmin.close();
+				try
+				{
+					Connexion window = new Connexion();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnDconnexion.setBounds(114, 300, 116, 35);
+		btnDconnexion.setText("D\u00E9connexion");
 		btnPlanning.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
