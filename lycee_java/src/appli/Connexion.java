@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+
 import controller.Controller_connexion;
 
 public class Connexion
@@ -55,15 +56,16 @@ public class Connexion
 			}
 		}
 	}
-
+	
 	/**
 	* fondation du contenu de la fenetre
 	*/
 	protected void createContents()
 	{
 		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shell.setSize(494, 331);
-		shell.setText("Connexion");
+		shell.setText("Ma Gestion | Connexion");
 		//Identifiant
 		textIdentifiant = new Text(shell, SWT.BORDER);
 		textIdentifiant.setBounds(145, 103, 215, 35);
@@ -72,28 +74,34 @@ public class Connexion
 		textMotdePasse.setBounds(145, 144, 215, 34);
 
 		Button btnJeMinscris = new Button(shell, SWT.NONE);
-		btnJeMinscris.setFont(SWTResourceManager.getFont("Segoe Print", 9, SWT.BOLD));
+		btnJeMinscris.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		btnJeMinscris.setFont(SWTResourceManager.getFont("Rockwell", 9, SWT.BOLD));
 
-		btnJeMinscris.setBounds(179, 184, 151, 35);
+		btnJeMinscris.setBounds(174, 196, 151, 35);
 		btnJeMinscris.setText("Je me connecte");
 
 		Label lblF = new Label(shell, SWT.NONE);
+		lblF.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblF.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblF.setAlignment(SWT.CENTER);
 		lblF.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
-		lblF.setBounds(179, 63, 135, 34);
-		lblF.setText("Connexion");
+		lblF.setBounds(169, 35, 135, 34);
+		lblF.setText("Ma Gestion");
 
 		Label Identifiant = new Label(shell, SWT.NONE);
-		Identifiant.setBounds(41, 103, 91, 35);
+		Identifiant.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		Identifiant.setBounds(37, 113, 91, 25);
 		Identifiant.setText("Identifiant");
 
 		Label MotdePasse = new Label(shell, SWT.NONE);
-		MotdePasse.setBounds(20, 144, 119, 34);
+		MotdePasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		MotdePasse.setBounds(37, 153, 106, 25);
 		MotdePasse.setText("Mot de passe");
 
 		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(68, 225, 345, 25);
+		lblErreur.setBounds(133, 243, 317, 25);
 		lblErreur.setText("Erreur dans l'identifiant ou le mot de passe");
 		lblErreur.setVisible(false);
 
@@ -102,6 +110,7 @@ public class Connexion
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
+				
 				try
 				{
 					Controller_connexion connexion = new Controller_connexion();

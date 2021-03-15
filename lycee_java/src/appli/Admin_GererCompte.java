@@ -89,9 +89,6 @@ public class Admin_GererCompte extends Global
 		btnValider.setBounds(554, 410, 105, 35);
 		btnValider.setText("Valider");
 
-		Button btnRetour = new Button(shell, SWT.NONE);
-		btnRetour.setBounds(10, 10, 105, 35);
-		btnRetour.setText("Retour");
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
@@ -149,13 +146,15 @@ public class Admin_GererCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values ('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textIdentifiant.getText()+"','"+textEmail.getText()+"','"+textMdp.getText()+"','"+textMatiere.getText()+"','"+comboRole.getText()+"')";
+				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values ('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textIdentifiant.getText()+"','"+textEmail.getText()+"','"+textMdp.getText()+"','"+textMatiere.getText()+"','"+comboRole.getItem(comboRole.getSelectionIndex())+"')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
 			}
 		});
-
+		Button btnRetour = new Button(shell, SWT.NONE);
+		btnRetour.setBounds(10, 10, 105, 35);
+		btnRetour.setText("Retour");
 		btnRetour.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
