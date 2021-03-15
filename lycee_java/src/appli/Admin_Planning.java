@@ -490,6 +490,22 @@ public class Admin_Planning extends Global
 		fd_btnAjouter.right = new FormAttachment(lblh, -34);
 		btnAjouter.setLayoutData(fd_btnAjouter);
 		btnAjouter.setText("Ajouter un \u00E9l\u00E9ment");
+		btnAjouter.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				try
+				{
+					Admin_GererPlanning window = new Admin_GererPlanning();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		Button btnSupprimer = new Button(shell, SWT.NONE);
 		fd_btnAjouter.left = new FormAttachment(btnSupprimer, 0, SWT.LEFT);

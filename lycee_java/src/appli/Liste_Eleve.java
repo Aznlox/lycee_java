@@ -235,7 +235,7 @@ public class Liste_Eleve extends Global
 				AjouterVieSco.setEnabled(false);
 		        btnModifEleve.setEnabled(false);
 		        btnSuppEleve.setEnabled(false);
-				table.clearAll();
+				table.removeAll();
 				String sql = "SELECT * FROM eleve inner join classe on id_classe = classe.id where libelle = '"+comboClasse.getItem(comboClasse.getSelectionIndex())+"'";
 				ResultSet res = db.Request(cnx, sql);
 
@@ -288,7 +288,7 @@ public class Liste_Eleve extends Global
 				AjouterVieSco.setEnabled(false);
 		        btnModifEleve.setEnabled(false);
 		        btnSuppEleve.setEnabled(false);
-				table.clearAll();
+				table.removeAll();
 				String sql = "SELECT * FROM eleve inner join classe on id_classe = classe.id where libelle = '"+comboClasse.getItem(comboClasse.getSelectionIndex())+"'";
 				ResultSet res = db.Request(cnx, sql);
 
