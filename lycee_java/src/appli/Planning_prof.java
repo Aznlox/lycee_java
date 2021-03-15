@@ -142,6 +142,7 @@ public class Planning_prof extends Global
 		lblh.setText("8h");
 
 		Label lblh_1 = new Label(shell, SWT.NONE);
+		fd_btnClasse.top = new FormAttachment(lblh_1, -5, SWT.TOP);
 		fd_lblh.bottom = new FormAttachment(100, -342);
 		FormData fd_lblh_1 = new FormData();
 		fd_lblh_1.top = new FormAttachment(lblh);
@@ -157,7 +158,6 @@ public class Planning_prof extends Global
 		lblh_2.setText("10h");
 
 		Label lblh_3 = new Label(shell, SWT.NONE);
-		fd_btnClasse.right = new FormAttachment(lblh_3, -57);
 		FormData fd_lblh_3 = new FormData();
 		fd_lblh_3.top = new FormAttachment(lblh_2, 6);
 		fd_lblh_3.right = new FormAttachment(tableLundi, -6);
@@ -165,7 +165,6 @@ public class Planning_prof extends Global
 		lblh_3.setText("11h");
 
 		Label lblh_4 = new Label(shell, SWT.NONE);
-		fd_btnClasse.bottom = new FormAttachment(lblh_4, 0, SWT.BOTTOM);
 		FormData fd_lblh_4 = new FormData();
 		fd_lblh_4.top = new FormAttachment(lblh_2, 32);
 		fd_lblh_4.right = new FormAttachment(tableLundi, -6);
@@ -173,6 +172,7 @@ public class Planning_prof extends Global
 		lblh_4.setText("12h");
 
 		Label lblh_5 = new Label(shell, SWT.NONE);
+		fd_btnClasse.right = new FormAttachment(lblh_5, -57);
 		FormData fd_lblh_5 = new FormData();
 		fd_lblh_5.right = new FormAttachment(tableLundi, -6);
 		lblh_5.setLayoutData(fd_lblh_5);
@@ -445,11 +445,12 @@ public class Planning_prof extends Global
 		Button btnModifier = new Button(shell, SWT.NONE);
 		fd_btnClasse.left = new FormAttachment(btnModifier, 0, SWT.LEFT);
 		FormData fd_btnModifier = new FormData();
+		fd_btnModifier.top = new FormAttachment(lblh_3, -5, SWT.TOP);
 		fd_btnModifier.left = new FormAttachment(0, 10);
-		fd_btnModifier.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
-
+		
+		
 		planning.add(planning_lundi);
 		planning.add(planning_mardi);
 		planning.add(planning_mercredi);
@@ -479,6 +480,33 @@ public class Planning_prof extends Global
 				{
 					Modifier_prof modif_prof = new Modifier_prof();
 					modif_prof.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		Button btnDconnexion = new Button(shell, SWT.NONE);
+		btnDconnexion.setText("Deconnexion");
+		FormData fd_btnDconnexion = new FormData();
+		fd_btnDconnexion.top = new FormAttachment(btnModifier, 173);
+		fd_btnDconnexion.bottom = new FormAttachment(100, -43);
+		fd_btnDconnexion.right = new FormAttachment(btnClasse, 0, SWT.RIGHT);
+		fd_btnDconnexion.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
+		btnDconnexion.setLayoutData(fd_btnDconnexion);
+		btnDconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		btnDconnexion.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shell.close();
+				try
+				{
+					Connexion window = new Connexion();
+					window.open();
 				}
 				catch (Exception e1)
 				{

@@ -27,11 +27,6 @@ public class Admin_GererCompte extends Global
 	protected Shell shell;
 	private Text textNom;
 	private Text textPrenom;
-	private Text textidentifiant;
-	private Text textemail;
-	private Text textmdp;
-	private Text textmatiere;
-	private Text textrole;
 	private String nom;
 	private String prenom;
 	private String identifiant;
@@ -39,10 +34,10 @@ public class Admin_GererCompte extends Global
 	private String mdp;
 	private String matiere;
 	private String role;
-	private Text text;
-	private Text text_1;
-	private Text text_2;
-	private Text text_3;
+	private Text textIdentifiant;
+	private Text textEmail;
+	private Text textMdp;
+	private Text textMatiere;
 
 
 
@@ -100,22 +95,22 @@ public class Admin_GererCompte extends Global
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(307, 415, 253, 25);
+		lblErreur.setBounds(307, 489, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shell, SWT.NONE);
 		lblSucces.setText("Ajout r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setBounds(307, 458, 253, 25);
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
 		lblClasse.setBounds(159, 234, 87, 25);
 		lblClasse.setText("Identifiant");
 
-		text = new Text(shell, SWT.BORDER);
-		text.setBounds(270, 231, 147, 31);
+		textIdentifiant = new Text(shell, SWT.BORDER);
+		textIdentifiant.setBounds(270, 231, 147, 31);
 
 		Label lblEmail = new Label(shell, SWT.NONE);
 		lblEmail.setText("Email");
@@ -129,14 +124,22 @@ public class Admin_GererCompte extends Global
 		lblMatire.setText("Mati\u00E8re");
 		lblMatire.setBounds(165, 372, 81, 25);
 
-		text_1 = new Text(shell, SWT.BORDER);
-		text_1.setBounds(270, 284, 147, 31);
+		textEmail = new Text(shell, SWT.BORDER);
+		textEmail.setBounds(270, 284, 147, 31);
 
-		text_2 = new Text(shell, SWT.BORDER);
-		text_2.setBounds(270, 333, 147, 31);
+		textMdp = new Text(shell, SWT.BORDER);
+		textMdp.setBounds(270, 333, 147, 31);
 
-		text_3 = new Text(shell, SWT.BORDER);
-		text_3.setBounds(270, 372, 147, 31);
+		textMatiere = new Text(shell, SWT.BORDER);
+		textMatiere.setBounds(270, 372, 147, 31);
+		
+		Label lblRle = new Label(shell, SWT.NONE);
+		lblRle.setText("R\u00F4le");
+		lblRle.setBounds(165, 414, 81, 25);
+		
+		Combo comboRole = new Combo(shell, SWT.NONE);
+		comboRole.setItems(new String[] {"professeur", "admin"});
+		comboRole.setBounds(270, 414, 147, 20);
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
@@ -146,7 +149,7 @@ public class Admin_GererCompte extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values ('\"+textNom.getText()+\"','\"+textPrenom.getText()+\"','\"+textidentifiant.getText()+\"','\"+textemail.getText()+\"','\"+textmdp.getText()+\"','\"+textmatiere.getText()+\"','professeur')";
+				String requete = "INSERT into utilisateur (nom, prenom, identifiant, email, mdp, matiere, role) Values ('"+textNom.getText()+"','"+textPrenom.getText()+"','"+textIdentifiant.getText()+"','"+textEmail.getText()+"','"+textMdp.getText()+"','"+textMatiere.getText()+"','"+comboRole.getText()+"')";
 				boolean message = db.Prepare(cnx, requete);
 				lblErreur.setVisible(message);
 				lblSucces.setVisible(!message);
