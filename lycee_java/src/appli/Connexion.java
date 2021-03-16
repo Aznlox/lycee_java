@@ -40,7 +40,7 @@ public class Connexion
 	}
 
 	/**
-	* Open the window.
+	* Ouverture de la fenetre.
 	*/
 	public void open()
 	{
@@ -56,7 +56,7 @@ public class Connexion
 			}
 		}
 	}
-	
+
 	/**
 	* fondation du contenu de la fenetre
 	*/
@@ -110,7 +110,7 @@ public class Connexion
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				
+
 				try
 				{
 					Controller_connexion connexion = new Controller_connexion();
