@@ -267,10 +267,13 @@ public class Liste_Eleve extends Global
 				}
 			}
 		});
-		table.addListener(SWT.DefaultSelection, new Listener() {
-		      public void handleEvent(Event e) {
+		table.addListener(SWT.DefaultSelection, new Listener()
+		{
+		      public void handleEvent(Event e)
+					{
 		        TableItem[] selection = table.getSelection();
-		        for (int i = 0; i < selection.length; i++) {
+		        for (int i = 0; i < selection.length; i++)
+						{
 			        Globideleve = selection[i].getText(2);
 			        textNom.setText(selection[i].getText(0));
 			        textPrenom.setText(selection[i].getText(1));
