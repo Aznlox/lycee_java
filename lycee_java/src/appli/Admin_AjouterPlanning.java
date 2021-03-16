@@ -50,6 +50,7 @@ public class Admin_AjouterPlanning {
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		shlPlanning = new Shell();
+		shlPlanning.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlPlanning.setSize(375, 563);
 		shlPlanning.setText("Planning");
 
@@ -66,11 +67,13 @@ public class Admin_AjouterPlanning {
 		lblAjoutSucces.setVisible(false);
 
 		Label lblClasse = new Label(shlPlanning, SWT.NONE);
-		lblClasse.setBounds(16, 21, 81, 25);
+		lblClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblClasse.setBounds(16, 84, 81, 25);
 		lblClasse.setText("Classe :");
 
 		Combo comboClasse = new Combo(shlPlanning, SWT.READ_ONLY);
-		comboClasse.setBounds(16, 52, 211, 33);
+		comboClasse.setBackground(SWTResourceManager.getColor(255, 255, 255));
+		comboClasse.setBounds(16, 115, 211, 33);
 		comboClasse.select(0);
 
 		String requete = "Select * from classe where undeletable = 0";
@@ -90,14 +93,17 @@ public class Admin_AjouterPlanning {
 		}
 		
 		Combo comboHeure = new Combo(shlPlanning, SWT.READ_ONLY);
+		comboHeure.setBackground(SWTResourceManager.getColor(255, 255, 255));
 		comboHeure.setBounds(16, 298, 104, 33);
 
 		Label lblProf = new Label(shlPlanning, SWT.NONE);
-		lblProf.setBounds(16, 104, 105, 25);
+		lblProf.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblProf.setBounds(16, 141, 105, 25);
 		lblProf.setText("Professeur :");
 		
 		Combo comboProf = new Combo(shlPlanning, SWT.READ_ONLY);
-		comboProf.setBounds(16, 135, 211, 33);
+		comboProf.setBackground(SWTResourceManager.getColor(255, 255, 255));
+		comboProf.setBounds(16, 172, 211, 33);
 		requete = "Select * from utilisateur where role = 'professeur'";
 		resultat = db.Request(cnx, requete);
 		ArrayList<Integer> profList = new  ArrayList<Integer>();
@@ -116,6 +122,7 @@ public class Admin_AjouterPlanning {
 		ArrayList<Integer> heureList = new  ArrayList<Integer>();
 		
 		Label lblAjout = new Label(shlPlanning, SWT.NONE);
+		lblAjout.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblAjout.setText("Ajout :");
 		lblAjout.setBounds(16, 346, 81, 25);
 		
@@ -252,6 +259,20 @@ public class Admin_AjouterPlanning {
 				Button AjouterPlanning = new Button(shlPlanning, SWT.NONE);
 				AjouterPlanning.setBounds(16, 408, 174, 35);
 				AjouterPlanning.setText("Ajouter un planning");
+				
+				Label lblAjouterUnPlanning = new Label(shlPlanning, SWT.NONE);
+				lblAjouterUnPlanning.setText("Ajouter un planning");
+				lblAjouterUnPlanning.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+				lblAjouterUnPlanning.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+				lblAjouterUnPlanning.setBounds(114, 47, 121, 25);
+				
+				Label lblMenu = new Label(shlPlanning, SWT.NONE);
+				lblMenu.setText("Ma Gestion");
+				lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+				lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+				lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+				lblMenu.setAlignment(SWT.CENTER);
+				lblMenu.setBounds(92, 7, 151, 34);
 				
 						AjouterPlanning.addSelectionListener(new SelectionAdapter()
 						{
