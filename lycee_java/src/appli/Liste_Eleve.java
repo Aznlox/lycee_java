@@ -231,9 +231,11 @@ public class Liste_Eleve extends Global
 		btnSuppEleve.setEnabled(false);
 		btnSuppEleve.setVisible(Globadmin);
 
-		btnValider.addSelectionListener(new SelectionAdapter() {
+		btnValider.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent e)
+			{
 				Globideleve = null;
 				AjouterVieSco.setEnabled(false);
 		        btnModifEleve.setEnabled(false);
