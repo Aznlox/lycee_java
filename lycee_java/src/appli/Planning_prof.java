@@ -512,7 +512,7 @@ public class Planning_prof extends Global
 			@Override
 			public void widgetSelected(SelectionEvent e)
 			{
-				Planning_prof.close();
+				shell.close();
 				try
 				{
 					Connexion window = new Connexion();
