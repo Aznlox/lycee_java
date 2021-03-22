@@ -65,6 +65,7 @@ public class Liste_Utilisateurs extends Global
 	{
 
 		shlListeUtilisateurs = new Shell();
+		shlListeUtilisateurs.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlListeUtilisateurs.setSize(802, 599);
 		shlListeUtilisateurs.setText("Liste des utilisateurs");
 
@@ -95,6 +96,7 @@ public class Liste_Utilisateurs extends Global
 		lblError.setVisible(false);
 
 		Label listeUtilisateur = new Label(shlListeUtilisateurs, SWT.NONE);
+		listeUtilisateur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		listeUtilisateur.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		listeUtilisateur.setBounds(40, 127, 191, 29);
 		listeUtilisateur.setText("Liste des utilisateurs");
@@ -329,6 +331,20 @@ public class Liste_Utilisateurs extends Global
 		Button btnRetour = new Button(shlListeUtilisateurs, SWT.NONE);
 		btnRetour.setBounds(10, 10, 105, 35);
 		btnRetour.setText("Retour");
+		
+		Label lblMenu = new Label(shlListeUtilisateurs, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(302, 10, 151, 34);
+		
+		Label lblLesUtilisateurs = new Label(shlListeUtilisateurs, SWT.NONE);
+		lblLesUtilisateurs.setText("Les utilisateurs");
+		lblLesUtilisateurs.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblLesUtilisateurs.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblLesUtilisateurs.setBounds(332, 38, 121, 25);
 		btnRetour.addSelectionListener(new SelectionAdapter()
 		{
 			@Override

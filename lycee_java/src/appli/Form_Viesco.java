@@ -68,6 +68,7 @@ public class Form_Viesco extends Global
 	protected void createContents() throws SQLException
 	{
 		shlAjouterVieScollaire = new Shell();
+		shlAjouterVieScollaire.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlAjouterVieScollaire.setSize(583, 642);
 		shlAjouterVieScollaire.setText("Ajouter Vie Scolaire");
 
@@ -82,25 +83,30 @@ public class Form_Viesco extends Global
 
 
 		Combo Type = new Combo(shlAjouterVieScollaire, SWT.READ_ONLY);
+		Type.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		Type.setToolTipText("");
 		Type.setItems(new String[] {"Retard", "Absence", "Sanction"});
 		Type.setBounds(168, 123, 200, 33);
 		Type.select(0);
 
 		Label lblType = new Label(shlAjouterVieScollaire, SWT.NONE);
+		lblType.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblType.setBounds(106, 123, 56, 33);
 		lblType.setText("Type");
 
 		Label lblDate = new Label(shlAjouterVieScollaire, SWT.NONE);
+		lblDate.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblDate.setBounds(106, 170, 56, 39);
 		lblDate.setText("Date");
 
 		Label lblJustification = new Label(shlAjouterVieScollaire, SWT.NONE);
+		lblJustification.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblJustification.setBounds(42, 215, 101, 35);
 		lblJustification.setText("Justification");
 
 		Label lblEleve = new Label(shlAjouterVieScollaire, SWT.NONE);
-		lblEleve.setBounds(42, 78, 485, 25);
+		lblEleve.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblEleve.setBounds(27, 83, 485, 25);
 		lblEleve.setText("Pour :");
 
 		DateTime champDate = new DateTime(shlAjouterVieScollaire, SWT.BORDER);
@@ -144,9 +150,18 @@ public class Form_Viesco extends Global
 		//Justification.setText(justification);
 
 		Label lblTitre = new Label(shlAjouterVieScollaire, SWT.NONE);
+		lblTitre.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		lblTitre.setBounds(127, 15, 357, 35);
+		lblTitre.setBounds(180, 42, 245, 35);
 		lblTitre.setText("Ajouter une Absence/Sanction/Retard");
+		
+		Label lblMenu = new Label(shlAjouterVieScollaire, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(217, 10, 151, 34);
 
 
 
