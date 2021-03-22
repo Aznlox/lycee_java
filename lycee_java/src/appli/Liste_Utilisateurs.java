@@ -351,15 +351,7 @@ public class Liste_Utilisateurs extends Global
 			public void widgetSelected(SelectionEvent e)
 			{
 				shlListeUtilisateurs.close();
-				try
-				{
-					Admin_Menu window = new Admin_Menu();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
+				
 			}
 		});
 
