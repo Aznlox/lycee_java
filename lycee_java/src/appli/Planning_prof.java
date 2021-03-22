@@ -533,16 +533,16 @@ public class Planning_prof extends Global
 		btnDeconnexion.setText("Deconnexion");
 
 		Label lblF = new Label(shell, SWT.NONE);
-		fd_lblNom.top = new FormAttachment(lblF, 24);
-		fd_lblBonjour.top = new FormAttachment(lblF, 24);
+		fd_lblNom.top = new FormAttachment(lblF, 20);
+		fd_lblBonjour.top = new FormAttachment(lblF, 20);
 		lblF.setText("Ma Gestion");
 		lblF.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
 		lblF.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
 		lblF.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblF.setAlignment(SWT.CENTER);
 		FormData fd_lblF = new FormData();
-		fd_lblF.top = new FormAttachment(0, 6);
-		fd_lblF.left = new FormAttachment(0, 541);
+		fd_lblF.top = new FormAttachment(0, 10);
+		fd_lblF.right = new FormAttachment(100, -446);
 		lblF.setLayoutData(fd_lblF);
 
 		planning.add(planning_lundi);

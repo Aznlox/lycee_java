@@ -74,7 +74,7 @@ public class Connexion
 		textMotdePasse.setBounds(145, 144, 215, 34);
 
 		Button btnJeMinscris = new Button(shell, SWT.NONE);
-		btnJeMinscris.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		btnJeMinscris.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		btnJeMinscris.setFont(SWTResourceManager.getFont("Rockwell", 9, SWT.BOLD));
 
 		btnJeMinscris.setBounds(174, 196, 151, 35);
