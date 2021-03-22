@@ -261,7 +261,7 @@ public class Admin_AjouterPlanning {
 				AjouterPlanning.setText("Ajouter un planning");
 				
 				Label lblAjouterUnPlanning = new Label(shlPlanning, SWT.NONE);
-				lblAjouterUnPlanning.setText("Ajouter un planning");
+				lblAjouterUnPlanning.setText("Ajouter un \u00E9l\u00E9ment");
 				lblAjouterUnPlanning.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
 				lblAjouterUnPlanning.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 				lblAjouterUnPlanning.setBounds(114, 47, 121, 25);

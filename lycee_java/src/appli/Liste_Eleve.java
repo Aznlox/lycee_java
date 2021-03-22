@@ -240,6 +240,20 @@ public class Liste_Eleve extends Global
 		btnSuppEleve.setText("Retirer un \u00E9l\u00E8ve");
 		btnSuppEleve.setEnabled(false);
 		btnSuppEleve.setVisible(Globadmin);
+		
+		Label lblMenu = new Label(shlListeEleve, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(300, 10, 151, 34);
+		
+		Label lblListeDesleves = new Label(shlListeEleve, SWT.NONE);
+		lblListeDesleves.setText("Liste des \u00E9l\u00E8ves");
+		lblListeDesleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblListeDesleves.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblListeDesleves.setBounds(322, 50, 121, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{
