@@ -58,28 +58,29 @@ public class Admin_ModifierCompte extends Global
 	protected void createContents() throws SQLException
 	{
 		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shell.setSize(765, 559);
 		shell.setText("Modifier professeur");
 
 		Label lblNom = new Label(shell, SWT.NONE);
+		lblNom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblNom.setBounds(165, 121, 81, 25);
 		lblNom.setText("Nom");
 
 		Label lblPrnom = new Label(shell, SWT.NONE);
+		lblPrnom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblPrnom.setBounds(165, 178, 81, 25);
 		lblPrnom.setText("Pr\u00E9nom");
 
 		Label lblEmail = new Label(shell, SWT.NONE);
+		lblEmail.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblEmail.setBounds(165, 231, 81, 25);
 		lblEmail.setText("Email");
 
 		Label lblIdentifiant = new Label(shell, SWT.NONE);
+		lblIdentifiant.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblIdentifiant.setBounds(165, 284, 81, 25);
 		lblIdentifiant.setText("Identifiant");
-
-		Label lblTitre = new Label(shell, SWT.NONE);
-		lblTitre.setBounds(251, 34, 228, 25);
-		lblTitre.setText("Modifier un professeur");
 
 		textNom = new Text(shell, SWT.BORDER);
 		textNom.setBounds(277, 121, 147, 31);
@@ -125,7 +126,7 @@ public class Admin_ModifierCompte extends Global
 
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(307, 453, 253, 25);
+		lblErreur.setBounds(297, 458, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
@@ -137,8 +138,23 @@ public class Admin_ModifierCompte extends Global
 		lblSucces.setVisible(false);
 				
 		Label lblMotDePasse = new Label(shell, SWT.NONE);
+		lblMotDePasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblMotDePasse.setText("Mot de passe");
 		lblMotDePasse.setBounds(165, 345, 81, 25);
+		
+		Label lblModifierUnProfesseur = new Label(shell, SWT.NONE);
+		lblModifierUnProfesseur.setText("Modifier un professeur");
+		lblModifierUnProfesseur.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblModifierUnProfesseur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblModifierUnProfesseur.setBounds(283, 50, 151, 25);
+		
+		Label lblMenu = new Label(shell, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(273, 10, 151, 34);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{

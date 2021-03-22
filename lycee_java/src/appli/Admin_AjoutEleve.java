@@ -56,20 +56,19 @@ public class Admin_AjoutEleve extends Global
 	protected void createContents() throws SQLException
 	{
 		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shell.setSize(765, 559);
 		shell.setText("Ajouter un �l�ve");
 
 		Label lblNom = new Label(shell, SWT.NONE);
+		lblNom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblNom.setBounds(165, 121, 81, 25);
 		lblNom.setText("Nom");
 
 		Label lblPrnom = new Label(shell, SWT.NONE);
+		lblPrnom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblPrnom.setBounds(165, 173, 81, 25);
 		lblPrnom.setText("Pr\u00E9nom");
-
-		Label lblTitre = new Label(shell, SWT.NONE);
-		lblTitre.setBounds(270, 34, 228, 25);
-		lblTitre.setText("Ajouter un \u00E9l\u00E8ve");
 
 		textNom = new Text(shell, SWT.BORDER);
 		textNom.setBounds(277, 121, 147, 31);
@@ -78,7 +77,7 @@ public class Admin_AjoutEleve extends Global
 		textPrenom.setBounds(277, 176, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(277, 334, 105, 35);
+		btnValider.setBounds(295, 282, 105, 35);
 		btnValider.setText("Valider");
 
 		Button btnRetour = new Button(shell, SWT.NONE);
@@ -98,10 +97,12 @@ public class Admin_AjoutEleve extends Global
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
-		lblClasse.setBounds(165, 231, 81, 25);
+		lblClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblClasse.setBounds(165, 224, 81, 25);
 		lblClasse.setText("Classe");
 
 		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
+		comboClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		comboClasse.setBounds(277, 223, 147, 33);
 
 		Database db = new Database();
@@ -116,6 +117,20 @@ public class Admin_AjoutEleve extends Global
 			classeList.add(resultat.getInt("id"));
 		}
 		comboClasse.select(0);
+		
+		Label lblAjouterUnEleve = new Label(shell, SWT.NONE);
+		lblAjouterUnEleve.setText("Ajouter un \u00E9l\u00E8ve");
+		lblAjouterUnEleve.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblAjouterUnEleve.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblAjouterUnEleve.setBounds(295, 50, 121, 25);
+		
+		Label lblMenu = new Label(shell, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(273, 10, 151, 34);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{

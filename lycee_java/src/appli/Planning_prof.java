@@ -102,6 +102,7 @@ public class Planning_prof extends Global
 		tableMardi.setLinesVisible(true);
 
 		tableMercredi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		tableMercredi.setBackground(SWTResourceManager.getColor(255, 239, 213));
 		fd_tableMardi.right = new FormAttachment(tableMercredi, -6);
 		FormData fd_tableMercredi = new FormData();
 		fd_tableMercredi.bottom = new FormAttachment(100, -31);
@@ -111,6 +112,9 @@ public class Planning_prof extends Global
 		tableMercredi.setLinesVisible(true);
 
 		tableLundi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		tableLundi.setHeaderBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		tableLundi.setForeground(SWTResourceManager.getColor(0, 0, 0));
+		tableLundi.setBackground(SWTResourceManager.getColor(255, 239, 213));
 		fd_tableMardi.left = new FormAttachment(tableLundi, 6);
 		FormData fd_tableLundi = new FormData();
 		fd_tableLundi.bottom = new FormAttachment(100, -31);
@@ -129,6 +133,7 @@ public class Planning_prof extends Global
 		tableJeudi.setLinesVisible(true);
 
 		tableVendredi = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		tableVendredi.setBackground(SWTResourceManager.getColor(255, 239, 213));
 		fd_tableJeudi.right = new FormAttachment(tableVendredi, -6);
 		FormData fd_tableVendredi = new FormData();
 		fd_tableVendredi.bottom = new FormAttachment(100, -31);
@@ -294,13 +299,13 @@ public class Planning_prof extends Global
 		lblMardi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblMardi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMardi = new FormData();
-		fd_lblMardi.right = new FormAttachment(lblLundi, 146, SWT.RIGHT);
-		fd_lblMardi.left = new FormAttachment(lblLundi, 69);
+		fd_lblMardi.left = new FormAttachment(0, 434);
 		fd_lblMardi.bottom = new FormAttachment(tableMardi, -6);
 		lblMardi.setLayoutData(fd_lblMardi);
 		lblMardi.setText("Mardi");
 
 		Label lblMercredi = new Label(shell, SWT.NONE);
+		fd_lblMardi.right = new FormAttachment(100, -542);
 		lblMercredi.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblMercredi.setAlignment(SWT.CENTER);
 		fd_tableMercredi.top = new FormAttachment(0, 126);
@@ -329,7 +334,7 @@ public class Planning_prof extends Global
 		lblMercredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblMercredi = new FormData();
 		fd_lblMercredi.right = new FormAttachment(lblMardi, 140, SWT.RIGHT);
-		fd_lblMercredi.left = new FormAttachment(lblMardi, 63);
+		fd_lblMercredi.left = new FormAttachment(0, 574);
 		fd_lblMercredi.bottom = new FormAttachment(tableMercredi, -6);
 		lblMercredi.setLayoutData(fd_lblMercredi);
 		lblMercredi.setText("Mercredi");
@@ -362,8 +367,8 @@ public class Planning_prof extends Global
 		lblJeudi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		lblJeudi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_lblJeudi = new FormData();
+		fd_lblJeudi.bottom = new FormAttachment(100, -396);
 		fd_lblJeudi.left = new FormAttachment(lblMercredi, 68);
-		fd_lblJeudi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
 		lblJeudi.setLayoutData(fd_lblJeudi);
 		lblJeudi.setText("Jeudi");
 
@@ -396,9 +401,9 @@ public class Planning_prof extends Global
 		lblVendredi.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		lblVendredi.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		FormData fd_lblVendredi = new FormData();
+		fd_lblVendredi.bottom = new FormAttachment(100, -396);
 		fd_lblVendredi.right = new FormAttachment(lblJeudi, 148, SWT.RIGHT);
 		fd_lblVendredi.left = new FormAttachment(lblJeudi, 62);
-		fd_lblVendredi.top = new FormAttachment(lblLundi, 0, SWT.TOP);
 		lblVendredi.setLayoutData(fd_lblVendredi);
 		lblVendredi.setText("Vendredi");
 
@@ -505,22 +510,22 @@ public class Planning_prof extends Global
 		btnDeconnexion.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		FormData fd_btnDeconnexion = new FormData();
+		fd_btnDeconnexion.top = new FormAttachment(0, 10);
 		fd_btnDeconnexion.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
 		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
 		btnDeconnexion.setText("Deconnexion");
 		
 		Label lblF = new Label(shell, SWT.NONE);
-		fd_lblNom.top = new FormAttachment(lblF, 20);
-		fd_btnDeconnexion.top = new FormAttachment(lblF, 0, SWT.TOP);
-		fd_lblBonjour.top = new FormAttachment(lblF, 20);
+		fd_lblNom.top = new FormAttachment(lblF, 24);
+		fd_lblBonjour.top = new FormAttachment(lblF, 24);
 		lblF.setText("Ma Gestion");
 		lblF.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
 		lblF.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
 		lblF.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblF.setAlignment(SWT.CENTER);
 		FormData fd_lblF = new FormData();
-		fd_lblF.top = new FormAttachment(0, 10);
-		fd_lblF.right = new FormAttachment(100, -447);
+		fd_lblF.top = new FormAttachment(btnDeconnexion, -4, SWT.TOP);
+		fd_lblF.left = new FormAttachment(btnDeconnexion, 407);
 		lblF.setLayoutData(fd_lblF);
 
 		planning.add(planning_lundi);

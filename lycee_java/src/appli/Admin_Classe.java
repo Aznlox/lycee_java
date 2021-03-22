@@ -60,19 +60,20 @@ public class Admin_Classe extends Global
 	{
 
 		shlClasse = new Shell();
+		shlClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlClasse.setSize(489, 547);
 		shlClasse.setText("Classe");
 
 		Label lblErreur = new Label(shlClasse, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(16, 204, 253, 25);
+		lblErreur.setBounds(16, 243, 253, 25);
 		lblErreur.setText("Veuiller selectionner une classe");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shlClasse, SWT.NONE);
 		lblSucces.setText("Modification r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(16, 204, 253, 25);
+		lblSucces.setBounds(16, 271, 253, 25);
 		lblSucces.setVisible(false);
 
 		Label lblAjoutErreur = new Label(shlClasse, SWT.NONE);
@@ -88,11 +89,13 @@ public class Admin_Classe extends Global
 		lblAjoutSucces.setVisible(false);
 
 		Label lblClasse = new Label(shlClasse, SWT.NONE);
-		lblClasse.setBounds(16, 21, 81, 25);
+		lblClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblClasse.setBounds(22, 60, 81, 25);
 		lblClasse.setText("Classe :");
 
 		Combo comboClasse = new Combo(shlClasse, SWT.READ_ONLY);
-		comboClasse.setBounds(16, 52, 211, 33);
+		comboClasse.setBackground(SWTResourceManager.getColor(255, 255, 255));
+		comboClasse.setBounds(22, 91, 211, 33);
 		comboClasse.select(0);
 
 		String requete = "Select * from classe where undeletable = 0";
@@ -106,11 +109,12 @@ public class Admin_Classe extends Global
 		}
 
 		Label lblModLibelle = new Label(shlClasse, SWT.NONE);
-		lblModLibelle.setBounds(16, 119, 81, 25);
+		lblModLibelle.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblModLibelle.setBounds(22, 158, 81, 25);
 		lblModLibelle.setText("Libell\u00E9 :");
 
 		textModClasse = new Text(shlClasse, SWT.BORDER);
-		textModClasse.setBounds(103, 116, 186, 31);
+		textModClasse.setBounds(109, 155, 186, 31);
 
 
 		Button btnModValider = new Button(shlClasse, SWT.NONE);
@@ -151,12 +155,12 @@ public class Admin_Classe extends Global
 			}
 		});
 
-		btnModValider.setBounds(16, 163, 105, 35);
+		btnModValider.setBounds(22, 202, 105, 35);
 		btnModValider.setText("Valider");
 
 
 		Button btnSupprimer = new Button(shlClasse, SWT.NONE);
-		btnSupprimer.setBounds(157, 163, 105, 35);
+		btnSupprimer.setBounds(163, 202, 105, 35);
 		btnSupprimer.setText("Supprimer");
 		btnSupprimer.addSelectionListener(new SelectionAdapter()
 		{
@@ -199,6 +203,7 @@ public class Admin_Classe extends Global
 		});
 
 		Label lblLAddlibelle = new Label(shlClasse, SWT.NONE);
+		lblLAddlibelle.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblLAddlibelle.setText("Libell\u00E9 :");
 		lblLAddlibelle.setBounds(16, 369, 81, 25);
 
@@ -210,8 +215,22 @@ public class Admin_Classe extends Global
 		AjouterClasse.setText("Ajouter une classe");
 
 		Button btnOk = new Button(shlClasse, SWT.NONE);
-		btnOk.setBounds(249, 52, 150, 35);
+		btnOk.setBounds(255, 91, 150, 35);
 		btnOk.setText("Selectionner");
+		
+		Label lblAjouterUneClasse = new Label(shlClasse, SWT.NONE);
+		lblAjouterUneClasse.setText("Ajouter une classe");
+		lblAjouterUneClasse.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblAjouterUneClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblAjouterUneClasse.setBounds(166, 50, 121, 25);
+		
+		Label lblMenu = new Label(shlClasse, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(144, 10, 151, 34);
 		btnOk.addSelectionListener(new SelectionAdapter()
 		{
 			@Override

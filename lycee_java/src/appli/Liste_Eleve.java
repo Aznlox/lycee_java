@@ -65,26 +65,32 @@ public class Liste_Eleve extends Global
 	{
 
 		shlListeEleve = new Shell();
+		shlListeEleve.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shlListeEleve.setSize(802, 599);
 		shlListeEleve.setText("Liste des El\u00E8ves");
 
 		Composite composite = new Composite(shlListeEleve, SWT.BORDER);
+		composite.setBackground(SWTResourceManager.getColor(173, 216, 230));
 		composite.setBounds(357, 167, 361, 266);
 
 
 		Label textNom = new Label(composite, SWT.NONE);
+		textNom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		textNom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		textNom.setBounds(160, 29, 180, 35);
 
 		Label textPrenom = new Label(composite, SWT.NONE);
+		textPrenom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		textPrenom.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		textPrenom.setBounds(160, 77, 180, 35);
 
 		Label lblNom = new Label(composite, SWT.NONE);
+		lblNom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblNom.setText("Nom");
 		lblNom.setBounds(62, 29, 67, 35);
 
 		Label lblPrenom = new Label(composite, SWT.NONE);
+		lblPrenom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblPrenom.setText("Prenom");
 		lblPrenom.setBounds(62, 77, 67, 35);
 
@@ -95,11 +101,14 @@ public class Liste_Eleve extends Global
 		lblError.setVisible(false);
 
 		Label listeeleves = new Label(shlListeEleve, SWT.NONE);
+		listeeleves.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		listeeleves.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.BOLD));
 		listeeleves.setBounds(40, 127, 191, 29);
 		listeeleves.setText("Liste des \u00E9l\u00E8ves");
 
 		Label lblClasse_1 = new Label(shlListeEleve, SWT.NONE);
+		lblClasse_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblClasse_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblClasse_1.setBounds(10, 57, 81, 25);
 		lblClasse_1.setText("Classe :");
 
@@ -170,6 +179,7 @@ public class Liste_Eleve extends Global
 		});
 
 		Combo comboClasse = new Combo(shlListeEleve, SWT.READ_ONLY);
+		comboClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		comboClasse.setBounds(10, 88, 211, 33);
 
 		//Bouton ajouter une evenement vie scolaire
