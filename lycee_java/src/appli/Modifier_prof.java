@@ -123,16 +123,18 @@ public class Modifier_prof extends Global
 		textMatiere.setText(matiere);
 
 		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(277, 415, 253, 25);
+		lblErreur.setBounds(277, 436, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shell, SWT.NONE);
+		lblSucces.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9es");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setBounds(277, 403, 253, 25);
 		lblSucces.setVisible(false);
 		
 		Label lblMenu = new Label(shell, SWT.NONE);

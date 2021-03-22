@@ -136,16 +136,18 @@ public class Modifier_eleve extends Global
 
 
 		Label lblErreur = new Label(shelleleve, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(227, 327, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shelleleve, SWT.NONE);
+		lblSucces.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9es");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(227, 367, 253, 25);
+		lblSucces.setBounds(227, 358, 253, 25);
 		lblSucces.setVisible(false);
 		
 		Label lblMenu = new Label(shelleleve, SWT.NONE);

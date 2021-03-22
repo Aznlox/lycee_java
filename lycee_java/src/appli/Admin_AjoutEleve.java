@@ -77,7 +77,7 @@ public class Admin_AjoutEleve extends Global
 		textPrenom.setBounds(277, 176, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);
-		btnValider.setBounds(295, 282, 105, 35);
+		btnValider.setBounds(295, 267, 105, 35);
 		btnValider.setText("Valider");
 
 		Button btnRetour = new Button(shell, SWT.NONE);
@@ -85,15 +85,17 @@ public class Admin_AjoutEleve extends Global
 		btnRetour.setText("Retour");
 
 		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(307, 415, 253, 25);
+		lblErreur.setBounds(277, 318, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shell, SWT.NONE);
+		lblSucces.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSucces.setText("Ajout r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(307, 415, 253, 25);
+		lblSucces.setBounds(277, 349, 253, 25);
 		lblSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
