@@ -90,12 +90,14 @@ public class Admin_GererCompte extends Global
 
 
 		Label lblErreur = new Label(shell, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(270, 489, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shell, SWT.NONE);
+		lblSucces.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSucces.setText("Ajout r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(270, 458, 253, 25);

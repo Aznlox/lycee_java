@@ -65,18 +65,21 @@ public class Admin_Classe extends Global
 		shlClasse.setText("Classe");
 
 		Label lblErreur = new Label(shlClasse, SWT.NONE);
+		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		lblErreur.setBounds(16, 243, 253, 25);
 		lblErreur.setText("Veuiller selectionner une classe");
 		lblErreur.setVisible(false);
 
 		Label lblSucces = new Label(shlClasse, SWT.NONE);
+		lblSucces.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSucces.setText("Modification r\u00E9ussi");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 		lblSucces.setBounds(16, 271, 253, 25);
 		lblSucces.setVisible(false);
 
 		Label lblAjoutErreur = new Label(shlClasse, SWT.NONE);
+		lblAjoutErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblAjoutErreur.setVisible(false);
 		lblAjoutErreur.setText("Veuiller remplir le champs");
 		lblAjoutErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
