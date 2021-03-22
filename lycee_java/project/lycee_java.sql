@@ -1,28 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 08 mars 2021 à 15:19
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Client :  127.0.0.1
+-- Généré le :  Lun 22 Mars 2021 à 17:12
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `lycee_java`
 --
-CREATE DATABASE IF NOT EXISTS `lycee_java` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `lycee_java`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +26,6 @@ USE `lycee_java`;
 -- Structure de la table `classe`
 --
 
-DROP TABLE IF EXISTS `classe`;
 CREATE TABLE IF NOT EXISTS `classe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(30) NOT NULL,
@@ -38,16 +33,18 @@ CREATE TABLE IF NOT EXISTS `classe` (
   `undeletable` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_prof_prin` (`id_prof_principal`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Déchargement des données de la table `classe`
+-- Contenu de la table `classe`
 --
 
 INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`, `undeletable`) VALUES
 (1, 'Non Attribue', NULL, 1),
 (2, 'BTS SIO SLAM', NULL, 0),
-(9, 'test', NULL, 0);
+(9, 'test', NULL, 0),
+(10, '', NULL, 0),
+(11, '', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -55,7 +52,6 @@ INSERT INTO `classe` (`id`, `libelle`, `id_prof_principal`, `undeletable`) VALUE
 -- Structure de la table `eleve`
 --
 
-DROP TABLE IF EXISTS `eleve`;
 CREATE TABLE IF NOT EXISTS `eleve` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
@@ -63,16 +59,17 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `id_classe` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_classe` (`id_classe`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Déchargement des données de la table `eleve`
+-- Contenu de la table `eleve`
 --
 
 INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
-(1, 'Guo', 'Loic', 1),
-(2, 'Lignani', 'Quentin', 1),
-(4, 'test2', 'test2', 2);
+(1, 'LIGNANI', 'Quentin', 2),
+(2, 'GUO', 'Loïc', 2),
+(3, 'Nakhil', 'Amine', 2),
+(4, 'Martini', 'Americano', 1);
 
 -- --------------------------------------------------------
 
@@ -80,15 +77,14 @@ INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
 -- Structure de la table `heure`
 --
 
-DROP TABLE IF EXISTS `heure`;
 CREATE TABLE IF NOT EXISTS `heure` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Déchargement des données de la table `heure`
+-- Contenu de la table `heure`
 --
 
 INSERT INTO `heure` (`id`, `libelle`) VALUES
@@ -108,15 +104,14 @@ INSERT INTO `heure` (`id`, `libelle`) VALUES
 -- Structure de la table `jour`
 --
 
-DROP TABLE IF EXISTS `jour`;
 CREATE TABLE IF NOT EXISTS `jour` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Déchargement des données de la table `jour`
+-- Contenu de la table `jour`
 --
 
 INSERT INTO `jour` (`id`, `libelle`) VALUES
@@ -132,7 +127,6 @@ INSERT INTO `jour` (`id`, `libelle`) VALUES
 -- Structure de la table `planning`
 --
 
-DROP TABLE IF EXISTS `planning`;
 CREATE TABLE IF NOT EXISTS `planning` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_jour` int(11) NOT NULL,
@@ -144,10 +138,10 @@ CREATE TABLE IF NOT EXISTS `planning` (
   KEY `fk_classe2` (`id_classe`),
   KEY `fk_jour` (`id_jour`),
   KEY `fk_heure` (`id_heure`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Déchargement des données de la table `planning`
+-- Contenu de la table `planning`
 --
 
 INSERT INTO `planning` (`id`, `id_jour`, `id_heure`, `id_classe`, `id_professeur`) VALUES
@@ -161,27 +155,26 @@ INSERT INTO `planning` (`id`, `id_jour`, `id_heure`, `id_classe`, `id_professeur
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) NOT NULL,
-  `prenom` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `identifiant` varchar(100) NOT NULL,
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `identifiant` varchar(30) NOT NULL,
   `mdp` varchar(100) NOT NULL,
   `matiere` varchar(30) DEFAULT NULL,
-  `role` varchar(19) NOT NULL DEFAULT 'professeur',
+  `role` varchar(10) NOT NULL DEFAULT 'professeur',
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifiant` (`identifiant`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`, `matiere`, `role`) VALUES
-(1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'Admin', NULL, 'Admin'),
-(2, 'Bertrand', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
+(1, 'Admin', 'Admin', 'Admin@Admin', 'Admin', 'admin', NULL, 'Admin'),
+(2, 'Guo', 'Olivier', 'Oli@oli', 'test', 'test', 'Mathématique', 'professeur');
 
 -- --------------------------------------------------------
 
@@ -189,7 +182,6 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `identifiant`, `mdp`,
 -- Structure de la table `vie_scolaire`
 --
 
-DROP TABLE IF EXISTS `vie_scolaire`;
 CREATE TABLE IF NOT EXISTS `vie_scolaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_eleve` int(11) NOT NULL,
@@ -198,10 +190,17 @@ CREATE TABLE IF NOT EXISTS `vie_scolaire` (
   `justification` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_eleve` (`id_eleve`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Contraintes pour les tables déchargées
+-- Contenu de la table `vie_scolaire`
+--
+
+INSERT INTO `vie_scolaire` (`id`, `id_eleve`, `type`, `date`, `justification`) VALUES
+(1, 4, 'Absence', '2021-04-14', 'Maladie');
+
+--
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -230,7 +229,6 @@ ALTER TABLE `planning`
 --
 ALTER TABLE `vie_scolaire`
   ADD CONSTRAINT `fk_eleve` FOREIGN KEY (`id_eleve`) REFERENCES `eleve` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
