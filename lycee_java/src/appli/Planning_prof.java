@@ -477,8 +477,8 @@ public class Planning_prof extends Global
 		fd_lblh_9.right = new FormAttachment(tableLundi, -6);
 		lblh_9.setLayoutData(fd_lblh_9);
 		lblh_9.setText("13h");
-		
-		
+
+
 		btnClasse.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -496,7 +496,7 @@ public class Planning_prof extends Global
 				}
 			}
 		});
-		
+
 		Button btnModifier = new Button(shell, SWT.NONE);
 		btnModifier.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_btnModifier = new FormData();
@@ -505,16 +505,17 @@ public class Planning_prof extends Global
 		fd_btnModifier.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
-		
+
 		Button btnDeconnexion = new Button(shell, SWT.NONE);
-		btnDeconnexion.addSelectionListener(new SelectionAdapter() {
+		btnDeconnexion.addSelectionListener(new SelectionAdapter()
+		{
 			@Override
-			public void widgetSelected(SelectionEvent e) 
+			public void widgetSelected(SelectionEvent e)
 			{
-				shell.close();
+				Planning_prof.close();
 				try
 				{
-					Liste_Eleve window = new Liste_Eleve();
+					Connexion window = new Connexion();
 					window.open();
 				}
 				catch (Exception e1)
@@ -530,7 +531,7 @@ public class Planning_prof extends Global
 		fd_btnDeconnexion.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
 		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
 		btnDeconnexion.setText("Deconnexion");
-		
+
 		Label lblF = new Label(shell, SWT.NONE);
 		fd_lblNom.top = new FormAttachment(lblF, 24);
 		fd_lblBonjour.top = new FormAttachment(lblF, 24);
