@@ -507,6 +507,22 @@ public class Planning_prof extends Global
 		btnModifier.setText("Modifier votre profil");
 		
 		Button btnDeconnexion = new Button(shell, SWT.NONE);
+		btnDeconnexion.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) 
+			{
+				shell.close();
+				try
+				{
+					Liste_Eleve window = new Liste_Eleve();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnDeconnexion.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		FormData fd_btnDeconnexion = new FormData();
