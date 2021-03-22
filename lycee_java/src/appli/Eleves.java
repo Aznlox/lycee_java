@@ -82,7 +82,8 @@ public class Eleves extends Global
 
 
 			//�tape 5: extraire les donn�es
-			try {
+			try
+			{
 				while(res.next())
 				{
 					//R�cup�rer par nom de colonne
