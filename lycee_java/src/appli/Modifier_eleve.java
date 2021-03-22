@@ -55,23 +55,22 @@ public class Modifier_eleve extends Global
 	protected void createContents() throws SQLException
 	{
 		shelleleve = new Shell();
+		shelleleve.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shelleleve.setSize(765, 559);
 		shelleleve.setText("Modifier son profil");
 
-		Label lblTitre = new Label(shelleleve, SWT.NONE);
-		lblTitre.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
-		lblTitre.setBounds(266, 34, 228, 25);
-		lblTitre.setText("Modifier un El\u00E8ve");
-
 		Label lblNom = new Label(shelleleve, SWT.NONE);
+		lblNom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblNom.setBounds(165, 123, 81, 25);
 		lblNom.setText("Nom");
 
 		Label lblPrenom = new Label(shelleleve, SWT.NONE);
+		lblPrenom.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblPrenom.setBounds(165, 173, 81, 25);
 		lblPrenom.setText("Pr\u00E9nom");
 
 		Label lblClasse = new Label(shelleleve, SWT.NONE);
+		lblClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblClasse.setBounds(165, 226, 81, 25);
 		lblClasse.setText("Classe");
 
@@ -82,10 +81,11 @@ public class Modifier_eleve extends Global
 		textPrenom.setBounds(277, 170, 147, 31);
 
 		Combo comboClasse = new Combo(shelleleve, SWT.READ_ONLY);
+		comboClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		comboClasse.setBounds(277, 223, 147, 33);
 
 		Button btnValider = new Button(shelleleve, SWT.NONE);
-		btnValider.setBounds(298, 347, 105, 35);
+		btnValider.setBounds(298, 275, 105, 35);
 		btnValider.setText("Modifier");
 
 		Button btnRetour = new Button(shelleleve, SWT.NONE);
@@ -137,7 +137,7 @@ public class Modifier_eleve extends Global
 
 		Label lblErreur = new Label(shelleleve, SWT.NONE);
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(227, 415, 253, 25);
+		lblErreur.setBounds(227, 327, 253, 25);
 		lblErreur.setText("Veuiller remplir tous les champs");
 		lblErreur.setVisible(false);
 
@@ -145,8 +145,22 @@ public class Modifier_eleve extends Global
 		lblSucces.setVisible(false);
 		lblSucces.setText("Modifications enregistr\u00E9es");
 		lblSucces.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-		lblSucces.setBounds(227, 415, 253, 25);
+		lblSucces.setBounds(227, 367, 253, 25);
 		lblSucces.setVisible(false);
+		
+		Label lblMenu = new Label(shelleleve, SWT.NONE);
+		lblMenu.setText("Ma Gestion");
+		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
+		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
+		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblMenu.setAlignment(SWT.CENTER);
+		lblMenu.setBounds(273, 10, 151, 34);
+		
+		Label lblModifierSonProfil = new Label(shelleleve, SWT.NONE);
+		lblModifierSonProfil.setText("Modifier son profil");
+		lblModifierSonProfil.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
+		lblModifierSonProfil.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblModifierSonProfil.setBounds(295, 50, 121, 25);
 
 		btnValider.addSelectionListener(new SelectionAdapter()
 		{

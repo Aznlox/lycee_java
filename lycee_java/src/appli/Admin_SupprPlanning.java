@@ -63,6 +63,7 @@ public class Admin_SupprPlanning {
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		shell.setSize(825, 587);
 		shell.setText("SWT Application");
 		
@@ -79,10 +80,12 @@ public class Admin_SupprPlanning {
 		lblAjoutSucces.setVisible(false);
 
 		Label lblClasse = new Label(shell, SWT.NONE);
+		lblClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblClasse.setBounds(16, 21, 81, 25);
 		lblClasse.setText("Classe :");
 
 		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
+		comboClasse.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		comboClasse.setBounds(16, 52, 211, 33);
 
 		String requete = "Select * from classe where undeletable = 0";
@@ -114,10 +117,12 @@ public class Admin_SupprPlanning {
 		
 
 		Label lblProf = new Label(shell, SWT.NONE);
+		lblProf.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblProf.setBounds(16, 104, 105, 25);
 		lblProf.setText("Professeur :");
 		
 		Combo comboProf = new Combo(shell, SWT.READ_ONLY);
+		comboProf.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		comboProf.setBounds(16, 135, 211, 33);
 		requete = "Select * from utilisateur where role = 'professeur'";
 		resultat = db.Request(cnx, requete);
@@ -134,6 +139,8 @@ public class Admin_SupprPlanning {
 		}
 		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		table.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_BACKGROUND));
 		table.setBounds(366, 52, 413, 283);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
