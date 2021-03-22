@@ -94,7 +94,7 @@ public class Admin_ModifierCompte extends Global
 		textIdentifiant = new Text(shell, SWT.BORDER);
 		textIdentifiant.setBounds(277, 287, 147, 31);
 		
-		textMotdePasse = new Text(shell, SWT.BORDER);
+		textMotdePasse = new Text(shell, SWT.BORDER | SWT.PASSWORD);
 		textMotdePasse.setBounds(277, 348, 147, 31);
 
 		Button btnValider = new Button(shell, SWT.NONE);

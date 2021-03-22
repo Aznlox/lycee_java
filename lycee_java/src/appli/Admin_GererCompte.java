@@ -127,7 +127,7 @@ public class Admin_GererCompte extends Global
 		textEmail = new Text(shell, SWT.BORDER);
 		textEmail.setBounds(270, 284, 147, 31);
 
-		textMdp = new Text(shell, SWT.BORDER);
+		textMdp = new Text(shell, SWT.BORDER | SWT.PASSWORD);
 		textMdp.setBounds(270, 333, 147, 31);
 
 		textMatiere = new Text(shell, SWT.BORDER);
