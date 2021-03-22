@@ -477,8 +477,8 @@ public class Planning_prof extends Global
 		fd_lblh_9.right = new FormAttachment(tableLundi, -6);
 		lblh_9.setLayoutData(fd_lblh_9);
 		lblh_9.setText("13h");
-		
-		
+
+
 		btnClasse.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
@@ -496,7 +496,7 @@ public class Planning_prof extends Global
 				}
 			}
 		});
-		
+
 		Button btnModifier = new Button(shell, SWT.NONE);
 		btnModifier.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_RED));
 		FormData fd_btnModifier = new FormData();
@@ -505,16 +505,33 @@ public class Planning_prof extends Global
 		fd_btnModifier.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
 		btnModifier.setLayoutData(fd_btnModifier);
 		btnModifier.setText("Modifier votre profil");
-		
+
 		Button btnDeconnexion = new Button(shell, SWT.NONE);
+		btnDeconnexion.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				Planning_prof.close();
+				try
+				{
+					Connexion window = new Connexion();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnDeconnexion.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
-		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		btnDeconnexion.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
 		FormData fd_btnDeconnexion = new FormData();
-		fd_btnDeconnexion.top = new FormAttachment(0, 10);
+		fd_btnDeconnexion.bottom = new FormAttachment(tableMardi, 0, SWT.BOTTOM);
 		fd_btnDeconnexion.left = new FormAttachment(btnClasse, 0, SWT.LEFT);
 		btnDeconnexion.setLayoutData(fd_btnDeconnexion);
 		btnDeconnexion.setText("Deconnexion");
-		
+
 		Label lblF = new Label(shell, SWT.NONE);
 		fd_lblNom.top = new FormAttachment(lblF, 24);
 		fd_lblBonjour.top = new FormAttachment(lblF, 24);
@@ -524,8 +541,8 @@ public class Planning_prof extends Global
 		lblF.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblF.setAlignment(SWT.CENTER);
 		FormData fd_lblF = new FormData();
-		fd_lblF.top = new FormAttachment(btnDeconnexion, -4, SWT.TOP);
-		fd_lblF.left = new FormAttachment(btnDeconnexion, 407);
+		fd_lblF.top = new FormAttachment(0, 6);
+		fd_lblF.left = new FormAttachment(0, 541);
 		lblF.setLayoutData(fd_lblF);
 
 		planning.add(planning_lundi);
