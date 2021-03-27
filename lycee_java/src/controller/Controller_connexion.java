@@ -12,42 +12,51 @@ import appli.Admin_Menu;
 import appli.Planning_prof;
 
 public class Controller_connexion extends Global{
-	
+
 	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException {
-		
+
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
 		String requete = "Select * from utilisateur where identifiant = '"+identifiant+"' and mdp = '"+mdp+"'";
 		String role = "role";
 		ResultSet resultat = db.Request(cnx, requete);
-		while(resultat.next()) {
+		while(resultat.next())
+		{
 			Globidentifiant = resultat.getString("identifiant");
 			Globnom = resultat.getString("nom");
-			if(resultat.getString(role).equals("Admin")) {
+			if(resultat.getString(role).equals("Admin"))
+			{
 				Globadmin = true;
-				try { //Connexion en tant qu'Administrateur
+				try
+				{ //Connexion en tant qu'Administrateur
 					shell.close();
 					Admin_Menu window_Admin = new Admin_Menu();
 					window_Admin.open();
 					return false;
-					
-				} catch (Exception e) {
+
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
-			else { //Connexion en tant que professeur
-				try {
+			else
+			{ //Connexion en tant que professeur
+				try
+				{
 					shell.close();
 					Planning_prof window = new Planning_prof();
 					window.open();
 					return false;
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
-			
+
 		}
 		return true;
-		
+
 	}
 }
