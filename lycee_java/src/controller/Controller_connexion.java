@@ -29,34 +29,34 @@ public class Controller_connexion extends Global{
 				Globadmin = true;
 				try
 				{ //Connexion en tant qu'Administrateur
-					shell.close();
-					Admin_Menu window_Admin = new Admin_Menu();
-					window_Admin.open();
-					return false;
+				shell.close();
+				Admin_Menu window_Admin = new Admin_Menu();
+				window_Admin.open();
+				return false;
 
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
 			}
-			else
-			{ //Connexion en tant que professeur
-				try
-				{
-					shell.close();
-					Planning_prof window = new Planning_prof();
-					window.open();
-					return false;
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
+			catch (Exception e)
+			{
+				e.printStackTrace();
 			}
-
 		}
-		return true;
+		else
+		{ //Connexion en tant que professeur
+			try
+			{
+				shell.close();
+				Planning_prof window = new Planning_prof();
+				window.open();
+				return false;
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
 
 	}
+	return true;
+
+}
 }
