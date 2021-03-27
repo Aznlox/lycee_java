@@ -47,21 +47,22 @@ public class Database
 
 
 	}
-	
-	public boolean Prepare(Connection cnx, String requete) {
+
+	public boolean Prepare(Connection cnx, String requete)
+	{
 		try
 		{
 			PreparedStatement pstm = cnx.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 			pstm.executeUpdate();
 			return false;
-			
+
 		}
 		catch (SQLException e)
 		{
 			//traitement de l'exception
 		}
 		return true;
-		
+
 	}
 
 
