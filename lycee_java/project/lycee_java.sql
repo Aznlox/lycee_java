@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `eleve` (
 INSERT INTO `eleve` (`id`, `nom`, `prenom`, `id_classe`) VALUES
 (1, 'LIGNANI', 'Quentin', 2),
 (2, 'GUO', 'Loïc', 2),
-(3, 'Nakhil', 'Amine', 2),
+(3, 'NAKHIL', 'Amine', 2),
 (4, 'Martini', 'Americano', 1);
 
 -- --------------------------------------------------------
