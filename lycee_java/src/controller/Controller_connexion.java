@@ -13,7 +13,8 @@ import appli.Planning_prof;
 
 public class Controller_connexion extends Global{
 
-	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException {
+	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException
+	{
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
