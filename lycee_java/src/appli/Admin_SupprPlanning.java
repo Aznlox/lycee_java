@@ -32,14 +32,6 @@ public class Admin_SupprPlanning {
 	 * Launch the application.
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		try {
-			Admin_SupprPlanning window = new Admin_SupprPlanning();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Open the window.
@@ -58,6 +50,7 @@ public class Admin_SupprPlanning {
 
 	/**
 	 * Create contents of the window.
+	 * @wbp.parser.entryPoint
 	 */
 	protected void createContents() {
 		Database db = new Database();
@@ -102,18 +95,6 @@ public class Admin_SupprPlanning {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-		comboClasse.addSelectionListener(new SelectionAdapter()
-		  {
-		    @Override
-		    public void widgetSelected(final SelectionEvent event)
-		    {
-		    	AjouterPlanning.setEnabled(true);
-		    	selectClasse = comboClasse.getSelectionIndex();
-		    	selectProf = comboProf.getSelectionIndex();
-		    	selectJour = jour;
-		    	lblVue.setText(comboClasse.getItem(selectClasse)+" | "+comboProf.getItem(selectProf)+" | "+nomJour+" | "+comboHeure.getItem(comboHeure.getSelectionIndex()));
-		    }
-		  });
 		
 
 		Label lblProf = new Label(shell, SWT.NONE);
@@ -165,25 +146,56 @@ public class Admin_SupprPlanning {
 		tblclmnId.setResizable(false);
 		tblclmnId.setText("id");
 		
+		Button btnSelectClasse = new Button(shell, SWT.NONE);
+		btnSelectClasse.setBounds(235, 50, 85, 29);
+		btnSelectClasse.setText("Selectionner");
+		
+		Button btnSelectProf = new Button(shell, SWT.NONE);
+		btnSelectProf.setBounds(235, 133, 85, 29);
+		btnSelectProf.setText("Selectionner");
+		
+		Button btnSuppr = new Button(shell, SWT.NONE);
+		btnSuppr.setEnabled(false);
+		btnSuppr.setBounds(235, 292, 85, 29);
+		btnSuppr.setText("Supprimer");
+		
+		Label lblView = new Label(shell, SWT.NONE);
+		lblView.setText("Aper\u00E7u de la selection :");
+		lblView.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblView.setBounds(16, 228, 182, 19);
+		
+		Label lblShow = new Label(shell, SWT.NONE);
+		lblShow.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblShow.setBounds(16, 253, 275, 19);
+		
 		table.addListener(SWT.DefaultSelection, new Listener() {
 		      public void handleEvent(Event e) {
 		        TableItem[] selection = table.getSelection();
 		        for (int i = 0; i < selection.length; i++) {
-			        textClasse.setText(selection[i].getText(0));
-			        textNom.setText(selection[i].getText(1));
-			        textJour.setText(selection[i].getText(2));
-			        textHeure.setText(selection[i].getText(3));
+		        	lblShow.setText(selection[i].getText(0)+" | "+selection[i].getText(1)+" | "+selection[i].getText(2)+" | "+selection[i].getText(3));
+
 			        planning = (selection[i].getText(4));
-			        btnSupp.setEnabled(true);
+			        btnSuppr.setEnabled(true);
 		        }
 		      }
 		});
 		
-		btnValider.addSelectionListener(new SelectionAdapter() {
+		btnSuppr.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				table.removeAll();
-				String sql = "SELECT * FROM planning inner join classe on id_classe = classe.id, inner join utilisateur on id_professeur = utilisateur.id inner join jour on id_jour = jour.id inner join heure on id_heure = heure.id where id_classe = '"+classeList.get(comboClasse.getSelectionIndex())+"'";
+				String requete = "Delete from planning where id ='"+planning+"'";
+				boolean message = db.Prepare(cnx, requete);
+				btnSuppr.setEnabled(false);
+				lblShow.setText("");
+			}
+		});
+		
+		btnSelectClasse.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				table.removeAll();
+				String sql = "SELECT classe.libelle as libelClasse, planning.id as idPlanning, nom, jour.libelle as libelJour, heure.libelle as libelHeure FROM planning inner join classe on id_classe = classe.id inner join utilisateur on id_professeur = utilisateur.id inner join jour on id_jour = jour.id inner join heure on id_heure = heure.id where id_classe = '"+classeList.get(comboClasse.getSelectionIndex())+"'";
 				ResultSet res = db.Request(cnx, sql);
 
 				try
@@ -191,13 +203,52 @@ public class Admin_SupprPlanning {
 					int i = 0;
 					while(res.next())
 					{
-						String id = Integer.toString(res.getInt("id"));
+						String classe = res.getString("libelClasse");
+						String id = Integer.toString(res.getInt("idPlanning"));
 						String nom = res.getString("nom");
-						String prenom = res.getString("prenom");
+						String jour = res.getString("libelJour");
+						String heure = res.getString("libelHeure");
 						TableItem item = new TableItem(table, SWT.NONE , i);
-					    item.setText(0, nom);
-					    item.setText(1, prenom);
-					    item.setText(2, id);
+					    item.setText(0, classe);
+					    item.setText(1,nom);
+					    item.setText(2, jour);
+					    item.setText(3, heure);
+					    item.setText(4, id);
+					    i++;
+
+					}
+				}
+				catch (SQLException e2)
+				{
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			}
+		});
+		
+		btnSelectProf.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				table.removeAll();
+				String sql = "SELECT classe.libelle as libelClasse, planning.id as idPlanning, nom, jour.libelle as libelJour, heure.libelle as libelHeure FROM planning inner join classe on id_classe = classe.id inner join utilisateur on id_professeur = utilisateur.id inner join jour on id_jour = jour.id inner join heure on id_heure = heure.id where id_professeur = '"+profList.get(comboProf.getSelectionIndex())+"'";
+				ResultSet res = db.Request(cnx, sql);
+
+				try
+				{
+					int i = 0;
+					while(res.next())
+					{
+						String classe = res.getString("libelClasse");
+						String id = Integer.toString(res.getInt("idPlanning"));
+						String nom = res.getString("nom");
+						String jour = res.getString("libelJour");
+						String heure = res.getString("libelHeure");
+						TableItem item = new TableItem(table, SWT.NONE , i);
+					    item.setText(0, classe);
+					    item.setText(1,nom);
+					    item.setText(2, jour);
+					    item.setText(3, heure);
+					    item.setText(4, id);
 					    i++;
 
 					}

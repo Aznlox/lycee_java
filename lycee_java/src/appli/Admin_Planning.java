@@ -418,8 +418,9 @@ public class Admin_Planning extends Global
 		
 		Button btnOkProf = new Button(shell, SWT.NONE);
 		FormData fd_btnOkProf = new FormData();
-		fd_btnOkProf.right = new FormAttachment(comboProf, 91, SWT.RIGHT);
-		fd_btnOkProf.top = new FormAttachment(0, 74);
+		fd_btnOkProf.top = new FormAttachment(0, 58);
+		fd_btnOkProf.bottom = new FormAttachment(lblLundi, -16);
+		fd_btnOkProf.right = new FormAttachment(comboProf, 105, SWT.RIGHT);
 		fd_btnOkProf.left = new FormAttachment(comboProf, 19);
 		btnOkProf.setLayoutData(fd_btnOkProf);
 		btnOkProf.setText("Selectionner");
@@ -451,13 +452,8 @@ public class Admin_Planning extends Global
 		});
 		
 		Combo comboClasse = new Combo(shell, SWT.READ_ONLY);
-		fd_comboProf.bottom = new FormAttachment(comboClasse, 0, SWT.BOTTOM);
-		fd_btnOkProf.bottom = new FormAttachment(comboClasse, 0, SWT.BOTTOM);
 		comboClasse.setBackground(SWTResourceManager.getColor(255, 255, 255));
 		FormData fd_comboClasse = new FormData();
-		fd_comboClasse.right = new FormAttachment(100, -277);
-		fd_comboClasse.left = new FormAttachment(btnOkProf, 150);
-		fd_comboClasse.bottom = new FormAttachment(100, -422);
 		comboClasse.setLayoutData(fd_comboClasse);
 		ArrayList<Integer> classeList = new  ArrayList<Integer>();
 		requete = "Select * from classe where undeletable = 0";
@@ -469,10 +465,11 @@ public class Admin_Planning extends Global
 		comboClasse.select(0);
 		
 		Button btnOkClasse = new Button(shell, SWT.NONE);
+		fd_comboClasse.right = new FormAttachment(btnOkClasse, -7);
 		FormData fd_btnOkClasse = new FormData();
-		fd_btnOkClasse.bottom = new FormAttachment(lblJeudi, -10);
-		fd_btnOkClasse.top = new FormAttachment(0, 73);
-		fd_btnOkClasse.right = new FormAttachment(100, -277);
+		fd_btnOkClasse.bottom = new FormAttachment(comboProf, -10, SWT.BOTTOM);
+		fd_btnOkClasse.top = new FormAttachment(comboClasse, -1, SWT.TOP);
+		fd_btnOkClasse.left = new FormAttachment(tableVendredi, 0, SWT.LEFT);
 		btnOkClasse.setLayoutData(fd_btnOkClasse);
 		btnOkClasse.setText("Selectionner");
 		btnOkClasse.addSelectionListener(new SelectionAdapter()
@@ -503,6 +500,7 @@ public class Admin_Planning extends Global
 		});
 		
 		Button btnAjouter = new Button(shell, SWT.NONE);
+		fd_comboProf.bottom = new FormAttachment(btnAjouter, -124);
 		FormData fd_btnAjouter = new FormData();
 		fd_btnAjouter.right = new FormAttachment(lblh, -30);
 		fd_btnAjouter.top = new FormAttachment(lblh_3, -5, SWT.TOP);
@@ -535,26 +533,28 @@ public class Admin_Planning extends Global
 		btnSupprimer.setText("Supprimer un \u00E9l\u00E9ment");
 		
 		Label lblMenu = new Label(shell, SWT.NONE);
+		fd_comboClasse.top = new FormAttachment(lblMenu, 21);
 		lblMenu.setText("Ma Gestion");
 		lblMenu.setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GREEN));
 		lblMenu.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.BOLD));
 		lblMenu.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblMenu.setAlignment(SWT.CENTER);
 		FormData fd_lblMenu = new FormData();
-		fd_lblMenu.right = new FormAttachment(100, -537);
-		fd_lblMenu.left = new FormAttachment(0, 409);
-		fd_lblMenu.top = new FormAttachment(0, 10);
+		fd_lblMenu.top = new FormAttachment(0);
+		fd_lblMenu.left = new FormAttachment(tableMardi, -78, SWT.LEFT);
+		fd_lblMenu.right = new FormAttachment(lblMercredi, 0, SWT.RIGHT);
 		lblMenu.setLayoutData(fd_lblMenu);
 		
 		Label lblPlanning = new Label(shell, SWT.NONE);
+		fd_comboClasse.left = new FormAttachment(lblPlanning, 55);
 		lblPlanning.setAlignment(SWT.CENTER);
 		lblPlanning.setText("Planning");
 		lblPlanning.setFont(SWTResourceManager.getFont("Segoe UI", 10, SWT.NORMAL));
 		lblPlanning.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		FormData fd_lblPlanning = new FormData();
 		fd_lblPlanning.top = new FormAttachment(lblMenu, 6);
-		fd_lblPlanning.right = new FormAttachment(tableMardi, -21, SWT.RIGHT);
-		fd_lblPlanning.left = new FormAttachment(0, 398);
+		fd_lblPlanning.right = new FormAttachment(tableMardi, 0, SWT.RIGHT);
+		fd_lblPlanning.left = new FormAttachment(0, 419);
 		lblPlanning.setLayoutData(fd_lblPlanning);
 		btnSupprimer.addSelectionListener(new SelectionAdapter()
 		{
