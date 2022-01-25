@@ -73,7 +73,7 @@ public class Form_Viesco extends Global
 		shlAjouterVieScollaire.setText("Ajouter Vie Scolaire");
 
 		Justification = new Text(shlAjouterVieScollaire, SWT.BORDER | SWT.V_SCROLL);
-		Justification.setBounds(149, 215, 256, 125);
+		Justification.setBounds(168, 213, 200, 125);
 
 
 		Button btnNewButton = new Button(shlAjouterVieScollaire, SWT.NONE);
@@ -101,7 +101,7 @@ public class Form_Viesco extends Global
 
 		Label lblJustification = new Label(shlAjouterVieScollaire, SWT.NONE);
 		lblJustification.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-		lblJustification.setBounds(42, 215, 101, 35);
+		lblJustification.setBounds(71, 215, 91, 35);
 		lblJustification.setText("Justification");
 
 		Label lblEleve = new Label(shlAjouterVieScollaire, SWT.NONE);
@@ -122,15 +122,7 @@ public class Form_Viesco extends Global
 			{
 				shlAjouterVieScollaire.close();
 				Globideleve = null;
-				try
-				{
-					Liste_Eleve window = new Liste_Eleve();
-					window.open();
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
+				
 			}
 		});
 
